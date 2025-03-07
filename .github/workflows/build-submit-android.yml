@@ -1,4 +1,3 @@
----
 name: Build and Submit Android
 
 on:
@@ -16,48 +15,54 @@ jobs:
     name: Build and Submit Android
     runs-on: ubuntu-latest
     steps:
-      - name: Check for EXPO_TOKEN
-        run: >
-          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
-            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
-            exit 1
-          fi
-
+      # Step 1: Checkout the code
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 5
 
+      # Step 2: Set up Node.js
       - name: 🔧 Setup Node
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: yarn
 
+      # Step 3: Set up jq (for JSON processing)
       - name: 🪛 Setup jq
         uses: dcarbone/install-jq-action@v2
 
+      # Step 4: Log in to Expo using credentials
+      - name: 🔐 Log in to Expo
+        run: |
+          npx expo login --username ${{ secrets.EXPO_USERNAME }} --password ${{ secrets.EXPO_PASSWORD }}
+
+      # Step 5: Set up EAS
       - name: 🔨 Setup EAS
         uses: expo/expo-github-action@v8
         with:
           expo-version: latest
           eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
 
+      # Step 6: Set up EAS local builds
       - name: ⛏️ Setup EAS local builds
         run: yarn global add eas-cli-local-build-plugin
 
+      # Step 7: Set up Java
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
+      # Step 8: Install dependencies
       - name: ⚙️ Install dependencies
         run: yarn install
 
+      # Step 9: Compile translations
       - name: 🔤 Compile translations
         run: yarn intl:build
 
+      # Step 10: Write environment variables
       - name: ✏️ Write environment variables
         run: |
           export json='${{ secrets.GOOGLE_SERVICES_TOKEN }}'
@@ -67,19 +72,23 @@ jobs:
           echo "BITDRIFT_API_KEY=${{ secrets.BITDRIFT_API_KEY }}" >> .env
           echo "$json" > google-services.json
 
+      # Step 11: Build the Android app
       - name: 🏗️ EAS Build
         run: yarn use-build-number-with-bump eas build -p android --profile ${{ inputs.profile || 'testflight-android' }} --local --output build.aab --non-interactive
 
+      # Step 12: Rename Testflight bundle
       - name: ✍️ Rename Testflight bundle
         if: ${{ inputs.profile != 'production' }}
         run: mv build.aab build.apk
 
+      # Step 13: Get a timestamp
       - name: ⏰ Get a timestamp
         id: timestamp
         uses: nanzm/get-time-action@master
         with:
           format: 'MM-DD-HH-mm-ss'
 
+      # Step 14: Upload Production Artifact
       - name: 🚀 Upload Production Artifact
         id: upload-artifact-production
         if: ${{ inputs.profile == 'production' }}
@@ -90,6 +99,7 @@ jobs:
           name: build-${{ steps.timestamp.outputs.time }}.aab
           path: build.aab
 
+      # Step 15: Upload Testflight Artifact
       - name: 🚀 Upload Testflight Artifact
         id: upload-artifact-testflight
         if: ${{ inputs.profile != 'production' }}
@@ -100,10 +110,12 @@ jobs:
           name: build-${{ steps.timestamp.outputs.time }}.apk
           path: build.apk
 
+      # Step 16: Get version from package.json
       - name: 📚 Get version from package.json
         id: get-build-info
         run: bash scripts/setGitHubOutput.sh
 
+      # Step 17: Notify Slack of Production Build
       - name: 🔔 Notify Slack of Production Build
         if: ${{ inputs.profile == 'production' }}
         uses: slackapi/slack-github-action@v1.25.0
@@ -116,6 +128,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
+      # Step 18: Notify Slack of Testflight Build
       - name: 🔔 Notify Slack of Testflight Build
         if: ${{ inputs.profile != 'production' }}
         uses: slackapi/slack-github-action@v1.25.0
@@ -128,10 +141,12 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
+      # Step 19: Build Production APK
       - name: 🏗️ Build Production APK
         if: ${{ inputs.profile == 'production' }}
         run: yarn use-build-number-with-bump eas build -p android --profile production-apk --local --output build.apk --non-interactive
 
+      # Step 20: Upload Production APK Artifact
       - name: 🚀 Upload Production APK Artifact
         id: upload-artifact-production-apk
         if: ${{ inputs.profile == 'production' }}
@@ -142,6 +157,7 @@ jobs:
           name: build-${{ steps.timestamp.outputs.time }}.apk
           path: build.apk
 
+      # Step 21: Notify Slack of Production APK Build
       - name: 🔔 Notify Slack of Production APK Build
         if: ${{ inputs.profile == 'production' }}
         uses: slackapi/slack-github-action@v1.25.0
@@ -154,6 +170,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
+      # Step 22: Restore Cache
       - name: ⬇️ Restore Cache
         id: get-base-commit
         uses: actions/cache@v4
@@ -162,6 +179,7 @@ jobs:
           path: most-recent-testflight-commit.txt
           key: most-recent-testflight-commit
 
+      # Step 23: Write commit hash to cache
       - name: ✏️ Write commit hash to cache
         if: ${{ inputs.profile == 'testflight' }}
         run: echo ${{ github.sha }} > most-recent-testflight-commit.txt
