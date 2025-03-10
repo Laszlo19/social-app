@@ -52,45 +52,94 @@ import {useLanguagePrefs} from '#/state/preferences'
  * {@link AppLanguage}
  */
 const locales: Record<AppLanguage, Locale | undefined> = {
-  en: undefined,
-  an: undefined,
-  ast: undefined,
-  ca,
-  cy,
-  da,
-  de,
-  el,
-  ['en-GB']: enGB,
-  eo,
-  es,
-  eu,
-  fi,
-  fr,
-  ga: undefined,
-  gd,
-  gl,
-  hi,
-  hu,
-  ia: undefined,
-  id,
-  it,
-  ja,
-  km,
-  ko,
-  ne: undefined,
-  nl,
-  pl,
-  ['pt-BR']: ptBR,
-  ro,
-  ru,
-  sv,
-  th,
-  tr,
-  uk,
-  vi,
-  ['zh-Hans-CN']: zhCN,
-  ['zh-Hant-HK']: zhHK,
-  ['zh-Hant-TW']: zhTW,
+  en: undefined, // English (default)
+  ab: undefined, // Abkhaz (unsupported)
+  af: undefined, // Afrikaans (unsupported)
+  am: undefined, // Amharic (unsupported)
+  an: undefined, // Aragonese (unsupported)
+  ar: undefined, // Arabic (unsupported)
+  ast: undefined, // Asturian (unsupported)
+  az: undefined, // Azerbaijani (unsupported)
+  bg: undefined, // Bulgarian (unsupported)
+  bn: undefined, // Bengali (unsupported)
+  bs: undefined, // Bosnian (unsupported)
+  ca, // Catalan
+  co: undefined, // Corsican (unsupported)
+  cs: undefined, // Czech (unsupported)
+  cy, // Welsh
+  da, // Danish
+  de, // German
+  el, // Greek
+  ['en-GB']: enGB, // English (British)
+  eo, // Esperanto
+  es, // Spanish
+  et: undefined, // Estonian (unsupported)
+  eu, // Basque
+  fa: undefined, // Persian (unsupported)
+  fi, // Finnish
+  fr, // French
+  fy: undefined, // Frisian (unsupported)
+  ga: undefined, // Irish (unsupported)
+  gd, // Scottish Gaelic
+  gl, // Galician
+  he: undefined, // Hebrew (unsupported)
+  hi, // Hindi
+  hr: undefined, // Croatian (unsupported)
+  hu, // Hungarian
+  hy: undefined, // Armenian (unsupported)
+  ia: undefined, // Interlingua (unsupported)
+  id, // Indonesian
+  is: undefined, // Icelandic (unsupported)
+  it, // Italian
+  ja, // Japanese
+  ka: undefined, // Georgian (unsupported)
+  kk: undefined, // Kazakh (unsupported)
+  km, // Khmer
+  kn: undefined, // Kannada (unsupported)
+  ko, // Korean
+  krc: undefined, // Karachay-Balkar (unsupported)
+  ky: undefined, // Kyrgyz (unsupported)
+  lb: undefined, // Luxembourgish (unsupported)
+  lo: undefined, // Lao (unsupported)
+  lt: undefined, // Lithuanian (unsupported)
+  lv: undefined, // Latvian (unsupported)
+  mi: undefined, // Maori (unsupported)
+  mk: undefined, // Macedonian (unsupported)
+  mn: undefined, // Mongolian (unsupported)
+  ms: undefined, // Malay (unsupported)
+  ne: undefined, // Nepali (unsupported)
+  nl, // Dutch
+  no: undefined, // Norwegian (unsupported)
+  pl, // Polish
+  ['pt-BR']: ptBR, // Portuguese (Brazilian)
+  ['pt-PT']: undefined, // Portuguese (Portugal) (unsupported)
+  ro, // Romanian
+  ru, // Russian
+  se: undefined, // Northern Sami (unsupported)
+  sk: undefined, // Slovak (unsupported)
+  sl: undefined, // Slovene (unsupported)
+  sq: undefined, // Albanian (unsupported)
+  sr: undefined, // Serbian (unsupported)
+  sv, // Swedish
+  sw: undefined, // Swahili (unsupported)
+  ta: undefined, // Tamil (unsupported)
+  te: undefined, // Telugu (unsupported)
+  tg: undefined, // Tajik (unsupported)
+  th, // Thai
+  tl: undefined, // Tagalog (unsupported)
+  tr, // Turkish
+  tt: undefined, // Tatar (unsupported)
+  uk, // Ukrainian
+  ur: undefined, // Urdu (unsupported)
+  uz: undefined, // Uzbek (unsupported)
+  vi, // Vietnamese
+  xh: undefined, // Xhosa (unsupported)
+  yo: undefined, // Yoruba (unsupported)
+  yue: undefined, // Cantonese (unsupported)
+  ['zh-CN']: zhCN, // Chinese (Simplified)
+  ['zh-HK']: zhHK, // Chinese (Hong Kong)
+  ['zh-TW']: zhTW, // Chinese (Traditional)
+  zu: undefined, // Zulu (unsupported)
 }
 
 /**
