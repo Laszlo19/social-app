@@ -44,6 +44,55 @@ export enum AppLanguage {
   zh_CN = 'zh-Hans-CN',
   zh_HK = 'zh-Hant-HK',
   zh_TW = 'zh-Hant-TW',
+  // Newly added languages
+  af = 'af', // Afrikaans
+  sq = 'sq', // Albanian
+  am = 'am', // Amharic
+  ar = 'ar', // Arabic
+  hy = 'hy', // Armenian
+  az = 'az', // Azerbaijani
+  bn = 'bn', // Bengali
+  bs = 'bs', // Bosnian
+  bg = 'bg', // Bulgarian
+  co = 'co', // Corsican
+  hr = 'hr', // Croatian
+  cs = 'cs', // Czech
+  et = 'et', // Estonian
+  fy = 'fy', // Frisian
+  ka = 'ka', // Georgian
+  he = 'he', // Hebrew
+  is = 'is', // Icelandic
+  kn = 'kn', // Kannada
+  kk = 'kk', // Kazakh
+  ky = 'ky', // Kyrgyz
+  lo = 'lo', // Lao
+  lv = 'lv', // Latvian
+  lt = 'lt', // Lithuanian
+  lb = 'lb', // Luxembourgish
+  mk = 'mk', // Macedonian
+  ms = 'ms', // Malay
+  mi = 'mi', // Maori
+  mn = 'mn', // Mongolian
+  no = 'no', // Norwegian
+  fa = 'fa', // Persian
+  pt_PT = 'pt-PT', // Portuguese (Portugal)
+  sr = 'sr', // Serbian
+  sk = 'sk', // Slovak
+  sl = 'sl', // Slovene
+  sw = 'sw', // Swahili
+  tl = 'tl', // Tagalog
+  tg = 'tg', // Tajik
+  ta = 'ta', // Tamil
+  te = 'te', // Telugu
+  tt = 'tt', // Tatar
+  ur = 'ur', // Urdu
+  uz = 'uz', // Uzbek
+  xh = 'xh', // Xhosa
+  yo = 'yo', // Yoruba
+  zu = 'zu', // Zulu
+  ab = 'ab', // Abkhaz
+  krc = 'krc', // Karachay-Balkar
+  se = 'se', // Northern Sami
 }
 
 interface AppLanguageConfig {
@@ -52,45 +101,94 @@ interface AppLanguageConfig {
 }
 
 export const APP_LANGUAGES: AppLanguageConfig[] = [
-  {code2: AppLanguage.en, name: 'English'},
-  {code2: AppLanguage.an, name: 'Aragonés – Aragonese'},
-  {code2: AppLanguage.ast, name: 'Asturianu – Asturian'},
-  {code2: AppLanguage.ca, name: 'Català – Catalan'},
-  {code2: AppLanguage.cy, name: 'Cymraeg – Welsh'},
-  {code2: AppLanguage.da, name: 'Dansk – Danish'},
-  {code2: AppLanguage.de, name: 'Deutsch – German'},
-  {code2: AppLanguage.el, name: 'Ελληνικά – Greek'},
-  {code2: AppLanguage.en_GB, name: 'English (UK)'},
-  {code2: AppLanguage.eo, name: 'Esperanto'},
-  {code2: AppLanguage.es, name: 'Español – Spanish'},
-  {code2: AppLanguage.eu, name: 'Euskera – Basque'},
-  {code2: AppLanguage.fi, name: 'Suomi – Finnish'},
-  {code2: AppLanguage.fr, name: 'Français – French'},
-  {code2: AppLanguage.ga, name: 'Gaeilge – Irish'},
-  {code2: AppLanguage.gd, name: 'Gàidhlig – Scottish Gaelic'},
-  {code2: AppLanguage.gl, name: 'Galego – Galician'},
-  {code2: AppLanguage.hi, name: 'हिंदी – Hindi'},
-  {code2: AppLanguage.hu, name: 'magyar – Hungarian'},
-  {code2: AppLanguage.ia, name: 'Interlingua'},
-  {code2: AppLanguage.id, name: 'Bahasa Indonesia – Indonesian'},
-  {code2: AppLanguage.it, name: 'Italiano – Italian'},
-  {code2: AppLanguage.ja, name: '日本語 – Japanese'},
-  {code2: AppLanguage.km, name: 'ភាសាខ្មែរ – Khmer'},
-  {code2: AppLanguage.ko, name: '한국어 – Korean'},
-  {code2: AppLanguage.ne, name: 'नेपाली – Nepali'},
-  {code2: AppLanguage.nl, name: 'Nederlands – Dutch'},
-  {code2: AppLanguage.pl, name: 'Polski – Polish'},
-  {code2: AppLanguage.pt_BR, name: 'Português (BR) – Portuguese (BR)'},
-  {code2: AppLanguage.ro, name: 'Română – Romanian'},
-  {code2: AppLanguage.ru, name: 'Русский – Russian'},
-  {code2: AppLanguage.sv, name: 'Svenska – Swedish'},
-  {code2: AppLanguage.th, name: 'ภาษาไทย – Thai'},
-  {code2: AppLanguage.tr, name: 'Türkçe – Turkish'},
-  {code2: AppLanguage.uk, name: 'Українська – Ukrainian'},
-  {code2: AppLanguage.vi, name: 'Tiếng Việt – Vietnamese'},
-  {code2: AppLanguage.zh_CN, name: '简体中文 – Simplified Chinese'},
-  {code2: AppLanguage.zh_TW, name: '繁體中文 – Traditional Chinese'},
-  {code2: AppLanguage.zh_HK, name: '粵文 – Cantonese'},
+  { code2: AppLanguage.en, name: 'English' },
+  { code2: AppLanguage.an, name: 'Aragonés – Aragonese' },
+  { code2: AppLanguage.ast, name: 'Asturianu – Asturian' },
+  { code2: AppLanguage.ca, name: 'Català – Catalan' },
+  { code2: AppLanguage.cy, name: 'Cymraeg – Welsh' },
+  { code2: AppLanguage.da, name: 'Dansk – Danish' },
+  { code2: AppLanguage.de, name: 'Deutsch – German' },
+  { code2: AppLanguage.el, name: 'Ελληνικά – Greek' },
+  { code2: AppLanguage.en_GB, name: 'English (UK)' },
+  { code2: AppLanguage.eo, name: 'Esperanto' },
+  { code2: AppLanguage.es, name: 'Español – Spanish' },
+  { code2: AppLanguage.eu, name: 'Euskera – Basque' },
+  { code2: AppLanguage.fi, name: 'Suomi – Finnish' },
+  { code2: AppLanguage.fr, name: 'Français – French' },
+  { code2: AppLanguage.ga, name: 'Gaeilge – Irish' },
+  { code2: AppLanguage.gd, name: 'Gàidhlig – Scottish Gaelic' },
+  { code2: AppLanguage.gl, name: 'Galego – Galician' },
+  { code2: AppLanguage.hi, name: 'हिंदी – Hindi' },
+  { code2: AppLanguage.hu, name: 'magyar – Hungarian' },
+  { code2: AppLanguage.ia, name: 'Interlingua' },
+  { code2: AppLanguage.id, name: 'Bahasa Indonesia – Indonesian' },
+  { code2: AppLanguage.it, name: 'Italiano – Italian' },
+  { code2: AppLanguage.ja, name: '日本語 – Japanese' },
+  { code2: AppLanguage.km, name: 'ភាសាខ្មែរ – Khmer' },
+  { code2: AppLanguage.ko, name: '한국어 – Korean' },
+  { code2: AppLanguage.ne, name: 'नेपाली – Nepali' },
+  { code2: AppLanguage.nl, name: 'Nederlands – Dutch' },
+  { code2: AppLanguage.pl, name: 'Polski – Polish' },
+  { code2: AppLanguage.pt_BR, name: 'Português (BR) – Portuguese (BR)' },
+  { code2: AppLanguage.ro, name: 'Română – Romanian' },
+  { code2: AppLanguage.ru, name: 'Русский – Russian' },
+  { code2: AppLanguage.sv, name: 'Svenska – Swedish' },
+  { code2: AppLanguage.th, name: 'ภาษาไทย – Thai' },
+  { code2: AppLanguage.tr, name: 'Türkçe – Turkish' },
+  { code2: AppLanguage.uk, name: 'Українська – Ukrainian' },
+  { code2: AppLanguage.vi, name: 'Tiếng Việt – Vietnamese' },
+  { code2: AppLanguage.zh_CN, name: '简体中文 – Simplified Chinese' },
+  { code2: AppLanguage.zh_TW, name: '繁體中文 – Traditional Chinese' },
+  { code2: AppLanguage.zh_HK, name: '粵文 – Cantonese' },
+  // Newly added languages
+  { code2: AppLanguage.af, name: 'Afrikaans' },
+  { code2: AppLanguage.sq, name: 'Shqip – Albanian' },
+  { code2: AppLanguage.am, name: 'አማርኛ – Amharic' },
+  { code2: AppLanguage.ar, name: 'العربية – Arabic' },
+  { code2: AppLanguage.hy, name: 'Հայերեն – Armenian' },
+  { code2: AppLanguage.az, name: 'Azərbaycan dili – Azerbaijani' },
+  { code2: AppLanguage.bn, name: 'বাংলা – Bengali' },
+  { code2: AppLanguage.bs, name: 'Bosanski – Bosnian' },
+  { code2: AppLanguage.bg, name: 'Български – Bulgarian' },
+  { code2: AppLanguage.co, name: 'Corsu – Corsican' },
+  { code2: AppLanguage.hr, name: 'Hrvatski – Croatian' },
+  { code2: AppLanguage.cs, name: 'Čeština – Czech' },
+  { code2: AppLanguage.et, name: 'Eesti – Estonian' },
+  { code2: AppLanguage.fy, name: 'Frysk – Frisian' },
+  { code2: AppLanguage.ka, name: 'ქართული – Georgian' },
+  { code2: AppLanguage.he, name: 'עברית – Hebrew' },
+  { code2: AppLanguage.is, name: 'Íslenska – Icelandic' },
+  { code2: AppLanguage.kn, name: 'ಕನ್ನಡ – Kannada' },
+  { code2: AppLanguage.kk, name: 'Қазақша – Kazakh' },
+  { code2: AppLanguage.ky, name: 'Кыргызча – Kyrgyz' },
+  { code2: AppLanguage.lo, name: 'ລາວ – Lao' },
+  { code2: AppLanguage.lv, name: 'Latviešu – Latvian' },
+  { code2: AppLanguage.lt, name: 'Lietuvių – Lithuanian' },
+  { code2: AppLanguage.lb, name: 'Lëtzebuergesch – Luxembourgish' },
+  { code2: AppLanguage.mk, name: 'Македонски – Macedonian' },
+  { code2: AppLanguage.ms, name: 'Bahasa Melayu – Malay' },
+  { code2: AppLanguage.mi, name: 'Māori – Maori' },
+  { code2: AppLanguage.mn, name: 'Монгол – Mongolian' },
+  { code2: AppLanguage.no, name: 'Norsk – Norwegian' },
+  { code2: AppLanguage.fa, name: 'فارسی – Persian' },
+  { code2: AppLanguage.pt_PT, name: 'Português (PT) – Portuguese (Portugal)' },
+  { code2: AppLanguage.sr, name: 'Српски – Serbian' },
+  { code2: AppLanguage.sk, name: 'Slovenčina – Slovak' },
+  { code2: AppLanguage.sl, name: 'Slovenščina – Slovene' },
+  { code2: AppLanguage.sw, name: 'Kiswahili – Swahili' },
+  { code2: AppLanguage.tl, name: 'Tagalog' },
+  { code2: AppLanguage.tg, name: 'Тоҷикӣ – Tajik' },
+  { code2: AppLanguage.ta, name: 'தமிழ் – Tamil' },
+  { code2: AppLanguage.te, name: 'తెలుగు – Telugu' },
+  { code2: AppLanguage.tt, name: 'Татарча – Tatar' },
+  { code2: AppLanguage.ur, name: 'اردو – Urdu' },
+  { code2: AppLanguage.uz, name: 'Oʻzbekcha – Uzbek' },
+  { code2: AppLanguage.xh, name: 'isiXhosa – Xhosa' },
+  { code2: AppLanguage.yo, name: 'Yorùbá – Yoruba' },
+  { code2: AppLanguage.zu, name: 'isiZulu – Zulu' },
+  { code2: AppLanguage.ab, name: 'Аҧсуа – Abkhaz' },
+  { code2: AppLanguage.krc, name: 'Къарачай-Малкъар – Karachay-Balkar' },
+  { code2: AppLanguage.se, name: 'Davvisámegiella – Northern Sami' },
 ]
 
 export const LANGUAGES: Language[] = [
