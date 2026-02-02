@@ -16,6 +16,7 @@ const FIND_CONTACTS_FEATURE_COUNTRY_ALLOWLIST = [
   'AU',
   'SE',
   'IT',
+  'RO',
 ] satisfies CountryCode[] as string[]
 
 export function isFindContactsFeatureEnabled(countryCode?: string): boolean {
