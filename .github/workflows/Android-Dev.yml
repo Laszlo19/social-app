@@ -1,0 +1,74 @@
+name: Android Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags
+  workflow_dispatch:  # Manual trigger
+
+env:
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'yarn'
+    
+    - name: Setup Java 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+    
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Install dependencies
+      run: |
+        yarn install --frozen-lockfile
+    
+    - name: Create dummy google-services.json
+      run: |
+        if [ -f "google-services.json.example" ]; then
+          cp google-services.json.example google-services.json
+        else
+          echo '{}' > google-services.json
+        fi
+    
+    - name: Prebuild Android
+      run: |
+        npx expo prebuild -p android
+    
+    - name: Build Android Release APK (unsigned)
+      run: |
+        cd android
+        ./gradlew assembleRelease
+      env:
+        CI: true
+    
+    - name: Get version info
+      id: version
+      run: |
+        echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+        echo "APK_NAME=bluesky-v$(node -p "require('./package.json').version")-release.apk" >> $GITHUB_OUTPUT
+    
+    - name: Rename APK with version
+      run: |
+        cd android/app/build/outputs/apk/release
+        cp app-release.apk "bluesky-v${{ steps.version.outputs.VERSION }}-release.apk"
+    
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: bluesky-release-apk
+        path: android/app/build/outputs/apk/release/*.apk
+        retention-days: 30
