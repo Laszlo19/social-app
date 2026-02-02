@@ -1,0 +1,57 @@
+name: Android Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'yarn'
+    
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+    
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Install dependencies
+      run: |
+        yarn install --frozen-lockfile
+    
+    - name: Create dummy google-services.json
+      run: |
+        cp google-services.json.example google-services.json || echo '{}' > google-services.json
+    
+    - name: Prebuild Android
+      run: |
+        npx expo prebuild -p android
+    
+    - name: Build Android Debug APK
+      run: |
+        cd android
+        ./gradlew assembleDebug
+      env:
+        CI: true
+    
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: bluesky-android-debug
+        path: android/app/build/outputs/apk/debug/*.apk
+        retention-days: 7
