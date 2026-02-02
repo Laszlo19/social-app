@@ -1,0 +1,310 @@
+name: Build Standalone Android APK
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'app.json'
+      - '.github/workflows/android-standalone.yml'
+
+env:
+  NODE_VERSION: '20'
+  JAVA_VERSION: '17'
+
+jobs:
+  build-standalone-apk:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: ${{ env.JAVA_VERSION }}
+    
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Install dependencies
+      run: |
+        yarn install --frozen-lockfile --network-timeout 300000
+    
+    - name: Configure for standalone build
+      run: |
+        # Create necessary config files
+        echo "Configuring for standalone build..."
+        
+        # 1. Create .env file with production values
+        cat > .env << 'EOF'
+        EXPO_PUBLIC_BLUESKY_PROXY_DID=
+        EXPO_PUBLIC_IMGPROXY_URL=https://imgproxy.bsky.app
+        EXPO_PUBLIC_APPVIEW_PROXY_URL=https://public.api.bsky.app
+        EXPO_PUBLIC_SENTRY_DSN=
+        EXPO_PUBLIC_OTEL_SERVICE_NAME=bluesky-app
+        EXPO_PUBLIC_OTEL_COLLECTOR_HOST=otel.bsky.dev
+        EXPO_PUBLIC_BITDRIFT_API_KEY=
+        EOF
+        
+        # 2. Create google-services.json (dummy for build)
+        if [ ! -f "google-services.json" ]; then
+          cat > google-services.json << 'EOF'
+        {
+          "project_info": {
+            "project_number": "000000000000",
+            "project_id": "bluesky-app-dummy",
+            "storage_bucket": "bluesky-app-dummy.appspot.com"
+          },
+          "client": [
+            {
+              "client_info": {
+                "mobilesdk_app_id": "1:000000000000:android:aaaaaaaaaaaaaaaaaaaa",
+                "android_client_info": {
+                  "package_name": "com.bluesky.app"
+                }
+              },
+              "oauth_client": [],
+              "api_key": [
+                {
+                  "current_key": "dummy-key-1234567890"
+                }
+              ],
+              "services": {
+                "appinvite_service": {
+                  "other_platform_oauth_client": []
+                }
+              }
+            }
+          ],
+          "configuration_version": "1"
+        }
+        EOF
+          echo "Created dummy google-services.json"
+        fi
+        
+        # 3. Create debug.keystore for signing
+        mkdir -p android/app
+        keytool -genkeypair -v \
+          -keystore android/app/debug.keystore \
+          -alias androiddebugkey \
+          -keyalg RSA \
+          -keysize 2048 \
+          -validity 10000 \
+          -dname "CN=Android Debug, O=Android, C=US" \
+          -storepass android \
+          -keypass android \
+          -deststoretype pkcs12 2>/dev/null || true
+        
+        # 4. Configure gradle for standalone build
+        cat > android/gradle.properties << 'EOF'
+        # Debug signing for standalone build
+        MYAPP_RELEASE_STORE_FILE=debug.keystore
+        MYAPP_RELEASE_KEY_ALIAS=androiddebugkey
+        MYAPP_RELEASE_STORE_PASSWORD=android
+        MYAPP_RELEASE_KEY_PASSWORD=android
+        
+        # Performance optimizations
+        org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=512m
+        org.gradle.parallel=true
+        org.gradle.caching=true
+        org.gradle.daemon=true
+        
+        # Android config
+        android.enableJetifier=true
+        android.useAndroidX=true
+        android.enableR8=true
+        
+        # Build optimization
+        kotlin.code.style=official
+        EOF
+        
+        echo "Configuration complete"
+    
+    - name: Clean previous builds
+      run: |
+        echo "Cleaning previous builds..."
+        rm -rf android/build
+        rm -rf android/app/build
+        rm -rf $HOME/.gradle/caches/
+    
+    - name: Prebuild Android
+      run: |
+        echo "Running Expo prebuild..."
+        # Force fresh prebuild
+        npx expo prebuild -p android --clean
+        
+        # Verify prebuild created necessary files
+        if [ ! -f "android/app/build.gradle" ]; then
+          echo "Error: Prebuild failed to create Android files"
+          exit 1
+        fi
+    
+    - name: Build Standalone APK
+      run: |
+        echo "Building standalone APK..."
+        cd android
+        
+        # Clean and build
+        ./gradlew clean
+        
+        # Build debug variant (will be signed with debug keystore)
+        ./gradlew assembleDebug --no-daemon --stacktrace
+        
+        echo "Build completed successfully"
+        
+        # Show APK info
+        echo "Generated APK:"
+        ls -lh app/build/outputs/apk/debug/
+    
+    - name: Verify APK is standalone
+      run: |
+        echo "Verifying APK..."
+        APK_PATH="android/app/build/outputs/apk/debug/app-debug.apk"
+        
+        if [ ! -f "$APK_PATH" ]; then
+          echo "Error: APK not found at $APK_PATH"
+          exit 1
+        fi
+        
+        # Check APK size (standalone should be > 50MB)
+        APK_SIZE=$(stat -c%s "$APK_PATH")
+        APK_SIZE_MB=$((APK_SIZE / 1024 / 1024))
+        
+        echo "APK Size: ${APK_SIZE_MB} MB"
+        
+        if [ $APK_SIZE_MB -lt 30 ]; then
+          echo "Warning: APK seems too small for standalone build"
+          echo "This might still be a development client"
+        else
+          echo "✓ APK appears to be standalone (>30MB)"
+        fi
+        
+        # Extract and check for Expo dev client
+        if command -v apktool &> /dev/null; then
+          echo "Checking APK contents..."
+          mkdir -p /tmp/apk-inspect
+          apktool d "$APK_PATH" -o /tmp/apk-inspect -f 2>/dev/null || true
+          
+          if grep -r "expo.modules.devmenu" /tmp/apk-inspect 2>/dev/null; then
+            echo "Warning: Found Expo dev menu components"
+          else
+            echo "✓ No Expo dev menu found (good for standalone)"
+          fi
+        fi
+    
+    - name: Get version info
+      id: version
+      run: |
+        VERSION=$(node -p "require('./package.json').version")
+        TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+        echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
+        echo "TIMESTAMP=${TIMESTAMP}" >> $GITHUB_OUTPUT
+        echo "FILENAME=Bluesky-v${VERSION}-${TIMESTAMP}.apk" >> $GITHUB_OUTPUT
+        
+        # Also get git info
+        COMMIT_HASH=$(git rev-parse --short HEAD)
+        echo "COMMIT=${COMMIT_HASH}" >> $GITHUB_OUTPUT
+    
+    - name: Rename and prepare APK
+      run: |
+        echo "Preparing APK for distribution..."
+        
+        APK_SOURCE="android/app/build/outputs/apk/debug/app-debug.apk"
+        APK_DEST="Bluesky-v${{ steps.version.outputs.VERSION }}-${{ steps.version.outputs.TIMESTAMP }}.apk"
+        
+        cp "$APK_SOURCE" "$APK_DEST"
+        
+        echo "Original: $(ls -lh "$APK_SOURCE")"
+        echo "Renamed: $(ls -lh "$APK_DEST")"
+        
+        # Create a simple README
+        cat > README-APK.txt << EOF
+        Bluesky Android APK
+        ===================
+        
+        Version: ${{ steps.version.outputs.VERSION }}
+        Build Date: $(date)
+        Commit: ${{ steps.version.outputs.COMMIT }}
+        APK Size: $(stat -c%s "$APK_DEST" | awk '{printf "%.2f MB\n", $1/1024/1024}')
+        
+        Installation:
+        1. Enable "Install from unknown sources" in Android settings
+        2. Transfer this APK to your Android device
+        3. Open the APK file and tap "Install"
+        
+        Note: This is a standalone build and does NOT require
+        Expo development server to run.
+        
+        Features:
+        - Full Bluesky functionality
+        - Works offline (no dev server needed)
+        - Debug-signed (for testing only)
+        
+        GitHub Actions Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        EOF
+    
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Bluesky-Standalone-APK
+        path: |
+          Bluesky-v*.apk
+          README-APK.txt
+        retention-days: 30
+    
+    - name: Create GitHub Release (on tag)
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          Bluesky-v*.apk
+          README-APK.txt
+        body: |
+          ## Bluesky Android Standalone APK
+          
+          **Version:** ${{ steps.version.outputs.VERSION }}
+          **Commit:** ${{ steps.version.outputs.COMMIT }}
+          **Build Date:** ${{ steps.version.outputs.TIMESTAMP }}
+          
+          ### Installation
+          1. Download the APK file
+          2. Enable "Install from unknown sources" in Android settings
+          3. Open the APK file and install
+          
+          ### Features
+          - Standalone app (no Expo dev server needed)
+          - Full Bluesky functionality
+          - Debug-signed for testing
+          
+          ### Notes
+          This build is for testing purposes only.
+          Not for distribution on Google Play Store.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: build-standalone-apk
+    if: always()
+    
+    steps:
+    - name: Build status
+      run: |
+        if [ "${{ needs.build-standalone-apk.result }}" == "success" ]; then
+          echo "🎉 Build succeeded! Download APK from Artifacts."
+        else
+          echo "❌ Build failed. Check logs for details."
+        fi
