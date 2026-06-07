@@ -34,11 +34,8 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Set up Expo
-        run: pnpm add -g expo-cli @expo/cli eas-cli
-
       - name: Generate native Android project
-        run: pnpm expo prebuild --platform android --clean
+        run: pnpm exec expo prebuild --platform android --clean
         env:
           EXPO_PUBLIC_ENV: development
 
