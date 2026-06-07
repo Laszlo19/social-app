@@ -37,8 +37,11 @@ export const IS_E2E = ENV === 'e2e'
 
 /**
  * Indicates whether the app is `__DEV__` or TestFlight
+ *
+ * NOTE: Forced to `true` so internal-only features (Developer Options, custom
+ * app icons, etc.) are available in sideloaded release builds for testing.
  */
-export const IS_INTERNAL = IS_DEV || IS_TESTFLIGHT
+export const IS_INTERNAL = true
 
 /**
  * The commit hash that the current bundle was made from. The user can
