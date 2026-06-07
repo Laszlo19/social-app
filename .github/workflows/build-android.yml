@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Compile translations
+        run: pnpm intl:compile
+
       - name: Set up Java (JDK 17)
         uses: actions/setup-java@v4
         with:
