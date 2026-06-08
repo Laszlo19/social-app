@@ -19,6 +19,11 @@ const FIND_CONTACTS_FEATURE_COUNTRY_ALLOWLIST = [
 ] satisfies CountryCode[] as string[]
 
 export function isFindContactsFeatureEnabled(countryCode?: string): boolean {
+  // Forced on for sideloaded test builds so the Find Contacts feature is
+  // reachable regardless of the emulator's geolocated country.
+  return true
+
+  // eslint-disable-next-line no-unreachable
   if (IS_DEV) return true
 
   /*
