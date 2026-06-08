@@ -25,6 +25,7 @@ import {
   enabled as isDraftsAnnouncementEnabled,
 } from '#/components/dialogs/nuxs/DraftsAnnouncement'
 import {FindContactsAnnouncement} from '#/components/dialogs/nuxs/FindContactsAnnouncement'
+import {setNuxTriggerHandler} from '#/components/dialogs/nuxs/externalTrigger'
 import {InitialVerificationAnnouncement} from '#/components/dialogs/nuxs/InitialVerificationAnnouncement'
 import {LiveNowBetaDialog} from '#/components/dialogs/nuxs/LiveNowBetaDialog'
 import {isSnoozed, snooze, unsnooze} from '#/components/dialogs/nuxs/snoozing'
@@ -120,14 +121,19 @@ function Inner({
     setActiveNux(undefined)
   }, [activeNux, setActiveNux])
 
-  const triggerNux = useCallback(
-    (id: Nux) => {
-      unsnooze()
-      setSnoozed(false)
-      setActiveNux(id)
-    },
-    [setSnoozed],
-  )
+  const triggerNux = useCallback((id: Nux) => {
+    // Force-show the NUX regardless of snooze/gate checks. We intentionally do
+    // not touch snooze state here: the render block keys off activeNux alone,
+    // and unsnoozing would re-run the auto-activation effect and could override
+    // the manually selected NUX.
+    setActiveNux(id)
+  }, [])
+
+  // Bridge for screens outside the provider (e.g. Developer Options).
+  useEffect(() => {
+    setNuxTriggerHandler(triggerNux)
+    return () => setNuxTriggerHandler(null)
+  }, [triggerNux])
 
   if (__DEV__ && typeof window !== 'undefined') {
     // @ts-ignore
