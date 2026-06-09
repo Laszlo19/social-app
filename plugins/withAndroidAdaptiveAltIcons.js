@@ -25,7 +25,6 @@ const path = require('path')
  */
 
 const ANDROID_RES_PATH = ['app', 'src', 'main', 'res']
-const MANIFEST_PATH = ['app', 'src', 'main', 'AndroidManifest.xml']
 
 function safeKey(name) {
   return name.replace(/[^a-zA-Z0-9_]/g, '_').toLowerCase()
@@ -40,10 +39,6 @@ function adaptiveXml(foregroundResource) {
 `
 }
 
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-}
-
 const withAndroidAdaptiveAltIcons = (config, {iconKeys}) => {
   return withDangerousMod(config, [
     'android',
@@ -55,7 +50,11 @@ const withAndroidAdaptiveAltIcons = (config, {iconKeys}) => {
 
       const keys = iconKeys.map(safeKey)
 
-      // 1. Write adaptive-icon XML for square + round variants of each icon.
+      // Write adaptive-icon XML for square + round variants of each icon. The
+      // manifest activity-alias icon/roundIcon attributes are repointed at
+      // these resources by a post-prebuild workflow step (the dynamic-app-icon
+      // plugin's aliases are not yet present during this dangerous mod, which
+      // Expo runs before structured manifest mods).
       for (const key of keys) {
         for (const base of [key, `${key}_round`]) {
           await fs.promises.writeFile(
@@ -65,38 +64,8 @@ const withAndroidAdaptiveAltIcons = (config, {iconKeys}) => {
         }
       }
 
-      // 2. Rewrite the on-disk manifest alias icon references.
-      const manifestPath = path.join(projectRoot, ...MANIFEST_PATH)
-      let manifest = await fs.promises.readFile(manifestPath, 'utf8')
-      let replacements = 0
-
-      for (const key of keys) {
-        // android:roundIcon="@mipmap/<key>_round" -> ic_adaptive_<key>_round
-        const roundRe = new RegExp(
-          `(android:roundIcon=")@mipmap/${escapeRegExp(key)}_round(")`,
-          'g',
-        )
-        manifest = manifest.replace(roundRe, (_m, a, b) => {
-          replacements++
-          return `${a}@mipmap/ic_adaptive_${key}_round${b}`
-        })
-
-        // android:icon="@mipmap/<key>" -> ic_adaptive_<key>
-        const iconRe = new RegExp(
-          `(android:icon=")@mipmap/${escapeRegExp(key)}(")`,
-          'g',
-        )
-        manifest = manifest.replace(iconRe, (_m, a, b) => {
-          replacements++
-          return `${a}@mipmap/ic_adaptive_${key}${b}`
-        })
-      }
-
-      await fs.promises.writeFile(manifestPath, manifest)
-
       console.log(
-        `[adaptive-alt-icons] wrote ${keys.length * 2} adaptive icon XML files, ` +
-          `rewrote ${replacements} manifest icon references`,
+        `[adaptive-alt-icons] wrote ${keys.length * 2} adaptive icon XML files`,
       )
       return config
     },
