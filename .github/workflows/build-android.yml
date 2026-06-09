@@ -51,7 +51,7 @@ jobs:
                 "client_info": {
                   "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
                   "android_client_info": {
-                    "package_name": "xyz.blueskyweb.app"
+                    "package_name": "xyz.blueskyweb.app.dev"
                   }
                 },
                 "oauth_client": [],
@@ -71,6 +71,7 @@ jobs:
         run: pnpm exec expo prebuild --platform android --clean
         env:
           EXPO_PUBLIC_ENV: development
+          EXPO_PUBLIC_SIDELOAD: 'true'
 
       - name: Build release APK
         run: |

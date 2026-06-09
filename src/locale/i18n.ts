@@ -9,11 +9,13 @@ import '@formatjs/intl-numberformat/locale-data/en.js'
 import '@formatjs/intl-displaynames/locale-data/en.js'
 
 import {useEffect, useState} from 'react'
+import {I18nManager} from 'react-native'
 import {i18n} from '@lingui/core'
 import {enUS as defaultLocale} from 'date-fns/locale/en-US'
 
 import {sanitizeAppLanguageSetting} from '#/locale/helpers'
 import {AppLanguage} from '#/locale/languages'
+import {pseudolocalizeCatalog} from '#/locale/pseudo'
 import {messages as messagesAn} from '#/locale/locales/an/messages'
 import {messages as messagesAst} from '#/locale/locales/ast/messages'
 import {messages as messagesCa} from '#/locale/locales/ca/messages'
@@ -459,6 +461,17 @@ export async function dynamicActivate(locale: AppLanguage) {
       ])
       return dateLocale
     }
+    case AppLanguage.pseudo:
+    case AppLanguage.pseudo_RTL: {
+      // Activate under 'en' so plural rules and date formatting still work,
+      // but with pseudolocalized text. RTL layout is handled in
+      // useLocaleLanguage via I18nManager.
+      i18n.loadAndActivate({
+        locale: 'en',
+        messages: pseudolocalizeCatalog(messagesEn),
+      })
+      return defaultLocale
+    }
     default: {
       i18n.loadAndActivate({locale, messages: messagesEn})
       return defaultLocale
@@ -471,11 +484,19 @@ export function useLocaleLanguage() {
   const [dateLocale, setDateLocale] = useState(defaultLocale)
 
   useEffect(() => {
-    void dynamicActivate(sanitizeAppLanguageSetting(appLanguage)).then(
-      locale => {
-        setDateLocale(locale ?? defaultLocale)
-      },
-    )
+    const sanitized = sanitizeAppLanguageSetting(appLanguage)
+
+    // Pseudolocalization (RTL) forces a right-to-left layout so mirrored UI can
+    // be tested. Changing this requires a native reload to fully apply.
+    const shouldBeRTL = sanitized === AppLanguage.pseudo_RTL
+    if (I18nManager.isRTL !== shouldBeRTL) {
+      I18nManager.allowRTL(shouldBeRTL)
+      I18nManager.forceRTL(shouldBeRTL)
+    }
+
+    void dynamicActivate(sanitized).then(locale => {
+      setDateLocale(locale ?? defaultLocale)
+    })
   }, [appLanguage])
 
   return dateLocale
