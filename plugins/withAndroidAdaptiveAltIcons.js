@@ -9,22 +9,23 @@ const path = require('path')
  * the launcher cannot apply its adaptive mask and renders the raw square image.
  * Only the default icon (configured via android.adaptiveIcon) is adaptive.
  *
- * This plugin runs AFTER the dynamic-app-icon plugin during prebuild and wraps
- * each alternate's flat bitmap in an adaptive-icon XML, using the existing
- * bitmap as the foreground over a solid white background. The foreground art is
- * not safe-zone padded, so the mask may crop the edges, but the icon will be
- * correctly masked to the launcher's shape.
+ * This runs as a dangerous mod so that, by the time it executes, all structured
+ * manifest changes (the plugin's activity-aliases) are already serialized to
+ * AndroidManifest.xml on disk. It then:
+ *   1. Writes a distinctly-named adaptive-icon XML for each alternate
+ *      (mipmap-anydpi-v26/ic_adaptive_<key>.xml) whose foreground is the
+ *      existing flat bitmap (@mipmap/<key>) over a solid white background.
+ *   2. Rewrites the activity-alias icon/roundIcon references in the on-disk
+ *      manifest to point at those adaptive resources.
  *
- * @param {import('@expo/config-plugins').ConfigPlugin<{iconKeys: string[]}>}
+ * The foreground art is not safe-zone padded, so the mask may crop the edges,
+ * but the icon will be correctly masked to the launcher's shape.
+ *
+ * @type {import('@expo/config-plugins').ConfigPlugin<{iconKeys: string[]}>}
  */
+
 const ANDROID_RES_PATH = ['app', 'src', 'main', 'res']
-const DPI_FOLDERS = [
-  'mipmap-mdpi',
-  'mipmap-hdpi',
-  'mipmap-xhdpi',
-  'mipmap-xxhdpi',
-  'mipmap-xxxhdpi',
-]
+const MANIFEST_PATH = ['app', 'src', 'main', 'AndroidManifest.xml']
 
 function safeKey(name) {
   return name.replace(/[^a-zA-Z0-9_]/g, '_').toLowerCase()
@@ -39,48 +40,64 @@ function adaptiveXml(foregroundResource) {
 `
 }
 
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
 const withAndroidAdaptiveAltIcons = (config, {iconKeys}) => {
   return withDangerousMod(config, [
     'android',
     async config => {
-      const resPath = path.join(
-        config.modRequest.platformProjectRoot,
-        ...ANDROID_RES_PATH,
-      )
+      const projectRoot = config.modRequest.platformProjectRoot
+      const resPath = path.join(projectRoot, ...ANDROID_RES_PATH)
       const anyDpiPath = path.join(resPath, 'mipmap-anydpi-v26')
       await fs.promises.mkdir(anyDpiPath, {recursive: true})
 
-      for (const rawKey of iconKeys) {
-        const key = safeKey(rawKey)
-        // The dynamic-app-icon plugin writes <key>.png and <key>_round.png to
-        // each dpi folder. Wrap both variants.
+      const keys = iconKeys.map(safeKey)
+
+      // 1. Write adaptive-icon XML for square + round variants of each icon.
+      for (const key of keys) {
         for (const base of [key, `${key}_round`]) {
-          const fgName = `${base}_fg`
-          let copiedAny = false
-
-          for (const dpi of DPI_FOLDERS) {
-            const src = path.join(resPath, dpi, `${base}.png`)
-            const dst = path.join(resPath, dpi, `${fgName}.png`)
-            try {
-              await fs.promises.copyFile(src, dst)
-              copiedAny = true
-            } catch {
-              // bitmap for this dpi/variant may not exist; skip
-            }
-          }
-
-          if (!copiedAny) continue
-
-          // mipmap/<base> now resolves to this adaptive XML on API 26+, whose
-          // foreground points at the copied bitmap (<base>_fg) to avoid a
-          // self-referential resource loop.
           await fs.promises.writeFile(
-            path.join(anyDpiPath, `${base}.xml`),
-            adaptiveXml(fgName),
+            path.join(anyDpiPath, `ic_adaptive_${base}.xml`),
+            adaptiveXml(base),
           )
         }
       }
 
+      // 2. Rewrite the on-disk manifest alias icon references.
+      const manifestPath = path.join(projectRoot, ...MANIFEST_PATH)
+      let manifest = await fs.promises.readFile(manifestPath, 'utf8')
+      let replacements = 0
+
+      for (const key of keys) {
+        // android:roundIcon="@mipmap/<key>_round" -> ic_adaptive_<key>_round
+        const roundRe = new RegExp(
+          `(android:roundIcon=")@mipmap/${escapeRegExp(key)}_round(")`,
+          'g',
+        )
+        manifest = manifest.replace(roundRe, (_m, a, b) => {
+          replacements++
+          return `${a}@mipmap/ic_adaptive_${key}_round${b}`
+        })
+
+        // android:icon="@mipmap/<key>" -> ic_adaptive_<key>
+        const iconRe = new RegExp(
+          `(android:icon=")@mipmap/${escapeRegExp(key)}(")`,
+          'g',
+        )
+        manifest = manifest.replace(iconRe, (_m, a, b) => {
+          replacements++
+          return `${a}@mipmap/ic_adaptive_${key}${b}`
+        })
+      }
+
+      await fs.promises.writeFile(manifestPath, manifest)
+
+      console.log(
+        `[adaptive-alt-icons] wrote ${keys.length * 2} adaptive icon XML files, ` +
+          `rewrote ${replacements} manifest icon references`,
+      )
       return config
     },
   ])
