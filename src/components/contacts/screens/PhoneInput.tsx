@@ -20,7 +20,6 @@ import {OnboardingPosition} from '#/screens/Onboarding/Layout'
 import {
   android,
   atoms as a,
-  platform,
   tokens,
   useGutters,
   useTheme,
@@ -125,11 +124,16 @@ export function PhoneInput({
   const isFeatureEnabled = isFindContactsFeatureEnabled(countryCode)
 
   const onSubmitNumber = () => {
-    // Dev shortcut: typing "continue" bypasses phone verification
-    if (phoneNumber.toLowerCase() === 'continue') {
+    // Dev shortcut: typing "continue" skips phone verification entirely and
+    // jumps straight to the "get contacts" step with a placeholder token.
+    if (phoneNumber.trim().toLowerCase() === 'continue') {
       dispatch({
         type: 'SUBMIT_PHONE_NUMBER',
         payload: {phoneCountryCode: countryCode, phoneNumber: 'devbypass'},
+      })
+      dispatch({
+        type: 'VERIFY_PHONE_NUMBER_SUCCESS',
+        payload: {token: 'devbypass'},
       })
       return
     }
@@ -226,10 +230,9 @@ export function PhoneInput({
                     setPhoneNumber(text)
                   }}
                   placeholder={null}
-                  keyboardType={platform({
-                    ios: 'number-pad',
-                    android: 'phone-pad',
-                  })}
+                  // Use the default keyboard so the dev "continue" shortcut
+                  // (letters) can be typed; digits still work for real numbers.
+                  keyboardType="default"
                   autoComplete="tel"
                   returnKeyType={android('next')}
                   onSubmitEditing={onSubmitNumber}

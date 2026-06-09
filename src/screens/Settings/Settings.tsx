@@ -57,7 +57,7 @@ import {Window_Stroke2_Corner2_Rounded as WindowIcon} from '#/components/icons/W
 import * as Layout from '#/components/Layout'
 import {Loader} from '#/components/Loader'
 import * as Menu from '#/components/Menu'
-import {useNuxDialogContext} from '#/components/dialogs/nuxs'
+import {triggerNuxExternally} from '#/components/dialogs/nuxs/externalTrigger'
 import {ID as PolicyUpdate202508} from '#/components/PolicyUpdateOverlay/updates/202508/config'
 import {ProfileBadges} from '#/components/ProfileBadges'
 import * as Prompt from '#/components/Prompt'
@@ -385,7 +385,6 @@ function DevOptions() {
   const navigation = useNavigation<NavigationProp>()
   const {mutate: deleteChatDeclarationRecord} = useDeleteActorDeclaration()
   const {mutate: resetNuxs} = useResetNuxs()
-  const {triggerNux} = useNuxDialogContext()
   const {
     tryApplyUpdate,
     revertToEmbedded,
@@ -572,7 +571,7 @@ function DevOptions() {
               onPress={() => {
                 resetNuxs([nuxId])
                 setTimeout(() => {
-                  triggerNux(nuxId as Nux)
+                  triggerNuxExternally(nuxId as Nux)
                 }, 1000)
               }}
               label={`Reset & trigger ${nuxId}`}

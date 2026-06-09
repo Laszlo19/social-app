@@ -1,5 +1,6 @@
 // @ts-check
 const pkg = require('./package.json')
+const withAndroidAdaptiveAltIcons = require('./plugins/withAndroidAdaptiveAltIcons')
 
 /**
  * @param {import('@expo/config-types').ExpoConfig} _config
@@ -21,6 +22,16 @@ module.exports = function (_config) {
   const IS_TESTFLIGHT = process.env.EXPO_PUBLIC_ENV === 'testflight'
   const IS_PRODUCTION = process.env.EXPO_PUBLIC_ENV === 'production'
   const IS_DEV = !IS_TESTFLIGHT && !IS_PRODUCTION
+
+  /**
+   * Sideload build: distinct package id + name so it installs alongside the
+   * official Store app. Enabled via EXPO_PUBLIC_SIDELOAD=true at prebuild time.
+   */
+  const IS_SIDELOAD = process.env.EXPO_PUBLIC_SIDELOAD === 'true'
+  const APP_NAME = IS_SIDELOAD ? 'Bluesky Dev' : 'Bluesky'
+  const ANDROID_PACKAGE = IS_SIDELOAD
+    ? 'xyz.blueskyweb.app.dev'
+    : 'xyz.blueskyweb.app'
 
   const ASSOCIATED_DOMAINS = [
     'applinks:bsky.app',
@@ -45,7 +56,7 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'Bluesky',
+      name: APP_NAME,
       slug: 'bluesky',
       scheme: 'bluesky',
       owner: 'blueskysocial',
@@ -194,7 +205,7 @@ module.exports = function (_config) {
           backgroundColor: '#006AFF',
         },
         googleServicesFile: './google-services.json',
-        package: 'xyz.blueskyweb.app',
+        package: ANDROID_PACKAGE,
         intentFilters: [
           {
             action: 'VIEW',
@@ -413,6 +424,26 @@ module.exports = function (_config) {
               android: './assets/app-icons/android_icon_core_classic.png',
               prerendered: true,
             },
+          },
+        ],
+        // Must run after @bsky.app/expo-dynamic-app-icon so it can wrap the flat
+        // alternate-icon bitmaps in adaptive-icon XML (launcher mask fix).
+        [
+          withAndroidAdaptiveAltIcons,
+          {
+            iconKeys: [
+              'default_light',
+              'default_dark',
+              'core_aurora',
+              'core_bonfire',
+              'core_sunrise',
+              'core_sunset',
+              'core_midnight',
+              'core_flat_blue',
+              'core_flat_white',
+              'core_flat_black',
+              'core_classic',
+            ],
           },
         ],
         ['expo-screen-orientation', {initialOrientation: 'PORTRAIT_UP'}],
