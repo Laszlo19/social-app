@@ -10,9 +10,11 @@ import {Gallery} from '#/components/images/Gallery'
 import {ImageLayoutGrid} from '#/components/images/ImageLayoutGrid'
 import {useLightboxControls} from '#/components/Lightbox/state'
 import {type Dimensions} from '#/components/Lightbox/types'
+import {GalleryFallbackEmbed} from '#/components/Post/Embed/GalleryFallbackEmbed'
 import {ImageContextMenu} from '#/components/Post/Embed/ImageContextMenu'
 import {PostEmbedViewContext} from '#/components/Post/Embed/types'
 import {useAnalytics} from '#/analytics'
+import {device, useStorage} from '#/storage'
 import {type EmbedType} from '#/types/bsky/post'
 import {type CommonProps} from './types'
 
@@ -26,6 +28,7 @@ export function ImageEmbed({
 }) {
   const ax = useAnalytics()
   const {openLightbox} = useLightboxControls()
+  const [galleryFallback] = useStorage(device, ['experimentalGalleryFallback'])
   const images: AppBskyEmbedImages.ViewImage[] =
     embed.type === 'gallery'
       ? embed.view.items.filter(AppBskyEmbedGallery.isViewImage).map(item => ({
@@ -39,6 +42,13 @@ export function ImageEmbed({
     embed.type === 'gallery'
       ? images.length > MAX_GRID_IMAGES
       : ax.features.enabled(ax.features.PostGalleryEmbedEnable)
+
+  // Experimental: render the OTA "update your app" fallback in place of the
+  // real gallery carousel for galleries with 5+ photos. Toggled in
+  // Settings > Experimental features.
+  if (galleryFallback && embed.type === 'gallery' && images.length >= 5) {
+    return <GalleryFallbackEmbed count={images.length} />
+  }
 
   // Captured from AutoSizedImage so the peek-commit handler can reuse the same
   // ref + dims that a tap would — keeps the lightbox's return animation intact.

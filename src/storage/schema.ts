@@ -63,6 +63,13 @@ export type Device = {
   threadgateNudged?: boolean
 
   /**
+   * Experimental features (see ExperimentalFeaturesSettings). When enabled,
+   * gallery posts (5+ images) render the OTA "update your app" fallback
+   * instead of the real gallery carousel, for testing that fallback.
+   */
+  experimentalGalleryFallback?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
