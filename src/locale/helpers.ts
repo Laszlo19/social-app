@@ -245,8 +245,6 @@ export function sanitizeAppLanguageSetting(appLanguage: string): AppLanguage {
         return AppLanguage.zh_TW
       case 'pseudo':
         return AppLanguage.pseudo
-      case 'pseudo-RTL':
-        return AppLanguage.pseudo_RTL
       default:
         continue
     }

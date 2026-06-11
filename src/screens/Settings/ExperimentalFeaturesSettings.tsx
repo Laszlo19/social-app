@@ -21,6 +21,9 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [galleryFallback, setGalleryFallback] = useStorage(device, [
     'experimentalGalleryFallback',
   ])
+  const [inviteFriendsUI, setInviteFriendsUI] = useStorage(device, [
+    'experimentalInviteFriendsUI',
+  ])
 
   return (
     <Layout.Screen>
@@ -59,6 +62,29 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                 <Trans>
                   Show the fallback for galleries (5+ photos) instead of the
                   carousel
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Find friends experience</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="invite_friends_ui"
+              label={_(
+                msg`Use the new Invite Friends (QR / share link) UI instead of contacts upload`,
+              )}
+              value={!!inviteFriendsUI}
+              onChange={value => setInviteFriendsUI(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Use the new Invite Friends (QR / share link) UI instead of
+                  contacts upload
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />

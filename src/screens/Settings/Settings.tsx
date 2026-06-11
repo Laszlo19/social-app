@@ -67,6 +67,7 @@ import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 import {IS_INTERNAL, IS_IOS, IS_NATIVE} from '#/env'
 import {useActorStatus} from '#/features/liveNow'
+import {InviteFriendsDialog} from '#/features/inviteFriends'
 import {Nux, useResetNuxs} from '#/state/queries/nuxs'
 import {device, useStorage} from '#/storage'
 import {useActivitySubscriptionsNudged} from '#/storage/hooks/activity-subscriptions-nudged'
@@ -91,6 +92,8 @@ export function SettingsScreen({}: Props) {
   const [showDevOptions, setShowDevOptions] = useState(false)
   const findContactsEnabled =
     useIsFindContactsFeatureEnabledBasedOnGeolocation()
+  const [inviteFriendsUI] = useStorage(device, ['experimentalInviteFriendsUI'])
+  const inviteFriendsControl = useDialogControl()
 
   return (
     <Layout.Screen>
@@ -213,16 +216,26 @@ export function SettingsScreen({}: Props) {
           </SettingsList.LinkItem>
           {IS_NATIVE &&
             findContactsEnabled &&
-            !ax.features.enabled(ax.features.ImportContactsSettingsDisable) && (
-              <SettingsList.LinkItem
-                to="/settings/find-contacts"
-                label={l`Find and invite friends`}>
+            !ax.features.enabled(ax.features.ImportContactsSettingsDisable) &&
+            (inviteFriendsUI ? (
+              <SettingsList.PressableItem
+                label={l`Find and invite friends`}
+                onPress={() => inviteFriendsControl.open()}>
                 <SettingsList.ItemIcon icon={ContactsIcon} />
                 <SettingsList.ItemText>
                   <Trans>Find and invite friends</Trans>
                 </SettingsList.ItemText>
+              </SettingsList.PressableItem>
+            ) : (
+              <SettingsList.LinkItem
+                to="/settings/find-contacts"
+                label={l`Find friends from contacts`}>
+                <SettingsList.ItemIcon icon={ContactsIcon} />
+                <SettingsList.ItemText>
+                  <Trans>Find friends from contacts</Trans>
+                </SettingsList.ItemText>
               </SettingsList.LinkItem>
-            )}
+            ))}
           <SettingsList.LinkItem
             to="/settings/appearance"
             label={l`Appearance`}>
@@ -315,6 +328,9 @@ export function SettingsScreen({}: Props) {
       />
 
       <SwitchAccountDialog control={switchAccountControl} />
+      {inviteFriendsUI && (
+        <InviteFriendsDialog control={inviteFriendsControl} />
+      )}
     </Layout.Screen>
   )
 }

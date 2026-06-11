@@ -9,7 +9,6 @@ import '@formatjs/intl-numberformat/locale-data/en.js'
 import '@formatjs/intl-displaynames/locale-data/en.js'
 
 import {useEffect, useState} from 'react'
-import {I18nManager} from 'react-native'
 import {i18n} from '@lingui/core'
 import {enUS as defaultLocale} from 'date-fns/locale/en-US'
 
@@ -461,11 +460,9 @@ export async function dynamicActivate(locale: AppLanguage) {
       ])
       return dateLocale
     }
-    case AppLanguage.pseudo:
-    case AppLanguage.pseudo_RTL: {
+    case AppLanguage.pseudo: {
       // Activate under 'en' so plural rules and date formatting still work,
-      // but with pseudolocalized text. RTL layout is handled in
-      // useLocaleLanguage via I18nManager.
+      // but with pseudolocalized text.
       i18n.loadAndActivate({
         locale: 'en',
         messages: pseudolocalizeCatalog(messagesEn),
@@ -484,19 +481,11 @@ export function useLocaleLanguage() {
   const [dateLocale, setDateLocale] = useState(defaultLocale)
 
   useEffect(() => {
-    const sanitized = sanitizeAppLanguageSetting(appLanguage)
-
-    // Pseudolocalization (RTL) forces a right-to-left layout so mirrored UI can
-    // be tested. Changing this requires a native reload to fully apply.
-    const shouldBeRTL = sanitized === AppLanguage.pseudo_RTL
-    if (I18nManager.isRTL !== shouldBeRTL) {
-      I18nManager.allowRTL(shouldBeRTL)
-      I18nManager.forceRTL(shouldBeRTL)
-    }
-
-    void dynamicActivate(sanitized).then(locale => {
-      setDateLocale(locale ?? defaultLocale)
-    })
+    void dynamicActivate(sanitizeAppLanguageSetting(appLanguage)).then(
+      locale => {
+        setDateLocale(locale ?? defaultLocale)
+      },
+    )
   }, [appLanguage])
 
   return dateLocale
