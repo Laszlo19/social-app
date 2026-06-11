@@ -1,0 +1,48 @@
+name: Extract translations
+
+# Manually-run job that re-extracts the Lingui message catalogs so that
+# fork-added strings (Experimental features, etc.) appear in the .po files.
+# Run this, then translate the new entries in src/locale/locales/<lang>/messages.po,
+# commit, and finally run "Build Android APK".
+
+on:
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.5.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Extract message catalogs
+        run: pnpm intl:extract:all
+
+      - name: Commit updated catalogs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/locale/locales/**/messages.po
+          if git diff --cached --quiet; then
+            echo "No catalog changes to commit."
+          else
+            git commit -m "Extract translation catalogs (fork strings)"
+            git push
+          fi

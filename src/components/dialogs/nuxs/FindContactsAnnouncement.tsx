@@ -19,9 +19,12 @@ import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 import {IS_E2E, IS_NATIVE, IS_WEB} from '#/env'
 import {navigate} from '#/Navigation'
+import {device} from '#/storage'
 
 export const enabled = createIsEnabledCheck(props => {
   return (
+    // Legacy contacts experience is opt-in; new invite flow is the default.
+    !!device.get(['experimentalLegacyContacts']) &&
     !IS_E2E &&
     IS_NATIVE &&
     isExistingUserAsOf(

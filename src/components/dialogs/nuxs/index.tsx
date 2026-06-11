@@ -20,13 +20,18 @@ import {type SessionAccount, useSession} from '#/state/session'
 import {useOnboardingState} from '#/state/shell'
 import {ActivitySubscriptionsNUX} from '#/components/dialogs/nuxs/ActivitySubscriptions'
 import {BookmarksAnnouncement} from '#/components/dialogs/nuxs/BookmarksAnnouncement'
-import {
-  DraftsAnnouncement,
-  enabled as isDraftsAnnouncementEnabled,
-} from '#/components/dialogs/nuxs/DraftsAnnouncement'
-import {FindContactsAnnouncement} from '#/components/dialogs/nuxs/FindContactsAnnouncement'
+import {DraftsAnnouncement} from '#/components/dialogs/nuxs/DraftsAnnouncement'
 import {setNuxTriggerHandler} from '#/components/dialogs/nuxs/externalTrigger'
+import {FindContactsAnnouncement} from '#/components/dialogs/nuxs/FindContactsAnnouncement'
+import {
+  enabled as isGroupChatsAnnouncementEnabled,
+  GroupChatsAnnouncement,
+} from '#/components/dialogs/nuxs/GroupChatsAnnouncement'
 import {InitialVerificationAnnouncement} from '#/components/dialogs/nuxs/InitialVerificationAnnouncement'
+import {
+  enabled as isInviteFriendsAnnouncementEnabled,
+  InviteFriendsAnnouncement,
+} from '#/components/dialogs/nuxs/InviteFriendsAnnouncement'
 import {LiveNowBetaDialog} from '#/components/dialogs/nuxs/LiveNowBetaDialog'
 import {isSnoozed, snooze, unsnooze} from '#/components/dialogs/nuxs/snoozing'
 import {type EnabledCheckProps} from '#/components/dialogs/nuxs/utils'
@@ -44,8 +49,12 @@ const queuedNuxs: {
   enabled?: (props: EnabledCheckProps) => boolean
 }[] = [
   {
-    id: Nux.DraftsAnnouncement,
-    enabled: isDraftsAnnouncementEnabled,
+    id: Nux.GroupChatsAnnouncement,
+    enabled: isGroupChatsAnnouncementEnabled,
+  },
+  {
+    id: Nux.InviteFriendsAnnouncement,
+    enabled: isInviteFriendsAnnouncementEnabled,
   },
 ]
 
@@ -222,6 +231,13 @@ function Inner({
         <InitialVerificationAnnouncement />
       )}
       {activeNux === Nux.LiveNowBetaDialog && <LiveNowBetaDialog />}
+      {activeNux === Nux.GroupChatsAnnouncement && <GroupChatsAnnouncement />}
+      {/*
+        Mounted unconditionally: it gates the announcement on `activeNux`
+        internally, so it can keep the invite-friends dialog mounted across
+        the announcement's dismissal during the "Try it" handoff.
+      */}
+      <InviteFriendsAnnouncement />
     </Context.Provider>
   )
 }

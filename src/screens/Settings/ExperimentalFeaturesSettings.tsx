@@ -21,6 +21,9 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [galleryFallback, setGalleryFallback] = useStorage(device, [
     'experimentalGalleryFallback',
   ])
+  const [legacyContacts, setLegacyContacts] = useStorage(device, [
+    'experimentalLegacyContacts',
+  ])
 
   return (
     <Layout.Screen>
@@ -59,6 +62,29 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                 <Trans>
                   Show the fallback for galleries (5+ photos) instead of the
                   carousel
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Find friends experience</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="legacy_contacts"
+              label={_(
+                msg`Use the legacy "Find friends from contacts" instead of "Find and invite friends"`,
+              )}
+              value={!!legacyContacts}
+              onChange={value => setLegacyContacts(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Use the legacy “Find friends from contacts” instead of “Find
+                  and invite friends”
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />

@@ -61,6 +61,7 @@ export type Device = {
   demoMode: boolean
   activitySubscriptionsNudged?: boolean
   threadgateNudged?: boolean
+  inviteFriendsFollowersPromoDismissed?: boolean
 
   /**
    * Experimental features (see ExperimentalFeaturesSettings). When enabled,
@@ -68,6 +69,13 @@ export type Device = {
    * instead of the real gallery carousel, for testing that fallback.
    */
   experimentalGalleryFallback?: boolean
+
+  /**
+   * Experimental: the new "Find and invite friends" (QR / share-link) UI is
+   * the default. When this is enabled, the "find friends" entry point reverts
+   * to the legacy "Find friends from contacts" string + contacts-upload flow.
+   */
+  experimentalLegacyContacts?: boolean
 
   /**
    * Policy update overlays. New IDs are required for each new announcement.

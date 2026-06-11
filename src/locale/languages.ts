@@ -46,9 +46,8 @@ export enum AppLanguage {
   zh_CN = 'zh-Hans-CN',
   zh_HK = 'zh-Hant-HK',
   zh_TW = 'zh-Hant-TW',
-  // Development-only pseudolocales for testing string externalization and RTL.
+  // Development-only pseudolocale for testing string externalization.
   pseudo = 'pseudo',
-  pseudo_RTL = 'pseudo-RTL',
 }
 
 interface AppLanguageConfig {
@@ -102,7 +101,6 @@ export const APP_LANGUAGES: AppLanguageConfig[] = [
   {code2: AppLanguage.zh_TW, name: '繁體中文 – Traditional Chinese'},
   {code2: AppLanguage.zh_HK, name: '粵文 – Cantonese'},
   {code2: AppLanguage.pseudo, name: 'Pseudolocalization'},
-  {code2: AppLanguage.pseudo_RTL, name: 'Pseudolocalization (RTL)'},
 ]
 
 // Pre-generated list using Intl.DisplayNames to localize the language name.

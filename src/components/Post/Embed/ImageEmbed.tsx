@@ -8,7 +8,10 @@ import {atoms as a, tokens} from '#/alf'
 import {AutoSizedImage} from '#/components/images/AutoSizedImage'
 import {Gallery} from '#/components/images/Gallery'
 import {ImageLayoutGrid} from '#/components/images/ImageLayoutGrid'
-import {useLightboxControls} from '#/components/Lightbox/state'
+import {
+  type LightboxMetricsContext,
+  useLightboxControls,
+} from '#/components/Lightbox/state'
 import {type Dimensions} from '#/components/Lightbox/types'
 import {GalleryFallbackEmbed} from '#/components/Post/Embed/GalleryFallbackEmbed'
 import {ImageContextMenu} from '#/components/Post/Embed/ImageContextMenu'
@@ -43,6 +46,20 @@ export function ImageEmbed({
       ? images.length > MAX_GRID_IMAGES
       : ax.features.enabled(ax.features.PostGalleryEmbedEnable)
 
+  const layout: 'single' | 'grid' | 'carousel' =
+    images.length === 1 ? 'single' : useExpandedLayout ? 'carousel' : 'grid'
+
+  const postContext = rest.post
+    ? {
+        postUri: rest.post.uri,
+        postAuthorDid: rest.post.author.did,
+        feedDescriptor: rest.feedDescriptor,
+      }
+    : undefined
+  const metricsContext: LightboxMetricsContext | undefined = postContext
+    ? {layout, ...postContext}
+    : undefined
+
   // Experimental: render the OTA "update your app" fallback in place of the
   // real gallery carousel for galleries with 5+ photos. Toggled in
   // Settings > Experimental features.
@@ -67,6 +84,14 @@ export function ImageEmbed({
       refs: AnimatedRef<any>[],
       fetchedDims: (Dimensions | null)[],
     ) => {
+      if (postContext) {
+        ax.metric('post:photoEmbed:open', {
+          layout,
+          fromImage: index + 1,
+          totalImages: images.length,
+          ...postContext,
+        })
+      }
       openLightbox({
         images: items.map((item, i) => ({
           ...item,
@@ -77,6 +102,7 @@ export function ImageEmbed({
           type: 'image',
         })),
         index,
+        metricsContext,
       })
     }
     const onPressIn = (_: number) => {
@@ -142,6 +168,7 @@ export function ImageEmbed({
             onPressIn={onPressIn}
             viewContext={rest.viewContext}
             isWithinQuote={rest.isWithinQuote}
+            metricsPostContext={postContext}
           />
         </View>
       )
