@@ -14,6 +14,7 @@ import {TimesLarge_Stroke2_Corner0_Rounded as XIcon} from '#/components/icons/Ti
 import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 import {IS_WEB} from '#/env'
+import {device, useStorage} from '#/storage'
 import {Link} from '../Link'
 import {useIsFindContactsFeatureEnabledBasedOnGeolocation} from './country-allowlist'
 
@@ -21,8 +22,12 @@ export function FindContactsBannerNUX() {
   const t = useTheme()
   const {_} = useLingui()
   const ax = useAnalytics()
+  const [legacyContacts] = useStorage(device, ['experimentalLegacyContacts'])
   const {visible, close} = useInternalState()
 
+  // The legacy contacts experience is opt-in; the new "Find and invite
+  // friends" flow is the default (see ExperimentalFeaturesSettings).
+  if (!legacyContacts) return null
   if (!visible) return null
 
   return (
