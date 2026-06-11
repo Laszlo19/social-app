@@ -61,6 +61,7 @@ export type Device = {
   demoMode: boolean
   activitySubscriptionsNudged?: boolean
   threadgateNudged?: boolean
+  inviteFriendsFollowersPromoDismissed?: boolean
 
   /**
    * Experimental features (see ExperimentalFeaturesSettings). When enabled,
