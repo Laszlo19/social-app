@@ -92,7 +92,7 @@ export function SettingsScreen({}: Props) {
   const [showDevOptions, setShowDevOptions] = useState(false)
   const findContactsEnabled =
     useIsFindContactsFeatureEnabledBasedOnGeolocation()
-  const [inviteFriendsUI] = useStorage(device, ['experimentalInviteFriendsUI'])
+  const [legacyContacts] = useStorage(device, ['experimentalLegacyContacts'])
   const inviteFriendsControl = useDialogControl()
 
   return (
@@ -217,16 +217,7 @@ export function SettingsScreen({}: Props) {
           {IS_NATIVE &&
             findContactsEnabled &&
             !ax.features.enabled(ax.features.ImportContactsSettingsDisable) &&
-            (inviteFriendsUI ? (
-              <SettingsList.PressableItem
-                label={l`Find and invite friends`}
-                onPress={() => inviteFriendsControl.open()}>
-                <SettingsList.ItemIcon icon={ContactsIcon} />
-                <SettingsList.ItemText>
-                  <Trans>Find and invite friends</Trans>
-                </SettingsList.ItemText>
-              </SettingsList.PressableItem>
-            ) : (
+            (legacyContacts ? (
               <SettingsList.LinkItem
                 to="/settings/find-contacts"
                 label={l`Find friends from contacts`}>
@@ -235,6 +226,15 @@ export function SettingsScreen({}: Props) {
                   <Trans>Find friends from contacts</Trans>
                 </SettingsList.ItemText>
               </SettingsList.LinkItem>
+            ) : (
+              <SettingsList.PressableItem
+                label={l`Find and invite friends`}
+                onPress={() => inviteFriendsControl.open()}>
+                <SettingsList.ItemIcon icon={ContactsIcon} />
+                <SettingsList.ItemText>
+                  <Trans>Find and invite friends</Trans>
+                </SettingsList.ItemText>
+              </SettingsList.PressableItem>
             ))}
           <SettingsList.LinkItem
             to="/settings/appearance"
@@ -328,7 +328,7 @@ export function SettingsScreen({}: Props) {
       />
 
       <SwitchAccountDialog control={switchAccountControl} />
-      {inviteFriendsUI && (
+      {!legacyContacts && (
         <InviteFriendsDialog control={inviteFriendsControl} />
       )}
     </Layout.Screen>

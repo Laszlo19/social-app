@@ -71,11 +71,11 @@ export type Device = {
   experimentalGalleryFallback?: boolean
 
   /**
-   * Experimental: when enabled, the "find friends" entry point uses the new
-   * Invite Friends (QR / share-link) UI instead of the legacy contacts-upload
-   * flow.
+   * Experimental: the new "Find and invite friends" (QR / share-link) UI is
+   * the default. When this is enabled, the "find friends" entry point reverts
+   * to the legacy "Find friends from contacts" string + contacts-upload flow.
    */
-  experimentalInviteFriendsUI?: boolean
+  experimentalLegacyContacts?: boolean
 
   /**
    * Policy update overlays. New IDs are required for each new announcement.

@@ -21,8 +21,8 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [galleryFallback, setGalleryFallback] = useStorage(device, [
     'experimentalGalleryFallback',
   ])
-  const [inviteFriendsUI, setInviteFriendsUI] = useStorage(device, [
-    'experimentalInviteFriendsUI',
+  const [legacyContacts, setLegacyContacts] = useStorage(device, [
+    'experimentalLegacyContacts',
   ])
 
   return (
@@ -74,17 +74,17 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
               <Trans>Find friends experience</Trans>
             </SettingsList.ItemText>
             <Toggle.Item
-              name="invite_friends_ui"
+              name="legacy_contacts"
               label={_(
-                msg`Use the new Invite Friends (QR / share link) UI instead of contacts upload`,
+                msg`Use the legacy "Find friends from contacts" instead of "Find and invite friends"`,
               )}
-              value={!!inviteFriendsUI}
-              onChange={value => setInviteFriendsUI(value)}
+              value={!!legacyContacts}
+              onChange={value => setLegacyContacts(value)}
               style={[a.w_full]}>
               <Toggle.LabelText style={[a.flex_1]}>
                 <Trans>
-                  Use the new Invite Friends (QR / share link) UI instead of
-                  contacts upload
+                  Use the legacy “Find friends from contacts” instead of “Find
+                  and invite friends”
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
