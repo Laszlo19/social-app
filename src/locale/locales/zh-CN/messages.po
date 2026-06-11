@@ -864,12 +864,12 @@ msgstr "你可以在 Bluesky 上找到一系列热门动态源，包括 News、B
 msgid "a message"
 msgstr "一条信息"
 
-#: src/components/contacts/screens/PhoneInput.tsx:102
+#: src/components/contacts/screens/PhoneInput.tsx:101
 msgid "A network error occurred. Please check your internet connection"
 msgstr "发生了网络错误，请检查你的网络连接"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:99
-#: src/components/contacts/screens/VerifyNumber.tsx:155
+#: src/components/contacts/screens/VerifyNumber.tsx:109
+#: src/components/contacts/screens/VerifyNumber.tsx:165
 #: src/components/dms/dialogs/NewChatDialog.tsx:56
 #: src/components/dms/dialogs/NewChatDialog.tsx:94
 #: src/components/dms/LeaveConvoPrompt.tsx:38
@@ -880,7 +880,7 @@ msgstr "发生了网络错误，请检查你的网络连接"
 msgid "A network error occurred. Please check your internet connection."
 msgstr "发生了网络错误，请检查你的网络连接。"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:143
+#: src/components/contacts/screens/VerifyNumber.tsx:153
 msgid "A new code has been sent"
 msgstr "已发送新的代码"
 
@@ -911,10 +911,10 @@ msgstr "一张帖文编辑器的截图。在发布按钮旁边有一个新的草
 msgid "A selected recipient is not followed by the sender."
 msgstr "选择的收信人未被发信人关注。"
 
-#: src/Navigation.tsx:465
+#: src/Navigation.tsx:474
 #: src/screens/Settings/AboutSettings.tsx:78
-#: src/screens/Settings/Settings.tsx:255
-#: src/screens/Settings/Settings.tsx:258
+#: src/screens/Settings/Settings.tsx:281
+#: src/screens/Settings/Settings.tsx:284
 msgid "About"
 msgstr "关于"
 
@@ -960,20 +960,20 @@ msgid "Access requested! The group owner will review your request."
 msgstr "已发送申请！请等待群组所有者同意以加入群组。"
 
 #: src/screens/Settings/AccessibilitySettings.tsx:45
-#: src/screens/Settings/Settings.tsx:233
-#: src/screens/Settings/Settings.tsx:236
+#: src/screens/Settings/Settings.tsx:249
+#: src/screens/Settings/Settings.tsx:252
 msgid "Accessibility"
 msgstr "无障碍"
 
-#: src/Navigation.tsx:388
+#: src/Navigation.tsx:389
 msgid "Accessibility Settings"
 msgstr "无障碍设置"
 
-#: src/Navigation.tsx:404
+#: src/Navigation.tsx:413
 #: src/screens/Login/LoginForm.tsx:192
 #: src/screens/Settings/AccountSettings.tsx:56
-#: src/screens/Settings/Settings.tsx:173
-#: src/screens/Settings/Settings.tsx:176
+#: src/screens/Settings/Settings.tsx:179
+#: src/screens/Settings/Settings.tsx:182
 msgid "Account"
 msgstr "账户"
 
@@ -1013,7 +1013,7 @@ msgstr "已隐藏该账户"
 msgid "Account Muted by List"
 msgstr "该账户已被列表隐藏"
 
-#: src/screens/Settings/Settings.tsx:637
+#: src/screens/Settings/Settings.tsx:692
 msgid "Account options"
 msgstr "账户选项"
 
@@ -1021,7 +1021,7 @@ msgstr "账户选项"
 msgid "Account provider"
 msgstr "账户提供商"
 
-#: src/screens/Settings/Settings.tsx:671
+#: src/screens/Settings/Settings.tsx:726
 msgid "Account removed from quick access"
 msgstr "已从快速访问中移除该账户"
 
@@ -1105,8 +1105,8 @@ msgstr "添加替代文本"
 msgid "Add alt text (optional)"
 msgstr "添加替代文本（可选）"
 
-#: src/screens/Settings/Settings.tsx:575
-#: src/screens/Settings/Settings.tsx:578
+#: src/screens/Settings/Settings.tsx:630
+#: src/screens/Settings/Settings.tsx:633
 #: src/view/shell/desktop/LeftNav.tsx:276
 #: src/view/shell/desktop/LeftNav.tsx:279
 msgid "Add another account"
@@ -1541,14 +1541,14 @@ msgid "An error occurred while uploading the video. Please check your internet c
 msgstr "上传视频时发生错误。请检查网络连接并重试。"
 
 #. placeholder {0}: cleanError(err)
-#: src/components/contacts/screens/PhoneInput.tsx:120
-#: src/components/contacts/screens/VerifyNumber.tsx:131
-#: src/components/contacts/screens/VerifyNumber.tsx:184
+#: src/components/contacts/screens/PhoneInput.tsx:119
+#: src/components/contacts/screens/VerifyNumber.tsx:141
+#: src/components/contacts/screens/VerifyNumber.tsx:194
 msgid "An error occurred. {0}"
 msgstr "发生错误。{0}"
 
 #: src/components/contacts/components/HeroImage.tsx:28
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:79
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:82
 msgid "An illustration depicting user avatars flowing from a contact book into the Bluesky app"
 msgstr "一张图片，显示用户头像从通讯录流向 Bluesky 应用程序"
 
@@ -1667,7 +1667,7 @@ msgstr "关注我的人"
 msgid "Anyone who has it will no longer be able to join or request to join. You can always create a new one."
 msgstr "任何人都无法再通过此链接加入对话，但你随时可以重新创建链接。"
 
-#: src/Navigation.tsx:473
+#: src/Navigation.tsx:482
 #: src/screens/Settings/AppIconSettings/index.tsx:65
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:19
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:24
@@ -1705,7 +1705,7 @@ msgstr "应用密码名称至少应包含 4 个字符"
 msgid "App passwords"
 msgstr "应用密码"
 
-#: src/Navigation.tsx:356
+#: src/Navigation.tsx:357
 #: src/screens/Settings/AppPasswords.tsx:51
 msgid "App Passwords"
 msgstr "应用密码"
@@ -1747,10 +1747,10 @@ msgstr "暂停申诉"
 msgid "Appeal this decision"
 msgstr "对此决定提出申诉"
 
-#: src/Navigation.tsx:396
+#: src/Navigation.tsx:397
 #: src/screens/Settings/AppearanceSettings.tsx:73
-#: src/screens/Settings/Settings.tsx:225
-#: src/screens/Settings/Settings.tsx:228
+#: src/screens/Settings/Settings.tsx:241
+#: src/screens/Settings/Settings.tsx:244
 msgid "Appearance"
 msgstr "外观"
 
@@ -1759,8 +1759,8 @@ msgstr "外观"
 msgid "Apply default recommended feeds"
 msgstr "使用默认推荐的动态源"
 
-#: src/screens/Settings/Settings.tsx:506
-#: src/screens/Settings/Settings.tsx:508
+#: src/screens/Settings/Settings.tsx:536
+#: src/screens/Settings/Settings.tsx:538
 msgid "Apply Pull Request"
 msgstr "应用提交变更"
 
@@ -1866,7 +1866,7 @@ msgstr "自动化账户"
 msgid "Automation label"
 msgstr "自动化标签"
 
-#: src/Navigation.tsx:412
+#: src/Navigation.tsx:421
 #: src/screens/Settings/AutomationLabelSettings.tsx:103
 msgid "Automation Label"
 msgstr "自动化标签"
@@ -2075,7 +2075,7 @@ msgstr "已被屏蔽"
 msgid "Blocked accounts"
 msgstr "已屏蔽账户"
 
-#: src/Navigation.tsx:192
+#: src/Navigation.tsx:193
 #: src/view/screens/ModerationBlockedAccounts.tsx:95
 msgid "Blocked Accounts"
 msgstr "已屏蔽账户"
@@ -2118,7 +2118,7 @@ msgctxt "Name of app icon variant"
 msgid "Bluesky Classic™"
 msgstr "Bluesky 经典™"
 
-#: src/components/contacts/screens/GetContacts.tsx:235
+#: src/components/contacts/screens/GetContacts.tsx:237
 msgid "Bluesky helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
 msgstr "Bluesky 通过产生并比对称为“哈希值”的数字指纹，来帮助朋友之间相互找到彼此。"
 
@@ -2138,7 +2138,7 @@ msgstr "与天友们一起，Bluesky 更美好！"
 msgid "Bluesky is more fun with friends"
 msgstr "与朋友一起使用 Bluesky 更有趣"
 
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:108
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:111
 msgid "Bluesky is more fun with friends! Import your contacts to see who’s already here."
 msgstr "与朋友一起使用 Bluesky 更有趣！导入你的通讯录来看看谁正在使用吧。"
 
@@ -2288,7 +2288,7 @@ msgstr "来自 <0>{ownerDisplayName}</0>"
 msgid "By clicking \"Continue\" you acknowledge that you understand and agree to these updates."
 msgstr "按下“继续”即表示你了解并同意这些改动。"
 
-#: src/components/contacts/screens/PhoneInput.tsx:297
+#: src/components/contacts/screens/PhoneInput.tsx:308
 msgid "By continuing, you consent to this use. You may change your mind any time by visiting settings. <0>Learn more</0>"
 msgstr "继续即表示你同意使用此数据信息，你可以随时转到设置更改对应选项。<0>了解更多</0>"
 
@@ -2319,8 +2319,8 @@ msgstr ""
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:213
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:133
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:139
-#: src/components/contacts/screens/GetContacts.tsx:292
-#: src/components/contacts/screens/GetContacts.tsx:297
+#: src/components/contacts/screens/GetContacts.tsx:294
+#: src/components/contacts/screens/GetContacts.tsx:299
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:141
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:146
 #: src/components/dialogs/EmailDialog/screens/Manage2FA/Enable.tsx:122
@@ -2361,7 +2361,7 @@ msgstr ""
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:87
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:248
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:254
-#: src/screens/Settings/Settings.tsx:300
+#: src/screens/Settings/Settings.tsx:326
 #: src/screens/Takendown.tsx:102
 #: src/screens/Takendown.tsx:105
 #: src/view/com/composer/Composer.tsx:1734
@@ -2480,7 +2480,7 @@ msgid "Changes to the starter pack will not be reflected in the list after creat
 msgstr "列表在创建后将是一个独立副本，任何对新手包的更改将不会影响已创建的列表。"
 
 #: src/lib/hooks/useNotificationHandler.ts:133
-#: src/Navigation.tsx:491
+#: src/Navigation.tsx:500
 #: src/view/shell/bottom-bar/BottomBar.tsx:230
 #: src/view/shell/desktop/LeftNav.tsx:698
 #: src/view/shell/Drawer.tsx:525
@@ -2533,7 +2533,7 @@ msgstr ""
 msgid "Chat recipient is not followed by the sender."
 msgstr "对话收信人未被发信人关注。"
 
-#: src/Navigation.tsx:511
+#: src/Navigation.tsx:520
 msgid "Chat request inbox"
 msgstr "对话邀请收件箱"
 
@@ -2543,7 +2543,7 @@ msgid "Chat requests"
 msgstr "对话邀请"
 
 #: src/components/dms/ConvoMenu.tsx:88
-#: src/Navigation.tsx:506
+#: src/Navigation.tsx:515
 #: src/screens/Messages/ChatList.tsx:83
 #: src/screens/Messages/ChatList.tsx:87
 #: src/screens/Messages/ChatList.tsx:569
@@ -2654,11 +2654,11 @@ msgstr "设置你的密码"
 msgid "Choose your username"
 msgstr "设置你的用户名"
 
-#: src/screens/Settings/Settings.tsx:498
+#: src/screens/Settings/Settings.tsx:528
 msgid "Clear all storage data"
 msgstr "清除所有数据"
 
-#: src/screens/Settings/Settings.tsx:500
+#: src/screens/Settings/Settings.tsx:530
 msgid "Clear all storage data (restart after this)"
 msgstr "清除所有数据（并重新启动应用）"
 
@@ -2900,7 +2900,7 @@ msgid "Comics"
 msgstr "漫画"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:46
-#: src/Navigation.tsx:346
+#: src/Navigation.tsx:347
 #: src/view/screens/CommunityGuidelines.tsx:28
 msgid "Community Guidelines"
 msgstr "社群准则"
@@ -3012,12 +3012,12 @@ msgstr "已删除通讯录"
 msgid "Content & Media"
 msgstr "内容与媒体"
 
-#: src/screens/Settings/Settings.tsx:205
-#: src/screens/Settings/Settings.tsx:208
+#: src/screens/Settings/Settings.tsx:211
+#: src/screens/Settings/Settings.tsx:214
 msgid "Content and media"
 msgstr "内容与媒体"
 
-#: src/Navigation.tsx:449
+#: src/Navigation.tsx:458
 msgid "Content and Media"
 msgstr "内容与媒体"
 
@@ -3095,6 +3095,11 @@ msgstr "继续设置群组名称"
 #: src/screens/Signup/BackNextButtons.tsx:61
 msgid "Continue to next step"
 msgstr "继续下一步"
+
+#: src/components/contacts/screens/GetContacts.tsx:304
+#: src/components/contacts/screens/GetContacts.tsx:314
+msgid "Continue without contacts"
+msgstr ""
 
 #: src/screens/Messages/Conversation.tsx:63
 msgid "Conversation"
@@ -3244,7 +3249,7 @@ msgstr "复制 TXT 记录值"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:41
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:108
-#: src/Navigation.tsx:351
+#: src/Navigation.tsx:352
 #: src/view/screens/CopyrightPolicy.tsx:25
 msgid "Copyright Policy"
 msgstr "版权许可"
@@ -3379,7 +3384,7 @@ msgstr "为新手包创建二维码"
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:207
 #: src/components/StarterPack/ProfileStarterPacks.tsx:316
-#: src/Navigation.tsx:542
+#: src/Navigation.tsx:551
 msgid "Create a starter pack"
 msgstr "创建新手包"
 
@@ -3551,7 +3556,7 @@ msgstr ""
 msgid "Deactivate account"
 msgstr "停用账户"
 
-#: src/screens/Settings/Settings.tsx:463
+#: src/screens/Settings/Settings.tsx:493
 msgid "Debug Moderation"
 msgstr "调试内容审核"
 
@@ -3608,7 +3613,7 @@ msgstr "要删除应用密码吗？"
 msgid "Delete chat"
 msgstr "删除对话"
 
-#: src/screens/Settings/Settings.tsx:470
+#: src/screens/Settings/Settings.tsx:500
 msgid "Delete chat declaration record"
 msgstr "删除对话声明记录"
 
@@ -3678,7 +3683,7 @@ msgstr "已删除"
 msgid "Deleted Account"
 msgstr "已删除的账户"
 
-#: src/components/contacts/screens/PhoneInput.tsx:286
+#: src/components/contacts/screens/PhoneInput.tsx:297
 msgid "Deleted by Plivo after verification"
 msgstr "验证后由 Plivo 删除"
 
@@ -3724,8 +3729,8 @@ msgctxt "toast"
 msgid "Developer mode enabled"
 msgstr "已启用开发者模式"
 
-#: src/screens/Settings/Settings.tsx:282
-#: src/screens/Settings/Settings.tsx:285
+#: src/screens/Settings/Settings.tsx:308
+#: src/screens/Settings/Settings.tsx:311
 msgid "Developer options"
 msgstr "开发者选项"
 
@@ -3848,7 +3853,7 @@ msgstr "探索新的动态源"
 msgid "Dismiss"
 msgstr "跳过"
 
-#: src/components/contacts/FindContactsBannerNUX.tsx:78
+#: src/components/contacts/FindContactsBannerNUX.tsx:83
 msgid "Dismiss banner"
 msgstr "忽略横幅提示"
 
@@ -4150,7 +4155,7 @@ msgstr "编辑直播状态"
 msgid "Edit moderation list"
 msgstr "编辑内容审核列表"
 
-#: src/Navigation.tsx:361
+#: src/Navigation.tsx:362
 #: src/view/screens/Feeds.tsx:511
 msgid "Edit My Feeds"
 msgstr "编辑我的动态源"
@@ -4197,7 +4202,7 @@ msgstr "编辑用户列表"
 msgid "Edit who can reply"
 msgstr "编辑哪些人可以回复"
 
-#: src/Navigation.tsx:547
+#: src/Navigation.tsx:556
 msgid "Edit your starter pack"
 msgstr "编辑你的新手包"
 
@@ -4337,7 +4342,7 @@ msgstr "已浏览到末尾"
 msgid "Ensure you have selected a language for each caption file."
 msgstr "请确认你已为每个字幕文件都选择了一种语言。"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:231
+#: src/components/contacts/screens/VerifyNumber.tsx:241
 msgid "Enter 6-digit code that was sent to your phone number"
 msgstr "输入发送到你电话号码的 6 位确认代码"
 
@@ -4360,7 +4365,7 @@ msgstr "输入验证码"
 msgid "Enter fullscreen"
 msgstr "进入全屏模式"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:226
+#: src/components/contacts/screens/VerifyNumber.tsx:236
 msgid "Enter the 6-digit code sent to {prettyNumber}"
 msgstr "输入发送到 {prettyNumber} 的 6 位确认代码"
 
@@ -4505,6 +4510,13 @@ msgstr "URL 应解析为记录"
 msgid "Experimental"
 msgstr "实验性功能"
 
+#: src/Navigation.tsx:405
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:34
+#: src/screens/Settings/Settings.tsx:264
+#: src/screens/Settings/Settings.tsx:267
+msgid "Experimental features"
+msgstr ""
+
 #: src/components/dialogs/MutedWords.tsx:520
 msgid "Expired"
 msgstr "已到期"
@@ -4536,7 +4548,7 @@ msgstr "血腥、露骨或其他可能引起不适的媒体内容。"
 msgid "Explicit sexual images."
 msgstr "露骨的色情图片。"
 
-#: src/Navigation.tsx:751
+#: src/Navigation.tsx:760
 #: src/screens/Search/Shell.tsx:362
 #: src/view/shell/desktop/LeftNav.tsx:677
 #: src/view/shell/Drawer.tsx:473
@@ -4578,7 +4590,7 @@ msgstr "外部媒体"
 msgid "External media may allow websites to collect information about you and your device. No information is sent or requested until you press the \"play\" button."
 msgstr "外部媒体可能会收集你或设备储存的个人信息。在你按下“播放”按钮之前，平台不会发送任何请求给外部媒体。"
 
-#: src/Navigation.tsx:380
+#: src/Navigation.tsx:381
 #: src/screens/Settings/ExternalMediaPreferences.tsx:35
 msgid "External Media Preferences"
 msgstr "外部媒体偏好设置"
@@ -4906,7 +4918,7 @@ msgstr "虚假账户或机器人"
 msgid "False information about elections"
 msgstr "散布选举相关虚假信息"
 
-#: src/Navigation.tsx:291
+#: src/Navigation.tsx:292
 msgid "Feed"
 msgstr "动态源"
 
@@ -4951,7 +4963,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "已提交反馈给动态源维护者"
 
-#: src/Navigation.tsx:527
+#: src/Navigation.tsx:536
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
 #: src/screens/Search/SearchResults.tsx:80
@@ -5035,18 +5047,27 @@ msgstr "去关注更多账户"
 
 #: src/features/inviteFriends/components/FollowersPromoBanner.tsx:49
 #: src/screens/Settings/FindContactsSettings.tsx:81
-#: src/screens/Settings/Settings.tsx:216
-#: src/screens/Settings/Settings.tsx:219
+#: src/screens/Settings/Settings.tsx:231
+#: src/screens/Settings/Settings.tsx:235
 msgid "Find and invite friends"
 msgstr ""
 
-#: src/Navigation.tsx:436
-#: src/Navigation.tsx:569
+#: src/Navigation.tsx:445
+#: src/Navigation.tsx:578
 msgid "Find Contacts"
 msgstr "寻找联系人"
 
-#: src/components/contacts/screens/GetContacts.tsx:273
-#: src/components/contacts/screens/GetContacts.tsx:287
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:74
+msgid "Find friends experience"
+msgstr ""
+
+#: src/screens/Settings/Settings.tsx:223
+#: src/screens/Settings/Settings.tsx:226
+msgid "Find friends from contacts"
+msgstr ""
+
+#: src/components/contacts/screens/GetContacts.tsx:275
+#: src/components/contacts/screens/GetContacts.tsx:289
 msgid "Find my friends"
 msgstr "寻找我的朋友"
 
@@ -5066,7 +5087,7 @@ msgstr ""
 msgid "Find posts, users, and feeds on Bluesky"
 msgstr "在 Bluesky 寻找感兴趣的帖文、用户和动态源"
 
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:98
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:101
 msgid "Find your friends"
 msgstr "寻找你的朋友"
 
@@ -5079,7 +5100,7 @@ msgstr "通过验证你的电话号码并与你的通讯录匹配，即可找到
 msgid "Find your people"
 msgstr "找到志同道合的人"
 
-#: src/components/contacts/screens/GetContacts.tsx:281
+#: src/components/contacts/screens/GetContacts.tsx:283
 msgid "Finding friends..."
 msgstr "正在寻找朋友……"
 
@@ -5216,7 +5237,7 @@ msgid "Followers can join"
 msgstr "关注者可以加入"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:245
+#: src/Navigation.tsx:246
 msgid "Followers of @{0} that you know"
 msgstr "你认识的这些人也关注了 @{0}"
 
@@ -5266,7 +5287,7 @@ msgstr "已关注 {handle}"
 msgid "Following feed preferences"
 msgstr "“Following”动态源偏好设置"
 
-#: src/Navigation.tsx:367
+#: src/Navigation.tsx:368
 #: src/screens/Settings/FollowingFeedPreferences.tsx:57
 msgid "Following Feed Preferences"
 msgstr "“Following”动态源偏好设置"
@@ -5354,6 +5375,10 @@ msgstr "来自 @{sanitizedAuthor}"
 msgctxt "from-feed"
 msgid "From <0/>"
 msgstr "来自 <0/>"
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:51
+msgid "Gallery fallback"
+msgstr ""
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:337
 msgid "Generate a starter pack"
@@ -5647,7 +5672,7 @@ msgctxt "toast"
 msgid "Group chat name updated"
 msgstr "已更新群组对话名称"
 
-#: src/Navigation.tsx:496
+#: src/Navigation.tsx:505
 #: src/screens/Messages/ConversationSettings/index.tsx:113
 msgid "Group chat settings"
 msgstr "群组对话设置"
@@ -5744,7 +5769,7 @@ msgstr "有害或高风险活动"
 msgid "Harming or endangering minors"
 msgstr "伤害或危及未成年人安全"
 
-#: src/Navigation.tsx:480
+#: src/Navigation.tsx:489
 msgid "Hashtag"
 msgstr "标签"
 
@@ -5769,12 +5794,12 @@ msgstr "位置信息判断有误？<0>点击此处来通过 GPS 更新你所在�
 msgid "Having trouble?"
 msgstr "遇到问题了吗？"
 
-#: src/components/contacts/screens/PhoneInput.tsx:290
+#: src/components/contacts/screens/PhoneInput.tsx:301
 msgid "Held by Bluesky for 7 days to prevent abuse, then deleted"
 msgstr "由 Bluesky 保留 7 天以防止滥用，并在之后删除"
 
-#: src/screens/Settings/Settings.tsx:247
-#: src/screens/Settings/Settings.tsx:251
+#: src/screens/Settings/Settings.tsx:273
+#: src/screens/Settings/Settings.tsx:277
 #: src/view/shell/desktop/RightNav.tsx:130
 #: src/view/shell/desktop/RightNav.tsx:133
 #: src/view/shell/Drawer.tsx:440
@@ -5958,8 +5983,8 @@ msgstr "抱歉，我们无法加载该内容审核提供服务方。"
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "请稍等！我们正在逐步开放上传视频的权限。你目前仍在等待队伍中，请稍后再回来查看！"
 
-#: src/Navigation.tsx:746
-#: src/Navigation.tsx:767
+#: src/Navigation.tsx:755
+#: src/Navigation.tsx:776
 #: src/view/shell/bottom-bar/BottomBar.tsx:185
 #: src/view/shell/desktop/LeftNav.tsx:667
 #: src/view/shell/Drawer.tsx:499
@@ -5988,7 +6013,7 @@ msgstr "功能说明："
 msgid "How should we open this link?"
 msgstr "我们应该如何开启这条链接？"
 
-#: src/components/contacts/screens/PhoneInput.tsx:279
+#: src/components/contacts/screens/PhoneInput.tsx:290
 msgid "How we use your number:"
 msgstr "我们会如何利用你的电话号码："
 
@@ -5996,7 +6021,7 @@ msgstr "我们会如何利用你的电话号码："
 msgid "Human trafficking"
 msgstr "人口贩卖"
 
-#: src/components/contacts/screens/GetContacts.tsx:267
+#: src/components/contacts/screens/GetContacts.tsx:269
 msgid "I consent to Bluesky using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
 msgstr "我同意 Bluesky 使用我的通讯录数据寻找朋友，并保留哈希值，直到我选择退出。"
 
@@ -6159,8 +6184,8 @@ msgstr "冒充身份"
 msgid "Import contacts"
 msgstr "导入联系人"
 
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:116
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:127
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:119
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:130
 msgid "Import Contacts"
 msgstr "导入通讯录"
 
@@ -6168,8 +6193,8 @@ msgstr "导入通讯录"
 msgid "Import contacts or invite your friends"
 msgstr ""
 
-#: src/components/contacts/FindContactsBannerNUX.tsx:33
-#: src/components/contacts/FindContactsBannerNUX.tsx:72
+#: src/components/contacts/FindContactsBannerNUX.tsx:38
+#: src/components/contacts/FindContactsBannerNUX.tsx:77
 msgid "Import contacts to find your friends"
 msgstr "导入通讯录来寻找你的朋友"
 
@@ -6251,7 +6276,7 @@ msgstr "全新推出动态提醒"
 msgid "Introducing drafts"
 msgstr "隆重介绍草稿功能"
 
-#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:56
+#: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:59
 msgid "Introducing finding friends via contacts"
 msgstr "隆重介绍通过通讯录寻找朋友"
 
@@ -6282,7 +6307,7 @@ msgid "Invalid interaction settings."
 msgstr "无效的互动选项。"
 
 #: src/components/contacts/phone-number.ts:33
-#: src/components/contacts/screens/PhoneInput.tsx:142
+#: src/components/contacts/screens/PhoneInput.tsx:154
 msgid "Invalid phone number"
 msgstr "无效的电话号码"
 
@@ -6499,13 +6524,13 @@ msgstr "你账户上的标记"
 msgid "Labels on your content"
 msgstr "你内容上的标记"
 
-#: src/Navigation.tsx:218
+#: src/Navigation.tsx:219
 msgid "Language Settings"
 msgstr "语言设置"
 
 #: src/screens/Settings/LanguageSettings.tsx:98
-#: src/screens/Settings/Settings.tsx:239
-#: src/screens/Settings/Settings.tsx:242
+#: src/screens/Settings/Settings.tsx:255
+#: src/screens/Settings/Settings.tsx:258
 msgid "Languages"
 msgstr "语言"
 
@@ -6555,7 +6580,7 @@ msgstr "深入了解有关 Bluesky 的信息"
 msgid "Learn more about how inviting friends works"
 msgstr "了解更多邀请朋友功能"
 
-#: src/components/contacts/screens/PhoneInput.tsx:303
+#: src/components/contacts/screens/PhoneInput.tsx:314
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:53
 #: src/screens/Settings/FindContactsSettings.tsx:140
 msgctxt "english-only-resource"
@@ -6721,8 +6746,8 @@ msgstr "喜欢此动态源"
 msgid "Like this labeler"
 msgstr "喜欢此标记者"
 
-#: src/Navigation.tsx:296
-#: src/Navigation.tsx:301
+#: src/Navigation.tsx:297
+#: src/Navigation.tsx:302
 msgid "Liked by"
 msgstr "喜欢的用户"
 
@@ -6772,7 +6797,7 @@ msgstr "线性视图"
 msgid "Link copied to clipboard"
 msgstr "已复制链接至剪贴板"
 
-#: src/Navigation.tsx:251
+#: src/Navigation.tsx:252
 msgid "List"
 msgstr "列表"
 
@@ -6858,7 +6883,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "已取消隐藏该列表"
 
-#: src/Navigation.tsx:172
+#: src/Navigation.tsx:173
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
 #: src/view/screens/Profile.tsx:241
@@ -6974,7 +6999,7 @@ msgstr "锁定此群组对话"
 msgid "Locked"
 msgstr "已锁定"
 
-#: src/Navigation.tsx:326
+#: src/Navigation.tsx:327
 msgid "Log"
 msgstr "日志"
 
@@ -7174,7 +7199,7 @@ msgstr "信息过长（{graphemeCount}/{MAX_DM_GRAPHEME_LENGTH}）"
 msgid "Message options"
 msgstr "信息选项"
 
-#: src/Navigation.tsx:761
+#: src/Navigation.tsx:770
 msgid "Messages"
 msgstr "信息"
 
@@ -7203,13 +7228,13 @@ msgstr "误导"
 msgid "Missing media"
 msgstr "缺失媒体文件"
 
-#: src/Navigation.tsx:177
+#: src/Navigation.tsx:178
 #: src/screens/Moderation/index.tsx:100
 msgid "Moderation"
 msgstr "内容审核"
 
-#: src/screens/Settings/Settings.tsx:189
-#: src/screens/Settings/Settings.tsx:192
+#: src/screens/Settings/Settings.tsx:195
+#: src/screens/Settings/Settings.tsx:198
 msgid "Moderation and content filters"
 msgstr "内容审核过滤器"
 
@@ -7247,7 +7272,7 @@ msgstr "已更新内容审核列表"
 msgid "Moderation lists"
 msgstr "内容审核列表"
 
-#: src/Navigation.tsx:182
+#: src/Navigation.tsx:183
 #: src/view/screens/ModerationModlists.tsx:60
 msgid "Moderation Lists"
 msgstr "内容审核列表"
@@ -7256,7 +7281,7 @@ msgstr "内容审核列表"
 msgid "moderation settings"
 msgstr "内容审核设置"
 
-#: src/Navigation.tsx:311
+#: src/Navigation.tsx:312
 msgid "Moderation states"
 msgstr "内容审核状态"
 
@@ -7397,7 +7422,7 @@ msgstr "已隐藏"
 msgid "Muted accounts"
 msgstr "已隐藏账户"
 
-#: src/Navigation.tsx:187
+#: src/Navigation.tsx:188
 #: src/view/screens/ModerationMutedAccounts.tsx:107
 msgid "Muted Accounts"
 msgstr "已隐藏账户"
@@ -7886,7 +7911,7 @@ msgstr "此功能无法在这个平台上使用。"
 msgid "Not followed by anyone you’re following"
 msgstr "没有被任何你认识的人关注"
 
-#: src/Navigation.tsx:167
+#: src/Navigation.tsx:168
 #: src/view/screens/Profile.tsx:132
 msgid "Not Found"
 msgstr "找不到"
@@ -7913,8 +7938,8 @@ msgid "Nothing saved yet"
 msgstr "目前没有收藏内容"
 
 #: src/components/dialogs/NotificationSettingsDialog.tsx:64
-#: src/Navigation.tsx:443
-#: src/Navigation.tsx:522
+#: src/Navigation.tsx:452
+#: src/Navigation.tsx:531
 #: src/view/screens/Notifications.tsx:134
 msgid "Notification settings"
 msgstr "通知设置"
@@ -7924,12 +7949,12 @@ msgstr "通知设置"
 msgid "Notification sounds"
 msgstr "通知提示音"
 
-#: src/Navigation.tsx:517
-#: src/Navigation.tsx:756
+#: src/Navigation.tsx:526
+#: src/Navigation.tsx:765
 #: src/screens/Notifications/ActivityList.tsx:31
 #: src/screens/Settings/NotificationSettings/index.tsx:104
-#: src/screens/Settings/Settings.tsx:197
-#: src/screens/Settings/Settings.tsx:200
+#: src/screens/Settings/Settings.tsx:203
+#: src/screens/Settings/Settings.tsx:206
 #: src/view/screens/Notifications.tsx:128
 #: src/view/shell/bottom-bar/BottomBar.tsx:261
 #: src/view/shell/desktop/LeftNav.tsx:687
@@ -7964,7 +7989,7 @@ msgid "Oh no!"
 msgstr "糟糕！"
 
 #. Confirm button text.
-#: src/components/contacts/screens/GetContacts.tsx:317
+#: src/components/contacts/screens/GetContacts.tsx:335
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:226
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:49
 #: src/screens/Settings/AppIconSettings/index.tsx:46
@@ -7996,7 +8021,7 @@ msgstr "开"
 msgid "on<0><1/><2><3/></2></0>"
 msgstr "于<0><1/><2><3/></2></0>"
 
-#: src/screens/Settings/Settings.tsx:396
+#: src/screens/Settings/Settings.tsx:426
 msgid "Onboarding reset"
 msgstr "重新开始入门引导"
 
@@ -8174,7 +8199,7 @@ msgstr "开启指向 {niceUrl} 的链接"
 msgid "Open message options"
 msgstr "开启信息选项"
 
-#: src/screens/Settings/Settings.tsx:461
+#: src/screens/Settings/Settings.tsx:491
 msgid "Open moderation debug page"
 msgstr "开启内容审核调试页面"
 
@@ -8212,12 +8237,12 @@ msgstr "开启分享菜单"
 msgid "Open starter pack menu"
 msgstr "开启新手包菜单"
 
-#: src/screens/Settings/Settings.tsx:454
-#: src/screens/Settings/Settings.tsx:468
+#: src/screens/Settings/Settings.tsx:484
+#: src/screens/Settings/Settings.tsx:498
 msgid "Open storybook page"
 msgstr "开启 Storybook 页面"
 
-#: src/screens/Settings/Settings.tsx:447
+#: src/screens/Settings/Settings.tsx:477
 msgid "Open system log"
 msgstr "开启系统日志"
 
@@ -8291,7 +8316,7 @@ msgstr "开启登录到你现有的 Bluesky 账户流程"
 msgid "Opens full image"
 msgstr "开启完整图片"
 
-#: src/screens/Settings/Settings.tsx:248
+#: src/screens/Settings/Settings.tsx:274
 msgid "Opens helpdesk in browser"
 msgstr "在浏览器中打开说明中心"
 
@@ -8499,12 +8524,12 @@ msgid "People {ownerName} follows can request to join"
 msgstr "{ownerName} 的关注者可以申请加入"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:238
+#: src/Navigation.tsx:239
 msgid "People followed by @{0}"
 msgstr "被 @{0} 关注的用户"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:231
+#: src/Navigation.tsx:232
 msgid "People following @{0}"
 msgstr "关注 @{0} 的用户"
 
@@ -8545,12 +8570,12 @@ msgstr "自定义信息"
 msgid "Pets"
 msgstr "宠物"
 
-#: src/components/contacts/screens/PhoneInput.tsx:192
 #: src/components/contacts/screens/PhoneInput.tsx:204
+#: src/components/contacts/screens/PhoneInput.tsx:216
 msgid "Phone number"
 msgstr "电话号码"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:304
+#: src/components/contacts/screens/VerifyNumber.tsx:314
 msgid "Phone number verified"
 msgstr "已验证电话号码"
 
@@ -8847,10 +8872,10 @@ msgid "Post blocked"
 msgstr "帖文已被屏蔽"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:264
-#: src/Navigation.tsx:271
-#: src/Navigation.tsx:278
-#: src/Navigation.tsx:285
+#: src/Navigation.tsx:265
+#: src/Navigation.tsx:272
+#: src/Navigation.tsx:279
+#: src/Navigation.tsx:286
 msgid "Post by @{0}"
 msgstr "@{0} 的帖文"
 
@@ -8884,7 +8909,7 @@ msgstr "你已隐藏这则帖文"
 msgid "Post interaction settings"
 msgstr "帖文互动选项"
 
-#: src/Navigation.tsx:198
+#: src/Navigation.tsx:199
 #: src/screens/ModerationInteractionSettings/index.tsx:35
 msgid "Post Interaction Settings"
 msgstr "帖文互动选项"
@@ -8984,13 +9009,13 @@ msgstr "首选语言"
 msgid "Privacy"
 msgstr "隐私"
 
-#: src/screens/Settings/Settings.tsx:181
-#: src/screens/Settings/Settings.tsx:184
+#: src/screens/Settings/Settings.tsx:187
+#: src/screens/Settings/Settings.tsx:190
 msgid "Privacy and security"
 msgstr "隐私与安全"
 
-#: src/Navigation.tsx:420
-#: src/Navigation.tsx:428
+#: src/Navigation.tsx:429
+#: src/Navigation.tsx:437
 #: src/screens/Settings/ActivityPrivacySettings.tsx:41
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:45
 msgid "Privacy and Security"
@@ -9002,7 +9027,7 @@ msgstr "隐私与安全设置"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:36
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:103
-#: src/Navigation.tsx:336
+#: src/Navigation.tsx:337
 #: src/screens/Settings/AboutSettings.tsx:95
 #: src/screens/Settings/AboutSettings.tsx:98
 #: src/view/screens/PrivacyPolicy.tsx:25
@@ -9151,7 +9176,7 @@ msgstr "引用这则帖文"
 msgid "Rate limit exceeded – you've tried to change your handle too many times in a short period. Please wait a minute before trying again."
 msgstr "超过速率限制——你在短时间内尝试修改账户代码的次数过多，请稍后再试。"
 
-#: src/components/contacts/screens/PhoneInput.tsx:109
+#: src/components/contacts/screens/PhoneInput.tsx:108
 msgid "Rate limit exceeded. Please try again later."
 msgstr "超出频率限制，请稍后再试。"
 
@@ -9307,7 +9332,7 @@ msgstr "重新加载对话"
 #: src/screens/Messages/ConversationSettings/Member.tsx:162
 #: src/screens/Messages/ConversationSettings/prompts.tsx:170
 #: src/screens/Moderation/index.tsx:477
-#: src/screens/Settings/Settings.tsx:673
+#: src/screens/Settings/Settings.tsx:728
 #: src/view/com/modals/UserAddRemoveLists.tsx:236
 #: src/view/com/posts/PostFeedErrorMessage.tsx:221
 msgid "Remove"
@@ -9334,8 +9359,8 @@ msgstr ""
 msgid "Remove {historyItem}"
 msgstr "删除 {historyItem}"
 
-#: src/screens/Settings/Settings.tsx:654
-#: src/screens/Settings/Settings.tsx:657
+#: src/screens/Settings/Settings.tsx:709
+#: src/screens/Settings/Settings.tsx:712
 msgid "Remove account"
 msgstr "移除账户"
 
@@ -9390,7 +9415,7 @@ msgstr "从对话中移除"
 msgid "Remove from my feeds"
 msgstr "从我的动态源中删除"
 
-#: src/screens/Settings/Settings.tsx:667
+#: src/screens/Settings/Settings.tsx:722
 msgid "Remove from quick access?"
 msgstr "要从快速访问中移除吗？"
 
@@ -9768,7 +9793,7 @@ msgstr "已发送申请"
 msgid "Requests"
 msgstr "邀请"
 
-#: src/Navigation.tsx:501
+#: src/Navigation.tsx:510
 #: src/screens/Messages/JoinRequests.tsx:59
 #: src/screens/Messages/JoinRequests.tsx:425
 msgid "Requests to join"
@@ -9805,13 +9830,13 @@ msgstr ""
 msgid "Resend"
 msgstr "重新发送"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:365
-#: src/components/contacts/screens/VerifyNumber.tsx:382
+#: src/components/contacts/screens/VerifyNumber.tsx:375
+#: src/components/contacts/screens/VerifyNumber.tsx:392
 msgid "Resend code"
 msgstr "重新发送代码"
 
 #. placeholder {0}: String( clamp(Math.round(timeUntilCanResend / 1000), 0, 30), ).padStart(2, '0')
-#: src/components/contacts/screens/VerifyNumber.tsx:372
+#: src/components/contacts/screens/VerifyNumber.tsx:382
 msgid "Resend code in <0>00:{0}</0>"
 msgstr "<0>00:{0}</0> 后重新发送代码"
 
@@ -9828,8 +9853,8 @@ msgstr "重新发送电子邮件"
 msgid "Resend Verification Email"
 msgstr "重新发送验证码电子邮件"
 
-#: src/screens/Settings/Settings.tsx:490
-#: src/screens/Settings/Settings.tsx:492
+#: src/screens/Settings/Settings.tsx:520
+#: src/screens/Settings/Settings.tsx:522
 msgid "Reset activity subscription nudge"
 msgstr "重置动态提醒功能提示"
 
@@ -9837,8 +9862,8 @@ msgstr "重置动态提醒功能提示"
 msgid "Reset code"
 msgstr "重置码"
 
-#: src/screens/Settings/Settings.tsx:475
-#: src/screens/Settings/Settings.tsx:477
+#: src/screens/Settings/Settings.tsx:505
+#: src/screens/Settings/Settings.tsx:507
 msgid "Reset onboarding state"
 msgstr "重置入门引导状态"
 
@@ -9862,8 +9887,8 @@ msgstr "重试上次出错的操作"
 
 #: src/components/ageAssurance/AgeAssuranceErrors.tsx:28
 #: src/components/ageAssurance/AgeAssuranceErrors.tsx:31
-#: src/components/contacts/screens/VerifyNumber.tsx:350
-#: src/components/contacts/screens/VerifyNumber.tsx:355
+#: src/components/contacts/screens/VerifyNumber.tsx:360
+#: src/components/contacts/screens/VerifyNumber.tsx:365
 #: src/components/Error.tsx:60
 #: src/components/Lists.tsx:115
 #: src/components/moderation/ReportDialog/index.tsx:297
@@ -10011,7 +10036,7 @@ msgid "Saved Feeds"
 msgstr "已保存动态源"
 
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:145
-#: src/Navigation.tsx:561
+#: src/Navigation.tsx:570
 #: src/screens/Bookmarks/index.tsx:59
 msgid "Saved Posts"
 msgstr "帖文收藏"
@@ -10042,7 +10067,7 @@ msgstr ""
 
 #: src/features/inviteFriends/InviteScannerScreen.tsx:82
 #: src/features/inviteFriends/InviteScannerScreen.web.tsx:23
-#: src/Navigation.tsx:316
+#: src/Navigation.tsx:317
 msgid "Scan QR code"
 msgstr ""
 
@@ -10073,7 +10098,7 @@ msgstr "搜索"
 
 #. placeholder {0}: profile.handle
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:257
+#: src/Navigation.tsx:258
 #: src/screens/Profile/ProfileSearch.tsx:37
 msgid "Search @{0}'s posts"
 msgstr "搜索 @{0} 的帖文"
@@ -10402,8 +10427,8 @@ msgstr "不支持选择多种媒体类型。"
 msgid "Self-harm or dangerous behaviors"
 msgstr "自我伤害或其他危险行为"
 
-#: src/components/contacts/screens/PhoneInput.tsx:255
-#: src/components/contacts/screens/PhoneInput.tsx:260
+#: src/components/contacts/screens/PhoneInput.tsx:266
+#: src/components/contacts/screens/PhoneInput.tsx:271
 msgid "Send code"
 msgstr "发送代码"
 
@@ -10464,7 +10489,7 @@ msgstr "通过私人信息发送"
 msgid "Sent at {0}"
 msgstr "发送于 {0}"
 
-#: src/components/contacts/screens/PhoneInput.tsx:283
+#: src/components/contacts/screens/PhoneInput.tsx:294
 msgid "Sent to our phone number verification provider Plivo"
 msgstr "发送到我们的电话号码验证提供商 Plivo"
 
@@ -10501,8 +10526,8 @@ msgstr "请在下方设置你的出生日期，我们很快就会让你继续四
 msgid "Sets email for password reset"
 msgstr "设置用于重置密码的电子邮箱"
 
-#: src/Navigation.tsx:213
-#: src/screens/Settings/Settings.tsx:98
+#: src/Navigation.tsx:214
+#: src/screens/Settings/Settings.tsx:104
 #: src/view/shell/desktop/LeftNav.tsx:755
 #: src/view/shell/Drawer.tsx:668
 msgid "Settings"
@@ -10646,11 +10671,11 @@ msgstr "分享此新手包，以帮助其他人更快融入你在 Bluesky 上的
 msgid "Share via..."
 msgstr "分享到……"
 
-#: src/components/contacts/screens/GetContacts.tsx:232
+#: src/components/contacts/screens/GetContacts.tsx:234
 msgid "Share your contacts to find friends"
 msgstr "分享你的联系人来寻找朋友"
 
-#: src/Navigation.tsx:321
+#: src/Navigation.tsx:322
 msgid "Shared Preferences Tester"
 msgstr "共享偏好测试器"
 
@@ -10760,6 +10785,14 @@ msgstr "显示转发"
 msgid "Show samples of your saved feeds in your Following feed"
 msgstr "在你的“Following”动态源中显示你已保存的动态源中的精选帖文"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:62
+msgid "Show the fallback for galleries (5+ photos) instead of the carousel"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:56
+msgid "Show the update-your-app fallback for galleries with 5+ photos"
+msgstr ""
+
 #: src/lib/moderation/useLabelBehaviorDescription.ts:61
 msgid "Show warning"
 msgstr "显示警告"
@@ -10777,7 +10810,7 @@ msgstr "显示直播状态"
 msgid "Shows information about when this post was created"
 msgstr "显示这则帖文的创建时间"
 
-#: src/screens/Settings/Settings.tsx:123
+#: src/screens/Settings/Settings.tsx:129
 msgid "Shows other accounts you can switch to"
 msgstr "显示可供你切换的其他账户"
 
@@ -10851,9 +10884,9 @@ msgstr "登录以申请加入此群组对话。"
 msgid "Sign in to view post"
 msgstr "登录以查看帖文"
 
-#: src/screens/Settings/Settings.tsx:265
-#: src/screens/Settings/Settings.tsx:267
-#: src/screens/Settings/Settings.tsx:299
+#: src/screens/Settings/Settings.tsx:291
+#: src/screens/Settings/Settings.tsx:293
+#: src/screens/Settings/Settings.tsx:325
 #: src/screens/SignupQueued.tsx:94
 #: src/screens/SignupQueued.tsx:97
 #: src/screens/Takendown.tsx:88
@@ -10867,7 +10900,7 @@ msgstr "登出"
 msgid "Sign Out"
 msgstr "登出"
 
-#: src/screens/Settings/Settings.tsx:296
+#: src/screens/Settings/Settings.tsx:322
 #: src/view/shell/desktop/LeftNav.tsx:224
 msgid "Sign out?"
 msgstr "确定要登出吗？"
@@ -10883,8 +10916,8 @@ msgstr "需要登录"
 msgid "Signed in as @{0}"
 msgstr "以 @{0} 的身份登录"
 
-#: src/components/contacts/screens/PhoneInput.tsx:163
-#: src/components/contacts/screens/VerifyNumber.tsx:205
+#: src/components/contacts/screens/PhoneInput.tsx:175
+#: src/components/contacts/screens/VerifyNumber.tsx:215
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:86
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:90
 #: src/screens/Onboarding/StepFinished/index.tsx:295
@@ -10895,8 +10928,8 @@ msgstr "以 @{0} 的身份登录"
 msgid "Skip"
 msgstr "跳过"
 
-#: src/components/contacts/screens/PhoneInput.tsx:160
-#: src/components/contacts/screens/VerifyNumber.tsx:202
+#: src/components/contacts/screens/PhoneInput.tsx:172
+#: src/components/contacts/screens/VerifyNumber.tsx:212
 msgid "Skip contact sharing and continue to the app"
 msgstr "跳过分享通讯录并继续使用应用程序"
 
@@ -11110,8 +11143,8 @@ msgstr "开始对话"
 msgid "Start chat with {displayName}"
 msgstr "与 {displayName} 开始对话"
 
-#: src/Navigation.tsx:532
-#: src/Navigation.tsx:537
+#: src/Navigation.tsx:541
+#: src/Navigation.tsx:546
 #: src/screens/StarterPack/Wizard/index.tsx:197
 msgid "Starter Pack"
 msgstr "新手包"
@@ -11165,16 +11198,16 @@ msgstr "状态页"
 msgid "Step {0} of {1}"
 msgstr "第 {0} 步（共 {1} 步）"
 
-#: src/screens/Settings/Settings.tsx:401
+#: src/screens/Settings/Settings.tsx:431
 msgid "Storage cleared, you need to restart the app now."
 msgstr "已清除数据，请立即重新启动应用。"
 
-#: src/components/contacts/screens/PhoneInput.tsx:294
+#: src/components/contacts/screens/PhoneInput.tsx:305
 msgid "Stored as part of a secure code for matching with others"
 msgstr "存储为安全代码的一部分，以匹配其他人"
 
-#: src/Navigation.tsx:306
-#: src/screens/Settings/Settings.tsx:456
+#: src/Navigation.tsx:307
+#: src/screens/Settings/Settings.tsx:486
 msgid "Storybook"
 msgstr "Storybook"
 
@@ -11293,13 +11326,13 @@ msgctxt "Name of app icon variant"
 msgid "Sunset"
 msgstr "日落"
 
-#: src/Navigation.tsx:331
+#: src/Navigation.tsx:332
 #: src/view/screens/Support.tsx:25
 #: src/view/screens/Support.tsx:28
 msgid "Support"
 msgstr "支持"
 
-#: src/components/contacts/screens/PhoneInput.tsx:236
+#: src/components/contacts/screens/PhoneInput.tsx:247
 msgid "Support for this feature in your country has not been enabled yet! Please check back later."
 msgstr "你所在的国家尚不支持此功能！请过几天再回来看看。"
 
@@ -11313,9 +11346,9 @@ msgstr "已冻结的用户无法参与聊天。"
 
 #: src/components/dialogs/SwitchAccount.tsx:47
 #: src/components/dialogs/SwitchAccount.tsx:50
-#: src/screens/Settings/Settings.tsx:122
-#: src/screens/Settings/Settings.tsx:134
-#: src/screens/Settings/Settings.tsx:615
+#: src/screens/Settings/Settings.tsx:128
+#: src/screens/Settings/Settings.tsx:140
+#: src/screens/Settings/Settings.tsx:670
 #: src/view/shell/desktop/LeftNav.tsx:262
 msgid "Switch account"
 msgstr "切换账户"
@@ -11339,7 +11372,7 @@ msgstr "系统"
 #: src/screens/Log.tsx:49
 #: src/screens/Settings/AboutSettings.tsx:110
 #: src/screens/Settings/AboutSettings.tsx:113
-#: src/screens/Settings/Settings.tsx:449
+#: src/screens/Settings/Settings.tsx:479
 msgid "System log"
 msgstr "系统日志"
 
@@ -11469,7 +11502,7 @@ msgstr "条款"
 #: src/components/dialogs/BirthDateSettings.tsx:181
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:31
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:98
-#: src/Navigation.tsx:341
+#: src/Navigation.tsx:342
 #: src/screens/Settings/AboutSettings.tsx:87
 #: src/screens/Settings/AboutSettings.tsx:90
 #: src/view/screens/TermsOfService.tsx:25
@@ -11637,9 +11670,9 @@ msgstr "服务条款已移动到"
 msgid "The verification code you have provided is invalid. Please make sure that you have used the correct verification link or request a new one."
 msgstr "你提供的验证码无效。请检查你使用的验证链接是否正确，或重试请求新验证链接。"
 
-#: src/components/contacts/screens/PhoneInput.tsx:115
-#: src/components/contacts/screens/VerifyNumber.tsx:113
-#: src/components/contacts/screens/VerifyNumber.tsx:165
+#: src/components/contacts/screens/PhoneInput.tsx:114
+#: src/components/contacts/screens/VerifyNumber.tsx:123
+#: src/components/contacts/screens/VerifyNumber.tsx:175
 msgid "The verification provider was unable to send a code to your phone number. Please check your phone number and try again."
 msgstr "验证服务提供商无法向你的电话号码发送代码，请检查你的电话号码并重试。"
 
@@ -11770,6 +11803,10 @@ msgstr "Bluesky 目前迎来了大量新用户！我们将尽快启用你的账�
 msgid "These are your default settings"
 msgstr "这些是你的默认设置"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:42
+msgid "These features are experimental and may change or break at any time."
+msgstr ""
+
 #: src/screens/Settings/FollowingFeedPreferences.tsx:66
 msgid "These settings only apply to the Following feed."
 msgstr "这些偏好设置只适用于“Following”动态源。"
@@ -11851,7 +11888,7 @@ msgstr ""
 msgid "This chat was disconnected"
 msgstr "对话已被断开"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:106
+#: src/components/contacts/screens/VerifyNumber.tsx:116
 msgid "This code is invalid. Resend to get a new code."
 msgstr "此代码无效，重新发送以获得新的代码。"
 
@@ -12139,7 +12176,7 @@ msgid "This will irreversibly delete your Bluesky account <0>{currentHandle}</0>
 msgstr "这将永久删除你的 Bluesky 账户 <0>{currentHandle}</0> 及所有关联数据。请注意：这也会影响此账户使用其他 <1>AT 协议</1> 的服务。"
 
 #. placeholder {0}: account.handle
-#: src/screens/Settings/Settings.tsx:668
+#: src/screens/Settings/Settings.tsx:723
 msgid "This will remove @{0} from the quick access list."
 msgstr "这将从你的快速访问中移除 @{0}。"
 
@@ -12166,7 +12203,7 @@ msgstr "讨论串偏好设置"
 msgid "Threaded"
 msgstr "树形视图"
 
-#: src/Navigation.tsx:374
+#: src/Navigation.tsx:375
 msgid "Threads Preferences"
 msgstr "讨论串偏好设置"
 
@@ -12213,11 +12250,11 @@ msgstr "切换以启用或停用成人内容"
 msgid "Toggles the sound"
 msgstr "切换音量状态"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:123
+#: src/components/contacts/screens/VerifyNumber.tsx:133
 msgid "Too many attempts. Please wait a few minutes and try again."
 msgstr "重试次数过多，请稍等几分钟后重试。"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:176
+#: src/components/contacts/screens/VerifyNumber.tsx:186
 msgid "Too many codes sent. Please wait a few minutes and try again."
 msgstr "发送代码次数过多，请稍等几分钟后重试。"
 
@@ -12238,7 +12275,7 @@ msgstr "热门"
 msgid "Top replies first"
 msgstr "热门回复优先"
 
-#: src/Navigation.tsx:485
+#: src/Navigation.tsx:494
 msgid "Topic"
 msgstr "话题"
 
@@ -12385,11 +12422,11 @@ msgstr "找不到选中的收信人。"
 msgid "Unable to resolve handle"
 msgstr "无法解析账户代码"
 
-#: src/screens/Settings/Settings.tsx:515
+#: src/screens/Settings/Settings.tsx:545
 msgid "Unapply Pull Request"
 msgstr "回滚提交变更"
 
-#: src/screens/Settings/Settings.tsx:517
+#: src/screens/Settings/Settings.tsx:547
 msgid "Unapply Pull Request {currentChannel}"
 msgstr "回滚提交变更 {currentChannel}"
 
@@ -12615,8 +12652,8 @@ msgstr "已从你的动态源中取消固定"
 msgid "Unpinned list"
 msgstr "已取消固定列表"
 
-#: src/screens/Settings/Settings.tsx:482
-#: src/screens/Settings/Settings.tsx:484
+#: src/screens/Settings/Settings.tsx:512
+#: src/screens/Settings/Settings.tsx:514
 msgid "Unsnooze email reminder"
 msgstr "取消暂停邮件提醒"
 
@@ -12781,6 +12818,14 @@ msgstr "使用系统默认浏览器"
 msgid "Use recommended"
 msgstr "使用推荐"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:79
+msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\""
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:85
+msgid "Use the legacy “Find friends from contacts” instead of “Find and invite friends”"
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:190
 msgid "Use this to sign in to the other app along with your handle."
 msgstr "使用这个和你的账户代码一起登录其他应用。"
@@ -12897,7 +12942,7 @@ msgstr "无法授予认证，请重试。"
 msgid "Verification settings"
 msgstr "认证设置"
 
-#: src/Navigation.tsx:206
+#: src/Navigation.tsx:207
 #: src/screens/Moderation/VerificationSettings.tsx:34
 msgid "Verification Settings"
 msgstr "认证设置"
@@ -12951,8 +12996,8 @@ msgstr "验证电子邮箱对话框"
 msgid "Verify now"
 msgstr "现在验证"
 
-#: src/components/contacts/screens/PhoneInput.tsx:175
-#: src/components/contacts/screens/VerifyNumber.tsx:217
+#: src/components/contacts/screens/PhoneInput.tsx:187
+#: src/components/contacts/screens/VerifyNumber.tsx:227
 msgid "Verify phone number"
 msgstr "验证你的电话号码"
 
@@ -12985,7 +13030,7 @@ msgstr "验证中"
 msgid "Verifying your age assurance status"
 msgstr "正在确认你的年龄验证状态"
 
-#: src/components/contacts/screens/VerifyNumber.tsx:307
+#: src/components/contacts/screens/VerifyNumber.tsx:317
 msgid "Verifying..."
 msgstr "正在验证……"
 
@@ -13004,7 +13049,7 @@ msgstr "视频"
 msgid "Video failed to process"
 msgstr "视频处理失败"
 
-#: src/Navigation.tsx:553
+#: src/Navigation.tsx:562
 msgid "Video Feed"
 msgstr "视频动态源"
 
@@ -13268,7 +13313,7 @@ msgstr "警告内容并从动态源中过滤"
 msgid "Watch now"
 msgstr "立即观看"
 
-#: src/components/contacts/screens/GetContacts.tsx:253
+#: src/components/contacts/screens/GetContacts.tsx:255
 msgid "We apply the highest privacy standards, and never share or sell your contact information."
 msgstr "我们秉持最高的隐私保护标准，绝不会分享或出售你的通讯录数据。"
 
@@ -13300,7 +13345,7 @@ msgstr "无法载入此对话的加入申请"
 msgid "We couldn’t load this conversation’s settings"
 msgstr "我们目前无法加载此对话选项"
 
-#: src/components/contacts/screens/GetContacts.tsx:244
+#: src/components/contacts/screens/GetContacts.tsx:246
 msgid "We delete hashes after matches are made"
 msgstr "我们会在确认联系人后删除哈希值"
 
@@ -13321,15 +13366,15 @@ msgstr "我们正在与 <0>KWS</0> 合作处理年龄验证流程。当你点击
 msgid "We have sent another verification email to <0>{0}</0>."
 msgstr "我们将发送另一封验证邮件至 <0>{0}</0>。"
 
-#: src/components/contacts/screens/PhoneInput.tsx:184
+#: src/components/contacts/screens/PhoneInput.tsx:196
 msgid "We need to verify your number before we can look for your friends. A verification code will be sent to this number."
 msgstr "在开始寻找你的朋友之前，我们需要先验证你的号码。验证代码将发送到这个号码。"
 
-#: src/components/contacts/screens/GetContacts.tsx:241
+#: src/components/contacts/screens/GetContacts.tsx:243
 msgid "We never keep plain phone numbers"
 msgstr "我们永远不会以明文存储你的电话号码"
 
-#: src/components/contacts/screens/GetContacts.tsx:247
+#: src/components/contacts/screens/GetContacts.tsx:249
 msgid "We only suggest follows if both people consent"
 msgstr "我们只会在双方皆同意的情况下显示关注建议"
 
@@ -13737,7 +13782,7 @@ msgstr "你也可以探索并关注新的自定义动态源。"
 msgid "You can also download your chat data as a \"JSONL\" file. This file only includes chat messages that you have sent and does not include chat messages that you have received."
 msgstr "你可以将你的对话数据导出为一个“JSONL”文件。此文件仅包含你发送的对话信息，不包含接收到的对话信息数据。"
 
-#: src/components/contacts/screens/GetContacts.tsx:250
+#: src/components/contacts/screens/GetContacts.tsx:252
 msgid "You can always opt out and delete your data"
 msgstr "你可以随时选择退出并删除数据"
 
@@ -14004,7 +14049,7 @@ msgstr ""
 msgid "You previously deactivated @{0}."
 msgstr "你之前停用了 @{0}。"
 
-#: src/screens/Settings/Settings.tsx:412
+#: src/screens/Settings/Settings.tsx:442
 msgid "You probably want to restart the app now."
 msgstr "你可能需要重启应用程序。"
 
@@ -14028,7 +14073,7 @@ msgstr "你最近修改了你的出生日期"
 msgid "You requested to join"
 msgstr ""
 
-#: src/screens/Settings/Settings.tsx:297
+#: src/screens/Settings/Settings.tsx:323
 #: src/view/shell/desktop/LeftNav.tsx:225
 msgid "You will be signed out of all your accounts."
 msgstr "你将登出所有账户。"
@@ -14076,7 +14121,7 @@ msgstr "你将关注这些用户以及其他 {0} 位"
 msgid "You'll follow these people right away"
 msgstr "你将立即关注这些人"
 
-#: src/components/contacts/screens/GetContacts.tsx:314
+#: src/components/contacts/screens/GetContacts.tsx:332
 msgid "You'll need to go to the System Settings for Bluesky and give permission if you want to use this feature."
 msgstr "如果你想使用此功能，请转到系统设置并授予 Bluesky 相关权限。"
 
@@ -14111,7 +14156,7 @@ msgstr "你已经对此标记提出过申诉，我们的审核团队正在核实
 msgid "You've chosen to hide a word or tag within this post."
 msgstr "你选择隐藏了这则帖文中的字词或标签。"
 
-#: src/components/contacts/screens/GetContacts.tsx:313
+#: src/components/contacts/screens/GetContacts.tsx:331
 msgid "You've denied access to your contacts"
 msgstr "你选择不允许访问通讯录数据"
 
@@ -14254,7 +14299,7 @@ msgstr "你的“Following”动态源看起来空荡荡的。快去关注更多
 msgid "Your full handle will be <0>@{0}</0>"
 msgstr "你的完整账户代码将修改为 <0>@{0}</0>"
 
-#: src/Navigation.tsx:457
+#: src/Navigation.tsx:466
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:68
 #: src/screens/Settings/ContentAndMediaSettings.tsx:94
 #: src/screens/Settings/ContentAndMediaSettings.tsx:97
@@ -14340,33 +14385,3 @@ msgstr "你的帖文串中包含空白帖文，继续发布将会跳过这些内
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
 msgstr "你的认证"
-
-msgid "Continue without contacts"
-msgstr ""
-
-msgid "Experimental features"
-msgstr ""
-
-msgid "Find friends experience"
-msgstr ""
-
-msgid "Find friends from contacts"
-msgstr ""
-
-msgid "Gallery fallback"
-msgstr ""
-
-msgid "Show the fallback for galleries (5+ photos) instead of the carousel"
-msgstr ""
-
-msgid "Show the update-your-app fallback for galleries with 5+ photos"
-msgstr ""
-
-msgid "These features are experimental and may change or break at any time."
-msgstr ""
-
-msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\""
-msgstr ""
-
-msgid "Use the legacy “Find friends from contacts” instead of “Find and invite friends”"
-msgstr ""
