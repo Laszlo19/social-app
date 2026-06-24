@@ -16,6 +16,7 @@ import {
 import {useSetThemePrefs, useThemePrefs} from '#/state/shell'
 import {SettingsListItem as AppIconSettingsListItem} from '#/screens/Settings/AppIconSettings/SettingsListItem'
 import {type Alf, atoms as a, native, useAlf, useTheme} from '#/alf'
+import {Bars3_Stroke2_Corner0_Rounded as BarsIcon} from '#/components/icons/Bars'
 import * as SegmentedControl from '#/components/forms/SegmentedControl'
 import {type Props as SVGIconProps} from '#/components/icons/common'
 import {Moon_Stroke2_Corner0_Rounded as MoonIcon} from '#/components/icons/Moon'
@@ -171,6 +172,16 @@ export function AppearanceSettingsScreen({}: Props) {
                   <AppIconSettingsListItem />
                 </>
               )}
+
+              <SettingsList.Divider />
+              <SettingsList.LinkItem
+                to="/settings/navigation"
+                label={_(msg`Navigation bar`)}>
+                <SettingsList.ItemIcon icon={BarsIcon} />
+                <SettingsList.ItemText>
+                  <Trans>Navigation bar</Trans>
+                </SettingsList.ItemText>
+              </SettingsList.LinkItem>
             </Animated.View>
           </SettingsList.Container>
         </Layout.Content>
