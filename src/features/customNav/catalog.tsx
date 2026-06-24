@@ -68,6 +68,12 @@ export type NavCatalogItem = {
   id: NavItemId
   /** Label for the settings list + accessibility. Resolve with `_(label)`. */
   label: MessageDescriptor
+  /**
+   * Optional label override for the desktop sidebar, where there's room for
+   * the longer wording the left nav has historically used (e.g. "Explore"
+   * instead of "Search").
+   */
+  leftNavLabel?: MessageDescriptor
   icons: {
     active: React.ComponentType<SVGIconProps>
     inactive: React.ComponentType<SVGIconProps>
@@ -114,6 +120,7 @@ export const NAV_ITEM_CATALOG: NavCatalogItem[] = [
   {
     id: 'search',
     label: msg`Search`,
+    leftNavLabel: msg`Explore`,
     icons: {active: MagnifyingGlassFilled, inactive: MagnifyingGlass},
     routeName: 'Search',
     href: '/search',

@@ -605,7 +605,7 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
     return (
       <NavItem
         key={item.id}
-        label={i18n._(item.label)}
+        label={i18n._(item.leftNavLabel ?? item.label)}
         href={href}
         navItem={item.navMetric}
         minimal={leftNavMinimal}
