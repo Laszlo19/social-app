@@ -8,7 +8,7 @@ msgstr ""
 "Language: ro\n"
 "Project-Id-Version: tempp\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-17 12:23\n"
+"PO-Revision-Date: 2026-06-24 16:48\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
@@ -400,15 +400,15 @@ msgstr "{count, plural, one {Un element necitit} few {# elemente necitite} other
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:67
 msgid "{count, plural, one {Refresh the page to see it.} other {Refresh the page to see them all.}}"
-msgstr ""
+msgstr "{count, plural, one {Reîmprospătați pagina pentru a o vedea.} few {Reîmprospătați pagina pentru a le vedea pe toate.} other {Reîmprospătați pagina pentru a le vedea pe toate.}}"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:53
 msgid "{count, plural, one {This post has # photo.} other {This post has # photos.}}"
-msgstr ""
+msgstr "{count, plural, one {Această postare are o fotografie.} few {Această postare are # fotografii.} other {Această postare are # de fotografii.}}"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:60
 msgid "{count, plural, one {Update your app to see it.} other {Update your app to see them all.}}"
-msgstr ""
+msgstr "{count, plural, one {Actualizați-vă aplicația pentru a o vedea.} few {Actualizați-vă aplicația pentru a le vedea pe toate.} other {Actualizați-vă aplicația pentru a le vedea pe toate.}}"
 
 #. Displayed when there are more requests to join a group chat than have been loaded
 #: src/screens/Messages/JoinRequests.tsx:427
@@ -1088,7 +1088,7 @@ msgstr "Adăugați {displayName} la pachetul de pornire"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:277
 msgid "Add {label} to the bar"
-msgstr ""
+msgstr "Adăugați {label} la bară"
 
 #: src/view/com/composer/labels/LabelsBtn.tsx:103
 #: src/view/com/composer/labels/LabelsBtn.tsx:108
@@ -2215,7 +2215,7 @@ msgstr "Cărți"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:67
 msgid "Bottom bar (mobile)"
-msgstr ""
+msgstr "Bara de jos (mobil)"
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:215
 msgid "Breaking site rules"
@@ -2662,7 +2662,7 @@ msgstr "Alegeți această culoare ca avatar"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:58
 msgid "Choose which items appear in each navigation bar and drag to reorder them. Hidden items stay reachable from the menu."
-msgstr ""
+msgstr "Alegeți elementele care apar în fiecare bară de navigare și trageți pentru a le reordona. Elementele ascunse rămân accesibile din meniu."
 
 #: src/screens/Messages/components/InviteLinkDialog.tsx:243
 msgid "Choose who can join this group chat and how."
@@ -4964,7 +4964,7 @@ msgstr "Informații false despre alegeri"
 #: src/Navigation.tsx:554
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
-msgstr ""
+msgstr "Federat"
 
 #: src/Navigation.tsx:297
 msgid "Feed"
@@ -7030,7 +7030,7 @@ msgstr "Se Încarcă..."
 #: src/Navigation.tsx:559
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 #: src/screens/Messages/ConversationSettings/index.tsx:571
 msgid "Lock"
@@ -7567,13 +7567,13 @@ msgstr "Navighează la profilul dvs."
 
 #: src/screens/Settings/NavigationBarSettings.tsx:51
 msgid "Navigation"
-msgstr ""
+msgstr "Navigare"
 
 #: src/Navigation.tsx:410
 #: src/screens/Settings/AppearanceSettings.tsx:179
 #: src/screens/Settings/AppearanceSettings.tsx:182
 msgid "Navigation bar"
-msgstr ""
+msgstr "Bară de navigare"
 
 #: src/components/moderation/ReportDialog/index.tsx:342
 #: src/components/moderation/ReportDialog/index.tsx:358
@@ -8021,7 +8021,7 @@ msgstr "Notă: Această postare este vizibilă numai pentru utilizatorii conecta
 
 #: src/screens/PlaceholderTimelines.tsx:48
 msgid "Nothing here"
-msgstr ""
+msgstr "Nimic aici"
 
 #: src/screens/Bookmarks/components/EmptyState.tsx:36
 #: src/screens/Bookmarks/index.tsx:299
@@ -9394,7 +9394,7 @@ msgstr "Reconectare"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:80
 msgid "Refresh the page to see it."
-msgstr ""
+msgstr "Reîmprospătați pagina pentru al vedea."
 
 #. Reject a chat request, this opens a menu with options
 #: src/screens/Messages/components/RequestButtons.tsx:136
@@ -9461,7 +9461,7 @@ msgstr "Eliminați {historyItem}"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:231
 msgid "Remove {label} from the bar"
-msgstr ""
+msgstr "Eliminați {label} din bară"
 
 #: src/screens/Settings/Settings.tsx:709
 #: src/screens/Settings/Settings.tsx:712
@@ -9991,7 +9991,7 @@ msgstr "Resetați parola"
 #: src/screens/Settings/NavigationBarSettings.tsx:160
 #: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "Reset to default"
-msgstr ""
+msgstr "Resetare la valorile implicite"
 
 #: src/screens/Settings/FindContactsSettings.tsx:544
 #: src/screens/Settings/FindContactsSettings.tsx:560
@@ -10934,7 +10934,7 @@ msgstr "Afișați când sunteți în direct"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:112
 msgid "Shown"
-msgstr ""
+msgstr "Afișate"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:604
 msgid "Shows information about when this post was created"
@@ -10951,7 +10951,7 @@ msgstr "Afișează conținutul"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:75
 msgid "Sidebar (desktop)"
-msgstr ""
+msgstr "Bara laterală (desktop)"
 
 #: src/components/dialogs/Signin.tsx:98
 #: src/components/dialogs/Signin.tsx:100
@@ -11165,7 +11165,7 @@ msgstr "Cineva a fost eliminat din grup"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:48
 msgid "Something new is here"
-msgstr ""
+msgstr "Ceva nou este aici"
 
 #: src/components/moderation/ReportDialog/index.tsx:103
 msgid "Something wasn't quite right with the data you're trying to report. Please contact support."
@@ -12128,7 +12128,7 @@ msgstr "Acest link de invitație este invalid"
 
 #: src/screens/PlaceholderTimelines.tsx:51
 msgid "This is a placeholder for testing only."
-msgstr ""
+msgstr "Acesta este un substituent numai pentru testare."
 
 #: src/view/screens/Debug.tsx:327
 msgid "This is an empty state"
@@ -12836,7 +12836,7 @@ msgstr "Actualizare {0} în liste"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:93
 msgid "Update app"
-msgstr ""
+msgstr "Actualizați aplicația"
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:296
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:308
@@ -12862,11 +12862,11 @@ msgstr "Actualizare la {domain}"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:85
 msgid "Update your app"
-msgstr ""
+msgstr "Actualizați-vă aplicația"
 
 #: src/components/Post/Embed/GalleryFallbackEmbed.tsx:76
 msgid "Update your app to see it."
-msgstr ""
+msgstr "Actualizați-vă aplicația pentru a o vedea."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:202
 msgid "Update your email"
@@ -13977,7 +13977,7 @@ msgstr "Puteți selecta până la {MAX_GALLERY_IMAGES, plural, one {} few {# ima
 
 #: src/screens/Settings/NavigationBarSettings.tsx:141
 msgid "You can show up to {max} items. Remove one to add another."
-msgstr ""
+msgstr "Puteți afișa până la {max} elemente. Eliminați unul pentru a adăuga altul."
 
 #: src/components/interstitials/Trending.tsx:132
 #: src/components/interstitials/TrendingVideos.tsx:138
@@ -14535,3 +14535,4 @@ msgstr "Firul dvs. conține postări goale care vor fi omise. Postările rămase
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
 msgstr "Verificările dvs."
+
