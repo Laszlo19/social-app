@@ -1086,7 +1086,7 @@ msgstr "再添加至少 {0} 个以继续"
 msgid "Add {displayName} to starter pack"
 msgstr "添加 {displayName} 至新手包"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:270
+#: src/screens/Settings/NavigationBarSettings.tsx:277
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -1895,7 +1895,7 @@ msgid "Autoplay videos and GIFs"
 msgstr "自动播放视频及 GIF"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:133
+#: src/screens/Settings/NavigationBarSettings.tsx:137
 #: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
 msgid "Available"
 msgstr "可用"
@@ -2510,7 +2510,7 @@ msgstr "已保存更改"
 msgid "Changes to the starter pack will not be reflected in the list after creation. The list will be an independent copy."
 msgstr "列表在创建后将是一个独立副本，任何对新手包的更改将不会影响已创建的列表。"
 
-#: src/features/customNav/catalog.tsx:126
+#: src/features/customNav/catalog.tsx:133
 #: src/lib/hooks/useNotificationHandler.ts:133
 #: src/Navigation.tsx:513
 #: src/view/shell/Drawer.tsx:525
@@ -4577,6 +4577,7 @@ msgstr "血腥、露骨或其他可能引起不适的媒体内容。"
 msgid "Explicit sexual images."
 msgstr "露骨的色情图片。"
 
+#: src/features/customNav/catalog.tsx:123
 #: src/Navigation.tsx:783
 #: src/screens/Search/Shell.tsx:362
 #: src/view/shell/Drawer.tsx:473
@@ -4959,7 +4960,7 @@ msgstr "虚假账户或机器人"
 msgid "False information about elections"
 msgstr "散布选举相关虚假信息"
 
-#: src/features/customNav/catalog.tsx:201
+#: src/features/customNav/catalog.tsx:208
 #: src/Navigation.tsx:554
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
@@ -5010,7 +5011,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "已提交反馈给动态源维护者"
 
-#: src/features/customNav/catalog.tsx:159
+#: src/features/customNav/catalog.tsx:166
 #: src/Navigation.tsx:549
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
@@ -6030,7 +6031,7 @@ msgstr "抱歉，我们无法加载该内容审核提供服务方。"
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "请稍等！我们正在逐步开放上传视频的权限。你目前仍在等待队伍中，请稍后再回来查看！"
 
-#: src/features/customNav/catalog.tsx:106
+#: src/features/customNav/catalog.tsx:112
 #: src/Navigation.tsx:778
 #: src/Navigation.tsx:799
 #: src/view/shell/Drawer.tsx:499
@@ -6929,7 +6930,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "已取消隐藏该列表"
 
-#: src/features/customNav/catalog.tsx:168
+#: src/features/customNav/catalog.tsx:175
 #: src/Navigation.tsx:178
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
@@ -7025,7 +7026,7 @@ msgstr "正在加载帖文互动选项……"
 msgid "Loading..."
 msgstr "加载中……"
 
-#: src/features/customNav/catalog.tsx:208
+#: src/features/customNav/catalog.tsx:215
 #: src/Navigation.tsx:559
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
@@ -7682,7 +7683,7 @@ msgstr "新列表"
 msgid "New password"
 msgstr "新密码"
 
-#: src/features/customNav/catalog.tsx:193
+#: src/features/customNav/catalog.tsx:200
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8039,7 +8040,7 @@ msgstr "通知设置"
 msgid "Notification sounds"
 msgstr "通知提示音"
 
-#: src/features/customNav/catalog.tsx:137
+#: src/features/customNav/catalog.tsx:144
 #: src/Navigation.tsx:539
 #: src/Navigation.tsx:788
 #: src/screens/Notifications/ActivityList.tsx:31
@@ -9155,7 +9156,7 @@ msgstr "处理中……"
 msgid "profile"
 msgstr "个人资料"
 
-#: src/features/customNav/catalog.tsx:148
+#: src/features/customNav/catalog.tsx:155
 #: src/view/shell/Drawer.tsx:91
 #: src/view/shell/Drawer.tsx:655
 msgid "Profile"
@@ -9458,7 +9459,7 @@ msgstr "移除 {displayName}？"
 msgid "Remove {historyItem}"
 msgstr "删除 {historyItem}"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:225
+#: src/screens/Settings/NavigationBarSettings.tsx:231
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -9987,8 +9988,8 @@ msgstr "重置入门引导状态"
 msgid "Reset password"
 msgstr "重置密码"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:155
-#: src/screens/Settings/NavigationBarSettings.tsx:159
+#: src/screens/Settings/NavigationBarSettings.tsx:160
+#: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "Reset to default"
 msgstr ""
 
@@ -10145,7 +10146,7 @@ msgstr "保存这些选项以供下次使用"
 msgid "Save to my feeds"
 msgstr "保存到我的动态源"
 
-#: src/features/customNav/catalog.tsx:176
+#: src/features/customNav/catalog.tsx:183
 #: src/view/shell/Drawer.tsx:630
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -10215,7 +10216,7 @@ msgstr "滚动到顶部"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
-#: src/features/customNav/catalog.tsx:116
+#: src/features/customNav/catalog.tsx:122
 #: src/screens/Search/Shell.tsx:362
 #: src/screens/Search/Shell.tsx:525
 msgid "Search"
@@ -10651,7 +10652,7 @@ msgstr "请在下方设置你的出生日期，我们很快就会让你继续四
 msgid "Sets email for password reset"
 msgstr "设置用于重置密码的电子邮箱"
 
-#: src/features/customNav/catalog.tsx:185
+#: src/features/customNav/catalog.tsx:192
 #: src/Navigation.tsx:219
 #: src/screens/Settings/Settings.tsx:104
 #: src/view/shell/Drawer.tsx:668
@@ -10931,7 +10932,7 @@ msgstr "显示警告并从动态源中过滤"
 msgid "Show when you’re live"
 msgstr "显示直播状态"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:109
+#: src/screens/Settings/NavigationBarSettings.tsx:112
 msgid "Shown"
 msgstr ""
 
@@ -13974,7 +13975,7 @@ msgstr "你仍然可以查看对话记录，但无法发送新信息。"
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "你最多可以选择 {MAX_GALLERY_IMAGES, plural,other {# 张图片}}。"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:137
+#: src/screens/Settings/NavigationBarSettings.tsx:141
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 

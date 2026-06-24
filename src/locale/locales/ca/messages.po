@@ -1086,7 +1086,7 @@ msgstr "Afegeix-ne {0} més per a continuar"
 msgid "Add {displayName} to starter pack"
 msgstr "Afegeix {displayName} al teu starter pack"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:270
+#: src/screens/Settings/NavigationBarSettings.tsx:277
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -1895,7 +1895,7 @@ msgid "Autoplay videos and GIFs"
 msgstr "Reprodueix automàticament vídeos i GIFs"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:133
+#: src/screens/Settings/NavigationBarSettings.tsx:137
 #: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
 msgid "Available"
 msgstr "Disponible"
@@ -2510,7 +2510,7 @@ msgstr "Canvis desats"
 msgid "Changes to the starter pack will not be reflected in the list after creation. The list will be an independent copy."
 msgstr "Els canvis a l'Starter Pack no es reflectiran a la llista després de la seva creació. La llista serà una còpia independent."
 
-#: src/features/customNav/catalog.tsx:126
+#: src/features/customNav/catalog.tsx:133
 #: src/lib/hooks/useNotificationHandler.ts:133
 #: src/Navigation.tsx:513
 #: src/view/shell/Drawer.tsx:525
@@ -4577,6 +4577,7 @@ msgstr "Contingut explícit o potencialment pertorbador."
 msgid "Explicit sexual images."
 msgstr "Imatges sexuals explícites."
 
+#: src/features/customNav/catalog.tsx:123
 #: src/Navigation.tsx:783
 #: src/screens/Search/Shell.tsx:362
 #: src/view/shell/Drawer.tsx:473
@@ -4959,7 +4960,7 @@ msgstr "Compte fals o bot"
 msgid "False information about elections"
 msgstr "Informació falsa sobre les eleccions"
 
-#: src/features/customNav/catalog.tsx:201
+#: src/features/customNav/catalog.tsx:208
 #: src/Navigation.tsx:554
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
@@ -5010,7 +5011,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "Comentaris enviats a l'operador del canal"
 
-#: src/features/customNav/catalog.tsx:159
+#: src/features/customNav/catalog.tsx:166
 #: src/Navigation.tsx:549
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
@@ -6030,7 +6031,7 @@ msgstr "No podem carregar el servei de moderació."
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Espera! A poc a poc estem donant accés al vídeo i encara estàs a la cua. Torna més tard!"
 
-#: src/features/customNav/catalog.tsx:106
+#: src/features/customNav/catalog.tsx:112
 #: src/Navigation.tsx:778
 #: src/Navigation.tsx:799
 #: src/view/shell/Drawer.tsx:499
@@ -6929,7 +6930,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "Llista no silenciada"
 
-#: src/features/customNav/catalog.tsx:168
+#: src/features/customNav/catalog.tsx:175
 #: src/Navigation.tsx:178
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
@@ -7025,7 +7026,7 @@ msgstr "Carregant la configuració d'interaccions de la publicació..."
 msgid "Loading..."
 msgstr "Carregant…"
 
-#: src/features/customNav/catalog.tsx:208
+#: src/features/customNav/catalog.tsx:215
 #: src/Navigation.tsx:559
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
@@ -7682,7 +7683,7 @@ msgstr "Llista nova"
 msgid "New password"
 msgstr "Nova contrasenya"
 
-#: src/features/customNav/catalog.tsx:193
+#: src/features/customNav/catalog.tsx:200
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8039,7 +8040,7 @@ msgstr "Configuració de les notificacions"
 msgid "Notification sounds"
 msgstr "Sons de les notificacions"
 
-#: src/features/customNav/catalog.tsx:137
+#: src/features/customNav/catalog.tsx:144
 #: src/Navigation.tsx:539
 #: src/Navigation.tsx:788
 #: src/screens/Notifications/ActivityList.tsx:31
@@ -9155,7 +9156,7 @@ msgstr "Processant…"
 msgid "profile"
 msgstr "perfil"
 
-#: src/features/customNav/catalog.tsx:148
+#: src/features/customNav/catalog.tsx:155
 #: src/view/shell/Drawer.tsx:91
 #: src/view/shell/Drawer.tsx:655
 msgid "Profile"
@@ -9458,7 +9459,7 @@ msgstr "Vols eliminar {displayName}?"
 msgid "Remove {historyItem}"
 msgstr "Elimina {historyItem}"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:225
+#: src/screens/Settings/NavigationBarSettings.tsx:231
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -9987,8 +9988,8 @@ msgstr "Restableix l'estat de la incorporació"
 msgid "Reset password"
 msgstr "Restableix la contrasenya"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:155
-#: src/screens/Settings/NavigationBarSettings.tsx:159
+#: src/screens/Settings/NavigationBarSettings.tsx:160
+#: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "Reset to default"
 msgstr ""
 
@@ -10145,7 +10146,7 @@ msgstr "Desa aquestes opcions per a la propera vegada"
 msgid "Save to my feeds"
 msgstr "Desa-ho als meus canals"
 
-#: src/features/customNav/catalog.tsx:176
+#: src/features/customNav/catalog.tsx:183
 #: src/view/shell/Drawer.tsx:630
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -10215,7 +10216,7 @@ msgstr "Desplaça't cap a dalt"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
-#: src/features/customNav/catalog.tsx:116
+#: src/features/customNav/catalog.tsx:122
 #: src/screens/Search/Shell.tsx:362
 #: src/screens/Search/Shell.tsx:525
 msgid "Search"
@@ -10651,7 +10652,7 @@ msgstr "Estableix la teva data de naixement a continuació i et permetrem tornar
 msgid "Sets email for password reset"
 msgstr "Estableix un correu per a restablir la contrasenya"
 
-#: src/features/customNav/catalog.tsx:185
+#: src/features/customNav/catalog.tsx:192
 #: src/Navigation.tsx:219
 #: src/screens/Settings/Settings.tsx:104
 #: src/view/shell/Drawer.tsx:668
@@ -10931,7 +10932,7 @@ msgstr "Mostra l'advertiment i filtra-ho dels canals"
 msgid "Show when you’re live"
 msgstr "Mostra quan estàs en directe"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:109
+#: src/screens/Settings/NavigationBarSettings.tsx:112
 msgid "Shown"
 msgstr ""
 
@@ -13974,7 +13975,7 @@ msgstr "Pots llegir l'historial del xat, però no pots enviar missatges nous."
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Pots seleccionar fins a {MAX_GALLERY_IMAGES, plural, one {# imatge} other {# imatges}} en total."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:137
+#: src/screens/Settings/NavigationBarSettings.tsx:141
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 

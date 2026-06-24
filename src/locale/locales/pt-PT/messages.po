@@ -1086,7 +1086,7 @@ msgstr "Adicione mais {0} para prosseguir"
 msgid "Add {displayName} to starter pack"
 msgstr "Adicionar {displayName} ao pacote de iniciante"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:270
+#: src/screens/Settings/NavigationBarSettings.tsx:277
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -1895,7 +1895,7 @@ msgid "Autoplay videos and GIFs"
 msgstr "Reproduzir vídeos e GIFs automaticamente"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:133
+#: src/screens/Settings/NavigationBarSettings.tsx:137
 #: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
 msgid "Available"
 msgstr "Disponível"
@@ -2510,7 +2510,7 @@ msgstr "Alterações guardadas"
 msgid "Changes to the starter pack will not be reflected in the list after creation. The list will be an independent copy."
 msgstr "Alterações ao pacote de iniciante não se irão refletir na lista após a sua criação. A lista será uma cópia independente."
 
-#: src/features/customNav/catalog.tsx:126
+#: src/features/customNav/catalog.tsx:133
 #: src/lib/hooks/useNotificationHandler.ts:133
 #: src/Navigation.tsx:513
 #: src/view/shell/Drawer.tsx:525
@@ -4577,6 +4577,7 @@ msgstr "Conteúdo multimédia explícito ou perturbador."
 msgid "Explicit sexual images."
 msgstr "Imagens sexuais explícitas."
 
+#: src/features/customNav/catalog.tsx:123
 #: src/Navigation.tsx:783
 #: src/screens/Search/Shell.tsx:362
 #: src/view/shell/Drawer.tsx:473
@@ -4959,7 +4960,7 @@ msgstr "Conta falsa ou bot"
 msgid "False information about elections"
 msgstr "Informação falsa sobre eleições"
 
-#: src/features/customNav/catalog.tsx:201
+#: src/features/customNav/catalog.tsx:208
 #: src/Navigation.tsx:554
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
@@ -5010,7 +5011,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "Feedback enviado ao operador do feed"
 
-#: src/features/customNav/catalog.tsx:159
+#: src/features/customNav/catalog.tsx:166
 #: src/Navigation.tsx:549
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
@@ -6030,7 +6031,7 @@ msgstr "Hmmmm, não foi possível carregar esse serviço de moderação."
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Aguarde! Estamos a dar acesso a vídeo gradualmente e ainda está em fila de espera. Volte mais tarde!"
 
-#: src/features/customNav/catalog.tsx:106
+#: src/features/customNav/catalog.tsx:112
 #: src/Navigation.tsx:778
 #: src/Navigation.tsx:799
 #: src/view/shell/Drawer.tsx:499
@@ -6929,7 +6930,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "Silenciamento da lista removido "
 
-#: src/features/customNav/catalog.tsx:168
+#: src/features/customNav/catalog.tsx:175
 #: src/Navigation.tsx:178
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
@@ -7025,7 +7026,7 @@ msgstr "A carregar definições de interação da publicação..."
 msgid "Loading..."
 msgstr "A carregar..."
 
-#: src/features/customNav/catalog.tsx:208
+#: src/features/customNav/catalog.tsx:215
 #: src/Navigation.tsx:559
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
@@ -7682,7 +7683,7 @@ msgstr "Nova lista"
 msgid "New password"
 msgstr "Nova palavra-passe"
 
-#: src/features/customNav/catalog.tsx:193
+#: src/features/customNav/catalog.tsx:200
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8039,7 +8040,7 @@ msgstr "Definições de notificações"
 msgid "Notification sounds"
 msgstr "Sons de notificações"
 
-#: src/features/customNav/catalog.tsx:137
+#: src/features/customNav/catalog.tsx:144
 #: src/Navigation.tsx:539
 #: src/Navigation.tsx:788
 #: src/screens/Notifications/ActivityList.tsx:31
@@ -9155,7 +9156,7 @@ msgstr "A processar..."
 msgid "profile"
 msgstr "perfil"
 
-#: src/features/customNav/catalog.tsx:148
+#: src/features/customNav/catalog.tsx:155
 #: src/view/shell/Drawer.tsx:91
 #: src/view/shell/Drawer.tsx:655
 msgid "Profile"
@@ -9458,7 +9459,7 @@ msgstr "Remover {displayName}?"
 msgid "Remove {historyItem}"
 msgstr "Remover {historyItem}"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:225
+#: src/screens/Settings/NavigationBarSettings.tsx:231
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -9987,8 +9988,8 @@ msgstr "Redefinir estado da introdução"
 msgid "Reset password"
 msgstr "Redefinir palavra-passe"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:155
-#: src/screens/Settings/NavigationBarSettings.tsx:159
+#: src/screens/Settings/NavigationBarSettings.tsx:160
+#: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "Reset to default"
 msgstr ""
 
@@ -10145,7 +10146,7 @@ msgstr "Guardar estas opções para a próxima vez"
 msgid "Save to my feeds"
 msgstr "Guardar nos meus feeds"
 
-#: src/features/customNav/catalog.tsx:176
+#: src/features/customNav/catalog.tsx:183
 #: src/view/shell/Drawer.tsx:630
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -10215,7 +10216,7 @@ msgstr "Voltar ao topo"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
-#: src/features/customNav/catalog.tsx:116
+#: src/features/customNav/catalog.tsx:122
 #: src/screens/Search/Shell.tsx:362
 #: src/screens/Search/Shell.tsx:525
 msgid "Search"
@@ -10651,7 +10652,7 @@ msgstr "Defina a sua data de nascimento abaixo e poderá voltar a publicar e a e
 msgid "Sets email for password reset"
 msgstr "Define o e-mail para recuperação de senha"
 
-#: src/features/customNav/catalog.tsx:185
+#: src/features/customNav/catalog.tsx:192
 #: src/Navigation.tsx:219
 #: src/screens/Settings/Settings.tsx:104
 #: src/view/shell/Drawer.tsx:668
@@ -10931,7 +10932,7 @@ msgstr "Mostrar aviso e filtrar de feeds"
 msgid "Show when you’re live"
 msgstr "Mostre quando você estiver ao vivo"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:109
+#: src/screens/Settings/NavigationBarSettings.tsx:112
 msgid "Shown"
 msgstr ""
 
@@ -13974,7 +13975,7 @@ msgstr "Pode ler o histórico da conversa, mas não pode enviar novas mensagens.
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Pode selecionar {MAX_GALLERY_IMAGES, plural, one {# imagem}other {# imagens}} no total."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:137
+#: src/screens/Settings/NavigationBarSettings.tsx:141
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 
