@@ -113,6 +113,79 @@ depending on distribution. Add only as deliberate, clearly-scoped decisions.
 
 ---
 
+## Appendix: features by fork
+
+The same features grouped by their source fork, for reference. Lineage:
+Bluesky → deer-social → {zeppelin, witchsky}; Mu/Eurosky is independent; Elk is
+a separate Mastodon client.
+
+### Elk (elk-zone/elk) — Mastodon web client, UX inspiration only
+Vue/Nuxt + Mastodon, so **not portable code** — we re-build ideas natively.
+- Customizable bottom bar / nav: edit, rearrange, remove items ← **adopted**
+- Multiple accounts across multiple instances
+- Local / Federated / Hashtag timeline columns (Mastodon concept)
+- Zen mode (distraction-free reading)
+- Custom themes + font sizing
+- Keyboard shortcuts (web)
+- PWA install (desktop + mobile); self-hostable via Docker
+
+### witchsky (witchsky.app) — based on deer-social, largest feature set
+- **Theming:** themes, hue slider, Material You / Material 3 (full Monet/HCT
+  color engine), square avatars/buttons, compact posts, compact account
+  switcher; bundles deer/blacksky/zeppelin color palettes
+- **Accounts/auth:** OAuth login; sort/filter accounts in switcher; hold /
+  right-click an interaction button to act as another account (ephemeral agent);
+  stay on the page when switching accounts; read chat threads with
+  deleted/deactivated accounts; follow-confirmation dialog
+- **Posting/content:** rename the "post" verb; choose witchsky.app vs bsky.app
+  share links; delete-and-redraft (edit) posts; download videos (format choice);
+  stream.place embeds; open posts in PDSls / bridged fedi; "Mutuals" label;
+  repost carousels in the following feed; unique repost notification icons
+- **"Runes" settings:** Menus (handles instead of DIDs, "Open original post" /
+  "Open in PDSls", URL on non-bsky handles); Badges (trusted-verifier selection
+  + AppView, PDS badges, favicon service); Impressions (Hidden/Lite/Visible/Exact
+  visibility for like/repost/quote/save/reply counts, follower/following/post
+  counts, "followed by" avatars, "Follows you" label); Usability/Feeds (no
+  discover fallback, hide "Feeds" tab when only one feed, disable composer
+  prompt, disable top-of-feed button, plus icon on unfollowed feed avatars);
+  Feature gates; Density; Infrastructure (custom AppView DID, PLC directory,
+  constellation instance, image CDN host); Settings sync across devices
+- **AI:** AI preferences screen; OpenRouter alt-text generation
+- **Other:** pet labels; better defaults (alt text required, autoplay off); no
+  notification badge cap; ⚠️ removed age assurance / location blocks; ⚠️ ignores
+  `!no-unauthenticated`; no push notifications
+
+### Mu / Eurosky (mu.social) — independent, web-only fork
+- **Branding:** `brand.json` single-source-of-truth (name, hosts, pink accent
+  palette, custom neutrals), BrandLogo/LogoHero, Plausible analytics
+- **Auth/posting:** OAuth login (full web flow) + OAuth/Password sign-in screens;
+  post editing + edited indicator; reader mode for threads
+- **New content:** cat companion (animated sprite + settings); live sports (match
+  cards, standings, football-data provider, explore widget); news feed
+  (topic/source setup); custom embeds (atmoRsvp RSVP events, tangledString code
+  blocks with lexicons); code syntax highlighting + RichTextCode
+- **Identity/trust:** custom verification (Mu trusted verifiers, constellation,
+  merged verification state); Mu age-assurance backend + confirm dialog; custom
+  identity / PDS resolution
+- **Other:** Eurosky-curated onboarding (suggested follows / starter packs);
+  pronouns support; BetaTag; translation-provider preference
+
+### deer-social (deer.social) — the shared base; small toggle-based diffs
+- Toggle to disable `go.bsky.app` link proxying (analytics)
+- Toggle to disable the default app labeler
+- Toggle to disable discover-feed fallback in the following feed
+- See-through quote blocks / attachments (view content behind blocks)
+- Enable feature gates
+- Configure location settings for regional labelers
+- ⚠️ Entirely ignore `!no-unauthenticated` labels, even when logged out
+- Distinct colors / branding
+
+### zeppelin.social — fork of deer-social
+- Rebrand only — no new features beyond deer-social (bundles a zeppelin color
+  palette). Nothing to port.
+
+---
+
 ## Maintenance notes
 - Keep new features **toggle-based and self-contained** (the deer-social model)
   so they survive upstream merges. See `docs/build.md` and the fork-upgrade flow.
