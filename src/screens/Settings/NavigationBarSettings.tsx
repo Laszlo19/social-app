@@ -101,6 +101,9 @@ function NavEditor({
   const {visible, available, canAdd, canRemove, setOrder, show, hide, reset} =
     useNavItems(surface)
 
+  const labelOf = (item: NavCatalogItem) =>
+    _(surface === 'leftNav' ? (item.leftNavLabel ?? item.label) : item.label)
+
   return (
     <SettingsList.Container>
       <SurfaceHeader>{title}</SurfaceHeader>
@@ -120,6 +123,7 @@ function NavEditor({
         renderItem={(item, dragHandle) => (
           <ShownRow
             item={item}
+            label={labelOf(item)}
             dragHandle={dragHandle}
             canRemove={canRemove}
             onRemove={() => hide(item.id)}
@@ -143,6 +147,7 @@ function NavEditor({
             <AvailableRow
               key={item.id}
               item={item}
+              label={labelOf(item)}
               canAdd={canAdd}
               onAdd={() => show(item.id)}
             />
@@ -191,18 +196,19 @@ function SectionHeader({children}: {children: React.ReactNode}) {
 
 function ShownRow({
   item,
+  label,
   dragHandle,
   canRemove,
   onRemove,
 }: {
   item: NavCatalogItem
+  label: string
   dragHandle: React.ReactNode
   canRemove: boolean
   onRemove: () => void
 }) {
   const t = useTheme()
   const {_} = useLingui()
-  const label = _(item.label)
   const Icon = item.icons.inactive
 
   return (
@@ -237,16 +243,17 @@ function ShownRow({
 
 function AvailableRow({
   item,
+  label,
   canAdd,
   onAdd,
 }: {
   item: NavCatalogItem
+  label: string
   canAdd: boolean
   onAdd: () => void
 }) {
   const t = useTheme()
   const {_} = useLingui()
-  const label = _(item.label)
   const Icon = item.icons.inactive
 
   return (
