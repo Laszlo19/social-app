@@ -18,6 +18,12 @@ export type NavItemId =
   | 'lists'
   | 'saved'
   | 'settings'
+  | 'compose'
+  | 'federated'
+  | 'local'
+
+/** The two navigation surfaces that can be customized. */
+export type NavSurface = 'bottomBar' | 'leftNav'
 
 /** Default bottom bar layout - matches the pre-customization hardcoded bar. */
 export const DEFAULT_VISIBLE: NavItemId[] = [
@@ -28,11 +34,29 @@ export const DEFAULT_VISIBLE: NavItemId[] = [
   'profile',
 ]
 
-/** Always keep at least one item so the bar is never empty. */
+/**
+ * Default desktop sidebar layout - matches the pre-customization left nav
+ * (which has room for more items than the bottom bar).
+ */
+export const DEFAULT_LEFT_NAV: NavItemId[] = [
+  'home',
+  'search',
+  'notifications',
+  'messages',
+  'feeds',
+  'lists',
+  'saved',
+  'profile',
+  'settings',
+]
+
+/** Always keep at least one item so the nav is never empty. */
 export const MIN_VISIBLE = 1
 
 /**
- * Cap visible items so tap targets stay usable. The bar distributes width
- * with flex, so more items just shrink each button.
+ * Cap visible items so tap targets stay usable. The bottom bar distributes
+ * width with flex, so more items just shrink each button. The vertical
+ * sidebar has room for the whole catalog.
  */
 export const MAX_VISIBLE = 6
+export const MAX_LEFT_NAV = 12

@@ -57,6 +57,10 @@ import {CommunityGuidelinesScreen} from '#/view/screens/CommunityGuidelines'
 import {CopyrightPolicyScreen} from '#/view/screens/CopyrightPolicy'
 import {DebugModScreen} from '#/view/screens/DebugMod'
 import {FeedsScreen} from '#/view/screens/Feeds'
+import {
+  FederatedScreen,
+  LocalScreen,
+} from '#/screens/PlaceholderTimelines'
 import {HomeScreen} from '#/view/screens/Home'
 import {ListsScreen} from '#/view/screens/Lists'
 import {ModerationBlockedAccounts} from '#/view/screens/ModerationBlockedAccounts'
@@ -543,6 +547,16 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         name="Feeds"
         getComponent={() => FeedsScreen}
         options={{title: title(msg`Feeds`)}}
+      />
+      <Stack.Screen
+        name="Federated"
+        getComponent={() => FederatedScreen}
+        options={{title: title(msg`Federated`), requireAuth: true}}
+      />
+      <Stack.Screen
+        name="Local"
+        getComponent={() => LocalScreen}
+        options={{title: title(msg`Local`), requireAuth: true}}
       />
       <Stack.Screen
         name="StarterPack"

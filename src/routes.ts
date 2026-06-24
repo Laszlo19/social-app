@@ -15,6 +15,9 @@ export const router = new Router<AllNavigatableRoutes>({
   LegacyNotificationSettings: '/notifications/settings',
   Settings: '/settings',
   Lists: '/lists',
+  // placeholder timelines (testing the customizable nav)
+  Federated: '/federated',
+  Local: '/local',
   // moderation
   Moderation: '/moderation',
   ModerationModlists: '/moderation/modlists',

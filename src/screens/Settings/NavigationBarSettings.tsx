@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import {View} from 'react-native'
 import Animated, {
+  type AnimatedRef,
+  type SharedValue,
   useAnimatedRef,
   useScrollViewOffset,
 } from 'react-native-reanimated'
@@ -13,9 +15,11 @@ import {
   type NativeStackScreenProps,
 } from '#/lib/routes/types'
 import {
+  MAX_LEFT_NAV,
   MAX_VISIBLE,
   type NavCatalogItem,
-  useBottomBarItems,
+  type NavSurface,
+  useNavItems,
 } from '#/features/customNav'
 import {atoms as a, useTheme} from '#/alf'
 import {Admonition} from '#/components/Admonition'
@@ -34,11 +38,7 @@ type Props = NativeStackScreenProps<
   'NavigationBarSettings'
 >
 export function NavigationBarSettingsScreen({}: Props) {
-  const {_} = useLingui()
-  const {visible, available, canAdd, canRemove, setOrder, show, hide, reset} =
-    useBottomBarItems()
   const [isDragging, setIsDragging] = useState(false)
-
   const scrollRef = useAnimatedRef<Animated.ScrollView>()
   const scrollOffset = useScrollViewOffset(scrollRef)
 
@@ -48,7 +48,7 @@ export function NavigationBarSettingsScreen({}: Props) {
         <Layout.Header.BackButton />
         <Layout.Header.Content>
           <Layout.Header.TitleText>
-            <Trans>Navigation bar</Trans>
+            <Trans>Navigation</Trans>
           </Layout.Header.TitleText>
         </Layout.Header.Content>
         <Layout.Header.Slot />
@@ -56,76 +56,119 @@ export function NavigationBarSettingsScreen({}: Props) {
       <Layout.Content ref={scrollRef} scrollEnabled={!isDragging}>
         <Admonition type="tip" style={[a.mx_lg, a.my_md]}>
           <Trans>
-            Choose which items appear in the bottom bar and drag to reorder
+            Choose which items appear in each navigation bar and drag to reorder
             them. Hidden items stay reachable from the menu.
           </Trans>
         </Admonition>
 
-        <SettingsList.Container>
-          <SectionHeader>
-            <Trans>Shown</Trans>
-          </SectionHeader>
-
-          <SortableList
-            data={visible}
-            keyExtractor={item => item.id}
-            itemHeight={ITEM_HEIGHT}
-            scrollRef={scrollRef}
-            scrollOffset={scrollOffset}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={() => setIsDragging(false)}
-            onReorder={reordered => setOrder(reordered.map(item => item.id))}
-            renderItem={(item, dragHandle) => (
-              <ShownRow
-                item={item}
-                dragHandle={dragHandle}
-                canRemove={canRemove}
-                onRemove={() => hide(item.id)}
-              />
-            )}
-          />
-
-          {available.length > 0 && (
-            <>
-              <SettingsList.Divider />
-              <SectionHeader>
-                <Trans>Available</Trans>
-              </SectionHeader>
-
-              {!canAdd && (
-                <Text
-                  style={[a.px_xl, a.pb_sm, a.text_sm, a.leading_snug]}
-                  emoji={false}>
-                  <Trans>
-                    You can show up to {MAX_VISIBLE} items. Remove one to add
-                    another.
-                  </Trans>
-                </Text>
-              )}
-
-              {available.map(item => (
-                <AvailableRow
-                  key={item.id}
-                  item={item}
-                  canAdd={canAdd}
-                  onAdd={() => show(item.id)}
-                />
-              ))}
-            </>
-          )}
-
-          <SettingsList.Divider />
-          <SettingsList.PressableItem
-            label={_(msg`Reset to default`)}
-            testID="navBarSettings-reset"
-            onPress={() => reset()}>
-            <SettingsList.ItemText>
-              <Trans>Reset to default</Trans>
-            </SettingsList.ItemText>
-          </SettingsList.PressableItem>
-        </SettingsList.Container>
+        <NavEditor
+          surface="bottomBar"
+          max={MAX_VISIBLE}
+          title={<Trans>Bottom bar (mobile)</Trans>}
+          scrollRef={scrollRef}
+          scrollOffset={scrollOffset}
+          setIsDragging={setIsDragging}
+        />
+        <NavEditor
+          surface="leftNav"
+          max={MAX_LEFT_NAV}
+          title={<Trans>Sidebar (desktop)</Trans>}
+          scrollRef={scrollRef}
+          scrollOffset={scrollOffset}
+          setIsDragging={setIsDragging}
+        />
       </Layout.Content>
     </Layout.Screen>
+  )
+}
+
+function NavEditor({
+  surface,
+  max,
+  title,
+  scrollRef,
+  scrollOffset,
+  setIsDragging,
+}: {
+  surface: NavSurface
+  max: number
+  title: React.ReactNode
+  scrollRef: AnimatedRef<Animated.ScrollView>
+  scrollOffset: SharedValue<number>
+  setIsDragging: (v: boolean) => void
+}) {
+  const {_} = useLingui()
+  const {visible, available, canAdd, canRemove, setOrder, show, hide, reset} =
+    useNavItems(surface)
+
+  return (
+    <SettingsList.Container>
+      <SurfaceHeader>{title}</SurfaceHeader>
+
+      <SectionHeader>
+        <Trans>Shown</Trans>
+      </SectionHeader>
+      <SortableList
+        data={visible}
+        keyExtractor={item => item.id}
+        itemHeight={ITEM_HEIGHT}
+        scrollRef={scrollRef}
+        scrollOffset={scrollOffset}
+        onDragStart={() => setIsDragging(true)}
+        onDragEnd={() => setIsDragging(false)}
+        onReorder={reordered => setOrder(reordered.map(item => item.id))}
+        renderItem={(item, dragHandle) => (
+          <ShownRow
+            item={item}
+            dragHandle={dragHandle}
+            canRemove={canRemove}
+            onRemove={() => hide(item.id)}
+          />
+        )}
+      />
+
+      {available.length > 0 && (
+        <>
+          <SectionHeader>
+            <Trans>Available</Trans>
+          </SectionHeader>
+          {!canAdd && (
+            <Text style={[a.px_lg, a.pb_sm, a.text_sm, a.leading_snug]}>
+              <Trans>
+                You can show up to {max} items. Remove one to add another.
+              </Trans>
+            </Text>
+          )}
+          {available.map(item => (
+            <AvailableRow
+              key={item.id}
+              item={item}
+              canAdd={canAdd}
+              onAdd={() => show(item.id)}
+            />
+          ))}
+        </>
+      )}
+
+      <SettingsList.Divider />
+      <SettingsList.PressableItem
+        label={_(msg`Reset to default`)}
+        testID={`navBarSettings-reset-${surface}`}
+        onPress={() => reset()}>
+        <SettingsList.ItemText>
+          <Trans>Reset to default</Trans>
+        </SettingsList.ItemText>
+      </SettingsList.PressableItem>
+    </SettingsList.Container>
+  )
+}
+
+function SurfaceHeader({children}: {children: React.ReactNode}) {
+  const t = useTheme()
+  return (
+    <Text style={[a.px_lg, a.pt_xl, a.pb_xs, a.text_lg, a.font_bold, t.atoms.text]}>
+      {children}
+    </Text>
   )
 }
 
@@ -135,7 +178,7 @@ function SectionHeader({children}: {children: React.ReactNode}) {
     <Text
       style={[
         a.px_lg,
-        a.pt_lg,
+        a.pt_md,
         a.pb_xs,
         a.text_sm,
         a.font_bold,

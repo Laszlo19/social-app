@@ -91,6 +91,12 @@ export type Device = {
   bottomBarItems?: NavItemId[]
 
   /**
+   * Ordered list of nav-item ids shown in the desktop left sidebar. Same
+   * customization screen as bottomBarItems. Absent means "use defaults".
+   */
+  leftNavItems?: NavItemId[]
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
