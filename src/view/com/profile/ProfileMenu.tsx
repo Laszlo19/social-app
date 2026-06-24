@@ -4,13 +4,11 @@ import {Trans, useLingui} from '@lingui/react/macro'
 import {useNavigation} from '@react-navigation/native'
 import {useQueryClient} from '@tanstack/react-query'
 
-import {HITSLOP_20} from '#/lib/constants'
 import {makeProfileLink} from '#/lib/routes/links'
 import {type NavigationProp} from '#/lib/routes/types'
 import {shareText, shareUrl} from '#/lib/sharing'
 import {toShareUrl} from '#/lib/strings/url-helpers'
 import {type Shadow} from '#/state/cache/types'
-import {useModalControls} from '#/state/modals'
 import {Nux, useNux, useSaveNux} from '#/state/queries/nuxs'
 import {
   RQKEY as profileQueryKey,
@@ -23,6 +21,7 @@ import {EventStopper} from '#/view/com/util/EventStopper'
 import {atoms as a, useTheme} from '#/alf'
 import {Button, ButtonIcon} from '#/components/Button'
 import {useDialogControl} from '#/components/Dialog'
+import {UserAddRemoveListsDialog} from '#/components/dialogs/lists/UserAddRemoveListsDialog'
 import {StarterPackDialog} from '#/components/dialogs/StarterPackDialog'
 import {ArrowOutOfBoxModified_Stroke2_Corner2_Rounded as ArrowOutOfBoxIcon} from '#/components/icons/ArrowOutOfBox'
 import {ChainLink_Stroke2_Corner0_Rounded as ChainLinkIcon} from '#/components/icons/ChainLink'
@@ -73,7 +72,6 @@ let ProfileMenu = ({
   const ax = useAnalytics()
   const {t: l} = useLingui()
   const {currentAccount, hasSession} = useSession()
-  const {openModal} = useModalControls()
   const reportDialogControl = useReportDialogControl()
   const queryClient = useQueryClient()
   const navigation = useNavigation<NavigationProp>()
@@ -106,6 +104,7 @@ let ProfileMenu = ({
   const goLiveDialogControl = useDialogControl()
   const goLiveDisabledDialogControl = useDialogControl()
   const addToStarterPacksDialogControl = useDialogControl()
+  const addToListsDialogControl = useDialogControl()
 
   const showLoggedOutWarning = useMemo(() => {
     return (
@@ -130,15 +129,8 @@ let ProfileMenu = ({
   }, [profile])
 
   const onPressAddRemoveLists = useCallback(() => {
-    openModal({
-      name: 'user-add-remove-lists',
-      subject: profile.did,
-      handle: profile.handle,
-      displayName: profile.displayName || profile.handle,
-      onAdd: invalidateProfileQuery,
-      onRemove: invalidateProfileQuery,
-    })
-  }, [profile, openModal, invalidateProfileQuery])
+    addToListsDialogControl.open()
+  }, [addToListsDialogControl])
 
   const onPressMuteAccount = useCallback(async () => {
     if (profile.viewer?.muted) {
@@ -264,7 +256,10 @@ let ProfileMenu = ({
                   {...props}
                   testID="profileHeaderDropdownBtn"
                   label={l`More options`}
-                  hitSlop={HITSLOP_20}
+                  // hitSlop reaches outside parent views on iOS, so the
+                  // left inset must stay within half of the 4pt row gap or
+                  // it steals taps from the adjacent header button
+                  hitSlop={{top: 6, bottom: 6, left: 2, right: 12}}
                   variant="solid"
                   color="secondary"
                   size="small"
@@ -527,6 +522,12 @@ let ProfileMenu = ({
       <StarterPackDialog
         control={addToStarterPacksDialogControl}
         targetDid={profile.did}
+      />
+      <UserAddRemoveListsDialog
+        control={addToListsDialogControl}
+        profile={profile}
+        onAdd={invalidateProfileQuery}
+        onRemove={invalidateProfileQuery}
       />
       <ReportDialog
         control={reportDialogControl}
