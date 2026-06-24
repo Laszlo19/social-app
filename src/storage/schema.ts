@@ -1,4 +1,5 @@
 import {type ID as PolicyUpdate202508} from '#/components/PolicyUpdateOverlay/updates/202508/config'
+import {type NavItemId} from '#/features/customNav/config'
 import {type Gif} from '#/features/gifPicker/types'
 import {type InviteThemeKey} from '#/features/inviteFriends/themes'
 import {type Geolocation} from '#/geolocation/types'
@@ -81,6 +82,13 @@ export type Device = {
    * to the legacy "Find friends from contacts" string + contacts-upload flow.
    */
   experimentalLegacyContacts?: boolean
+
+  /**
+   * Ordered list of nav-item ids shown in the mobile bottom bar. Customized
+   * via Settings > Appearance > Navigation bar. Absent means "use defaults".
+   * See features/customNav.
+   */
+  bottomBarItems?: NavItemId[]
 
   /**
    * Policy update overlays. New IDs are required for each new announcement.
