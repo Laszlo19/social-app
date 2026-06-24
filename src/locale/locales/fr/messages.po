@@ -122,7 +122,7 @@ msgstr "{0, plural, one {# seconde} other {# secondes}}"
 
 #. placeholder {0}: numUnreadNotifications ?? 0
 #. placeholder {0}: parseInt(notificationCount, 10) || 0
-#: src/view/shell/bottom-bar/BottomBar.tsx:221
+#: src/view/shell/bottom-bar/BottomBar.tsx:227
 #: src/view/shell/Drawer.tsx:557
 msgid "{0, plural, one {# unread item} other {# unread items}}"
 msgstr "{0, plural, one {# élément non lu} other {# éléments non lus}}"
@@ -394,7 +394,7 @@ msgstr "{count, plural, one {# nouvelle demande} other {# nouvelles demandes}} �
 msgid "{count, plural, one {# request} other {# requests}}"
 msgstr "{count, plural, one {# demande} other {# demandes}}"
 
-#: src/view/shell/desktop/LeftNav.tsx:484
+#: src/view/shell/desktop/LeftNav.tsx:452
 msgid "{count, plural, one {# unread item} other {# unread items}}"
 msgstr "{count, plural, one {# élément non lu} other {# éléments non lus}}"
 
@@ -667,7 +667,7 @@ msgstr "Les fils d’actu et les personnes préférées de {name} – faites com
 msgid "{name}'s starter pack"
 msgstr "Kit de démarrage de {name}"
 
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:294
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:317
 msgid "{notificationCount, plural, one {# unread item} other {# unread items}}"
 msgstr "{notificationCount, plural, one {# élément non lu} other {# éléments non lus}}"
 
@@ -924,7 +924,7 @@ msgstr "Une capture d’écran d’une fenêtre de rédaction avec un nouveau bo
 msgid "A selected recipient is not followed by the sender."
 msgstr "Un des comptes destinataires n’est pas suivi par le compte expéditeur."
 
-#: src/Navigation.tsx:483
+#: src/Navigation.tsx:487
 #: src/screens/Settings/AboutSettings.tsx:78
 #: src/screens/Settings/Settings.tsx:281
 #: src/screens/Settings/Settings.tsx:284
@@ -978,11 +978,11 @@ msgstr "Accès demandé ! Le compte propriétaire du groupe examinera votre dem
 msgid "Accessibility"
 msgstr "Accessibilité"
 
-#: src/Navigation.tsx:390
+#: src/Navigation.tsx:394
 msgid "Accessibility Settings"
 msgstr "Paramètres d’accessibilité"
 
-#: src/Navigation.tsx:422
+#: src/Navigation.tsx:426
 #: src/screens/Login/LoginForm.tsx:192
 #: src/screens/Settings/AccountSettings.tsx:56
 #: src/screens/Settings/Settings.tsx:179
@@ -1086,7 +1086,7 @@ msgstr "Ajouter {0} autres pour continuer"
 msgid "Add {displayName} to starter pack"
 msgstr "Ajouter {displayName} au kit de démarrage"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:227
+#: src/screens/Settings/NavigationBarSettings.tsx:270
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -1125,8 +1125,8 @@ msgstr "Ajouter un texte alt (facultatif)"
 
 #: src/screens/Settings/Settings.tsx:630
 #: src/screens/Settings/Settings.tsx:633
-#: src/view/shell/desktop/LeftNav.tsx:276
-#: src/view/shell/desktop/LeftNav.tsx:279
+#: src/view/shell/desktop/LeftNav.tsx:242
+#: src/view/shell/desktop/LeftNav.tsx:245
 msgid "Add another account"
 msgstr "Ajouter un autre compte"
 
@@ -1685,7 +1685,7 @@ msgstr "Quiconque qui me suit"
 msgid "Anyone who has it will no longer be able to join or request to join. You can always create a new one."
 msgstr "Quiconque l’avait ne pourra plus rejoindre la discussion ou demander à la rejoindre. Vous pourrez toujours en créer un nouveau."
 
-#: src/Navigation.tsx:491
+#: src/Navigation.tsx:495
 #: src/screens/Settings/AppIconSettings/index.tsx:65
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:19
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:24
@@ -1723,7 +1723,7 @@ msgstr "Les noms de mots de passe d’application doivent comporter au moins 4 c
 msgid "App passwords"
 msgstr "Mots de passe d’application"
 
-#: src/Navigation.tsx:358
+#: src/Navigation.tsx:362
 #: src/screens/Settings/AppPasswords.tsx:51
 msgid "App Passwords"
 msgstr "Mots de passe d’application"
@@ -1765,7 +1765,7 @@ msgstr "Faire appel de la suspension"
 msgid "Appeal this decision"
 msgstr "Faire appel de cette décision"
 
-#: src/Navigation.tsx:398
+#: src/Navigation.tsx:402
 #: src/screens/Settings/AppearanceSettings.tsx:74
 #: src/screens/Settings/Settings.tsx:241
 #: src/screens/Settings/Settings.tsx:244
@@ -1884,7 +1884,7 @@ msgstr "Compte automatisé"
 msgid "Automation label"
 msgstr "Étiquette d’automatisation"
 
-#: src/Navigation.tsx:430
+#: src/Navigation.tsx:434
 #: src/screens/Settings/AutomationLabelSettings.tsx:103
 msgid "Automation Label"
 msgstr "Étiquette d’automatisation"
@@ -1895,7 +1895,7 @@ msgid "Autoplay videos and GIFs"
 msgstr "Lire automatiquement les vidéos et les GIFs"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:92
+#: src/screens/Settings/NavigationBarSettings.tsx:133
 #: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
 msgid "Available"
 msgstr "Disponible"
@@ -2094,7 +2094,7 @@ msgstr "Bloqué"
 msgid "Blocked accounts"
 msgstr "Comptes bloqués"
 
-#: src/Navigation.tsx:194
+#: src/Navigation.tsx:198
 #: src/view/screens/ModerationBlockedAccounts.tsx:95
 msgid "Blocked Accounts"
 msgstr "Comptes bloqués"
@@ -2212,6 +2212,10 @@ msgstr "Flouter les images et les filtrer des fils d’actu"
 #: src/lib/interests.ts:54
 msgid "Books"
 msgstr "Livres"
+
+#: src/screens/Settings/NavigationBarSettings.tsx:67
+msgid "Bottom bar (mobile)"
+msgstr ""
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:215
 msgid "Breaking site rules"
@@ -2391,7 +2395,7 @@ msgstr "Accès à l’appareil photo nécessaire"
 #: src/view/com/composer/Composer.tsx:1742
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:44
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:53
-#: src/view/shell/desktop/LeftNav.tsx:228
+#: src/view/shell/desktop/LeftNav.tsx:194
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2506,10 +2510,9 @@ msgstr "Modifications enregistrées"
 msgid "Changes to the starter pack will not be reflected in the list after creation. The list will be an independent copy."
 msgstr "Les changements ultérieurs dans ce kit de démarrage ne seront pas répercutés sur la liste après sa création. La liste sera une copie indépendante."
 
-#: src/features/customNav/catalog.tsx:116
+#: src/features/customNav/catalog.tsx:126
 #: src/lib/hooks/useNotificationHandler.ts:133
-#: src/Navigation.tsx:509
-#: src/view/shell/desktop/LeftNav.tsx:698
+#: src/Navigation.tsx:513
 #: src/view/shell/Drawer.tsx:525
 msgid "Chat"
 msgstr "Discussions"
@@ -2560,7 +2563,7 @@ msgstr "Les propriétaires d’une discussion ne peuvent pas en partir."
 msgid "Chat recipient is not followed by the sender."
 msgstr "Le compte destinataire de la discussion n’est pas suivi par le compte expéditeur."
 
-#: src/Navigation.tsx:529
+#: src/Navigation.tsx:533
 msgid "Chat request inbox"
 msgstr "Demandes de discussion en attente"
 
@@ -2570,7 +2573,7 @@ msgid "Chat requests"
 msgstr "Demandes de discussion"
 
 #: src/components/dms/ConvoMenu.tsx:88
-#: src/Navigation.tsx:524
+#: src/Navigation.tsx:528
 #: src/screens/Messages/ChatList.tsx:84
 #: src/screens/Messages/ChatList.tsx:88
 #: src/screens/Messages/ChatList.tsx:552
@@ -2658,7 +2661,7 @@ msgid "Choose this color as your avatar"
 msgstr "Choisir cette couleur comme avatar"
 
 #: src/screens/Settings/NavigationBarSettings.tsx:58
-msgid "Choose which items appear in the bottom bar and drag to reorder them. Hidden items stay reachable from the menu."
+msgid "Choose which items appear in each navigation bar and drag to reorder them. Hidden items stay reachable from the menu."
 msgstr ""
 
 #: src/screens/Messages/components/InviteLinkDialog.tsx:243
@@ -2928,7 +2931,7 @@ msgid "Comics"
 msgstr "Bandes dessinées"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:46
-#: src/Navigation.tsx:348
+#: src/Navigation.tsx:352
 #: src/view/screens/CommunityGuidelines.tsx:28
 msgid "Community Guidelines"
 msgstr "Règles de bonne conduite"
@@ -2943,7 +2946,7 @@ msgstr "Compléter le défi"
 
 #: src/lib/hotkeys/index.tsx:66
 #: src/view/com/feeds/ComposerPrompt.tsx:147
-#: src/view/shell/desktop/LeftNav.tsx:587
+#: src/view/shell/desktop/LeftNav.tsx:555
 msgid "Compose new post"
 msgstr "Écrire un nouveau post"
 
@@ -3045,7 +3048,7 @@ msgstr "Contenu et médias"
 msgid "Content and media"
 msgstr "Contenu et médias"
 
-#: src/Navigation.tsx:467
+#: src/Navigation.tsx:471
 msgid "Content and Media"
 msgstr "Contenu et médias"
 
@@ -3277,7 +3280,7 @@ msgstr "Copier la valeur du registre TXT"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:41
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:108
-#: src/Navigation.tsx:353
+#: src/Navigation.tsx:357
 #: src/view/screens/CopyrightPolicy.tsx:25
 msgid "Copyright Policy"
 msgstr "Politique sur les droits d’auteur"
@@ -3412,7 +3415,7 @@ msgstr "Créer un code QR pour un kit de démarrage"
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:207
 #: src/components/StarterPack/ProfileStarterPacks.tsx:316
-#: src/Navigation.tsx:560
+#: src/Navigation.tsx:574
 msgid "Create a starter pack"
 msgstr "Créer un kit de démarrage"
 
@@ -3431,10 +3434,10 @@ msgstr "Créer un kit de démarrage pour moi"
 #: src/screens/Signup/index.tsx:135
 #: src/view/com/auth/SplashScreen.tsx:107
 #: src/view/com/auth/SplashScreen.web.tsx:116
-#: src/view/shell/bottom-bar/BottomBar.tsx:290
-#: src/view/shell/bottom-bar/BottomBar.tsx:294
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:200
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:205
+#: src/view/shell/bottom-bar/BottomBar.tsx:296
+#: src/view/shell/bottom-bar/BottomBar.tsx:300
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:221
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:226
 #: src/view/shell/NavSignupCard.tsx:48
 #: src/view/shell/NavSignupCard.tsx:53
 msgid "Create account"
@@ -4181,7 +4184,7 @@ msgstr "Modifier le statut « En direct »"
 msgid "Edit moderation list"
 msgstr "Modifier la liste de modération"
 
-#: src/Navigation.tsx:363
+#: src/Navigation.tsx:367
 #: src/view/screens/Feeds.tsx:511
 msgid "Edit My Feeds"
 msgstr "Modifier mes fils d’actu"
@@ -4228,7 +4231,7 @@ msgstr "Modifier la liste de comptes"
 msgid "Edit who can reply"
 msgstr "Modifier qui peut répondre"
 
-#: src/Navigation.tsx:565
+#: src/Navigation.tsx:579
 msgid "Edit your starter pack"
 msgstr "Modifier votre kit de démarrage"
 
@@ -4536,7 +4539,7 @@ msgstr "URI attendue pour résoudre un enregistrement"
 msgid "Experimental"
 msgstr "Expérimental"
 
-#: src/Navigation.tsx:414
+#: src/Navigation.tsx:418
 #: src/screens/Settings/ExperimentalFeaturesSettings.tsx:34
 #: src/screens/Settings/Settings.tsx:264
 #: src/screens/Settings/Settings.tsx:267
@@ -4574,9 +4577,8 @@ msgstr "Médias explicites ou potentiellement dérangeants."
 msgid "Explicit sexual images."
 msgstr "Images sexuelles explicites."
 
-#: src/Navigation.tsx:769
+#: src/Navigation.tsx:783
 #: src/screens/Search/Shell.tsx:362
-#: src/view/shell/desktop/LeftNav.tsx:677
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
 msgstr "Explorer"
@@ -4616,7 +4618,7 @@ msgstr "Média externe"
 msgid "External media may allow websites to collect information about you and your device. No information is sent or requested until you press the \"play\" button."
 msgstr "Les médias externes peuvent permettre à des sites web de collecter des informations sur vous et votre appareil. Aucune information n’est envoyée ou demandée tant que vous n’appuyez pas sur le bouton de lecture."
 
-#: src/Navigation.tsx:382
+#: src/Navigation.tsx:386
 #: src/screens/Settings/ExternalMediaPreferences.tsx:35
 msgid "External Media Preferences"
 msgstr "Préférences sur les médias externes"
@@ -4799,12 +4801,12 @@ msgstr "Échec du chargement des suivis suggérés"
 msgid "Failed to lock group chat"
 msgstr "Échec du verrouillage de la discussion de groupe"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:386
+#: src/view/shell/bottom-bar/BottomBar.tsx:392
 msgid "Failed to mark all chats as read"
 msgstr "Échec du marquage de toutes les discussions comme lues"
 
 #: src/screens/Messages/Inbox.tsx:311
-#: src/view/shell/bottom-bar/BottomBar.tsx:395
+#: src/view/shell/bottom-bar/BottomBar.tsx:401
 msgid "Failed to mark all requests as read"
 msgstr "Échec du marquage de toutes les demandes comme lues"
 
@@ -4957,7 +4959,13 @@ msgstr "Faux compte ou bot"
 msgid "False information about elections"
 msgstr "Fausses infos concernant des élections"
 
-#: src/Navigation.tsx:293
+#: src/features/customNav/catalog.tsx:201
+#: src/Navigation.tsx:554
+#: src/screens/PlaceholderTimelines.tsx:61
+msgid "Federated"
+msgstr ""
+
+#: src/Navigation.tsx:297
 msgid "Feed"
 msgstr "Fil d’actu"
 
@@ -5002,15 +5010,14 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "Commentaires envoyés au fournisseur du fil d’actu"
 
-#: src/features/customNav/catalog.tsx:149
-#: src/Navigation.tsx:545
+#: src/features/customNav/catalog.tsx:159
+#: src/Navigation.tsx:549
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
 #: src/screens/Search/SearchResults.tsx:80
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:239
-#: src/view/shell/desktop/LeftNav.tsx:712
 #: src/view/shell/Drawer.tsx:589
 msgid "Feeds"
 msgstr "Fils d’actu"
@@ -5092,8 +5099,8 @@ msgstr "Trouver des comptes à suivre"
 msgid "Find and invite friends"
 msgstr "Trouver et inviter des amis"
 
-#: src/Navigation.tsx:454
-#: src/Navigation.tsx:587
+#: src/Navigation.tsx:458
+#: src/Navigation.tsx:601
 msgid "Find Contacts"
 msgstr "Rechercher des contacts"
 
@@ -5277,7 +5284,7 @@ msgid "Followers can join"
 msgstr "Accessible aux comptes abonnés"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:247
+#: src/Navigation.tsx:251
 msgid "Followers of @{0} that you know"
 msgstr "Abonné·e·s de @{0} que vous connaissez"
 
@@ -5327,7 +5334,7 @@ msgstr "Suit {handle}"
 msgid "Following feed preferences"
 msgstr "Préférences du fil des abonnements"
 
-#: src/Navigation.tsx:369
+#: src/Navigation.tsx:373
 #: src/screens/Settings/FollowingFeedPreferences.tsx:57
 msgid "Following Feed Preferences"
 msgstr "Préférences du fil des abonnements"
@@ -5639,8 +5646,8 @@ msgstr "Aller à la suite"
 #: src/components/dms/ConvoMenu.tsx:262
 #: src/screens/Messages/components/MessagesListInfoPanel.tsx:98
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:194
-#: src/view/shell/desktop/LeftNav.tsx:336
-#: src/view/shell/desktop/LeftNav.tsx:342
+#: src/view/shell/desktop/LeftNav.tsx:302
+#: src/view/shell/desktop/LeftNav.tsx:308
 msgid "Go to profile"
 msgstr "Voir le profil"
 
@@ -5712,7 +5719,7 @@ msgctxt "toast"
 msgid "Group chat name updated"
 msgstr "Nom de la discussion de groupe modifié"
 
-#: src/Navigation.tsx:514
+#: src/Navigation.tsx:518
 #: src/screens/Messages/ConversationSettings/index.tsx:113
 msgid "Group chat settings"
 msgstr "Paramètres de la discussion de groupe"
@@ -5809,7 +5816,7 @@ msgstr "Activités néfastes ou à haut risque"
 msgid "Harming or endangering minors"
 msgstr "Contenu néfaste ou dangereux pour des mineurs"
 
-#: src/Navigation.tsx:498
+#: src/Navigation.tsx:502
 msgid "Hashtag"
 msgstr "Mot-clé"
 
@@ -6023,10 +6030,9 @@ msgstr "Hmm, nous n’avons pas pu charger ce service de modération."
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Attendez ! Nous donnons progressivement accès à la vidéo et vous faites toujours la queue. Revenez bientôt !"
 
-#: src/features/customNav/catalog.tsx:96
-#: src/Navigation.tsx:764
-#: src/Navigation.tsx:785
-#: src/view/shell/desktop/LeftNav.tsx:667
+#: src/features/customNav/catalog.tsx:106
+#: src/Navigation.tsx:778
+#: src/Navigation.tsx:799
 #: src/view/shell/Drawer.tsx:499
 msgid "Home"
 msgstr "Accueil"
@@ -6564,7 +6570,7 @@ msgstr "Étiquettes sur votre compte"
 msgid "Labels on your content"
 msgstr "Étiquettes sur votre contenu"
 
-#: src/Navigation.tsx:220
+#: src/Navigation.tsx:224
 msgid "Language Settings"
 msgstr "Paramètres linguistiques"
 
@@ -6786,8 +6792,8 @@ msgstr "Aimer ce fil d’actu"
 msgid "Like this labeler"
 msgstr "Aimer cet étiqueteur"
 
-#: src/Navigation.tsx:298
-#: src/Navigation.tsx:303
+#: src/Navigation.tsx:302
+#: src/Navigation.tsx:307
 msgid "Liked by"
 msgstr "Aimé par"
 
@@ -6837,7 +6843,7 @@ msgstr "Linéaire"
 msgid "Link copied to clipboard"
 msgstr "Lien copié dans le presse-papiers"
 
-#: src/Navigation.tsx:253
+#: src/Navigation.tsx:257
 msgid "List"
 msgstr "Liste"
 
@@ -6923,12 +6929,11 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "Liste réaffichée"
 
-#: src/features/customNav/catalog.tsx:158
-#: src/Navigation.tsx:174
+#: src/features/customNav/catalog.tsx:168
+#: src/Navigation.tsx:178
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
 #: src/view/screens/Profile.tsx:241
-#: src/view/shell/desktop/LeftNav.tsx:722
 #: src/view/shell/Drawer.tsx:604
 msgid "Lists"
 msgstr "Listes"
@@ -7020,6 +7025,12 @@ msgstr "Chargement des paramètres d’interaction du post…"
 msgid "Loading..."
 msgstr "Chargement…"
 
+#: src/features/customNav/catalog.tsx:208
+#: src/Navigation.tsx:559
+#: src/screens/PlaceholderTimelines.tsx:66
+msgid "Local"
+msgstr ""
+
 #: src/screens/Messages/ConversationSettings/index.tsx:571
 msgid "Lock"
 msgstr "Verrouiller"
@@ -7040,7 +7051,7 @@ msgstr "Verrouiller cette discussion de groupe"
 msgid "Locked"
 msgstr "Verrouillée"
 
-#: src/Navigation.tsx:328
+#: src/Navigation.tsx:332
 msgid "Log"
 msgstr "Journaux"
 
@@ -7117,13 +7128,13 @@ msgstr "Gérer les mots et les mots-clés masqués"
 msgid "Mark all as read"
 msgstr "Tout marquer comme lus"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:404
-#: src/view/shell/bottom-bar/BottomBar.tsx:408
+#: src/view/shell/bottom-bar/BottomBar.tsx:410
+#: src/view/shell/bottom-bar/BottomBar.tsx:414
 msgid "Mark all chats as read"
 msgstr "Marquer toutes les discussions comme lues"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:412
-#: src/view/shell/bottom-bar/BottomBar.tsx:416
+#: src/view/shell/bottom-bar/BottomBar.tsx:418
+#: src/view/shell/bottom-bar/BottomBar.tsx:422
 msgid "Mark all requests as read"
 msgstr "Marquer toutes les demandes comme lues"
 
@@ -7136,11 +7147,11 @@ msgstr "Marqué comme lu"
 msgid "Marked all as read"
 msgstr "Tout marqué comme lus"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:383
+#: src/view/shell/bottom-bar/BottomBar.tsx:389
 msgid "Marked all chats as read"
 msgstr "Toutes les discussions marquées comme lues"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:392
+#: src/view/shell/bottom-bar/BottomBar.tsx:398
 msgid "Marked all requests as read"
 msgstr "Toutes les demandes marquées comme lues"
 
@@ -7258,7 +7269,7 @@ msgstr "Le message est trop long ({graphemeCount}/{MAX_DM_GRAPHEME_LENGTH})"
 msgid "Message options"
 msgstr "Options de message"
 
-#: src/Navigation.tsx:779
+#: src/Navigation.tsx:793
 msgid "Messages"
 msgstr "Messages"
 
@@ -7287,7 +7298,7 @@ msgstr "Trompeur"
 msgid "Missing media"
 msgstr "Média manquant"
 
-#: src/Navigation.tsx:179
+#: src/Navigation.tsx:183
 #: src/screens/Moderation/index.tsx:100
 msgid "Moderation"
 msgstr "Modération"
@@ -7331,7 +7342,7 @@ msgstr "Liste de modération mise à jour"
 msgid "Moderation lists"
 msgstr "Listes de modération"
 
-#: src/Navigation.tsx:184
+#: src/Navigation.tsx:188
 #: src/view/screens/ModerationModlists.tsx:60
 msgid "Moderation Lists"
 msgstr "Listes de modération"
@@ -7340,7 +7351,7 @@ msgstr "Listes de modération"
 msgid "moderation settings"
 msgstr "paramètres de modération"
 
-#: src/Navigation.tsx:313
+#: src/Navigation.tsx:317
 msgid "Moderation states"
 msgstr "États de modération"
 
@@ -7481,7 +7492,7 @@ msgstr "En sourdine"
 msgid "Muted accounts"
 msgstr "Comptes masqués"
 
-#: src/Navigation.tsx:189
+#: src/Navigation.tsx:193
 #: src/view/screens/ModerationMutedAccounts.tsx:107
 msgid "Muted Accounts"
 msgstr "Comptes masqués"
@@ -7553,10 +7564,13 @@ msgstr "Navigue vers le prochain écran"
 msgid "Navigates to your profile"
 msgstr "Navigue vers votre profil"
 
-#: src/Navigation.tsx:406
+#: src/screens/Settings/NavigationBarSettings.tsx:51
+msgid "Navigation"
+msgstr ""
+
+#: src/Navigation.tsx:410
 #: src/screens/Settings/AppearanceSettings.tsx:179
 #: src/screens/Settings/AppearanceSettings.tsx:182
-#: src/screens/Settings/NavigationBarSettings.tsx:51
 msgid "Navigation bar"
 msgstr ""
 
@@ -7668,6 +7682,7 @@ msgstr "Nouvelle liste"
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
+#: src/features/customNav/catalog.tsx:193
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -7678,7 +7693,7 @@ msgid "New post"
 msgstr "Nouveau post"
 
 #: src/view/com/feeds/FeedPage.tsx:179
-#: src/view/shell/desktop/LeftNav.tsx:598
+#: src/view/shell/desktop/LeftNav.tsx:566
 msgctxt "action"
 msgid "New post"
 msgstr "Nouveau post"
@@ -7982,7 +7997,7 @@ msgstr "Indisponible sur cette plateforme."
 msgid "Not followed by anyone you’re following"
 msgstr "Pas suivi par quiconque que vous suivez"
 
-#: src/Navigation.tsx:169
+#: src/Navigation.tsx:173
 #: src/view/screens/Profile.tsx:132
 msgid "Not Found"
 msgstr "Introuvable"
@@ -8003,14 +8018,18 @@ msgstr "Remarque : Bluesky est un réseau ouvert et public. Ce paramètre limit
 msgid "Note: This post is only visible to logged-in users."
 msgstr "Note : Ce post n’est visible qu’aux personnes connectées."
 
+#: src/screens/PlaceholderTimelines.tsx:48
+msgid "Nothing here"
+msgstr ""
+
 #: src/screens/Bookmarks/components/EmptyState.tsx:36
 #: src/screens/Bookmarks/index.tsx:299
 msgid "Nothing saved yet"
 msgstr "Rien n’a encore été conservé"
 
 #: src/components/dialogs/NotificationSettingsDialog.tsx:64
-#: src/Navigation.tsx:461
-#: src/Navigation.tsx:540
+#: src/Navigation.tsx:465
+#: src/Navigation.tsx:544
 #: src/view/screens/Notifications.tsx:134
 msgid "Notification settings"
 msgstr "Paramètres de notification"
@@ -8020,15 +8039,14 @@ msgstr "Paramètres de notification"
 msgid "Notification sounds"
 msgstr "Sons de notification"
 
-#: src/features/customNav/catalog.tsx:127
-#: src/Navigation.tsx:535
-#: src/Navigation.tsx:774
+#: src/features/customNav/catalog.tsx:137
+#: src/Navigation.tsx:539
+#: src/Navigation.tsx:788
 #: src/screens/Notifications/ActivityList.tsx:31
 #: src/screens/Settings/NotificationSettings/index.tsx:104
 #: src/screens/Settings/Settings.tsx:203
 #: src/screens/Settings/Settings.tsx:206
 #: src/view/screens/Notifications.tsx:128
-#: src/view/shell/desktop/LeftNav.tsx:687
 #: src/view/shell/Drawer.tsx:552
 msgid "Notifications"
 msgstr "Notifications"
@@ -8595,12 +8613,12 @@ msgid "People {ownerName} follows can request to join"
 msgstr "Les personnes que {ownerName} peuvent demander à rejoindre"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:240
+#: src/Navigation.tsx:244
 msgid "People followed by @{0}"
 msgstr "Personnes suivies par @{0}"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:233
+#: src/Navigation.tsx:237
 msgid "People following @{0}"
 msgstr "Personnes qui suivent @{0}"
 
@@ -8953,10 +8971,10 @@ msgid "Post blocked"
 msgstr "Post bloqué"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:266
-#: src/Navigation.tsx:273
-#: src/Navigation.tsx:280
-#: src/Navigation.tsx:287
+#: src/Navigation.tsx:270
+#: src/Navigation.tsx:277
+#: src/Navigation.tsx:284
+#: src/Navigation.tsx:291
 msgid "Post by @{0}"
 msgstr "Post de @{0}"
 
@@ -8990,7 +9008,7 @@ msgstr "Post caché par vous"
 msgid "Post interaction settings"
 msgstr "Paramètres d’interaction du post"
 
-#: src/Navigation.tsx:200
+#: src/Navigation.tsx:204
 #: src/screens/ModerationInteractionSettings/index.tsx:35
 msgid "Post Interaction Settings"
 msgstr "Paramètres d’interaction du post"
@@ -9095,8 +9113,8 @@ msgstr "Vie privée"
 msgid "Privacy and security"
 msgstr "Confidentialité et sécurité"
 
-#: src/Navigation.tsx:438
-#: src/Navigation.tsx:446
+#: src/Navigation.tsx:442
+#: src/Navigation.tsx:450
 #: src/screens/Settings/ActivityPrivacySettings.tsx:41
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:45
 msgid "Privacy and Security"
@@ -9108,7 +9126,7 @@ msgstr "Paramètres de confidentialité et sécurité"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:36
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:103
-#: src/Navigation.tsx:338
+#: src/Navigation.tsx:342
 #: src/screens/Settings/AboutSettings.tsx:95
 #: src/screens/Settings/AboutSettings.tsx:98
 #: src/view/screens/PrivacyPolicy.tsx:25
@@ -9137,8 +9155,7 @@ msgstr "Traitement…"
 msgid "profile"
 msgstr "profil"
 
-#: src/features/customNav/catalog.tsx:138
-#: src/view/shell/desktop/LeftNav.tsx:745
+#: src/features/customNav/catalog.tsx:148
 #: src/view/shell/Drawer.tsx:91
 #: src/view/shell/Drawer.tsx:655
 msgid "Profile"
@@ -9441,7 +9458,7 @@ msgstr "Retirer {displayName} ?"
 msgid "Remove {historyItem}"
 msgstr "Supprimer {historyItem}"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:182
+#: src/screens/Settings/NavigationBarSettings.tsx:225
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -9892,7 +9909,7 @@ msgstr "Demandée"
 msgid "Requests"
 msgstr "Demandes"
 
-#: src/Navigation.tsx:519
+#: src/Navigation.tsx:523
 #: src/screens/Messages/JoinRequests.tsx:59
 #: src/screens/Messages/JoinRequests.tsx:425
 msgid "Requests to join"
@@ -9970,8 +9987,8 @@ msgstr "Réinitialisation du didacticiel"
 msgid "Reset password"
 msgstr "Réinitialiser mot de passe"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:119
-#: src/screens/Settings/NavigationBarSettings.tsx:123
+#: src/screens/Settings/NavigationBarSettings.tsx:155
+#: src/screens/Settings/NavigationBarSettings.tsx:159
 msgid "Reset to default"
 msgstr ""
 
@@ -10128,8 +10145,7 @@ msgstr "Enregistrer ces choix pour la prochaine fois"
 msgid "Save to my feeds"
 msgstr "Enregistrer dans mes fils d’actu"
 
-#: src/features/customNav/catalog.tsx:166
-#: src/view/shell/desktop/LeftNav.tsx:732
+#: src/features/customNav/catalog.tsx:176
 #: src/view/shell/Drawer.tsx:630
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -10141,7 +10157,7 @@ msgid "Saved Feeds"
 msgstr "Fils d’actu enregistrés"
 
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:145
-#: src/Navigation.tsx:579
+#: src/Navigation.tsx:593
 #: src/screens/Bookmarks/index.tsx:59
 msgid "Saved Posts"
 msgstr "Posts conservés"
@@ -10172,7 +10188,7 @@ msgstr "Scanner"
 
 #: src/features/inviteFriends/InviteScannerScreen.tsx:82
 #: src/features/inviteFriends/InviteScannerScreen.web.tsx:23
-#: src/Navigation.tsx:318
+#: src/Navigation.tsx:322
 msgid "Scan QR code"
 msgstr "Scanner un QR code"
 
@@ -10199,7 +10215,7 @@ msgstr "Remonter en haut"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
-#: src/features/customNav/catalog.tsx:106
+#: src/features/customNav/catalog.tsx:116
 #: src/screens/Search/Shell.tsx:362
 #: src/screens/Search/Shell.tsx:525
 msgid "Search"
@@ -10207,7 +10223,7 @@ msgstr "Recherche"
 
 #. placeholder {0}: profile.handle
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:259
+#: src/Navigation.tsx:263
 #: src/screens/Profile/ProfileSearch.tsx:37
 msgid "Search @{0}'s posts"
 msgstr "Rechercher dans les posts de @{0}"
@@ -10635,10 +10651,9 @@ msgstr "Indiquez votre date de naissance ci-dessous et vous serez de retour à p
 msgid "Sets email for password reset"
 msgstr "Définit l’e-mail pour la réinitialisation du mot de passe"
 
-#: src/features/customNav/catalog.tsx:175
-#: src/Navigation.tsx:215
+#: src/features/customNav/catalog.tsx:185
+#: src/Navigation.tsx:219
 #: src/screens/Settings/Settings.tsx:104
-#: src/view/shell/desktop/LeftNav.tsx:755
 #: src/view/shell/Drawer.tsx:668
 msgid "Settings"
 msgstr "Paramètres"
@@ -10785,7 +10800,7 @@ msgstr "Partager via…"
 msgid "Share your contacts to find friends"
 msgstr "Partager vos contacts pour retrouver des amis"
 
-#: src/Navigation.tsx:323
+#: src/Navigation.tsx:327
 msgid "Shared Preferences Tester"
 msgstr "Testeur de préférences partagées"
 
@@ -10916,7 +10931,7 @@ msgstr "Afficher l’avertissement et filtrer des fils d’actu"
 msgid "Show when you’re live"
 msgstr "Rendez visibles vos streams"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:66
+#: src/screens/Settings/NavigationBarSettings.tsx:109
 msgid "Shown"
 msgstr ""
 
@@ -10932,6 +10947,10 @@ msgstr "Affiche les autres comptes vers lesquels vous pouvez basculer"
 #: src/components/moderation/PostHider.tsx:94
 msgid "Shows the content"
 msgstr "Affiche le contenu"
+
+#: src/screens/Settings/NavigationBarSettings.tsx:75
+msgid "Sidebar (desktop)"
+msgstr ""
 
 #: src/components/dialogs/Signin.tsx:98
 #: src/components/dialogs/Signin.tsx:100
@@ -10950,10 +10969,10 @@ msgstr "Affiche le contenu"
 #: src/view/com/auth/SplashScreen.tsx:124
 #: src/view/com/auth/SplashScreen.web.tsx:122
 #: src/view/com/auth/SplashScreen.web.tsx:130
-#: src/view/shell/bottom-bar/BottomBar.tsx:299
-#: src/view/shell/bottom-bar/BottomBar.tsx:303
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:210
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:215
+#: src/view/shell/bottom-bar/BottomBar.tsx:305
+#: src/view/shell/bottom-bar/BottomBar.tsx:309
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:231
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:236
 #: src/view/shell/NavSignupCard.tsx:58
 #: src/view/shell/NavSignupCard.tsx:63
 msgid "Sign in"
@@ -11004,9 +11023,9 @@ msgstr "Se connecter pour voir le post"
 #: src/screens/SignupQueued.tsx:94
 #: src/screens/SignupQueued.tsx:97
 #: src/screens/Takendown.tsx:88
-#: src/view/shell/desktop/LeftNav.tsx:227
-#: src/view/shell/desktop/LeftNav.tsx:282
-#: src/view/shell/desktop/LeftNav.tsx:285
+#: src/view/shell/desktop/LeftNav.tsx:193
+#: src/view/shell/desktop/LeftNav.tsx:248
+#: src/view/shell/desktop/LeftNav.tsx:251
 msgid "Sign out"
 msgstr "Déconnexion"
 
@@ -11015,7 +11034,7 @@ msgid "Sign Out"
 msgstr "Se déconnecter"
 
 #: src/screens/Settings/Settings.tsx:322
-#: src/view/shell/desktop/LeftNav.tsx:224
+#: src/view/shell/desktop/LeftNav.tsx:190
 msgid "Sign out?"
 msgstr "Se déconnecter ?"
 
@@ -11257,8 +11276,8 @@ msgstr "Démarrer la discussion"
 msgid "Start chat with {displayName}"
 msgstr "Démarrer une discussion avec {displayName}"
 
-#: src/Navigation.tsx:550
-#: src/Navigation.tsx:555
+#: src/Navigation.tsx:564
+#: src/Navigation.tsx:569
 #: src/screens/StarterPack/Wizard/index.tsx:197
 msgid "Starter Pack"
 msgstr "Kit de démarrage"
@@ -11320,7 +11339,7 @@ msgstr "Stockage effacé, vous devez redémarrer l’application maintenant."
 msgid "Stored as part of a secure code for matching with others"
 msgstr "Stocké sous forme de code sécurisé (hashé) pour retrouver d’autres comptes"
 
-#: src/Navigation.tsx:308
+#: src/Navigation.tsx:312
 #: src/screens/Settings/Settings.tsx:486
 msgid "Storybook"
 msgstr "Historique"
@@ -11440,7 +11459,7 @@ msgctxt "Name of app icon variant"
 msgid "Sunset"
 msgstr "Coucher du soleil"
 
-#: src/Navigation.tsx:333
+#: src/Navigation.tsx:337
 #: src/view/screens/Support.tsx:25
 #: src/view/screens/Support.tsx:28
 msgid "Support"
@@ -11463,16 +11482,16 @@ msgstr "Les comptes suspendus ne peuvent pas participer à une discussion."
 #: src/screens/Settings/Settings.tsx:128
 #: src/screens/Settings/Settings.tsx:140
 #: src/screens/Settings/Settings.tsx:670
-#: src/view/shell/desktop/LeftNav.tsx:262
+#: src/view/shell/desktop/LeftNav.tsx:228
 msgid "Switch account"
 msgstr "Changer de compte"
 
-#: src/view/shell/desktop/LeftNav.tsx:124
+#: src/view/shell/desktop/LeftNav.tsx:90
 msgid "Switch accounts"
 msgstr "Changer de compte"
 
 #. placeholder {0}: sanitizeHandle( profile?.handle ?? account.handle, '@', )
-#: src/view/shell/desktop/LeftNav.tsx:364
+#: src/view/shell/desktop/LeftNav.tsx:330
 msgid "Switch to {0}"
 msgstr "Basculer vers {0}"
 
@@ -11616,7 +11635,7 @@ msgstr "Conditions générales"
 #: src/components/dialogs/BirthDateSettings.tsx:181
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:31
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:98
-#: src/Navigation.tsx:343
+#: src/Navigation.tsx:347
 #: src/screens/Settings/AboutSettings.tsx:87
 #: src/screens/Settings/AboutSettings.tsx:90
 #: src/view/screens/TermsOfService.tsx:25
@@ -12106,6 +12125,10 @@ msgstr "Ce lien d’invitation a été désactivé."
 msgid "This invite link is invalid"
 msgstr "Ce lien d’invitation est incorrect"
 
+#: src/screens/PlaceholderTimelines.tsx:51
+msgid "This is a placeholder for testing only."
+msgstr ""
+
 #: src/view/screens/Debug.tsx:327
 msgid "This is an empty state"
 msgstr "Rien à afficher ici"
@@ -12317,7 +12340,7 @@ msgstr "Préférences des fils de discussion"
 msgid "Threaded"
 msgstr "Sous forme de fils"
 
-#: src/Navigation.tsx:376
+#: src/Navigation.tsx:380
 msgid "Threads Preferences"
 msgstr "Préférences des fils de discussion"
 
@@ -12389,7 +12412,7 @@ msgstr "Meilleur"
 msgid "Top replies first"
 msgstr "Meilleures réponses en premier"
 
-#: src/Navigation.tsx:503
+#: src/Navigation.tsx:507
 msgid "Topic"
 msgstr "Sujet"
 
@@ -13051,7 +13074,7 @@ msgstr "La vérification a échoué, veuillez réessayer."
 msgid "Verification settings"
 msgstr "Paramètres de vérification"
 
-#: src/Navigation.tsx:208
+#: src/Navigation.tsx:212
 #: src/screens/Moderation/VerificationSettings.tsx:34
 msgid "Verification Settings"
 msgstr "Paramètres de vérification"
@@ -13158,7 +13181,7 @@ msgstr "Vidéo"
 msgid "Video failed to process"
 msgstr "Le traitement de la vidéo a échoué"
 
-#: src/Navigation.tsx:571
+#: src/Navigation.tsx:585
 msgid "Video Feed"
 msgstr "Fil de vidéos"
 
@@ -13951,8 +13974,8 @@ msgstr "Vous pouvez lire l’historique de la discussion mais pas envoyer de nou
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Vous pouvez sélectionner jusqu'à {MAX_GALLERY_IMAGES, plural, other {# images}} au total."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:99
-msgid "You can show up to {MAX_VISIBLE} items. Remove one to add another."
+#: src/screens/Settings/NavigationBarSettings.tsx:137
+msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 
 #: src/components/interstitials/Trending.tsx:132
@@ -14200,7 +14223,7 @@ msgid "You requested to join"
 msgstr "Vous avez demandé à rejoindre"
 
 #: src/screens/Settings/Settings.tsx:323
-#: src/view/shell/desktop/LeftNav.tsx:225
+#: src/view/shell/desktop/LeftNav.tsx:191
 msgid "You will be signed out of all your accounts."
 msgstr "Vous serez déconnecté·e de tous vos comptes."
 
@@ -14425,7 +14448,7 @@ msgstr "Votre fil d’actu des comptes suivis est vide ! Suivez plus de comptes
 msgid "Your full handle will be <0>@{0}</0>"
 msgstr "Votre pseudo complet sera <0>@{0}</0>"
 
-#: src/Navigation.tsx:475
+#: src/Navigation.tsx:479
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:68
 #: src/screens/Settings/ContentAndMediaSettings.tsx:94
 #: src/screens/Settings/ContentAndMediaSettings.tsx:97
