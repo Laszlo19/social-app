@@ -39,6 +39,23 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install Android NDK
+        # react-native-mmkv (and other native modules on RN 0.81) require this
+        # exact NDK. Install it explicitly so Gradle doesn't auto-download it
+        # mid-build, which has produced corrupt archives ("Archive is not a ZIP
+        # archive"). Retry to survive transient CDN hiccups.
+        run: |
+          for attempt in 1 2 3; do
+            if yes | sdkmanager --install "ndk;27.1.12297006"; then
+              echo "NDK installed on attempt $attempt"
+              exit 0
+            fi
+            echo "NDK install attempt $attempt failed; retrying in 10s..."
+            sleep 10
+          done
+          echo "::error::Failed to install ndk;27.1.12297006 after 3 attempts"
+          exit 1
+
       - name: Create placeholder google-services.json
         run: |
           cat > google-services.json <<'JSON'
@@ -99,16 +116,18 @@ jobs:
       - name: Rename APK for release
         run: |
           mkdir -p dist
+          APP_VERSION=$(node -p "require('./package.json').version")
+          echo "APP_VERSION=${APP_VERSION}" >> "$GITHUB_ENV"
           cp android/app/build/outputs/apk/release/app-release.apk \
-            "dist/bluesky-dev-1.124.0-build${{ github.run_number }}.apk"
+            "dist/bluesky-dev-${APP_VERSION}-build${{ github.run_number }}.apk"
 
       - name: Publish APK to Releases
         uses: softprops/action-gh-release@v2
         with:
           tag_name: android-dev-build${{ github.run_number }}
-          name: Bluesky Dev 1.124.0 (build ${{ github.run_number }})
+          name: Bluesky Dev ${{ env.APP_VERSION }} (build ${{ github.run_number }})
           prerelease: true
-          files: dist/bluesky-dev-1.124.0-build${{ github.run_number }}.apk
+          files: dist/bluesky-dev-${{ env.APP_VERSION }}-build${{ github.run_number }}.apk
           body: |
             Sideload-ready **Bluesky Dev** APK (applicationId `xyz.blueskyweb.app.dev`,
             installs alongside the official app).
