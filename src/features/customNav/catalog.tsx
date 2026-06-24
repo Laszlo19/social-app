@@ -25,6 +25,9 @@ import {
   BulletList_Filled_Corner0_Rounded as ListFilled,
   BulletList_Stroke2_Corner0_Rounded as List,
 } from '#/components/icons/BulletList'
+import {Earth_Stroke2_Corner0_Rounded as Earth} from '#/components/icons/Earth'
+import {EditBig_Stroke2_Corner2_Rounded as EditBig} from '#/components/icons/EditBig'
+import {GroupTwo_Stroke2_Corner0_Rounded as GroupTwo} from '#/components/icons/GroupTwo'
 import {
   Hashtag_Filled_Corner0_Rounded as HashtagFilled,
   Hashtag_Stroke2_Corner0_Rounded as Hashtag,
@@ -73,16 +76,23 @@ export type NavCatalogItem = {
   routeName: string
   /** Web href / native matchPath target. Profile is resolved at render time. */
   href: string
-  /** Analytics item id for the `nav:click` metric. */
-  navMetric: Events['nav:click']['item']
+  /**
+   * Analytics item id for the `nav:click` metric. Omitted for items that
+   * aren't part of the fixed metric union (compose, federated, local).
+   */
+  navMetric?: Events['nav:click']['item']
   /** Present for the five real tabs; drives tab-switch semantics on native. */
   nativeTab?: SharedNavTab
   /** Native active-state source when the item maps to a known tab-state flag. */
   tabStateKey?: TabStateKey
   /** Live unread badge to render, if any. */
   badge?: 'notifications' | 'messages'
-  /** Profile renders the account avatar instead of a static icon. */
-  special?: 'profileAvatar'
+  /**
+   * Special rendering / behavior:
+   * - `profileAvatar`: render the account avatar instead of a static icon
+   * - `compose`: open the composer instead of navigating
+   */
+  special?: 'profileAvatar' | 'compose'
 }
 
 /**
@@ -177,6 +187,28 @@ export const NAV_ITEM_CATALOG: NavCatalogItem[] = [
     routeName: 'Settings',
     href: '/settings',
     navMetric: 'settings',
+  },
+  {
+    id: 'compose',
+    label: msg`New post`,
+    icons: {active: EditBig, inactive: EditBig},
+    routeName: 'Compose', // never matches a real route - always inactive
+    href: '/',
+    special: 'compose',
+  },
+  {
+    id: 'federated',
+    label: msg`Federated`,
+    icons: {active: Earth, inactive: Earth},
+    routeName: 'Federated',
+    href: '/federated',
+  },
+  {
+    id: 'local',
+    label: msg`Local`,
+    icons: {active: GroupTwo, inactive: GroupTwo},
+    routeName: 'Local',
+    href: '/local',
   },
 ]
 

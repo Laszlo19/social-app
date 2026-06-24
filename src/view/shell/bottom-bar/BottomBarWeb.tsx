@@ -1,5 +1,5 @@
 import {useCallback} from 'react'
-import {View} from 'react-native'
+import {Pressable, View} from 'react-native'
 import Animated from 'react-native-reanimated'
 import {msg, plural} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
@@ -8,6 +8,7 @@ import {useNavigationState} from '@react-navigation/native'
 
 import {useHideBottomBarBorder} from '#/lib/hooks/useHideBottomBarBorder'
 import {useMinimalShellFooterTransform} from '#/lib/hooks/useMinimalShellTransform'
+import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {getCurrentRoute, isTab} from '#/lib/routes/helpers'
 import {makeProfileLink} from '#/lib/routes/links'
 import {type CommonNavigatorParams} from '#/lib/routes/types'
@@ -67,6 +68,7 @@ export function BottomBarWeb() {
   const aa = useAgeAssurance()
   const isLabeler = profile?.associated?.labeler
   const {visible} = useBottomBarItems()
+  const {openComposer} = useOpenComposer()
 
   const showSignIn = useCallback(() => {
     closeAllActiveElements()
@@ -84,6 +86,25 @@ export function BottomBarWeb() {
   }, [accountSwitchControl])
 
   const renderNavItem = (item: NavCatalogItem) => {
+    if (item.special === 'compose') {
+      const Icon = item.icons.inactive
+      return (
+        <Pressable
+          key={item.id}
+          accessibilityRole="button"
+          aria-label={_(item.label)}
+          accessibilityHint=""
+          onPress={() => openComposer({logContext: 'Fab'})}
+          style={[styles.ctrl, a.pb_lg]}>
+          <Icon
+            aria-hidden={true}
+            width={getIconWidth(item.id, iconWidth)}
+            style={[styles.ctrlIcon, t.atoms.text]}
+          />
+        </Pressable>
+      )
+    }
+
     const href =
       item.special === 'profileAvatar'
         ? currentAccount
@@ -228,7 +249,7 @@ const NavItem: React.FC<{
   children: (props: {isActive: boolean}) => React.ReactNode
   href: string
   routeName: string
-  navItem: NavItemValue
+  navItem?: NavItemValue
   hasNew?: boolean
   notificationCount?: string
   onLongPress?: () => void
@@ -253,7 +274,9 @@ const NavItem: React.FC<{
   })
 
   const onBeforePress = useCallback(() => {
-    ax.metric('nav:click', {item: navItem, surface: 'bottomBar'})
+    if (navItem) {
+      ax.metric('nav:click', {item: navItem, surface: 'bottomBar'})
+    }
   }, [ax, navItem])
 
   // Checks whether we're on someone else's profile

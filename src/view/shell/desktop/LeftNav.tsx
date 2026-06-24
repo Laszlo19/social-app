@@ -38,46 +38,11 @@ import {
 import {Button, ButtonIcon, ButtonText} from '#/components/Button'
 import {type DialogControlProps} from '#/components/Dialog'
 import {ArrowBoxLeft_Stroke2_Corner0_Rounded as LeaveIcon} from '#/components/icons/ArrowBoxLeft'
-import {
-  Bell_Filled_Corner0_Rounded as BellFilledIcon,
-  Bell_Stroke2_Corner0_Rounded as BellIcon,
-} from '#/components/icons/Bell'
-import {
-  Bookmark as BookmarkIcon,
-  BookmarkFilled as BookmarkFilledIcon,
-} from '#/components/icons/Bookmark'
-import {
-  BulletList_Filled_Corner0_Rounded as ListFilledIcon,
-  BulletList_Stroke2_Corner0_Rounded as ListIcon,
-} from '#/components/icons/BulletList'
 import {type Props as SVGIconProps} from '#/components/icons/common'
 import {DotGrid3x1_Stroke2_Corner0_Rounded as EllipsisIcon} from '#/components/icons/DotGrid'
 import {EditBig_Stroke2_Corner2_Rounded as EditBigIcon} from '#/components/icons/EditBig'
-import {
-  Hashtag_Filled_Corner0_Rounded as HashtagFilledIcon,
-  Hashtag_Stroke2_Corner0_Rounded as HashtagIcon,
-} from '#/components/icons/Hashtag'
-import {
-  HomeOpen_Filled_Corner0_Rounded as HomeFilledIcon,
-  HomeOpen_Stoke2_Corner0_Rounded as HomeIcon,
-} from '#/components/icons/HomeOpen'
-import {
-  MagnifyingGlass_Filled_Stroke2_Corner0_Rounded as MagnifyingGlassFilledIcon,
-  MagnifyingGlass_Stroke2_Corner0_Rounded as MagnifyingGlassIcon,
-} from '#/components/icons/MagnifyingGlass'
-import {
-  Message_Stroke2_Corner0_Rounded as MessageIcon,
-  Message_Stroke2_Corner0_Rounded_Filled as MessageFilledIcon,
-} from '#/components/icons/Message'
 import {PlusLarge_Stroke2_Corner0_Rounded as PlusIcon} from '#/components/icons/Plus'
-import {
-  SettingsGear2_Filled_Corner0_Rounded as SettingsFilledIcon,
-  SettingsGear2_Stroke2_Corner0_Rounded as SettingsIcon,
-} from '#/components/icons/SettingsGear2'
-import {
-  UserCircle_Filled_Corner0_Rounded as UserCircleFilledIcon,
-  UserCircle_Stroke2_Corner0_Rounded as UserCircleIcon,
-} from '#/components/icons/UserCircle'
+import {UserCircle_Stroke2_Corner0_Rounded as UserCircleIcon} from '#/components/icons/UserCircle'
 import {CENTER_COLUMN_OFFSET, CENTER_COLUMN_WIDTH} from '#/components/Layout'
 import * as Menu from '#/components/Menu'
 import * as Prompt from '#/components/Prompt'
@@ -85,6 +50,7 @@ import {Text} from '#/components/Typography'
 import {useAgeAssurance} from '#/ageAssurance'
 import {useAnalytics} from '#/analytics'
 import {type Events} from '#/analytics/metrics/types'
+import {type NavCatalogItem, useLeftNavItems} from '#/features/customNav'
 import {useActorStatus} from '#/features/liveNow'
 import {router} from '#/routes'
 import {PlatformInfo} from '../../../../modules/expo-bluesky-swiss-army'
@@ -392,7 +358,7 @@ interface NavItemProps {
   }
   label: string
   minimal: boolean
-  navItem: Events['nav:click']['item']
+  navItem?: Events['nav:click']['item']
 }
 function NavItem({
   count,
@@ -425,7 +391,9 @@ function NavItem({
   const navigation = useNavigation<NavigationProp>()
   const onPressWrapped = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      ax.metric('nav:click', {item: navItem, surface: 'leftNav'})
+      if (navItem) {
+        ax.metric('nav:click', {item: navItem, surface: 'leftNav'})
+      }
       if (e.ctrlKey || e.metaKey || e.altKey) {
         return
       }
@@ -605,8 +573,9 @@ function ComposeBtn({minimal}: {minimal: boolean}) {
 
 export function DesktopLeftNav({routeName}: {routeName: string}) {
   const {hasSession, currentAccount} = useSession()
-  const {t: l} = useLingui()
+  const {i18n} = useLingui()
   const {gtMobile} = useBreakpoints()
+  const {visible} = useLeftNavItems()
 
   const aa = useAgeAssurance()
   // splitview uses the minimal variant of the leftnav. unfortunately there's no easy
@@ -619,6 +588,33 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
   const numUnreadMessages = useUnreadMessageCount()
 
   const leftNavMinimal = isMessagesRelatedScreen || leftNavMinimalBreakpoint
+
+  const renderNavItem = (item: NavCatalogItem) => {
+    const href =
+      item.special === 'profileAvatar'
+        ? makeProfileLink(currentAccount!)
+        : item.href
+    let count: string | undefined
+    let hasNew: boolean | undefined
+    if (item.badge === 'notifications') {
+      count = numUnreadNotifications || undefined
+    } else if (item.badge === 'messages' && !aa.flags.chatDisabled) {
+      count = numUnreadMessages.numUnread
+      hasNew = numUnreadMessages.hasNew
+    }
+    return (
+      <NavItem
+        key={item.id}
+        label={i18n._(item.label)}
+        href={href}
+        navItem={item.navMetric}
+        minimal={leftNavMinimal}
+        count={count}
+        hasNew={hasNew}
+        icons={{inactive: item.icons.inactive, active: item.icons.active}}
+      />
+    )
+  }
 
   if (!hasSession && !gtMobile) {
     return null
@@ -663,104 +659,7 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
       ) : null}
       {hasSession && (
         <>
-          <NavItem
-            label={l`Home`}
-            href="/"
-            navItem="home"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: HomeIcon,
-              active: HomeFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Explore`}
-            href="/search"
-            navItem="search"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: MagnifyingGlassIcon,
-              active: MagnifyingGlassFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Notifications`}
-            href="/notifications"
-            navItem="notifications"
-            minimal={leftNavMinimal}
-            count={numUnreadNotifications}
-            icons={{
-              inactive: BellIcon,
-              active: BellFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Chat`}
-            href="/messages"
-            navItem="chat"
-            minimal={leftNavMinimal}
-            count={
-              aa.flags.chatDisabled ? undefined : numUnreadMessages.numUnread
-            }
-            hasNew={!aa.flags.chatDisabled && numUnreadMessages.hasNew}
-            icons={{
-              inactive: MessageIcon,
-              active: MessageFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Feeds`}
-            href="/feeds"
-            navItem="feeds"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: HashtagIcon,
-              active: HashtagFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Lists`}
-            href="/lists"
-            navItem="lists"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: ListIcon,
-              active: ListFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l({
-              message: 'Saved',
-              context: 'link to bookmarks screen',
-            })}
-            href="/saved"
-            navItem="saved"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: BookmarkIcon,
-              active: BookmarkFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Profile`}
-            href={makeProfileLink(currentAccount!)}
-            navItem="profile"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: UserCircleIcon,
-              active: UserCircleFilledIcon,
-            }}
-          />
-          <NavItem
-            label={l`Settings`}
-            href="/settings"
-            navItem="settings"
-            minimal={leftNavMinimal}
-            icons={{
-              inactive: SettingsIcon,
-              active: SettingsFilledIcon,
-            }}
-          />
+          {visible.map(renderNavItem)}
 
           <ComposeBtn minimal={leftNavMinimal} />
         </>

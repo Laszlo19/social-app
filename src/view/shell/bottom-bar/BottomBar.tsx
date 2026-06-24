@@ -11,6 +11,7 @@ import {PressableScale} from '#/lib/custom-animations/PressableScale'
 import {BOTTOM_BAR_AVI} from '#/lib/demo'
 import {useHaptics} from '#/lib/haptics'
 import {useDedupe} from '#/lib/hooks/useDedupe'
+import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {useHideBottomBarBorder} from '#/lib/hooks/useHideBottomBarBorder'
 import {useMinimalShellFooterTransform} from '#/lib/hooks/useMinimalShellTransform'
 import {useNavigationTabState} from '#/lib/hooks/useNavigationTabState'
@@ -72,6 +73,7 @@ export function BottomBar({navigation}: BottomTabBarProps) {
     state ? getCurrentRoute(state).name : 'Home',
   )
   const {visible} = useBottomBarItems()
+  const {openComposer} = useOpenComposer()
   const numUnreadNotifications = useUnreadNotifications()
   const numUnreadMessages = useUnreadMessageCount()
   const aa = useAgeAssurance()
@@ -154,10 +156,14 @@ export function BottomBar({navigation}: BottomTabBarProps) {
       : isTab(currentRouteName, item.routeName)
 
     const onPress = () => {
-      if (item.nativeTab) {
+      if (item.special === 'compose') {
+        openComposer({logContext: 'Fab'})
+      } else if (item.nativeTab) {
         onPressTab(item.nativeTab)
       } else {
-        ax.metric('nav:click', {item: item.navMetric, surface: 'bottomBar'})
+        if (item.navMetric) {
+          ax.metric('nav:click', {item: item.navMetric, surface: 'bottomBar'})
+        }
         void navigate(item.routeName as never)
       }
     }
