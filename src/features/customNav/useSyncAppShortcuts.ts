@@ -37,6 +37,9 @@ export function useSyncAppShortcuts() {
       id: item.id,
       label: i18n._(item.label),
       deepLink: deepLinkFor(item, handle),
+      // Drawable written by plugins/withAndroidShortcutIcons.js, matching the
+      // in-app nav icon for this item.
+      iconResName: `shortcut_${item.id}`,
     })),
   )
 
