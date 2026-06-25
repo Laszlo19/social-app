@@ -1086,7 +1086,7 @@ msgstr "Adăugați încă {0} pentru a continua"
 msgid "Add {displayName} to starter pack"
 msgstr "Adăugați {displayName} la pachetul de pornire"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:277
+#: src/screens/Settings/NavigationBarSettings.tsx:289
 msgid "Add {label} to the bar"
 msgstr "Adăugați {label} la bară"
 
@@ -1895,7 +1895,7 @@ msgid "Autoplay videos and GIFs"
 msgstr "Redare automată videoclipuri și GIF-uri"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:137
+#: src/screens/Settings/NavigationBarSettings.tsx:149
 #: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
 msgid "Available"
 msgstr "Disponibil"
@@ -2213,7 +2213,7 @@ msgstr "Estompați imaginile și filtrați din fluxuri"
 msgid "Books"
 msgstr "Cărți"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:67
+#: src/screens/Settings/NavigationBarSettings.tsx:69
 msgid "Bottom bar (mobile)"
 msgstr "Bara de jos (mobil)"
 
@@ -2660,7 +2660,7 @@ msgstr "Selectați limbile postării"
 msgid "Choose this color as your avatar"
 msgstr "Alegeți această culoare ca avatar"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:58
+#: src/screens/Settings/NavigationBarSettings.tsx:60
 msgid "Choose which items appear in each navigation bar and drag to reorder them. Hidden items stay reachable from the menu."
 msgstr "Alegeți elementele care apar în fiecare bară de navigare și trageți pentru a le reordona. Elementele ascunse rămân accesibile din meniu."
 
@@ -6601,6 +6601,10 @@ msgstr "Ultima inițiere chiar acum"
 msgid "Latest"
 msgstr "Cele mai recente"
 
+#: src/screens/Settings/NavigationBarSettings.tsx:86
+msgid "Launcher shortcuts"
+msgstr ""
+
 #: src/components/verification/VerificationsDialog.tsx:168
 #: src/components/verification/VerifierDialog.tsx:136
 #: src/screens/Moderation/VerificationSettings.tsx:50
@@ -7565,7 +7569,7 @@ msgstr "Navighează la următorul ecran"
 msgid "Navigates to your profile"
 msgstr "Navighează la profilul dvs."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:51
+#: src/screens/Settings/NavigationBarSettings.tsx:53
 msgid "Navigation"
 msgstr "Navigare"
 
@@ -9459,7 +9463,7 @@ msgstr "Eliminați pe {displayName}?"
 msgid "Remove {historyItem}"
 msgstr "Eliminați {historyItem}"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:231
+#: src/screens/Settings/NavigationBarSettings.tsx:243
 msgid "Remove {label} from the bar"
 msgstr "Eliminați {label} din bară"
 
@@ -9988,8 +9992,8 @@ msgstr "Resetare stare înregistrare"
 msgid "Reset password"
 msgstr "Resetați parola"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:160
-#: src/screens/Settings/NavigationBarSettings.tsx:164
+#: src/screens/Settings/NavigationBarSettings.tsx:172
+#: src/screens/Settings/NavigationBarSettings.tsx:176
 msgid "Reset to default"
 msgstr "Resetare la valorile implicite"
 
@@ -10932,7 +10936,7 @@ msgstr "Afișează avertismente și filtrează din fluxuri"
 msgid "Show when you’re live"
 msgstr "Afișați când sunteți în direct"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:112
+#: src/screens/Settings/NavigationBarSettings.tsx:124
 msgid "Shown"
 msgstr "Afișate"
 
@@ -10949,7 +10953,7 @@ msgstr "Afișează alte conturi la care vă puteți comuta"
 msgid "Shows the content"
 msgstr "Afișează conținutul"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:75
+#: src/screens/Settings/NavigationBarSettings.tsx:77
 msgid "Sidebar (desktop)"
 msgstr "Bara laterală (desktop)"
 
@@ -13975,7 +13979,7 @@ msgstr "Puteți citi istoricul conversației, dar nu puteți trimite mesaje noi.
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Puteți selecta până la {MAX_GALLERY_IMAGES, plural, one {} few {# imagini}other {# de imagini}} în total."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:141
+#: src/screens/Settings/NavigationBarSettings.tsx:153
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr "Puteți afișa până la {max} elemente. Eliminați unul pentru a adăuga altul."
 
@@ -14535,4 +14539,3 @@ msgstr "Firul dvs. conține postări goale care vor fi omise. Postările rămase
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
 msgstr "Verificările dvs."
-
