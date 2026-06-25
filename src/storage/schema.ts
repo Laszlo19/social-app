@@ -103,6 +103,17 @@ export type Device = {
   quickActionItems?: NavItemId[]
 
   /**
+   * Fork feed tweaks (Settings > Following feed preferences). Hide the inline
+   * "What's up?" composer prompt at the top of feeds.
+   */
+  hideComposerPrompt?: boolean
+
+  /**
+   * Hide the floating "scroll to top / load new posts" button on feeds.
+   */
+  hideLoadLatestButton?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
