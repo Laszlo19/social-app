@@ -114,8 +114,7 @@ function vectorXml(icon) {
       d =>
         `  <path android:fillColor="${COLOR}" android:fillType="${icon.fillRule}" android:pathData="${d}" />`,
     )
-    .join('
-')
+    .join('')
   return `<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
   android:width="24dp"
