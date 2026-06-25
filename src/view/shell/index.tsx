@@ -7,6 +7,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import {useNavigation, useNavigationState} from '@react-navigation/native'
 
 import {useDedupe} from '#/lib/hooks/useDedupe'
+import {useSyncAppShortcuts} from '#/features/customNav'
 import {useIntentHandler} from '#/lib/hooks/useIntentHandler'
 import {useNotificationsHandler} from '#/lib/hooks/useNotificationHandler'
 import {useNotificationsRegistration} from '#/lib/notifications/notifications'
@@ -216,6 +217,7 @@ export function Shell() {
   const fullyExpandedCount = useDialogFullyExpandedCountContext()
 
   useIntentHandler()
+  useSyncAppShortcuts()
 
   useEffect(() => {
     setSystemUITheme('theme', t)

@@ -6,8 +6,10 @@ import {
 } from './catalog'
 import {
   DEFAULT_LEFT_NAV,
+  DEFAULT_QUICK_ACTIONS,
   DEFAULT_VISIBLE,
   MAX_LEFT_NAV,
+  MAX_QUICK_ACTIONS,
   MAX_VISIBLE,
   MIN_VISIBLE,
   type NavItemId,
@@ -18,15 +20,18 @@ import {
 // every render (these navs re-render frequently).
 const BOTTOM_BAR_SCOPE: ['bottomBarItems'] = ['bottomBarItems']
 const LEFT_NAV_SCOPE: ['leftNavItems'] = ['leftNavItems']
+const QUICK_ACTIONS_SCOPE: ['quickActionItems'] = ['quickActionItems']
 
 const DEFAULTS: Record<NavSurface, NavItemId[]> = {
   bottomBar: DEFAULT_VISIBLE,
   leftNav: DEFAULT_LEFT_NAV,
+  quickActions: DEFAULT_QUICK_ACTIONS,
 }
 
 const MAXES: Record<NavSurface, number> = {
   bottomBar: MAX_VISIBLE,
   leftNav: MAX_LEFT_NAV,
+  quickActions: MAX_QUICK_ACTIONS,
 }
 
 /**
@@ -54,9 +59,22 @@ export function useNavItems(surface: NavSurface) {
     BOTTOM_BAR_SCOPE,
   )
   const [leftNavStored, setLeftNavStored] = useStorage(device, LEFT_NAV_SCOPE)
-  const stored = surface === 'bottomBar' ? bottomBarStored : leftNavStored
+  const [quickActionsStored, setQuickActionsStored] = useStorage(
+    device,
+    QUICK_ACTIONS_SCOPE,
+  )
+  const stored =
+    surface === 'bottomBar'
+      ? bottomBarStored
+      : surface === 'leftNav'
+        ? leftNavStored
+        : quickActionsStored
   const setStored =
-    surface === 'bottomBar' ? setBottomBarStored : setLeftNavStored
+    surface === 'bottomBar'
+      ? setBottomBarStored
+      : surface === 'leftNav'
+        ? setLeftNavStored
+        : setQuickActionsStored
 
   const pool = poolForSurface(surface)
   const allowed = new Set(pool.map(item => item.id))
@@ -107,4 +125,8 @@ export function useBottomBarItems() {
 
 export function useLeftNavItems() {
   return useNavItems('leftNav')
+}
+
+export function useQuickActionItems() {
+  return useNavItems('quickActions')
 }

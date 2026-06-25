@@ -97,6 +97,12 @@ export type Device = {
   leftNavItems?: NavItemId[]
 
   /**
+   * Ordered list of nav-item ids exposed as Android launcher long-press
+   * shortcuts. Same customization screen. Absent means "use defaults".
+   */
+  quickActionItems?: NavItemId[]
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
