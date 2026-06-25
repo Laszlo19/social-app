@@ -22,8 +22,8 @@ export type NavItemId =
   | 'federated'
   | 'local'
 
-/** The two navigation surfaces that can be customized. */
-export type NavSurface = 'bottomBar' | 'leftNav'
+/** The navigation surfaces that can be customized. */
+export type NavSurface = 'bottomBar' | 'leftNav' | 'quickActions'
 
 /** Default bottom bar layout - matches the pre-customization hardcoded bar. */
 export const DEFAULT_VISIBLE: NavItemId[] = [
@@ -50,13 +50,26 @@ export const DEFAULT_LEFT_NAV: NavItemId[] = [
   'settings',
 ]
 
+/**
+ * Default launcher long-press shortcuts (Android). Android shows ~4, so keep
+ * the most useful destinations plus quick compose.
+ */
+export const DEFAULT_QUICK_ACTIONS: NavItemId[] = [
+  'search',
+  'notifications',
+  'messages',
+  'compose',
+]
+
 /** Always keep at least one item so the nav is never empty. */
 export const MIN_VISIBLE = 1
 
 /**
  * Cap visible items so tap targets stay usable. The bottom bar distributes
  * width with flex, so more items just shrink each button. The vertical
- * sidebar has room for the whole catalog.
+ * sidebar has room for the whole catalog. Android caps launcher shortcuts
+ * at ~4-5, so we cap there.
  */
 export const MAX_VISIBLE = 6
 export const MAX_LEFT_NAV = 12
+export const MAX_QUICK_ACTIONS = 4

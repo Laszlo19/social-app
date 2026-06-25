@@ -16,6 +16,7 @@ import {
 } from '#/lib/routes/types'
 import {
   MAX_LEFT_NAV,
+  MAX_QUICK_ACTIONS,
   MAX_VISIBLE,
   type NavCatalogItem,
   type NavSurface,
@@ -29,6 +30,7 @@ import {PlusLarge_Stroke2_Corner0_Rounded as PlusIcon} from '#/components/icons/
 import {TimesLarge_Stroke2_Corner0_Rounded as XIcon} from '#/components/icons/Times'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
+import {IS_ANDROID} from '#/env'
 import * as SettingsList from './components/SettingsList'
 
 const ITEM_HEIGHT = 56
@@ -77,6 +79,16 @@ export function NavigationBarSettingsScreen({}: Props) {
           scrollOffset={scrollOffset}
           setIsDragging={setIsDragging}
         />
+        {IS_ANDROID && (
+          <NavEditor
+            surface="quickActions"
+            max={MAX_QUICK_ACTIONS}
+            title={<Trans>Launcher shortcuts</Trans>}
+            scrollRef={scrollRef}
+            scrollOffset={scrollOffset}
+            setIsDragging={setIsDragging}
+          />
+        )}
       </Layout.Content>
     </Layout.Screen>
   )
