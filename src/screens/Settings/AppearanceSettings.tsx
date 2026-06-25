@@ -43,6 +43,9 @@ export function AppearanceSettingsScreen({}: Props) {
 
   const [mutualsLabel, setMutualsLabel] = useStorage(device, ['mutualsLabel'])
   const [postWord, setPostWord] = useStorage(device, ['postWord'])
+  const [squareAvatars, setSquareAvatars] = useStorage(device, [
+    'squareAvatars',
+  ])
 
   const onChangeAppearance = useCallback(
     (value: 'light' | 'system' | 'dark') => {
@@ -209,6 +212,18 @@ export function AppearanceSettingsScreen({}: Props) {
                       Show “Mutuals” instead of “Following” on profiles you
                       mutually follow
                     </Trans>
+                  </Toggle.LabelText>
+                  <Toggle.Platform />
+                </Toggle.Item>
+                <Toggle.Item
+                  type="checkbox"
+                  name="square-avatars"
+                  label={_(msg`Use square avatars`)}
+                  value={!!squareAvatars}
+                  onChange={value => setSquareAvatars(value)}
+                  style={[a.w_full, a.gap_md]}>
+                  <Toggle.LabelText style={[a.flex_1]}>
+                    <Trans>Use square avatars instead of circular</Trans>
                   </Toggle.LabelText>
                   <Toggle.Platform />
                 </Toggle.Item>

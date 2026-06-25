@@ -131,6 +131,12 @@ export type Device = {
   postWord?: string
 
   /**
+   * Density display prefs read app-wide via the display-prefs context
+   * (state/preferences/display-prefs). Square avatars instead of circular.
+   */
+  squareAvatars?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
