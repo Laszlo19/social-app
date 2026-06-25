@@ -21,6 +21,7 @@ import {
   useProfileFollowMutationQueue,
 } from '#/state/queries/profile'
 import {useRequireAuth, useSession} from '#/state/session'
+import {device, useStorage} from '#/storage'
 import {ProfileMenu} from '#/view/com/profile/ProfileMenu'
 import {atoms as a, platform, useBreakpoints, useTheme} from '#/alf'
 import {SubscribeProfileButton} from '#/components/activity-notifications/SubscribeProfileButton'
@@ -245,6 +246,7 @@ export function HeaderStandardButtons({
   const {hasSession, currentAccount} = useSession()
   const playHaptic = useHaptics()
   const requireAuth = useRequireAuth()
+  const [mutualsLabel] = useStorage(device, ['mutualsLabel'])
   const [queueFollow, queueUnfollow] = useProfileFollowMutationQueue(
     profile,
     'ProfileHeader',
@@ -422,7 +424,11 @@ export function HeaderStandardButtons({
               {!profile.viewer?.following && <ButtonIcon icon={Plus} />}
               <ButtonText>
                 {profile.viewer?.following ? (
-                  <Trans>Following</Trans>
+                  mutualsLabel && profile.viewer?.followedBy ? (
+                    <Trans>Mutuals</Trans>
+                  ) : (
+                    <Trans>Following</Trans>
+                  )
                 ) : profile.viewer?.followedBy ? (
                   <Trans>Follow back</Trans>
                 ) : (

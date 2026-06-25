@@ -119,6 +119,18 @@ export type Device = {
   noDiscoverFallback?: boolean
 
   /**
+   * Show "Mutuals" instead of "Following" on profiles you mutually follow.
+   * Settings > Appearance.
+   */
+  mutualsLabel?: boolean
+
+  /**
+   * Custom word for the composer's publish button (replaces "Post"). Empty/
+   * absent uses the default. Settings > Appearance.
+   */
+  postWord?: string
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean

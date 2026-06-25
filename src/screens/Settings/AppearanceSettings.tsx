@@ -1,4 +1,5 @@
 import {useCallback} from 'react'
+import {View} from 'react-native'
 import Animated, {
   FadeInUp,
   FadeOutUp,
@@ -18,13 +19,17 @@ import {SettingsListItem as AppIconSettingsListItem} from '#/screens/Settings/Ap
 import {type Alf, atoms as a, native, useAlf, useTheme} from '#/alf'
 import {Bars3_Stroke2_Corner0_Rounded as BarsIcon} from '#/components/icons/Bars'
 import * as SegmentedControl from '#/components/forms/SegmentedControl'
+import * as TextField from '#/components/forms/TextField'
+import * as Toggle from '#/components/forms/Toggle'
 import {type Props as SVGIconProps} from '#/components/icons/common'
+import {Group3_Stroke2_Corner0_Rounded as GroupIcon} from '#/components/icons/Group'
 import {Moon_Stroke2_Corner0_Rounded as MoonIcon} from '#/components/icons/Moon'
 import {Phone_Stroke2_Corner0_Rounded as PhoneIcon} from '#/components/icons/Phone'
 import {TextSize_Stroke2_Corner0_Rounded as TextSize} from '#/components/icons/TextSize'
 import {TitleCase_Stroke2_Corner0_Rounded as Aa} from '#/components/icons/TitleCase'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
+import {device, useStorage} from '#/storage'
 import {IS_NATIVE} from '#/env'
 import * as SettingsList from './components/SettingsList'
 
@@ -35,6 +40,9 @@ export function AppearanceSettingsScreen({}: Props) {
 
   const {colorMode, darkTheme} = useThemePrefs()
   const {setColorMode, setDarkTheme} = useSetThemePrefs()
+
+  const [mutualsLabel, setMutualsLabel] = useStorage(device, ['mutualsLabel'])
+  const [postWord, setPostWord] = useStorage(device, ['postWord'])
 
   const onChangeAppearance = useCallback(
     (value: 'light' | 'system' | 'dark') => {
@@ -182,6 +190,48 @@ export function AppearanceSettingsScreen({}: Props) {
                   <Trans>Navigation bar</Trans>
                 </SettingsList.ItemText>
               </SettingsList.LinkItem>
+
+              <SettingsList.Divider />
+              <SettingsList.Group iconInset={false}>
+                <SettingsList.ItemIcon icon={GroupIcon} />
+                <SettingsList.ItemText>
+                  <Trans>Profiles</Trans>
+                </SettingsList.ItemText>
+                <Toggle.Item
+                  type="checkbox"
+                  name="mutuals-label"
+                  label={_(msg`Show “Mutuals” instead of “Following”`)}
+                  value={!!mutualsLabel}
+                  onChange={value => setMutualsLabel(value)}
+                  style={[a.w_full, a.gap_md]}>
+                  <Toggle.LabelText style={[a.flex_1]}>
+                    <Trans>
+                      Show “Mutuals” instead of “Following” on profiles you
+                      mutually follow
+                    </Trans>
+                  </Toggle.LabelText>
+                  <Toggle.Platform />
+                </Toggle.Item>
+              </SettingsList.Group>
+
+              <SettingsList.Divider />
+              <SettingsList.Group iconInset={false}>
+                <SettingsList.ItemIcon icon={Aa} />
+                <SettingsList.ItemText>
+                  <Trans>Post button text</Trans>
+                </SettingsList.ItemText>
+                <View style={[a.w_full, a.px_lg, a.pb_sm]}>
+                  <TextField.Root>
+                    <TextField.Input
+                      label={_(msg`Post button text`)}
+                      placeholder={_(msg`Post`)}
+                      defaultValue={postWord ?? ''}
+                      onChangeText={text => setPostWord(text)}
+                      autoCapitalize="none"
+                    />
+                  </TextField.Root>
+                </View>
+              </SettingsList.Group>
             </Animated.View>
           </SettingsList.Container>
         </Layout.Content>
