@@ -10,7 +10,7 @@ import {useDedupe} from '#/lib/hooks/useDedupe'
 import {useSyncAppShortcuts} from '#/features/customNav'
 import {useIntentHandler} from '#/lib/hooks/useIntentHandler'
 import {useNotificationsHandler} from '#/lib/hooks/useNotificationHandler'
-import {useUpdateStatsWidget} from '#/lib/hooks/useUpdateStatsWidget'
+import {useUpdateWidgets} from '#/lib/hooks/useUpdateWidgets'
 import {useNotificationsRegistration} from '#/lib/notifications/notifications'
 import {isStateAtTabRoot} from '#/lib/routes/helpers'
 import {useDialogFullyExpandedCountContext} from '#/state/dialogs'
@@ -219,7 +219,7 @@ export function Shell() {
 
   useIntentHandler()
   useSyncAppShortcuts()
-  useUpdateStatsWidget()
+  useUpdateWidgets()
 
   useEffect(() => {
     setSystemUITheme('theme', t)

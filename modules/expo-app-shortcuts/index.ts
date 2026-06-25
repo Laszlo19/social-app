@@ -19,3 +19,7 @@ export function isSupported(): boolean {
 export function setShortcuts(_shortcuts: ShortcutItem[]): void {
   // no-op on non-Android platforms
 }
+
+export function refreshWidgets(): void {
+  // no-op on non-Android platforms
+}
