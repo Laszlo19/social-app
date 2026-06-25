@@ -187,6 +187,7 @@ function newPostInfoXml() {
   android:widgetCategory="home_screen"
   android:description="@string/widget_new_post_description"
   android:previewImage="@mipmap/ic_launcher"
+  android:previewLayout="@layout/widget_new_post"
   android:initialLayout="@layout/widget_new_post" />
 `
 }
@@ -203,6 +204,7 @@ function statsInfoXml() {
   android:widgetCategory="home_screen"
   android:description="@string/widget_stats_description"
   android:previewImage="@mipmap/ic_launcher"
+  android:previewLayout="@layout/widget_stats"
   android:initialLayout="@layout/widget_stats" />
 `
 }
