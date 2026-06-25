@@ -114,6 +114,11 @@ export type Device = {
   hideLoadLatestButton?: boolean
 
   /**
+   * Don't fall back to the Discover feed when the Following feed runs out.
+   */
+  noDiscoverFallback?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean

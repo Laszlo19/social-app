@@ -35,6 +35,7 @@ import {STALE} from '#/state/queries'
 import {DEFAULT_LOGGED_OUT_PREFERENCES} from '#/state/queries/preferences/const'
 import {useAgent} from '#/state/session'
 import * as userActionHistory from '#/state/userActionHistory'
+import {device, useStorage} from '#/storage'
 import {KnownError} from '#/view/com/posts/PostFeedErrorMessage'
 import {useFeedTuners} from '../preferences/feed-tuners'
 import {useModerationOpts} from '../preferences/moderation-opts'
@@ -147,7 +148,9 @@ export function usePostFeedQuery(
     preferences?.savedFeeds?.findIndex(
       f => f.pinned && f.value === 'following',
     ) ?? -1
-  const enableFollowingToDiscoverFallback = followingPinnedIndex === 0
+  const [noDiscoverFallback] = useStorage(device, ['noDiscoverFallback'])
+  const enableFollowingToDiscoverFallback =
+    followingPinnedIndex === 0 && !noDiscoverFallback
   const agent = useAgent()
   const lastRun = useRef<{
     data: InfiniteData<FeedPageUnselected>

@@ -17,6 +17,7 @@ import * as Toggle from '#/components/forms/Toggle'
 import {Beaker_Stroke2_Corner2_Rounded as BeakerIcon} from '#/components/icons/Beaker'
 import {Bubbles_Stroke2_Corner2_Rounded as BubblesIcon} from '#/components/icons/Bubble'
 import {EyeSlash_Stroke2_Corner0_Rounded as EyeSlashIcon} from '#/components/icons/EyeSlash'
+import {Hashtag_Stroke2_Corner0_Rounded as HashtagIcon} from '#/components/icons/Hashtag'
 import {CloseQuote_Stroke2_Corner1_Rounded as QuoteIcon} from '#/components/icons/Quote'
 import {Repost_Stroke2_Corner2_Rounded as RepostIcon} from '#/components/icons/Repost'
 import * as Layout from '#/components/Layout'
@@ -34,6 +35,9 @@ export function FollowingFeedPreferencesScreen({}: Props) {
   ])
   const [hideLoadLatestButton, setHideLoadLatestButton] = useStorage(device, [
     'hideLoadLatestButton',
+  ])
+  const [noDiscoverFallback, setNoDiscoverFallback] = useStorage(device, [
+    'noDiscoverFallback',
   ])
 
   const {data: preferences} = usePreferencesQuery()
@@ -125,6 +129,20 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <SettingsList.ItemIcon icon={QuoteIcon} />
               <SettingsList.ItemText>
                 <Trans>Show quote posts</Trans>
+              </SettingsList.ItemText>
+              <Toggle.Platform />
+            </SettingsList.Item>
+          </Toggle.Item>
+          <Toggle.Item
+            type="checkbox"
+            name="discover-fallback"
+            label={_(msg`Show Discover posts when your Following feed runs out`)}
+            value={!noDiscoverFallback}
+            onChange={value => setNoDiscoverFallback(!value)}>
+            <SettingsList.Item>
+              <SettingsList.ItemIcon icon={HashtagIcon} />
+              <SettingsList.ItemText>
+                <Trans>Fall back to Discover when Following runs out</Trans>
               </SettingsList.ItemText>
               <Toggle.Platform />
             </SettingsList.Item>
