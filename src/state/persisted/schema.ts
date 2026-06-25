@@ -3,6 +3,7 @@ import {z} from 'zod'
 import {deviceLanguageCodes, deviceLocales} from '#/locale/deviceLocales'
 import {findSupportedAppLanguage} from '#/locale/helpers'
 import {logger} from '#/logger'
+import {PlatformInfo} from '../../../modules/expo-bluesky-swiss-army'
 
 const externalEmbedOptions = ['show', 'hide'] as const
 
@@ -155,8 +156,7 @@ export const defaults: Schema = {
       deviceLanguageCodes[0],
     ]),
   },
-  // Fork default: require alt text by default (witchsky-style better defaults).
-  requireAltTextEnabled: true,
+  requireAltTextEnabled: false,
   largeAltBadgeEnabled: false,
   externalEmbeds: {},
   mutedThreads: [],
@@ -171,8 +171,7 @@ export const defaults: Schema = {
   lastSelectedHomeFeed: undefined,
   pdsAddressHistory: [],
   disableHaptics: false,
-  // Fork default: autoplay off (witchsky-style better defaults).
-  disableAutoplay: true,
+  disableAutoplay: PlatformInfo.getIsReducedMotionEnabled(),
   kawaii: false,
   hasCheckedForStarterPack: false,
   subtitlesEnabled: true,
