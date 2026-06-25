@@ -10,7 +10,7 @@ const path = require('path')
 // - New post widget: a button that opens the composer via the existing
 //   `bluesky://intent/compose` deep link. Pure native, no data.
 // - Account stats widget: shows the current account's avatar + follower /
-//   following counts. The app writes `widget_stats.json` + `widget_avatar.png`
+//   following counts. The app writes `widget_data.json` + `widget_avatar.png`
 //   into filesDir (see useUpdateStatsWidget); the provider reads them on
 //   update. Tapping opens the profile.
 //
@@ -79,6 +79,7 @@ function newPostLayoutXml() {
   android:background="@drawable/widget_button_bg"
   android:padding="10dp">
   <TextView
+    android:id="@+id/widget_new_post_text"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/widget_new_post_button"
@@ -145,6 +146,7 @@ function statsLayoutXml() {
       android:textSize="15sp"
       android:textStyle="bold" />
     <TextView
+      android:id="@+id/widget_stats_followers_label"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/widget_stats_followers_label"
@@ -166,6 +168,7 @@ function statsLayoutXml() {
       android:textSize="15sp"
       android:textStyle="bold" />
     <TextView
+      android:id="@+id/widget_stats_following_label"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/widget_stats_following_label"
@@ -219,6 +222,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import java.io.File
+import org.json.JSONObject
 import ${pkg}.R
 
 class ${NEW_POST_PROVIDER} : AppWidgetProvider() {
@@ -229,9 +234,25 @@ class ${NEW_POST_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_new_post)
+
+      // Localized label written by the app (useUpdateWidgets); fall back to the
+      // bundled @string until the app has run once.
+      try {
+        val dataFile = File(context.filesDir, "widget_data.json")
+        if (dataFile.exists()) {
+          val label = JSONObject(dataFile.readText()).optString("newPostLabel", "")
+          if (label.isNotEmpty()) {
+            views.setTextViewText(R.id.widget_new_post_text, label)
+          }
+        }
+      } catch (e: Exception) {
+        // keep the default label
+      }
+
       val intent =
         Intent(Intent.ACTION_VIEW, Uri.parse("bluesky://intent/compose")).apply {
           setPackage(context.packageName)
+          flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
       val pendingIntent =
         PendingIntent.getActivity(
@@ -275,7 +296,7 @@ class ${STATS_PROVIDER} : AppWidgetProvider() {
       val views = RemoteViews(context.packageName, R.layout.widget_stats)
       var handle = ""
       try {
-        val statsFile = File(context.filesDir, "widget_stats.json")
+        val statsFile = File(context.filesDir, "widget_data.json")
         if (statsFile.exists()) {
           val json = JSONObject(statsFile.readText())
           handle = json.optString("handle", "")
@@ -296,6 +317,15 @@ class ${STATS_PROVIDER} : AppWidgetProvider() {
             R.id.widget_stats_following,
             json.optInt("following", 0).toString(),
           )
+          // Localized labels written by the app (fall back to bundled @string).
+          val followersLabel = json.optString("followersLabel", "")
+          if (followersLabel.isNotEmpty()) {
+            views.setTextViewText(R.id.widget_stats_followers_label, followersLabel)
+          }
+          val followingLabel = json.optString("followingLabel", "")
+          if (followingLabel.isNotEmpty()) {
+            views.setTextViewText(R.id.widget_stats_following_label, followingLabel)
+          }
         }
         val avatarFile = File(context.filesDir, "widget_avatar.png")
         if (avatarFile.exists()) {
@@ -321,6 +351,7 @@ class ${STATS_PROVIDER} : AppWidgetProvider() {
       val intent =
         Intent(Intent.ACTION_VIEW, Uri.parse(link)).apply {
           setPackage(context.packageName)
+          flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
       val pendingIntent =
         PendingIntent.getActivity(

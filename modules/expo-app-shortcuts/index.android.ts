@@ -20,3 +20,7 @@ export function isSupported(): boolean {
 export function setShortcuts(shortcuts: ShortcutItem[]): void {
   NativeModule.setShortcuts(shortcuts)
 }
+
+export function refreshWidgets(): void {
+  NativeModule.refreshWidgets()
+}

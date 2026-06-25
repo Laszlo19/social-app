@@ -4,24 +4,33 @@ import {
   downloadAsync,
   writeAsStringAsync,
 } from 'expo-file-system/legacy'
+import {useLingui} from '@lingui/react/macro'
 
 import {useProfileQuery} from '#/state/queries/profile'
 import {useSession} from '#/state/session'
 import {IS_ANDROID} from '#/env'
+import * as AppShortcuts from '../../../modules/expo-app-shortcuts'
 
 /**
- * Writes the current account's stats (+ avatar) to filesDir so the Android
- * "Account stats" home-screen widget can read them. The widget picks up changes
- * on its next update (periodic, or when added). No-op off Android.
- *
- * Paths mirror what StatsWidgetProvider reads: filesDir/widget_stats.json and
- * filesDir/widget_avatar.png (documentDirectory maps to filesDir on Android).
+ * Writes data + localized labels for the Android home-screen widgets to
+ * filesDir, then asks the widget providers to re-render. The widget providers
+ * read `widget_data.json` (so their text follows the app language) and
+ * `widget_avatar.png`. No-op off Android.
  */
-export function useUpdateStatsWidget() {
+export function useUpdateWidgets() {
+  const {t: l} = useLingui()
   const {currentAccount} = useSession()
   const {data: profile} = useProfileQuery({did: currentAccount?.did})
 
+  // Resolved through Lingui so the widgets follow the app language.
+  const newPostLabel = l`New post`
+  const followersLabel = l`Followers`
+  const followingLabel = l`Following`
+
   const payload = JSON.stringify({
+    newPostLabel,
+    followersLabel,
+    followingLabel,
     followers: profile?.followersCount ?? 0,
     following: profile?.followsCount ?? 0,
     handle: profile?.handle ?? '',
@@ -31,20 +40,15 @@ export function useUpdateStatsWidget() {
 
   useEffect(() => {
     if (!IS_ANDROID || !documentDirectory) return
-    const data = JSON.parse(payload) as {
-      followers: number
-      following: number
-      handle: string
-      displayName: string
-      avatar: string
-    }
-    if (!data.handle) return
-
+    const data = JSON.parse(payload)
     const run = async () => {
       try {
         await writeAsStringAsync(
-          documentDirectory + 'widget_stats.json',
+          documentDirectory + 'widget_data.json',
           JSON.stringify({
+            newPostLabel: data.newPostLabel,
+            followersLabel: data.followersLabel,
+            followingLabel: data.followingLabel,
             followers: data.followers,
             following: data.following,
             handle: data.handle,
@@ -57,6 +61,7 @@ export function useUpdateStatsWidget() {
             documentDirectory + 'widget_avatar.png',
           )
         }
+        AppShortcuts.refreshWidgets()
       } catch {
         // best-effort; widget data is non-critical
       }
