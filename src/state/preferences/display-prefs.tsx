@@ -13,17 +13,34 @@ import {device} from '#/storage'
 export type DisplayPrefs = {
   /** Use square avatars instead of circular. */
   squareAvatars: boolean
+  /** Hide post engagement counts (likes / reposts / replies). */
+  hidePostCounts: boolean
+  /** Hide profile counts (followers / following / posts). */
+  hideProfileCounts: boolean
+  /** Hide the "Follows you" label on profiles. */
+  hideFollowsYou: boolean
 }
 
-const DISPLAY_PREF_KEYS = ['squareAvatars'] as const
+const DISPLAY_PREF_KEYS = [
+  'squareAvatars',
+  'hidePostCounts',
+  'hideProfileCounts',
+  'hideFollowsYou',
+] as const
 
 const defaults: DisplayPrefs = {
   squareAvatars: false,
+  hidePostCounts: false,
+  hideProfileCounts: false,
+  hideFollowsYou: false,
 }
 
 function readPrefs(): DisplayPrefs {
   return {
     squareAvatars: device.get(['squareAvatars']) ?? false,
+    hidePostCounts: device.get(['hidePostCounts']) ?? false,
+    hideProfileCounts: device.get(['hideProfileCounts']) ?? false,
+    hideFollowsYou: device.get(['hideFollowsYou']) ?? false,
   }
 }
 

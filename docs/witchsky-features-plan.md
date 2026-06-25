@@ -38,21 +38,28 @@ Lingui.
 
 ## Phase 2 – Wording & display
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| Rename the "post" verb to any phrase | **Appearance** (new "Wording" row) | one device pref read where the compose/"post" label renders |
-| "Mutuals" label instead of "Following" when mutual | **Appearance** toggle | uses existing follow-state |
-| Density: square avatars, square buttons, compact posts | **Appearance** (new "Density" group) | a few ALF/token-level toggles; touches shared components |
+| Rename the "post" verb to any phrase | **Appearance** > Post button text | ✅ done |
+| "Mutuals" label instead of "Following" when mutual | **Appearance** > Profiles | ✅ done |
+| Square avatars | **Appearance** > Profiles | ✅ done (via display-prefs context) |
+| Square buttons | **Appearance** | 🔜 TODO (Button default shape is hot/invasive; ride the display-prefs context) |
+| Compact posts | **Appearance** | 🔜 TODO (post layout spacing; ride the display-prefs context) |
 
-## Phase 3 – Counts & metrics (its own sub-page)
+The shared **display-prefs context** (`state/preferences/display-prefs`) exists so
+the remaining density items read prefs cheaply in hot components - add a key +
+field and consume via `useDisplayPrefs()`.
 
-| Feature | Home | Notes |
-|---|---|---|
-| Visibility (Hidden / Lite / Visible / Exact) of like/repost/quote/reply counts | **new "Counts & metrics" sub-page**, linked from Content & media | conditional rendering in `PostControls` |
-| Visibility of follower / following / post counts + "Follows you" label | same sub-page | conditional in profile header |
+## Phase 3 – Counts & metrics (its own sub-page) ✅
 
-This is the **one** feature that earns a dedicated page (6+ sub-toggles). It's
-also the highest-value "calm timeline" feature.
+Done: a **Counts & metrics** sub-page (Settings > Content & media), driven by the
+display-prefs context:
+- ✅ Hide post engagement counts (like/repost/reply) - gated in `PostControls`.
+- ✅ Hide profile counts (followers/following/posts) - gated in profile `Metrics`.
+- ✅ Hide the "Follows you" label - gated in profile `Handle`.
+
+🔜 TODO (future): the per-metric **Lite** (rounded) and **Exact** (un-abbreviated)
+levels - v1 ships Hidden vs Visible only.
 
 ## Phase 4 – Post menu items & link behavior
 

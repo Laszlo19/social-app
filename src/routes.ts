@@ -54,6 +54,7 @@ export const router = new Router<AllNavigatableRoutes>({
   AccessibilitySettings: '/settings/accessibility',
   AppearanceSettings: '/settings/appearance',
   NavigationBarSettings: '/settings/navigation',
+  CountsMetricsSettings: '/settings/counts-metrics',
   SavedFeeds: '/settings/saved-feeds',
   AccountSettings: '/settings/account',
   AutomationLabelSettings: '/settings/automation-label',

@@ -6,6 +6,7 @@ import {Trans} from '@lingui/react/macro'
 
 import {isInvalidHandle, sanitizeHandle} from '#/lib/strings/handles'
 import {type Shadow} from '#/state/cache/types'
+import {useDisplayPrefs} from '#/state/preferences'
 import {atoms as a, useTheme, web} from '#/alf'
 import {NewskieDialog} from '#/components/NewskieDialog'
 import {Text} from '#/components/Typography'
@@ -20,6 +21,7 @@ export function ProfileHeaderHandle({
 }) {
   const t = useTheme()
   const {_} = useLingui()
+  const {hideFollowsYou} = useDisplayPrefs()
   const invalidHandle = isInvalidHandle(profile.handle)
   const blockHide = profile.viewer?.blocking || profile.viewer?.blockedBy
   return (
@@ -27,7 +29,7 @@ export function ProfileHeaderHandle({
       style={[a.flex_row, a.gap_sm, a.align_center, {maxWidth: '100%'}]}
       pointerEvents={disableTaps ? 'none' : IS_IOS ? 'auto' : 'box-none'}>
       <NewskieDialog profile={profile} disabled={disableTaps} />
-      {profile.viewer?.followedBy && !blockHide ? (
+      {profile.viewer?.followedBy && !blockHide && !hideFollowsYou ? (
         <View style={[t.atoms.bg_contrast_50, a.rounded_xs, a.px_sm, a.py_xs]}>
           <Text style={[t.atoms.text, a.text_sm]}>
             <Trans>Follows you</Trans>

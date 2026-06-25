@@ -137,6 +137,15 @@ export type Device = {
   squareAvatars?: boolean
 
   /**
+   * "Counts & metrics" prefs (calm timeline). Read via the display-prefs
+   * context. Hide post engagement counts (likes/reposts/replies), profile
+   * counts (followers/following/posts), and the "Follows you" label.
+   */
+  hidePostCounts?: boolean
+  hideProfileCounts?: boolean
+  hideFollowsYou?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean
