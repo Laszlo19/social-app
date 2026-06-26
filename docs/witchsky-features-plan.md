@@ -91,13 +91,14 @@ Notes:
 - Long/right-press on the like/repost buttons (witchsky's original UX) was skipped — it would require invasive changes to PostControls. The post-menu approach achieves the same result more cleanly.
 - Favicon service for PDS badge is skipped (no reliable cross-instance favicon API).
 
-## Phase 7 – Infra, sync, AI (advanced; Experimental or new groups)
+## Phase 7 – Infra, sync, AI (advanced; Experimental or new groups) ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| Settings sync across devices | **Account settings** / Experimental | store prefs in a repo record |
-| AI alt-text generation (OpenRouter) | **Accessibility** (alt-text area) + small "AI" group for the API key | network + key management |
-| Custom AppView DID / PLC directory / image CDN host | **Experimental features** ("Infrastructure" group) | power-user overrides |
+| AI alt-text (OpenRouter) | composer alt-text dialog + **Experimental** API key field | ✅ done - "✨ AI" button in ImageAltTextDialog (native only); reads image as base64, calls openrouter.ai/api/v1/chat/completions with gemini-flash-1.5 |
+| Custom AppView DID | **Experimental** text field | ✅ done - overrides BLUESKY_PROXY_HEADER on change + at app startup (App.native.tsx); takes full effect on next sign-in |
+| Settings sync across devices | Experimental | skipped - no stable NSID for fork-specific prefs; bsky-native prefs already synced via agent.getPreferences() |
+| PLC directory / image CDN overrides | Experimental | deferred - PLC override needs agent-level DID resolution plumbing; CDN is already implicit in blob serving URLs |
 
 ## Phase 8 – Big bets (largest effort)
 
