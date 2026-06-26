@@ -84,6 +84,18 @@ export type Device = {
   experimentalLegacyContacts?: boolean
 
   /**
+   * Experimental: show "Open in PDSls" in the post menu, opening the raw
+   * AT Protocol record on pdsls.dev for developer inspection.
+   */
+  experimentalPdslsLinks?: boolean
+
+  /**
+   * Experimental: when a post author has a bridged fediverse handle
+   * (*.ap.brid.gy), show "Open on [instance]" in the post menu.
+   */
+  experimentalBridgedFedi?: boolean
+
+  /**
    * Ordered list of nav-item ids shown in the mobile bottom bar. Customized
    * via Settings > Appearance > Navigation bar. Absent means "use defaults".
    * See features/customNav.

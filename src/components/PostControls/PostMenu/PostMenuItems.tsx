@@ -63,6 +63,7 @@ import {
   PostInteractionSettingsDialog,
   usePrefetchPostInteractionSettings,
 } from '#/components/dialogs/PostInteractionSettingsDialog'
+import {ArrowOutOfBox_Stroke2_Corner0_Rounded as ArrowOutOfBox} from '#/components/icons/ArrowOutOfBox'
 import {Atom_Stroke2_Corner0_Rounded as AtomIcon} from '#/components/icons/Atom'
 import {BubbleQuestion_Stroke2_Corner0_Rounded as Translate} from '#/components/icons/Bubble'
 import {Clipboard_Stroke2_Corner2_Rounded as ClipboardIcon} from '#/components/icons/Clipboard'
@@ -97,6 +98,7 @@ import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
 import {IS_INTERNAL} from '#/env'
+import {device, useStorage} from '#/storage'
 
 let PostMenuItems = ({
   post,
@@ -498,6 +500,29 @@ let PostMenuItems = ({
 
   const onPressHideTranslation = () => clearTranslation()
 
+  const [pdslsLinks] = useStorage(device, ['experimentalPdslsLinks'])
+  const [bridgedFedi] = useStorage(device, ['experimentalBridgedFedi'])
+
+  const bridgedFediUrl = useMemo(() => {
+    if (!bridgedFedi) return null
+    const handle = postAuthor.handle ?? ''
+    if (!handle.endsWith('.ap.brid.gy')) return null
+    const stripped = handle.slice(0, -'.ap.brid.gy'.length)
+    const dotIdx = stripped.indexOf('.')
+    if (dotIdx === -1) return null
+    const username = stripped.slice(0, dotIdx)
+    const instance = stripped.slice(dotIdx + 1)
+    return `https://${instance}/@${username}`
+  }, [bridgedFedi, postAuthor.handle])
+
+  const onOpenInPdsls = () => {
+    void openLink(`https://pdsls.dev/at/${encodeURIComponent(postUri)}`)
+  }
+
+  const onOpenBridgedFedi = () => {
+    if (bridgedFediUrl) void openLink(bridgedFediUrl)
+  }
+
   const isDiscoverDebugUser =
     IS_INTERNAL ||
     DISCOVER_DEBUG_DIDS[currentAccount?.did || ''] ||
@@ -584,6 +609,32 @@ let PostMenuItems = ({
             </Menu.Item>
           )}
         </Menu.Group>
+
+        {(pdslsLinks || bridgedFediUrl) && (
+          <>
+            <Menu.Divider />
+            <Menu.Group>
+              {!!pdslsLinks && (
+                <Menu.Item
+                  testID="postDropdownPdslsBtn"
+                  label={l`Open in PDSls`}
+                  onPress={onOpenInPdsls}>
+                  <Menu.ItemText>{l`Open in PDSls`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={ArrowOutOfBox} position="right" />
+                </Menu.Item>
+              )}
+              {!!bridgedFediUrl && (
+                <Menu.Item
+                  testID="postDropdownBridgedFediBtn"
+                  label={l`Open on fediverse`}
+                  onPress={onOpenBridgedFedi}>
+                  <Menu.ItemText>{l`Open on fediverse`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={ArrowOutOfBox} position="right" />
+                </Menu.Item>
+              )}
+            </Menu.Group>
+          </>
+        )}
 
         {hasSession && feedFeedback.enabled && (
           <>

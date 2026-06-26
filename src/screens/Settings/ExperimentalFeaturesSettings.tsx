@@ -24,6 +24,12 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [legacyContacts, setLegacyContacts] = useStorage(device, [
     'experimentalLegacyContacts',
   ])
+  const [pdslsLinks, setPdslsLinks] = useStorage(device, [
+    'experimentalPdslsLinks',
+  ])
+  const [bridgedFedi, setBridgedFedi] = useStorage(device, [
+    'experimentalBridgedFedi',
+  ])
 
   return (
     <Layout.Screen>
@@ -85,6 +91,52 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                 <Trans>
                   Use the legacy “Find friends from contacts” instead of “Find
                   and invite friends”
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>PDSls links in post menu</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="pdsls_links"
+              label={_(
+                msg`Show "Open in PDSls" in the post menu for developer inspection of raw AT Protocol records`,
+              )}
+              value={!!pdslsLinks}
+              onChange={value => setPdslsLinks(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Show "Open in PDSls" in the post menu (developer tool for
+                  inspecting raw AT Protocol records)
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Bridged fediverse links</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="bridged_fedi"
+              label={_(
+                msg`Show "Open on [instance]" in the post menu for bridged fediverse accounts`,
+              )}
+              value={!!bridgedFedi}
+              onChange={value => setBridgedFedi(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Show "Open on [instance]" in the post menu when the author is
+                  a bridged fediverse account
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
