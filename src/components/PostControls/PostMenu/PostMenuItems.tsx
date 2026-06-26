@@ -58,6 +58,7 @@ import {
   MaxHiddenRepliesError,
   useToggleReplyVisibilityMutation,
 } from '#/state/queries/threadgate'
+import {createEphemeralAgent, isSessionExpired} from '#/state/session/util'
 import {useRequireAuth, useSession} from '#/state/session'
 import {useMergedThreadgateHiddenReplies} from '#/state/threadgate-hidden-replies'
 import {useDialogControl} from '#/components/Dialog'
@@ -68,6 +69,8 @@ import {
 } from '#/components/dialogs/PostInteractionSettingsDialog'
 import {ArrowOutOfBox_Stroke2_Corner0_Rounded as ArrowOutOfBox} from '#/components/icons/ArrowOutOfBox'
 import {Download_Stroke2_Corner0_Rounded as DownloadIcon} from '#/components/icons/Download'
+import {Heart2_Stroke2_Corner0_Rounded as HeartIcon} from '#/components/icons/Heart2'
+import {Repost_Stroke2_Corner0_Rounded as RepostIcon} from '#/components/icons/Repost'
 import {Atom_Stroke2_Corner0_Rounded as AtomIcon} from '#/components/icons/Atom'
 import {BubbleQuestion_Stroke2_Corner0_Rounded as Translate} from '#/components/icons/Bubble'
 import {Clipboard_Stroke2_Corner2_Rounded as ClipboardIcon} from '#/components/icons/Clipboard'
@@ -528,6 +531,43 @@ let PostMenuItems = ({
 
   const [pdslsLinks] = useStorage(device, ['experimentalPdslsLinks'])
   const [bridgedFedi] = useStorage(device, ['experimentalBridgedFedi'])
+  const [multiAccountEnabled] = useStorage(device, ['experimentalMultiAccount'])
+
+  const {accounts} = useSession()
+  const otherAccounts = useMemo(() => {
+    if (!multiAccountEnabled || !hasSession) return []
+    return accounts.filter(
+      a => a.did !== currentAccount?.did && !isSessionExpired(a),
+    )
+  }, [multiAccountEnabled, hasSession, accounts, currentAccount?.did])
+
+  const onLikeAs = async (accountDid: string) => {
+    const account = accounts.find(a => a.did === accountDid)
+    if (!account) return
+    try {
+      const epAgent = await createEphemeralAgent(account)
+      await epAgent.like(postUri, postCid)
+      Toast.show(l`Liked as @${account.handle}`, {type: 'success'})
+    } catch (err) {
+      const e = err as Error
+      logger.error('Failed to like as other account', {message: e})
+      Toast.show(l`Failed to like as @${account.handle}`, {type: 'error'})
+    }
+  }
+
+  const onRepostAs = async (accountDid: string) => {
+    const account = accounts.find(a => a.did === accountDid)
+    if (!account) return
+    try {
+      const epAgent = await createEphemeralAgent(account)
+      await epAgent.repost(postUri, postCid)
+      Toast.show(l`Reposted as @${account.handle}`, {type: 'success'})
+    } catch (err) {
+      const e = err as Error
+      logger.error('Failed to repost as other account', {message: e})
+      Toast.show(l`Failed to repost as @${account.handle}`, {type: 'error'})
+    }
+  }
 
   const bridgedFediUrl = useMemo(() => {
     if (!bridgedFedi) return null
@@ -645,6 +685,36 @@ let PostMenuItems = ({
             </Menu.Item>
           )}
         </Menu.Group>
+
+        {otherAccounts.length > 0 && (
+          <>
+            <Menu.Divider />
+            <Menu.Group>
+              {otherAccounts.map(account => (
+                <Menu.Item
+                  key={`like-as-${account.did}`}
+                  testID={`postDropdownLikeAs-${account.handle}`}
+                  label={l`Like as @${account.handle}`}
+                  onPress={() => void onLikeAs(account.did)}>
+                  <Menu.ItemText>{l`Like as @${account.handle}`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={HeartIcon} position="right" />
+                </Menu.Item>
+              ))}
+              {otherAccounts.map(account => (
+                <Menu.Item
+                  key={`repost-as-${account.did}`}
+                  testID={`postDropdownRepostAs-${account.handle}`}
+                  label={l`Repost as @${account.handle}`}
+                  onPress={() => void onRepostAs(account.did)}>
+                  <Menu.ItemText>
+                    {l`Repost as @${account.handle}`}
+                  </Menu.ItemText>
+                  <Menu.ItemIcon icon={RepostIcon} position="right" />
+                </Menu.Item>
+              ))}
+            </Menu.Group>
+          </>
+        )}
 
         {(pdslsLinks || bridgedFediUrl) && (
           <>

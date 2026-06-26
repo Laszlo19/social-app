@@ -96,6 +96,17 @@ export type Device = {
   experimentalBridgedFedi?: boolean
 
   /**
+   * Experimental: show the hosting PDS hostname as a badge on profile headers.
+   */
+  experimentalPdsBadge?: boolean
+
+  /**
+   * Experimental: show "Like as…" / "Repost as…" menu items for other
+   * signed-in accounts (ephemeral agent actions).
+   */
+  experimentalMultiAccount?: boolean
+
+  /**
    * Ordered list of nav-item ids shown in the mobile bottom bar. Customized
    * via Settings > Appearance > Navigation bar. Absent means "use defaults".
    * See features/customNav.

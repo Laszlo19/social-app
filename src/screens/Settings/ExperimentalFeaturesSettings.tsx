@@ -30,6 +30,10 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [bridgedFedi, setBridgedFedi] = useStorage(device, [
     'experimentalBridgedFedi',
   ])
+  const [pdsBadge, setPdsBadge] = useStorage(device, ['experimentalPdsBadge'])
+  const [multiAccount, setMultiAccount] = useStorage(device, [
+    'experimentalMultiAccount',
+  ])
 
   return (
     <Layout.Screen>
@@ -137,6 +141,51 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                 <Trans>
                   Show "Open on [instance]" in the post menu when the author is
                   a bridged fediverse account
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>PDS badge on profiles</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="pds_badge"
+              label={_(
+                msg`Show the hosting PDS as a badge on profile headers`,
+              )}
+              value={!!pdsBadge}
+              onChange={value => setPdsBadge(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Show the hosting PDS server as a small badge on profile
+                  headers
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Multi-account actions</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="multi_account"
+              label={_(
+                msg`Show "Like as…" and "Repost as…" in the post menu for other signed-in accounts`,
+              )}
+              value={!!multiAccount}
+              onChange={value => setMultiAccount(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Show "Like as…" and "Repost as…" in the post menu for
+                  other signed-in accounts
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />

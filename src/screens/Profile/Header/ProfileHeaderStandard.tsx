@@ -20,6 +20,7 @@ import {
   useProfileBlockMutationQueue,
   useProfileFollowMutationQueue,
 } from '#/state/queries/profile'
+import {usePdsFromProfileQuery} from '#/state/queries/pds'
 import {useRequireAuth, useSession} from '#/state/session'
 import {device, useStorage} from '#/storage'
 import {ProfileMenu} from '#/view/com/profile/ProfileMenu'
@@ -75,6 +76,10 @@ let ProfileHeaderStandard = ({
   const moderation = useMemo(
     () => moderateProfile(profile, moderationOpts),
     [profile, moderationOpts],
+  )
+  const [pdsBadgeEnabled] = useStorage(device, ['experimentalPdsBadge'])
+  const {data: pdsHostname} = usePdsFromProfileQuery(
+    pdsBadgeEnabled ? profile.did : undefined,
   )
   const [, queueUnblock] = useProfileBlockMutationQueue(profile)
   const unblockPromptControl = Prompt.usePromptControl()
@@ -160,6 +165,17 @@ let ProfileHeaderStandard = ({
               </Text>
             </View>
             <ProfileHeaderHandle profile={profile} />
+            {!!pdsHostname && (
+              <Text
+                style={[
+                  a.text_xs,
+                  t.atoms.text_contrast_medium,
+                  a.mt_2xs,
+                ]}
+                numberOfLines={1}>
+                {pdsHostname}
+              </Text>
+            )}
           </View>
           {!isPlaceholderProfile && !isBlockedUser && (
             <View style={a.gap_md}>

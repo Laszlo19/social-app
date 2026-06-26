@@ -7,6 +7,24 @@ import * as persisted from '#/state/persisted'
 import {sessionAccountToSession} from './agent'
 import {type SessionAccount} from './types'
 
+/**
+ * Creates a single authenticated agent for the given account without switching
+ * the active session. Throws if the session cannot be resumed.
+ */
+export async function createEphemeralAgent(
+  account: SessionAccount,
+): Promise<AtpAgent> {
+  const agent: AtpAgent = new AtpAgent({service: account.service})
+  if (account.pdsUrl) {
+    agent.sessionManager.pdsUrl = new URL(account.pdsUrl)
+  }
+  const session = sessionAccountToSession(account)
+  const res = await agent.resumeSession(session)
+  if (!res.success) throw new Error('Failed to resume session')
+  agent.assertAuthenticated()
+  return agent
+}
+
 export function readLastActiveAccount() {
   const {currentAccount, accounts} = persisted.get('session')
   return accounts.find(a => a.did === currentAccount?.did)
