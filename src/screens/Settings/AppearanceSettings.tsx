@@ -1,5 +1,5 @@
 import {useCallback} from 'react'
-import {View} from 'react-native'
+import {Pressable, View} from 'react-native'
 import Animated, {
   FadeInUp,
   FadeOutUp,
@@ -18,6 +18,7 @@ import {useSetThemePrefs, useThemePrefs} from '#/state/shell'
 import {SettingsListItem as AppIconSettingsListItem} from '#/screens/Settings/AppIconSettings/SettingsListItem'
 import {type Alf, atoms as a, native, useAlf, useTheme} from '#/alf'
 import {Bars3_Stroke2_Corner0_Rounded as BarsIcon} from '#/components/icons/Bars'
+import {ColorPalette_Stroke2_Corner0_Rounded as ColorPaletteIcon} from '#/components/icons/ColorPalette'
 import * as SegmentedControl from '#/components/forms/SegmentedControl'
 import * as TextField from '#/components/forms/TextField'
 import * as Toggle from '#/components/forms/Toggle'
@@ -29,6 +30,7 @@ import {TextSize_Stroke2_Corner0_Rounded as TextSize} from '#/components/icons/T
 import {TitleCase_Stroke2_Corner0_Rounded as Aa} from '#/components/icons/TitleCase'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
+import {ACCENT_PRESETS} from '#/alf/util/accentTheme'
 import {device, useStorage} from '#/storage'
 import {IS_NATIVE} from '#/env'
 import * as SettingsList from './components/SettingsList'
@@ -41,6 +43,7 @@ export function AppearanceSettingsScreen({}: Props) {
   const {colorMode, darkTheme} = useThemePrefs()
   const {setColorMode, setDarkTheme} = useSetThemePrefs()
 
+  const [accentHue, setAccentHue] = useStorage(device, ['accentHue'])
   const [mutualsLabel, setMutualsLabel] = useStorage(device, ['mutualsLabel'])
   const [postWord, setPostWord] = useStorage(device, ['postWord'])
   const [squareAvatars, setSquareAvatars] = useStorage(device, [
@@ -132,6 +135,58 @@ export function AppearanceSettingsScreen({}: Props) {
                 />
               </Animated.View>
             )}
+
+            <SettingsList.Divider />
+            <SettingsList.Group contentContainerStyle={[a.gap_sm]} iconInset={false}>
+              <SettingsList.ItemIcon icon={ColorPaletteIcon} />
+              <SettingsList.ItemText>
+                <Trans>Accent color</Trans>
+              </SettingsList.ItemText>
+              <View style={[a.flex_row, a.gap_sm, a.flex_wrap, a.w_full, a.px_xs, a.pb_xs]}>
+                {ACCENT_PRESETS.map(preset => {
+                  const isSelected =
+                    accentHue === preset.hue ||
+                    (accentHue == null && preset.hue === 211)
+                  return (
+                    <Pressable
+                      key={preset.hue}
+                      accessibilityRole="radio"
+                      accessibilityLabel={preset.label}
+                      accessibilityState={{selected: isSelected}}
+                      onPress={() =>
+                        setAccentHue(preset.hue === 211 ? undefined : preset.hue)
+                      }
+                      style={[
+                        a.rounded_full,
+                        a.align_center,
+                        a.justify_center,
+                        {width: 36, height: 36},
+                        {
+                          backgroundColor: `hsl(${preset.hue}, 80%, 50%)`,
+                        },
+                        isSelected && {
+                          borderWidth: 3,
+                          borderColor: 'white',
+                          shadowColor: '#000',
+                          shadowOffset: {width: 0, height: 1},
+                          shadowOpacity: 0.3,
+                          shadowRadius: 2,
+                          elevation: 3,
+                        },
+                      ]}>
+                      {isSelected && (
+                        <View
+                          style={[
+                            a.rounded_full,
+                            {width: 10, height: 10, backgroundColor: 'white'},
+                          ]}
+                        />
+                      )}
+                    </Pressable>
+                  )
+                })}
+              </View>
+            </SettingsList.Group>
 
             <Animated.View layout={native(LinearTransition)}>
               <SettingsList.Divider />

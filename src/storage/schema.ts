@@ -181,6 +181,13 @@ export type Device = {
   hideFollowsYou?: boolean
 
   /**
+   * Accent hue override (0-359). Shifts all primary palette colors from the
+   * default blue (~211°) to the chosen hue. Absence/undefined means default.
+   * Settings > Appearance > Accent color.
+   */
+  accentHue?: number
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean

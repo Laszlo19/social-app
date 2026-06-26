@@ -57,6 +57,7 @@ import {Provider as HiddenRepliesProvider} from '#/state/threadgate-hidden-repli
 import {TestCtrls} from '#/view/com/testing/TestCtrls'
 import {Shell} from '#/view/shell'
 import {atoms as a, ThemeProvider as Alf} from '#/alf'
+import {buildAccentThemesOverride} from '#/alf/util/accentTheme'
 import {useColorModeTheme} from '#/alf/util/useColorModeTheme'
 import {Provider as ContextMenuProvider} from '#/components/ContextMenu'
 import {useLandingEntry} from '#/components/hooks/useLandingEntry'
@@ -113,6 +114,9 @@ function InnerApp() {
   const {currentAccount} = useSession()
   const {resumeSession} = useSessionApi()
   const theme = useColorModeTheme()
+  const [accentHue] = useStorage(device, ['accentHue'])
+  const accentThemesOverride =
+    accentHue != null ? buildAccentThemesOverride(accentHue) : undefined
   const {t: l} = useLingui()
   const hasCheckedLanding = useLandingEntry()
 
@@ -144,7 +148,7 @@ function InnerApp() {
   }, [l])
 
   return (
-    <Alf theme={theme}>
+    <Alf theme={theme} themesOverride={accentThemesOverride}>
       <ThemeProvider theme={theme}>
         <ContextMenuProvider>
           <Splash isReady={isReady && hasCheckedLanding}>
