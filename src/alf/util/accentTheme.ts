@@ -1,4 +1,8 @@
-import {type Theme} from '@bsky.app/alf'
+import {
+  createThemes,
+  DEFAULT_PALETTE,
+  DEFAULT_SUBDUED_PALETTE,
+} from '@bsky.app/alf'
 
 import {themes} from '#/alf/themes'
 import {
@@ -52,28 +56,36 @@ function shiftHex(hex: string, delta: number): string {
   return rgbToHex(out.r, out.g, out.b)
 }
 
-function shiftThemePrimary(theme: Theme, delta: number): Theme {
-  const palette = {...theme.palette} as Record<string, unknown>
-  for (const key of PRIMARY_KEYS) {
-    const existing = palette[key]
-    if (typeof existing === 'string') {
-      palette[key] = shiftHex(existing, delta)
-    }
-  }
-  return {...theme, palette: palette as Theme['palette']}
-}
-
 /**
  * Builds `themesOverride` for `ThemeProvider` that shifts the primary accent
  * hue from the default blue to `toHue` (degrees, 0-359).
+ *
+ * Uses `createThemes` with a shifted copy of DEFAULT_PALETTE so the returned
+ * theme objects are structurally identical to the default ones — avoids
+ * spreading opaque Theme instances which may have non-enumerable properties.
  */
 export function buildAccentThemesOverride(
   toHue: number,
 ): Partial<typeof themes> {
   const delta = toHue - BLUE_HUE
+
+  // Shift only the primary_* keys; all other palette entries stay unchanged.
+  const shiftedPalette = {...DEFAULT_PALETTE} as Record<string, unknown>
+  for (const key of PRIMARY_KEYS) {
+    const existing = shiftedPalette[key]
+    if (typeof existing === 'string') {
+      shiftedPalette[key] = shiftHex(existing, delta)
+    }
+  }
+
+  const shifted = createThemes({
+    defaultPalette: shiftedPalette as typeof DEFAULT_PALETTE,
+    subduedPalette: DEFAULT_SUBDUED_PALETTE,
+  })
+
   return {
-    light: shiftThemePrimary(themes.light, delta),
-    dark: shiftThemePrimary(themes.dark, delta),
-    dim: shiftThemePrimary(themes.dim, delta),
+    light: shifted.light,
+    dark: shifted.dark,
+    dim: shifted.dim,
   }
 }
