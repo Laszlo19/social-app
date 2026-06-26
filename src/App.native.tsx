@@ -44,6 +44,8 @@ import {
   useSessionApi,
 } from '#/state/session'
 import {readLastActiveAccount} from '#/state/session/util'
+import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
+import {device} from '#/storage'
 import {Provider as ShellStateProvider} from '#/state/shell'
 import {Provider as ComposerProvider} from '#/state/shell/composer'
 import {Provider as LandingProvider} from '#/state/shell/landing'
@@ -55,6 +57,7 @@ import {Provider as HiddenRepliesProvider} from '#/state/threadgate-hidden-repli
 import {TestCtrls} from '#/view/com/testing/TestCtrls'
 import {Shell} from '#/view/shell'
 import {atoms as a, ThemeProvider as Alf} from '#/alf'
+import {buildAccentThemesOverride} from '#/alf/util/accentTheme'
 import {useColorModeTheme} from '#/alf/util/useColorModeTheme'
 import {Provider as ContextMenuProvider} from '#/components/ContextMenu'
 import {useLandingEntry} from '#/components/hooks/useLandingEntry'
@@ -111,6 +114,9 @@ function InnerApp() {
   const {currentAccount} = useSession()
   const {resumeSession} = useSessionApi()
   const theme = useColorModeTheme()
+  const [accentHue] = useStorage(device, ['accentHue'])
+  const accentThemesOverride =
+    accentHue != null ? buildAccentThemesOverride(accentHue) : undefined
   const {t: l} = useLingui()
   const hasCheckedLanding = useLandingEntry()
 
@@ -142,7 +148,7 @@ function InnerApp() {
   }, [l])
 
   return (
-    <Alf theme={theme}>
+    <Alf theme={theme} themesOverride={accentThemesOverride}>
       <ThemeProvider theme={theme}>
         <ContextMenuProvider>
           <Splash isReady={isReady && hasCheckedLanding}>
@@ -217,7 +223,14 @@ function App() {
 
   useEffect(() => {
     void Promise.all([initPersistedState(), Geo.resolve(), setupDeviceId]).then(
-      () => setIsReady(true),
+      () => {
+        // Apply custom AppView DID override before any session/agent is created
+        const overrideDid = device.get(['infraAppviewDid'])
+        if (overrideDid) {
+          BLUESKY_PROXY_HEADER.set(`${overrideDid}#bsky_appview`)
+        }
+        setIsReady(true)
+      },
     )
   }, [])
 

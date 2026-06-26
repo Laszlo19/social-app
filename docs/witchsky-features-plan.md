@@ -61,42 +61,95 @@ display-prefs context:
 🔜 TODO (future): the per-metric **Lite** (rounded) and **Exact** (un-abbreviated)
 levels - v1 ships Hidden vs Visible only.
 
-## Phase 4 – Post menu items & link behavior
+## Phase 4 – Post menu items & link behavior ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| "Open original post" / "Open in PDSls" menu items | **post dropdown menu**, gated by an **Experimental** toggle | adds menu rows |
-| Use handles instead of DIDs in profile links | **Experimental features** toggle | link-builder change |
-| Open posts in bridged fedi instances | **post menu**, **Experimental** toggle | detect bridged accounts |
+| "Open in PDSls" menu item | **post dropdown menu**, gated by **Experimental** toggle | ✅ done - opens pdsls.dev with post AT URI |
+| Open posts/profiles in bridged fedi instances | **post menu**, **Experimental** toggle | ✅ done - detects *.ap.brid.gy handles, links to fedi profile |
+| Use handles instead of DIDs in profile links | **Experimental features** toggle | skipped - handles are already preferred by default in makeProfileLink/toShareUrl |
 
-## Phase 5 – Post actions (no settings, just actions)
+## Phase 5 – Post actions (no settings, just actions) ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| Delete-and-redraft (effectively edit) | **post dropdown menu** action | delete + reopen composer prefilled |
-| Download video | **video/post menu** action | reuse media-save plumbing |
+| Delete-and-redraft (effectively edit) | **post dropdown menu** action | ✅ done - "Delete and redraft" prompts, deletes, reopens composer with text |
+| Download video | **video/post menu** action (native only) | ✅ done - "Download video" on video posts; saves via PDS blob sync endpoint + MediaLibrary |
 
-## Phase 6 – Multi-account & identity (Experimental)
+Notes:
+- Delete-and-redraft prefills text only; images/video are not re-attached (CDN blobs, not local files)
+- Video download uses `bsky.social` as PDS — works for the vast majority; federated PDSes are a TODO
 
-| Feature | Home | Notes |
+## Phase 6 – Multi-account & identity (Experimental) ✅
+
+| Feature | Home | Status |
 |---|---|---|
-| Act as another account via long/right-press on like/repost | behavior + **Experimental** toggle | "ephemeral agent" for one action |
-| PDS badge on profiles + favicon service | profile header + **Experimental** toggles | fetch/show hosting PDS |
+| Like/Repost as another account | **post menu**, **Experimental** toggle (`experimentalMultiAccount`) | ✅ done - "Like as @x" / "Repost as @x" menu items per non-expired alt account; uses createEphemeralAgent(); no optimistic update, shows toast |
+| PDS badge on profiles | profile header, **Experimental** toggle (`experimentalPdsBadge`) | ✅ done - hostname displayed below handle; resolved via describeRepo (did:plc) or parsed from DID (did:web); cached 1h |
 
-## Phase 7 – Infra, sync, AI (advanced; Experimental or new groups)
+Notes:
+- Long/right-press on the like/repost buttons (witchsky's original UX) was skipped — it would require invasive changes to PostControls. The post-menu approach achieves the same result more cleanly.
+- Favicon service for PDS badge is skipped (no reliable cross-instance favicon API).
 
-| Feature | Home | Notes |
+## Phase 7 – Infra, sync, AI (advanced; Experimental or new groups) ✅
+
+| Feature | Home | Status |
 |---|---|---|
-| Settings sync across devices | **Account settings** / Experimental | store prefs in a repo record |
-| AI alt-text generation (OpenRouter) | **Accessibility** (alt-text area) + small "AI" group for the API key | network + key management |
-| Custom AppView DID / PLC directory / image CDN host | **Experimental features** ("Infrastructure" group) | power-user overrides |
+| AI alt-text (OpenRouter) | composer alt-text dialog + **Experimental** API key field | ✅ done - "✨ AI" button in ImageAltTextDialog (native only); reads image as base64, calls openrouter.ai/api/v1/chat/completions with gemini-flash-1.5 |
+| Custom AppView DID | **Experimental** text field | ✅ done - overrides BLUESKY_PROXY_HEADER on change + at app startup (App.native.tsx); takes full effect on next sign-in |
+| Settings sync across devices | Experimental | skipped - no stable NSID for fork-specific prefs; bsky-native prefs already synced via agent.getPreferences() |
+| PLC directory / image CDN overrides | Experimental | deferred - PLC override needs agent-level DID resolution plumbing; CDN is already implicit in blob serving URLs |
 
 ## Phase 8 – Big bets (largest effort)
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| OAuth login | login flow (no settings page) | atproto OAuth; large surface |
-| Material You + accent/hue slider + themes | **Appearance** (theming engine) | biggest UI change |
+| Accent/hue color preset picker | **Appearance** | ✅ done - 6 preset hues (Blue/Purple/Pink/Red/Orange/Green); stored as `accentHue` device pref; applied via `buildAccentThemesOverride()` shifting all `primary_*` palette hex colors at HSL level; `ThemeProvider` `themesOverride` in `App.native.tsx`; color swatch UI in Appearance settings |
+| OAuth login | login flow | ⛔ not implemented — see notes below |
+| Material You dynamic colors | system colors | ⛔ not implemented — see notes below |
+
+### Phase 8 implementation notes
+
+**OAuth login** — The AT Protocol OAuth flow requires:
+1. `@atproto/oauth-client-react-native` (not installed; needs pnpm add + prebuild).
+2. A registered OAuth client ID (a `client-metadata.json` served from a stable URL on the fork's domain).
+3. Rewrite of `src/state/session/index.tsx` `createAccount`/`login` to use `OAuthClient.signIn()`.
+4. An intent handler in `src/components/hooks/useIntentHandler.ts` for the OAuth redirect URI (`bsky://oauth-callback`).
+5. PKCE + token storage integration with the existing `SessionAccount` type.
+This is a multi-day effort and depends on having a fork domain. Deferred until the fork has a stable public deployment.
+
+**Material You dynamic colors** — Android 12+ exposes a dynamic color palette via `DynamicColors` (Material 3). To consume it in React Native, a Kotlin native module is needed that calls `MaterialColors.getColor(context, R.attr.colorPrimary, ...)` from the current system wallpaper palette and bridges it over `NativeModules`. No such module is installed. A lighter alternative: ship a handful of preset themes (already done with `ACCENT_PRESETS`) and let the user pick manually.
+
+---
+
+## Comprehensive skipped items log
+
+### Phase 1
+- **Hide "Feeds ✨" tab when only one feed is pinned** — The home pager tab list is built by `useHomeTabs()` from pinned feeds. Hiding one tab entry means conditional logic in `FlatNavigator`'s tab array, which is tricky with the animated tab bar. Doable but touches tab navigation ordering and the tab-bar underline animation. To implement: check `pinnedFeeds.length === 1` in `useHomeTabs()` and omit the Feeds tab when true; also hide the tab-bar label in the bottom bar.
+- **Share-link domain override** — No fork web domain yet. When the fork has a stable URL, add a `shareLinkDomain` device pref and plumb it into `toShareUrl()` in `src/lib/strings/url-helpers.ts`.
+
+### Phase 2
+- **Square buttons** — `Button` component's default `shape` prop defaults to `'default'` (pill). Overriding per-instance is fine but the witchsky preference is a global toggle. To implement: add `squareButtons` to display-prefs context, read in `ButtonInner`, set `borderRadius: 0` or `rounded_xs` when enabled. Same pattern as `squareAvatars`. Kept deferred because `Button` is used everywhere and the visual impact is large.
+- **Compact posts** — Post layout vertical spacing is scattered across `FeedItem`, `PostThreadItem`, etc. To implement: add `compactPosts` to display-prefs context, pass a density multiplier into the layout (e.g. halve `gap_sm` to `gap_xs` on post bodies). Read in `FeedItem` / `PostThreadItem`.
+
+### Phase 3
+- **Counts Lite (rounded) and Exact (un-abbreviated)** — Phase 3 only shipped hidden vs. visible. Lite would round to 1 decimal (1.2k), Exact would show unformatted integers (1,234). To implement: extend the `hidePostCounts`/`hideProfileCounts` pref to a tri-state (`'hidden'|'lite'|'exact'`), update `PostControls` count formatting to use `Intl.NumberFormat` with `notation: 'compact'` (Lite) or `notation: 'standard'` (Exact). The display-prefs context already plumbs this through, so it's a formatting-only change.
+
+### Phase 4
+- **Use handles instead of DIDs in profile links** — Handles are already preferred by `makeProfileLink` / `toShareUrl`. Nothing to do.
+
+### Phase 6
+- **Long-press on like/repost buttons** — `PostControls` renders `Pressable` wrappers with no long-press handler and no ambient menu context. Adding a submenu there would replicate the full post-menu machinery. The post-menu "Like as @x" / "Repost as @x" items (Phase 6) accomplish the same goal without touching `PostControls`. Not planned.
+- **PDS favicon service** — No reliable cross-instance favicon endpoint exists (e.g. no `{pds}/favicon.ico` contract in the AT Protocol). Skipped.
+
+### Phase 7
+- **Settings sync** — The bsky `getPreferences`/`putPreferences` XRPC endpoints only handle official bsky preference namespaces. Fork-specific prefs have no stable NSID. `app.bsky.actor.putPrivateData` is not a real endpoint. To implement properly: pick a DID-keyed namespace like `app.witchsky.prefs.*`, register Lexicon schemas, stand up a labeler/PDS endpoint, and read/write via the agent.
+- **PLC directory override** — The `AtpAgent` resolves DIDs via `https://plc.directory` internally. There is no exposed `plcUrl` option. To override: monkey-patch `agent.api.com.atproto.identity.resolveHandle` or replace `fetch` calls in `@atproto/api` that target `plc.directory`. Very invasive; deferred.
+- **Image CDN override** — Blob CDN URLs are embedded in records at upload time and served from the PDS or a CDN the PDS operator controls. To serve via a different CDN requires a URL-rewriting shim in the `Image` components (wrap `source.uri`). Doable but touches every `<Image>` call site.
+
+### Phase 8
+- **AT Protocol OAuth** — See Phase 8 implementation notes above.
+- **Material You dynamic colors** — See Phase 8 implementation notes above.
 
 ---
 

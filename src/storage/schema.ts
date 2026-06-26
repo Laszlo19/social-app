@@ -84,6 +84,41 @@ export type Device = {
   experimentalLegacyContacts?: boolean
 
   /**
+   * Experimental: show "Open in PDSls" in the post menu, opening the raw
+   * AT Protocol record on pdsls.dev for developer inspection.
+   */
+  experimentalPdslsLinks?: boolean
+
+  /**
+   * Experimental: when a post author has a bridged fediverse handle
+   * (*.ap.brid.gy), show "Open on [instance]" in the post menu.
+   */
+  experimentalBridgedFedi?: boolean
+
+  /**
+   * Experimental: show the hosting PDS hostname as a badge on profile headers.
+   */
+  experimentalPdsBadge?: boolean
+
+  /**
+   * Experimental: show "Like as…" / "Repost as…" menu items for other
+   * signed-in accounts (ephemeral agent actions).
+   */
+  experimentalMultiAccount?: boolean
+
+  /**
+   * OpenRouter API key used for AI alt-text generation in the image composer.
+   */
+  openRouterApiKey?: string
+
+  /**
+   * Override the AT Protocol AppView DID used as the bsky_appview proxy.
+   * Leave empty to use the default (did:web:api.bsky.app). Takes effect
+   * after signing out and back in.
+   */
+  infraAppviewDid?: string
+
+  /**
    * Ordered list of nav-item ids shown in the mobile bottom bar. Customized
    * via Settings > Appearance > Navigation bar. Absent means "use defaults".
    * See features/customNav.
@@ -137,6 +172,13 @@ export type Device = {
   squareAvatars?: boolean
 
   /**
+   * Replace pill-shaped buttons with rectangular ones (borderRadius ~10px).
+   * Only affects shape='default' buttons; icon-only round/square buttons are
+   * unaffected. Settings > Appearance.
+   */
+  squareButtons?: boolean
+
+  /**
    * "Counts & metrics" prefs (calm timeline). Read via the display-prefs
    * context. Hide post engagement counts (likes/reposts/replies), profile
    * counts (followers/following/posts), and the "Follows you" label.
@@ -144,6 +186,22 @@ export type Device = {
   hidePostCounts?: boolean
   hideProfileCounts?: boolean
   hideFollowsYou?: boolean
+
+  /**
+   * How to display engagement/profile counts when not hidden.
+   * - 'default': compact notation with up to 1 decimal (1.2k, 12k)
+   * - 'lite': compact notation, no decimals (1k, 12k, 1M)
+   * - 'exact': full standard notation (1,234 or 1,234,567)
+   * Settings > Counts & metrics.
+   */
+  countsFormat?: 'default' | 'lite' | 'exact'
+
+  /**
+   * Accent hue override (0-359). Shifts all primary palette colors from the
+   * default blue (~211°) to the chosen hue. Absence/undefined means default.
+   * Settings > Appearance > Accent color.
+   */
+  accentHue?: number
 
   /**
    * Policy update overlays. New IDs are required for each new announcement.

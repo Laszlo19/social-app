@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import * as Clipboard from 'expo-clipboard'
 import {
+  AppBskyEmbedVideo,
   type AppBskyFeedDefs,
   type AppBskyFeedPost,
   type AppBskyFeedThreadgate,
@@ -18,7 +19,9 @@ import {useLingui} from '@lingui/react/macro'
 import {useNavigation} from '@react-navigation/native'
 
 import {DISCOVER_DEBUG_DIDS} from '#/lib/constants'
+import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {useOpenLink} from '#/lib/hooks/useOpenLink'
+import {useSaveVideoToMediaLibrary} from '#/lib/media/save-video'
 import {getCurrentRoute} from '#/lib/routes/helpers'
 import {makeProfileLink} from '#/lib/routes/links'
 import {
@@ -55,6 +58,7 @@ import {
   MaxHiddenRepliesError,
   useToggleReplyVisibilityMutation,
 } from '#/state/queries/threadgate'
+import {createEphemeralAgent, isSessionExpired} from '#/state/session/util'
 import {useRequireAuth, useSession} from '#/state/session'
 import {useMergedThreadgateHiddenReplies} from '#/state/threadgate-hidden-replies'
 import {useDialogControl} from '#/components/Dialog'
@@ -63,6 +67,10 @@ import {
   PostInteractionSettingsDialog,
   usePrefetchPostInteractionSettings,
 } from '#/components/dialogs/PostInteractionSettingsDialog'
+import {ArrowOutOfBox_Stroke2_Corner0_Rounded as ArrowOutOfBox} from '#/components/icons/ArrowOutOfBox'
+import {Download_Stroke2_Corner0_Rounded as DownloadIcon} from '#/components/icons/Download'
+import {Heart2_Stroke2_Corner0_Rounded as HeartIcon} from '#/components/icons/Heart2'
+import {Repost_Stroke2_Corner0_Rounded as RepostIcon} from '#/components/icons/Repost'
 import {Atom_Stroke2_Corner0_Rounded as AtomIcon} from '#/components/icons/Atom'
 import {BubbleQuestion_Stroke2_Corner0_Rounded as Translate} from '#/components/icons/Bubble'
 import {Clipboard_Stroke2_Corner2_Rounded as ClipboardIcon} from '#/components/icons/Clipboard'
@@ -96,7 +104,8 @@ import {
 import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
-import {IS_INTERNAL} from '#/env'
+import {IS_INTERNAL, IS_NATIVE} from '#/env'
+import {device, useStorage} from '#/storage'
 
 let PostMenuItems = ({
   post,
@@ -127,6 +136,8 @@ let PostMenuItems = ({
   const {hasSession, currentAccount} = useSession()
   const {t: l} = useLingui()
   const ax = useAnalytics()
+  const {openComposer} = useOpenComposer()
+  const saveVideo = useSaveVideoToMediaLibrary()
   const langPrefs = useLanguagePrefs()
   const {mutateAsync: deletePostMutate} = usePostDeleteMutation()
   const {mutateAsync: pinPostMutate, isPending: isPinPending} =
@@ -145,6 +156,7 @@ let PostMenuItems = ({
   const blockPromptControl = useDialogControl()
   const reportDialogControl = useReportDialogControl()
   const deletePromptControl = useDialogControl()
+  const redraftPromptControl = useDialogControl()
   const hidePromptControl = useDialogControl()
   const postInteractionSettingsDialogControl = useDialogControl()
   const quotePostDetachConfirmControl = useDialogControl()
@@ -498,6 +510,85 @@ let PostMenuItems = ({
 
   const onPressHideTranslation = () => clearTranslation()
 
+  const videoEmbed = AppBskyEmbedVideo.isView(post.embed) ? post.embed : null
+
+  const onDeleteAndRedraft = () => {
+    deletePostMutate({uri: postUri}).then(
+      () => {
+        openComposer({text: record.text, logContext: 'Other'})
+      },
+      e => {
+        logger.error('Failed to delete post for redraft', {message: e})
+        Toast.show(l`Failed to delete post, please try again`, {type: 'error'})
+      },
+    )
+  }
+
+  const onDownloadVideo = () => {
+    if (!videoEmbed) return
+    void saveVideo({did: postAuthor.did, cid: videoEmbed.cid})
+  }
+
+  const [pdslsLinks] = useStorage(device, ['experimentalPdslsLinks'])
+  const [bridgedFedi] = useStorage(device, ['experimentalBridgedFedi'])
+  const [multiAccountEnabled] = useStorage(device, ['experimentalMultiAccount'])
+
+  const {accounts} = useSession()
+  const otherAccounts = useMemo(() => {
+    if (!multiAccountEnabled || !hasSession) return []
+    return accounts.filter(
+      a => a.did !== currentAccount?.did && !isSessionExpired(a),
+    )
+  }, [multiAccountEnabled, hasSession, accounts, currentAccount?.did])
+
+  const onLikeAs = async (accountDid: string) => {
+    const account = accounts.find(a => a.did === accountDid)
+    if (!account) return
+    try {
+      const epAgent = await createEphemeralAgent(account)
+      await epAgent.like(postUri, postCid)
+      Toast.show(l`Liked as @${account.handle}`, {type: 'success'})
+    } catch (err) {
+      const e = err as Error
+      logger.error('Failed to like as other account', {message: e})
+      Toast.show(l`Failed to like as @${account.handle}`, {type: 'error'})
+    }
+  }
+
+  const onRepostAs = async (accountDid: string) => {
+    const account = accounts.find(a => a.did === accountDid)
+    if (!account) return
+    try {
+      const epAgent = await createEphemeralAgent(account)
+      await epAgent.repost(postUri, postCid)
+      Toast.show(l`Reposted as @${account.handle}`, {type: 'success'})
+    } catch (err) {
+      const e = err as Error
+      logger.error('Failed to repost as other account', {message: e})
+      Toast.show(l`Failed to repost as @${account.handle}`, {type: 'error'})
+    }
+  }
+
+  const bridgedFediUrl = useMemo(() => {
+    if (!bridgedFedi) return null
+    const handle = postAuthor.handle ?? ''
+    if (!handle.endsWith('.ap.brid.gy')) return null
+    const stripped = handle.slice(0, -'.ap.brid.gy'.length)
+    const dotIdx = stripped.indexOf('.')
+    if (dotIdx === -1) return null
+    const username = stripped.slice(0, dotIdx)
+    const instance = stripped.slice(dotIdx + 1)
+    return `https://${instance}/@${username}`
+  }, [bridgedFedi, postAuthor.handle])
+
+  const onOpenInPdsls = () => {
+    void openLink(`https://pdsls.dev/at/${encodeURIComponent(postUri)}`)
+  }
+
+  const onOpenBridgedFedi = () => {
+    if (bridgedFediUrl) void openLink(bridgedFediUrl)
+  }
+
   const isDiscoverDebugUser =
     IS_INTERNAL ||
     DISCOVER_DEBUG_DIDS[currentAccount?.did || ''] ||
@@ -573,6 +664,16 @@ let PostMenuItems = ({
                 <Menu.ItemText>{l`Copy post text`}</Menu.ItemText>
                 <Menu.ItemIcon icon={ClipboardIcon} position="right" />
               </Menu.Item>
+
+              {IS_NATIVE && !!videoEmbed && (
+                <Menu.Item
+                  testID="postDropdownDownloadVideoBtn"
+                  label={l`Download video`}
+                  onPress={onDownloadVideo}>
+                  <Menu.ItemText>{l`Download video`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={DownloadIcon} position="right" />
+                </Menu.Item>
+              )}
             </>
           ) : (
             <Menu.Item
@@ -584,6 +685,62 @@ let PostMenuItems = ({
             </Menu.Item>
           )}
         </Menu.Group>
+
+        {otherAccounts.length > 0 && (
+          <>
+            <Menu.Divider />
+            <Menu.Group>
+              {otherAccounts.map(account => (
+                <Menu.Item
+                  key={`like-as-${account.did}`}
+                  testID={`postDropdownLikeAs-${account.handle}`}
+                  label={l`Like as @${account.handle}`}
+                  onPress={() => void onLikeAs(account.did)}>
+                  <Menu.ItemText>{l`Like as @${account.handle}`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={HeartIcon} position="right" />
+                </Menu.Item>
+              ))}
+              {otherAccounts.map(account => (
+                <Menu.Item
+                  key={`repost-as-${account.did}`}
+                  testID={`postDropdownRepostAs-${account.handle}`}
+                  label={l`Repost as @${account.handle}`}
+                  onPress={() => void onRepostAs(account.did)}>
+                  <Menu.ItemText>
+                    {l`Repost as @${account.handle}`}
+                  </Menu.ItemText>
+                  <Menu.ItemIcon icon={RepostIcon} position="right" />
+                </Menu.Item>
+              ))}
+            </Menu.Group>
+          </>
+        )}
+
+        {(pdslsLinks || bridgedFediUrl) && (
+          <>
+            <Menu.Divider />
+            <Menu.Group>
+              {!!pdslsLinks && (
+                <Menu.Item
+                  testID="postDropdownPdslsBtn"
+                  label={l`Open in PDSls`}
+                  onPress={onOpenInPdsls}>
+                  <Menu.ItemText>{l`Open in PDSls`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={ArrowOutOfBox} position="right" />
+                </Menu.Item>
+              )}
+              {!!bridgedFediUrl && (
+                <Menu.Item
+                  testID="postDropdownBridgedFediBtn"
+                  label={l`Open on fediverse`}
+                  onPress={onOpenBridgedFedi}>
+                  <Menu.ItemText>{l`Open on fediverse`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={ArrowOutOfBox} position="right" />
+                </Menu.Item>
+              )}
+            </Menu.Group>
+          </>
+        )}
 
         {hasSession && feedFeedback.enabled && (
           <>
@@ -792,6 +949,13 @@ let PostMenuItems = ({
                     <Menu.ItemIcon icon={Gear} position="right" />
                   </Menu.Item>
                   <Menu.Item
+                    testID="postDropdownRedraftBtn"
+                    label={l`Delete and redraft`}
+                    onPress={() => redraftPromptControl.open()}>
+                    <Menu.ItemText>{l`Delete and redraft`}</Menu.ItemText>
+                    <Menu.ItemIcon icon={Trash} position="right" />
+                  </Menu.Item>
+                  <Menu.Item
                     testID="postDropdownDeleteBtn"
                     label={l`Delete post`}
                     onPress={() => deletePromptControl.open()}>
@@ -810,6 +974,14 @@ let PostMenuItems = ({
         description={l`If you remove this post, you won't be able to recover it.`}
         onConfirm={onDeletePost}
         confirmButtonCta={l`Delete`}
+        confirmButtonColor="negative"
+      />
+      <Prompt.Basic
+        control={redraftPromptControl}
+        title={l`Delete and redraft?`}
+        description={l`Your post will be deleted and its text reopened in the composer. Images and videos won't be re-attached.`}
+        onConfirm={onDeleteAndRedraft}
+        confirmButtonCta={l`Delete and redraft`}
         confirmButtonColor="negative"
       />
       <Prompt.Basic

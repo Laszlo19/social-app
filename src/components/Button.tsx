@@ -24,6 +24,7 @@ import {
 import {atoms as a, flatten, select, useTheme} from '#/alf'
 import {type Props as SVGIconProps} from '#/components/icons/common'
 import {Text} from '#/components/Typography'
+import {useDisplayPrefs} from '#/state/preferences'
 
 /**
  * The `Button` component, and some extensions of it like `Link` are intended
@@ -164,6 +165,12 @@ export const Button = forwardRef<View, ButtonProps>(
     if (!variantProp && color) {
       variant = 'solid'
     }
+
+    const {squareButtons} = useDisplayPrefs()
+    // Remap pill ('default') → rectangular when the user prefers square buttons.
+    // Icon-only shapes ('round', 'square') and explicit 'rectangular' are unaffected.
+    const effectiveShape: ButtonShape =
+      squareButtons && shape === 'default' ? 'rectangular' : shape
 
     const t = useTheme()
     const [state, setState] = useState({
@@ -452,7 +459,7 @@ export const Button = forwardRef<View, ButtonProps>(
          */
       }
 
-      if (shape === 'default') {
+      if (effectiveShape === 'default') {
         if (size === 'large') {
           baseStyles.push(a.rounded_full, {
             paddingVertical: 12,
@@ -478,7 +485,7 @@ export const Button = forwardRef<View, ButtonProps>(
             gap: 3,
           })
         }
-      } else if (shape === 'rectangular') {
+      } else if (effectiveShape === 'rectangular') {
         if (size === 'large') {
           baseStyles.push({
             paddingVertical: 12,
@@ -508,40 +515,24 @@ export const Button = forwardRef<View, ButtonProps>(
             gap: 2,
           })
         }
-      } else if (shape === 'round' || shape === 'square') {
+      } else if (effectiveShape === 'round' || effectiveShape === 'square') {
         /*
          * These sizes match the actual rendered size on screen, based on
          * Chrome's web inspector
          */
         if (size === 'large') {
-          if (shape === 'round') {
-            baseStyles.push({height: 44, width: 44})
-          } else {
-            baseStyles.push({height: 44, width: 44})
-          }
+          baseStyles.push({height: 44, width: 44})
         } else if (size === 'medium') {
-          if (shape === 'round') {
-            baseStyles.push({height: 33, width: 33})
-          } else {
-            baseStyles.push({height: 33, width: 33})
-          }
+          baseStyles.push({height: 33, width: 33})
         } else if (size === 'small') {
-          if (shape === 'round') {
-            baseStyles.push({height: 33, width: 33})
-          } else {
-            baseStyles.push({height: 33, width: 33})
-          }
+          baseStyles.push({height: 33, width: 33})
         } else if (size === 'tiny') {
-          if (shape === 'round') {
-            baseStyles.push({height: 25, width: 25})
-          } else {
-            baseStyles.push({height: 25, width: 25})
-          }
+          baseStyles.push({height: 25, width: 25})
         }
 
-        if (shape === 'round') {
+        if (effectiveShape === 'round') {
           baseStyles.push(a.rounded_full)
-        } else if (shape === 'square') {
+        } else if (effectiveShape === 'square') {
           if (size === 'tiny') {
             baseStyles.push({
               borderRadius: 6,
@@ -556,7 +547,7 @@ export const Button = forwardRef<View, ButtonProps>(
         baseStyles,
         hoverStyles,
       }
-    }, [t, variant, color, size, shape, disabled])
+    }, [t, variant, color, size, effectiveShape, disabled])
 
     const context = useMemo<ButtonContext>(
       () => ({
@@ -565,10 +556,10 @@ export const Button = forwardRef<View, ButtonProps>(
         variant,
         color,
         size,
-        shape,
+        shape: effectiveShape,
         disabled: disabled || false,
       }),
-      [state, variant, color, size, shape, disabled],
+      [state, variant, color, size, effectiveShape, disabled],
     )
 
     return (
