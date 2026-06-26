@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import * as Clipboard from 'expo-clipboard'
 import {
+  AppBskyEmbedVideo,
   type AppBskyFeedDefs,
   type AppBskyFeedPost,
   type AppBskyFeedThreadgate,
@@ -18,7 +19,9 @@ import {useLingui} from '@lingui/react/macro'
 import {useNavigation} from '@react-navigation/native'
 
 import {DISCOVER_DEBUG_DIDS} from '#/lib/constants'
+import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {useOpenLink} from '#/lib/hooks/useOpenLink'
+import {useSaveVideoToMediaLibrary} from '#/lib/media/save-video'
 import {getCurrentRoute} from '#/lib/routes/helpers'
 import {makeProfileLink} from '#/lib/routes/links'
 import {
@@ -64,6 +67,7 @@ import {
   usePrefetchPostInteractionSettings,
 } from '#/components/dialogs/PostInteractionSettingsDialog'
 import {ArrowOutOfBox_Stroke2_Corner0_Rounded as ArrowOutOfBox} from '#/components/icons/ArrowOutOfBox'
+import {Download_Stroke2_Corner0_Rounded as DownloadIcon} from '#/components/icons/Download'
 import {Atom_Stroke2_Corner0_Rounded as AtomIcon} from '#/components/icons/Atom'
 import {BubbleQuestion_Stroke2_Corner0_Rounded as Translate} from '#/components/icons/Bubble'
 import {Clipboard_Stroke2_Corner2_Rounded as ClipboardIcon} from '#/components/icons/Clipboard'
@@ -97,7 +101,7 @@ import {
 import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
-import {IS_INTERNAL} from '#/env'
+import {IS_INTERNAL, IS_NATIVE} from '#/env'
 import {device, useStorage} from '#/storage'
 
 let PostMenuItems = ({
@@ -129,6 +133,8 @@ let PostMenuItems = ({
   const {hasSession, currentAccount} = useSession()
   const {t: l} = useLingui()
   const ax = useAnalytics()
+  const {openComposer} = useOpenComposer()
+  const saveVideo = useSaveVideoToMediaLibrary()
   const langPrefs = useLanguagePrefs()
   const {mutateAsync: deletePostMutate} = usePostDeleteMutation()
   const {mutateAsync: pinPostMutate, isPending: isPinPending} =
@@ -147,6 +153,7 @@ let PostMenuItems = ({
   const blockPromptControl = useDialogControl()
   const reportDialogControl = useReportDialogControl()
   const deletePromptControl = useDialogControl()
+  const redraftPromptControl = useDialogControl()
   const hidePromptControl = useDialogControl()
   const postInteractionSettingsDialogControl = useDialogControl()
   const quotePostDetachConfirmControl = useDialogControl()
@@ -500,6 +507,25 @@ let PostMenuItems = ({
 
   const onPressHideTranslation = () => clearTranslation()
 
+  const videoEmbed = AppBskyEmbedVideo.isView(post.embed) ? post.embed : null
+
+  const onDeleteAndRedraft = () => {
+    deletePostMutate({uri: postUri}).then(
+      () => {
+        openComposer({text: record.text, logContext: 'Other'})
+      },
+      e => {
+        logger.error('Failed to delete post for redraft', {message: e})
+        Toast.show(l`Failed to delete post, please try again`, {type: 'error'})
+      },
+    )
+  }
+
+  const onDownloadVideo = () => {
+    if (!videoEmbed) return
+    void saveVideo({did: postAuthor.did, cid: videoEmbed.cid})
+  }
+
   const [pdslsLinks] = useStorage(device, ['experimentalPdslsLinks'])
   const [bridgedFedi] = useStorage(device, ['experimentalBridgedFedi'])
 
@@ -598,6 +624,16 @@ let PostMenuItems = ({
                 <Menu.ItemText>{l`Copy post text`}</Menu.ItemText>
                 <Menu.ItemIcon icon={ClipboardIcon} position="right" />
               </Menu.Item>
+
+              {IS_NATIVE && !!videoEmbed && (
+                <Menu.Item
+                  testID="postDropdownDownloadVideoBtn"
+                  label={l`Download video`}
+                  onPress={onDownloadVideo}>
+                  <Menu.ItemText>{l`Download video`}</Menu.ItemText>
+                  <Menu.ItemIcon icon={DownloadIcon} position="right" />
+                </Menu.Item>
+              )}
             </>
           ) : (
             <Menu.Item
@@ -843,6 +879,13 @@ let PostMenuItems = ({
                     <Menu.ItemIcon icon={Gear} position="right" />
                   </Menu.Item>
                   <Menu.Item
+                    testID="postDropdownRedraftBtn"
+                    label={l`Delete and redraft`}
+                    onPress={() => redraftPromptControl.open()}>
+                    <Menu.ItemText>{l`Delete and redraft`}</Menu.ItemText>
+                    <Menu.ItemIcon icon={Trash} position="right" />
+                  </Menu.Item>
+                  <Menu.Item
                     testID="postDropdownDeleteBtn"
                     label={l`Delete post`}
                     onPress={() => deletePromptControl.open()}>
@@ -861,6 +904,14 @@ let PostMenuItems = ({
         description={l`If you remove this post, you won't be able to recover it.`}
         onConfirm={onDeletePost}
         confirmButtonCta={l`Delete`}
+        confirmButtonColor="negative"
+      />
+      <Prompt.Basic
+        control={redraftPromptControl}
+        title={l`Delete and redraft?`}
+        description={l`Your post will be deleted and its text reopened in the composer. Images and videos won't be re-attached.`}
+        onConfirm={onDeleteAndRedraft}
+        confirmButtonCta={l`Delete and redraft`}
         confirmButtonColor="negative"
       />
       <Prompt.Basic
