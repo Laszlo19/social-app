@@ -80,12 +80,16 @@ Notes:
 - Delete-and-redraft prefills text only; images/video are not re-attached (CDN blobs, not local files)
 - Video download uses `bsky.social` as PDS — works for the vast majority; federated PDSes are a TODO
 
-## Phase 6 – Multi-account & identity (Experimental)
+## Phase 6 – Multi-account & identity (Experimental) ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| Act as another account via long/right-press on like/repost | behavior + **Experimental** toggle | "ephemeral agent" for one action |
-| PDS badge on profiles + favicon service | profile header + **Experimental** toggles | fetch/show hosting PDS |
+| Like/Repost as another account | **post menu**, **Experimental** toggle (`experimentalMultiAccount`) | ✅ done - "Like as @x" / "Repost as @x" menu items per non-expired alt account; uses createEphemeralAgent(); no optimistic update, shows toast |
+| PDS badge on profiles | profile header, **Experimental** toggle (`experimentalPdsBadge`) | ✅ done - hostname displayed below handle; resolved via describeRepo (did:plc) or parsed from DID (did:web); cached 1h |
+
+Notes:
+- Long/right-press on the like/repost buttons (witchsky's original UX) was skipped — it would require invasive changes to PostControls. The post-menu approach achieves the same result more cleanly.
+- Favicon service for PDS badge is skipped (no reliable cross-instance favicon API).
 
 ## Phase 7 – Infra, sync, AI (advanced; Experimental or new groups)
 
