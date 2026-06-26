@@ -146,18 +146,18 @@ msgstr ""
 
 #. placeholder {0}: profile.followersCount || 0
 #: src/components/ProfileHoverCard/index.web.tsx:444
-#: src/screens/Profile/Header/Metrics.tsx:24
+#: src/screens/Profile/Header/Metrics.tsx:25
 msgid "{0, plural, one {follower} other {followers}}"
 msgstr "{0, plural, one {sequitor} other {sequitores}}"
 
 #. placeholder {0}: profile.followsCount || 0
 #: src/components/ProfileHoverCard/index.web.tsx:448
-#: src/screens/Profile/Header/Metrics.tsx:28
+#: src/screens/Profile/Header/Metrics.tsx:29
 msgid "{0, plural, one {following} other {following}}"
 msgstr "{0, plural, one {sequito} other {sequitos}}"
 
 #. placeholder {0}: profile.postsCount || 0
-#: src/screens/Profile/Header/Metrics.tsx:65
+#: src/screens/Profile/Header/Metrics.tsx:66
 msgid "{0, plural, one {post} other {posts}}"
 msgstr "{0, plural, one {publication} other {publicationes}}"
 
@@ -213,7 +213,7 @@ msgid "{0} and {1} added to chat"
 msgstr ""
 
 #. placeholder {0}: profile.followsCount || 0
-#: src/screens/Profile/Header/Metrics.tsx:53
+#: src/screens/Profile/Header/Metrics.tsx:54
 msgid "{0} following"
 msgstr ""
 
@@ -636,7 +636,7 @@ msgstr ""
 msgid "{MAX_DISPLAY_NAME, plural, other {Display name is too long. The maximum number of characters is #.}}"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:395
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:407
 msgid "{MAX_HIDDEN_REPLIES, plural, other {You can hide a maximum of # replies.}}"
 msgstr ""
 
@@ -935,6 +935,10 @@ msgstr "A proposito"
 msgid "Abusive or discriminatory behavior"
 msgstr ""
 
+#: src/screens/Settings/AppearanceSettings.tsx:144
+msgid "Accent color"
+msgstr ""
+
 #. Accept a chat request
 #: src/screens/Messages/components/RequestButtons.tsx:287
 msgid "Accept"
@@ -990,7 +994,7 @@ msgstr "Parametros de accessibilitate"
 msgid "Account"
 msgstr "Conto"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:427
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:439
 #: src/screens/Messages/components/RequestButtons.tsx:104
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:122
 #: src/view/com/profile/ProfileMenu.tsx:182
@@ -1011,7 +1015,7 @@ msgstr ""
 msgid "Account is deactivated"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:470
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:482
 #: src/view/com/profile/ProfileMenu.tsx:152
 msgctxt "toast"
 msgid "Account muted"
@@ -1039,8 +1043,8 @@ msgid "Account removed from quick access"
 msgstr "Conto removite del accesso rapide"
 
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:109
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:92
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:317
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:97
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:333
 #: src/view/com/profile/ProfileMenu.tsx:169
 msgctxt "toast"
 msgid "Account unblocked"
@@ -1051,7 +1055,7 @@ msgctxt "toast"
 msgid "Account unfollowed"
 msgstr "Conto non plus sequite"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:450
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:462
 #: src/view/com/profile/ProfileMenu.tsx:139
 msgctxt "toast"
 msgid "Account unmuted"
@@ -1114,8 +1118,8 @@ msgstr "Adder conto"
 #: src/view/com/composer/GifAltText.tsx:217
 #: src/view/com/composer/photos/Gallery.tsx:201
 #: src/view/com/composer/photos/Gallery.tsx:236
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:95
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:103
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:116
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:124
 msgid "Add alt text"
 msgstr "Adder texto alternative"
 
@@ -1345,6 +1349,10 @@ msgstr ""
 msgid "Age assurance only takes a few minutes"
 msgstr ""
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:207
+msgid "AI alt-text (OpenRouter)"
+msgstr ""
+
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:220
 msgid "alice@example.com"
 msgstr "alice@exemplo.com"
@@ -1466,7 +1474,7 @@ msgstr "ALT"
 
 #: src/screens/Settings/AccessibilitySettings.tsx:55
 #: src/view/com/composer/GifAltText.tsx:160
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:128
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:149
 #: src/view/com/composer/videos/SubtitleDialog.tsx:41
 #: src/view/com/composer/videos/SubtitleDialog.tsx:59
 #: src/view/com/composer/videos/SubtitleDialog.tsx:110
@@ -1485,7 +1493,7 @@ msgstr "Le texto alternative describe imagines pro usatores cec o con problemas 
 
 #. placeholder {0}: i18n.number(MAX_ALT_TEXT)
 #: src/view/com/composer/GifAltText.tsx:185
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:149
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:170
 msgid "Alt text will be truncated. {MAX_ALT_TEXT, plural, other {Limit: {0} characters.}}"
 msgstr "Le texto alternative essera truncate. {MAX_ALT_TEXT, plural, other {Limite: {0} characteres.}}"
 
@@ -1766,7 +1774,7 @@ msgid "Appeal this decision"
 msgstr "Facer appello de iste decision"
 
 #: src/Navigation.tsx:403
-#: src/screens/Settings/AppearanceSettings.tsx:85
+#: src/screens/Settings/AppearanceSettings.tsx:89
 #: src/screens/Settings/Settings.tsx:241
 #: src/screens/Settings/Settings.tsx:244
 msgid "Appearance"
@@ -1780,6 +1788,11 @@ msgstr "Applicar le canales recommendate predefinite"
 #: src/screens/Settings/Settings.tsx:536
 #: src/screens/Settings/Settings.tsx:538
 msgid "Apply Pull Request"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:239
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:243
+msgid "AppView DID override"
 msgstr ""
 
 #. placeholder {0}: niceDate(i18n, createdAt, 'medium')
@@ -1856,8 +1869,8 @@ msgstr "Arte"
 msgid "Artistic or non-erotic nudity."
 msgstr "Nuditate artistic o non erotic."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:616
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:618
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:773
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:775
 msgid "Assign topic for algo"
 msgstr "Assignar topico pro le algorithmo"
 
@@ -2014,7 +2027,7 @@ msgstr "Data de nascentia"
 #: src/components/moderation/BlockDialog.tsx:192
 #: src/components/moderation/BlockDialog.tsx:211
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:227
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:211
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:227
 msgid "Block"
 msgstr "Blocar"
 
@@ -2024,8 +2037,8 @@ msgstr ""
 
 #: src/components/dms/ConvoMenu.tsx:284
 #: src/components/dms/ConvoMenu.tsx:288
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:756
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:758
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:913
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:915
 #: src/screens/Messages/components/RequestButtons.tsx:154
 #: src/screens/Messages/components/RequestButtons.tsx:156
 #: src/view/com/profile/ProfileMenu.tsx:464
@@ -2219,6 +2232,10 @@ msgstr ""
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:215
 msgid "Breaking site rules"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:140
+msgid "Bridged fediverse links"
 msgstr ""
 
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:200
@@ -2914,7 +2931,7 @@ msgid "Color"
 msgstr ""
 
 #: src/components/dialogs/Embed.tsx:150
-#: src/screens/Settings/AppearanceSettings.tsx:93
+#: src/screens/Settings/AppearanceSettings.tsx:97
 msgid "Color mode"
 msgstr "Modo de color"
 
@@ -3165,7 +3182,7 @@ msgstr "Version de compilation copiate al area de transferentia"
 #: src/components/dms/ChatInvite/Root.tsx:99
 #: src/components/dms/MessageContextMenu.tsx:83
 #: src/components/PostControls/DiscoverDebug.tsx:36
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:273
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:285
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:77
 #: src/lib/sharing.ts:24
 #: src/lib/sharing.ts:42
@@ -3265,8 +3282,8 @@ msgstr "Copiar message de texto"
 msgid "Copy post at:// URI"
 msgstr "Copiar URI at:// del publication"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:662
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:664
 msgid "Copy post text"
 msgstr "Copiar texto de publication"
 
@@ -3387,6 +3404,11 @@ msgstr ""
 msgid "Couldn’t load GIFs"
 msgstr ""
 
+#: src/screens/Settings/CountsMetricsSettings.tsx:105
+#: src/screens/Settings/CountsMetricsSettings.tsx:109
+msgid "Count format"
+msgstr ""
+
 #: src/components/InternationalPhoneCodeSelect.tsx:80
 msgid "Country code"
 msgstr ""
@@ -3394,7 +3416,7 @@ msgstr ""
 #: src/Navigation.tsx:419
 #: src/screens/Settings/ContentAndMediaSettings.tsx:87
 #: src/screens/Settings/ContentAndMediaSettings.tsx:90
-#: src/screens/Settings/CountsMetricsSettings.tsx:40
+#: src/screens/Settings/CountsMetricsSettings.tsx:43
 msgid "Counts & metrics"
 msgstr ""
 
@@ -3544,6 +3566,10 @@ msgstr ""
 msgid "Custom"
 msgstr "Personalisate"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:236
+msgid "Custom AppView DID"
+msgstr ""
+
 #: src/components/dialogs/Embed.tsx:140
 msgid "Customization options"
 msgstr "Optiones de personalisation"
@@ -3562,8 +3588,8 @@ msgstr ""
 
 #: src/components/dialogs/Embed.tsx:164
 #: src/components/dialogs/Embed.tsx:166
-#: src/screens/Settings/AppearanceSettings.tsx:105
-#: src/screens/Settings/AppearanceSettings.tsx:126
+#: src/screens/Settings/AppearanceSettings.tsx:109
+#: src/screens/Settings/AppearanceSettings.tsx:130
 msgid "Dark"
 msgstr "Obscur"
 
@@ -3572,7 +3598,7 @@ msgctxt "Name of app icon variant"
 msgid "Dark"
 msgstr "Obscur"
 
-#: src/screens/Settings/AppearanceSettings.tsx:118
+#: src/screens/Settings/AppearanceSettings.tsx:122
 msgid "Dark theme"
 msgstr "Thema obscur"
 
@@ -3610,7 +3636,9 @@ msgstr ""
 msgid "Deepfake adult content"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:168
+#: src/screens/Settings/AppearanceSettings.tsx:224
+#: src/screens/Settings/CountsMetricsSettings.tsx:117
+#: src/screens/Settings/CountsMetricsSettings.tsx:120
 msgid "Default"
 msgstr "Predefinite"
 
@@ -3619,7 +3647,7 @@ msgid "Default icons"
 msgstr "Icones predefinite"
 
 #: src/components/dms/MessageOverlays.tsx:184
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:812
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:976
 #: src/screens/ProfileList/components/MoreOptionsMenu.tsx:275
 #: src/screens/Settings/AppPasswords.tsx:213
 #: src/screens/StarterPack/StarterPackScreen.tsx:615
@@ -3636,6 +3664,16 @@ msgstr "Deler conto"
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:183
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:230
 msgid "Delete account “{currentHandle}”"
+msgstr ""
+
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:953
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:955
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:984
+msgid "Delete and redraft"
+msgstr ""
+
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:981
+msgid "Delete and redraft?"
 msgstr ""
 
 #: src/screens/Settings/AppPasswords.tsx:187
@@ -3688,8 +3726,8 @@ msgstr "Deler message pro me"
 msgid "Delete my account"
 msgstr "Deler mi conto"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:796
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:798
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:960
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:962
 #: src/view/com/composer/Composer.tsx:1629
 msgid "Delete post"
 msgstr "Deler publication"
@@ -3707,7 +3745,7 @@ msgstr "Deler pacchetto de initio?"
 msgid "Delete this list?"
 msgstr "Deler iste lista?"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:809
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:973
 msgid "Delete this post?"
 msgstr "Deler iste publication?"
 
@@ -3748,16 +3786,16 @@ msgid "Description (1000 characters max)"
 msgstr ""
 
 #: src/view/com/composer/GifAltText.tsx:156
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:124
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:145
 msgid "Descriptive alt text"
 msgstr "Texto alternative descriptive"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:700
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:710
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:857
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:867
 msgid "Detach quote"
 msgstr "Disannexar citation"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:845
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1017
 msgid "Detach quote post?"
 msgstr "Disannexar le citation?"
 
@@ -3784,7 +3822,7 @@ msgstr ""
 msgid "Dialog: adjust who can interact with this post"
 msgstr "Dialogo: adjusta qui pote interager con iste publication"
 
-#: src/screens/Settings/AppearanceSettings.tsx:122
+#: src/screens/Settings/AppearanceSettings.tsx:126
 msgid "Dim"
 msgstr "Tenue"
 
@@ -4057,6 +4095,11 @@ msgctxt "button"
 msgid "Download profile data"
 msgstr ""
 
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:671
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:673
+msgid "Download video"
+msgstr ""
+
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:115
 msgid "Doxxing"
 msgstr ""
@@ -4154,8 +4197,8 @@ msgstr ""
 msgid "Edit image"
 msgstr "Modificar imagine"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:777
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:790
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:934
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:947
 msgid "Edit interaction settings"
 msgstr "Modificar parametros de interaction"
 
@@ -4212,12 +4255,12 @@ msgstr "Modificar le parametros de interaction del publication"
 #: src/screens/Profile/Header/EditProfileDialog.tsx:265
 #: src/screens/Profile/Header/EditProfileDialog.tsx:271
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:296
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:352
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:368
 msgid "Edit profile"
 msgstr "Modificar profilo"
 
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:299
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:354
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:370
 msgid "Edit Profile"
 msgstr "Modificar profilo"
 
@@ -4505,6 +4548,11 @@ msgstr "Totes"
 msgid "Everything else"
 msgstr "Tote le resto"
 
+#: src/screens/Settings/CountsMetricsSettings.tsx:128
+#: src/screens/Settings/CountsMetricsSettings.tsx:130
+msgid "Exact"
+msgstr ""
+
 #: src/components/dialogs/MutedWords.tsx:320
 msgid "Exclude users you follow"
 msgstr "Excluder usatores que tu seque"
@@ -4547,7 +4595,7 @@ msgid "Experimental"
 msgstr "Experimental"
 
 #: src/Navigation.tsx:427
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:34
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:54
 #: src/screens/Settings/Settings.tsx:264
 #: src/screens/Settings/Settings.tsx:267
 msgid "Experimental features"
@@ -4699,7 +4747,8 @@ msgstr "Non ha essite possibile deler le chat"
 msgid "Failed to delete message"
 msgstr "Non ha essite possibile deler le message"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:220
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:232
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:522
 msgid "Failed to delete post, please try again"
 msgstr "Non ha essite possibile deler le publication, tenta de novo"
 
@@ -4757,6 +4806,11 @@ msgstr ""
 #: src/screens/Messages/ConversationSettings/index.tsx:408
 msgctxt "toast"
 msgid "Failed to leave group chat"
+msgstr ""
+
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:554
+msgid "Failed to like as @{0}"
 msgstr ""
 
 #: src/screens/Messages/ChatList.tsx:404
@@ -4863,6 +4917,11 @@ msgstr ""
 msgid "Failed to remove verification"
 msgstr "Non ha essite possibile remover le verification"
 
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:568
+msgid "Failed to repost as @{0}"
+msgstr ""
+
 #: src/components/intents/GroupChatJoinDialog.tsx:193
 #: src/screens/Messages/components/OutgoingRequestListItem.tsx:34
 msgid "Failed to rescind your request. Please try again."
@@ -4890,6 +4949,11 @@ msgstr "Non ha essite possibile salvar le imagine: {0}"
 msgid "Failed to save settings. Please try again."
 msgstr "Non ha essite possibile salvar le parametros. Tenta de novo."
 
+#. placeholder {0}: String(e)
+#: src/lib/media/save-video.ts:105
+msgid "Failed to save video: {0}"
+msgstr ""
+
 #: src/screens/Settings/InterestsSettings.tsx:147
 msgctxt "toast"
 msgid "Failed to save your interests."
@@ -4910,7 +4974,7 @@ msgstr ""
 msgid "Failed to submit appeal, please try again."
 msgstr "Non ha essite possibile inviar le appello, tenta de novo."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:252
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:264
 msgid "Failed to toggle thread mute, please try again"
 msgstr "Non ha essite possibile commutar le silentiamento del filo, tenta de novo"
 
@@ -5020,8 +5084,8 @@ msgstr "Canal indisponibile"
 msgid "Feedback"
 msgstr "Commentarios"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:308
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:331
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:320
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:343
 msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr ""
@@ -5120,7 +5184,7 @@ msgstr ""
 msgid "Find Contacts"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:74
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:94
 msgid "Find friends experience"
 msgstr ""
 
@@ -5200,7 +5264,7 @@ msgstr ""
 #: src/components/ProfileHoverCard/index.web.tsx:506
 #: src/screens/Messages/ConversationSettings/Member.tsx:170
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:157
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:435
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:451
 #: src/screens/VideoFeed/index.tsx:866
 #: src/view/com/notifications/NotificationFeedItem.tsx:874
 #: src/view/com/notifications/NotificationFeedItem.tsx:881
@@ -5209,7 +5273,7 @@ msgstr "Sequer"
 
 #. placeholder {0}: profile.handle
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:144
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:419
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:435
 msgid "Follow {0}"
 msgstr "Sequer {0}"
 
@@ -5257,7 +5321,7 @@ msgstr ""
 #. User is not following this account, click to follow back
 #: src/components/ProfileCard.tsx:542
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:155
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:433
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:449
 #: src/view/com/notifications/NotificationFeedItem.tsx:874
 #: src/view/com/notifications/NotificationFeedItem.tsx:881
 msgid "Follow back"
@@ -5320,7 +5384,7 @@ msgstr "Sequitores que tu cognosce"
 #: src/components/ProfileHoverCard/index.web.tsx:505
 #: src/lib/hooks/useUpdateWidgets.ts:28
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:430
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
 #: src/screens/VideoFeed/index.tsx:864
 #: src/view/com/notifications/NotificationFeedItem.tsx:852
 #: src/view/com/notifications/NotificationFeedItem.tsx:869
@@ -5337,7 +5401,7 @@ msgstr "Sequente"
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:498
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:269
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:285
 #: src/view/com/notifications/NotificationFeedItem.tsx:801
 msgid "Following {0}"
 msgstr "Sequente {0}"
@@ -5365,11 +5429,11 @@ msgstr "Preferentias del canal Sequente"
 msgid "Follows you"
 msgstr "Te seque"
 
-#: src/screens/Settings/AppearanceSettings.tsx:140
+#: src/screens/Settings/AppearanceSettings.tsx:196
 msgid "Font"
 msgstr "Typo de litteras"
 
-#: src/screens/Settings/AppearanceSettings.tsx:160
+#: src/screens/Settings/AppearanceSettings.tsx:216
 msgid "Font size"
 msgstr "Dimension de typo de litteras"
 
@@ -5389,7 +5453,7 @@ msgstr ""
 msgid "For security reasons, you won't be able to view this again. If you lose this app password, you'll need to generate a new one."
 msgstr "Pro rationes de securitate, tu non potera visualisar isto de novo. Si tu perde iste contrasigno del app, tu debera generar un nove."
 
-#: src/screens/Settings/AppearanceSettings.tsx:142
+#: src/screens/Settings/AppearanceSettings.tsx:198
 msgid "For the best experience, we recommend using the theme font."
 msgstr "Pro le melior experientia, nos recommenda usar le fonte del thema."
 
@@ -5444,13 +5508,17 @@ msgctxt "from-feed"
 msgid "From <0/>"
 msgstr "De <0/>"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:51
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:71
 msgid "Gallery fallback"
 msgstr ""
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:337
 msgid "Generate a starter pack"
 msgstr "Generar un pacchetto de initio"
+
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:186
+msgid "Generate alt text with AI"
+msgstr ""
 
 #: src/screens/Messages/components/InviteLinkDialog.tsx:239
 #: src/screens/Messages/components/InviteLinkDialog.tsx:277
@@ -5913,7 +5981,7 @@ msgstr "Lista occultate"
 #: src/components/moderation/ContentHider.tsx:220
 #: src/components/moderation/LabelPreference.tsx:141
 #: src/components/moderation/PostHider.tsx:140
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:820
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:992
 #: src/lib/moderation/useLabelBehaviorDescription.ts:18
 #: src/lib/moderation/useLabelBehaviorDescription.ts:23
 #: src/lib/moderation/useLabelBehaviorDescription.ts:28
@@ -5932,7 +6000,7 @@ msgstr "Occultar"
 msgid "Hide all events"
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:57
+#: src/screens/Settings/CountsMetricsSettings.tsx:60
 msgid "Hide counts"
 msgstr ""
 
@@ -5940,11 +6008,11 @@ msgstr ""
 msgid "Hide customization options"
 msgstr "Occultar optiones de personalisation"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:47
+#: src/screens/Settings/CountsMetricsSettings.tsx:50
 msgid "Hide engagement numbers for a calmer experience. This only changes what you see."
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:79
+#: src/screens/Settings/CountsMetricsSettings.tsx:82
 msgid "Hide follower, following and post counts"
 msgstr ""
 
@@ -5952,7 +6020,7 @@ msgstr ""
 msgid "Hide group chat updates"
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:67
+#: src/screens/Settings/CountsMetricsSettings.tsx:70
 msgid "Hide like, repost and reply counts on posts"
 msgstr ""
 
@@ -5960,34 +6028,34 @@ msgstr ""
 msgid "Hide lists"
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:62
+#: src/screens/Settings/CountsMetricsSettings.tsx:65
 msgid "Hide post engagement counts"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:660
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:663
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:820
 msgid "Hide post for me"
 msgstr "Occultar le publication pro me"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:74
+#: src/screens/Settings/CountsMetricsSettings.tsx:77
 msgid "Hide profile counts"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:674
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:684
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:831
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:841
 msgid "Hide reply for everyone"
 msgstr "Occultar le responsa pro totes"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:660
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:663
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:820
 msgid "Hide reply for me"
 msgstr "Ocultar le responsa pro me"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:86
+#: src/screens/Settings/CountsMetricsSettings.tsx:89
 msgid "Hide the “Follows you” label"
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:91
+#: src/screens/Settings/CountsMetricsSettings.tsx:94
 msgid "Hide the “Follows you” label on profiles"
 msgstr ""
 
@@ -6013,19 +6081,19 @@ msgstr "Occultar iste carta"
 msgid "Hide this event"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:989
 msgid "Hide this post?"
 msgstr "Occultar iste publication?"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:852
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:989
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1024
 msgid "Hide this reply?"
 msgstr "Occultar iste responsa?"
 
 #: src/components/Post/Translated/index.tsx:216
 #: src/components/Post/Translated/index.tsx:350
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:546
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:548
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:637
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:639
 msgid "Hide translation"
 msgstr ""
 
@@ -6196,7 +6264,7 @@ msgstr "Si tu ha un dominio proprie, tu pote usar lo como pseudonymo. Isto te pe
 msgid "If you need to update your email, <0>click here</0>."
 msgstr "Si tu debe actualisar tu e-mail, <0>clicca hic</0>."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:810
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:974
 msgid "If you remove this post, you won't be able to recover it."
 msgstr "Si tu remove iste publication, tu non potera recuperar lo."
 
@@ -6413,7 +6481,7 @@ msgstr ""
 msgid "Invalid handle. Please try a different one."
 msgstr "Pseudonymo invalide. Tenta un differente."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:401
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:413
 msgctxt "toast"
 msgid "Invalid interaction settings."
 msgstr ""
@@ -6453,7 +6521,7 @@ msgid "Invite code not accepted. Check that you input it correctly and try again
 msgstr "Codice de invitation non acceptate. Verifica que tu lo ha inserite correctemente e tenta lo de novo."
 
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:141
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:374
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:390
 #: src/view/shell/Drawer.tsx:121
 msgid "Invite friends"
 msgstr ""
@@ -6646,7 +6714,7 @@ msgstr "Configurationes de lingua"
 msgid "Languages"
 msgstr "Linguas"
 
-#: src/screens/Settings/AppearanceSettings.tsx:172
+#: src/screens/Settings/AppearanceSettings.tsx:228
 msgid "Larger"
 msgstr "Plus grande"
 
@@ -6826,7 +6894,7 @@ msgstr "Vamos!"
 
 #: src/components/dialogs/Embed.tsx:159
 #: src/components/dialogs/Embed.tsx:161
-#: src/screens/Settings/AppearanceSettings.tsx:101
+#: src/screens/Settings/AppearanceSettings.tsx:105
 msgid "Light"
 msgstr "Clar"
 
@@ -6854,6 +6922,12 @@ msgstr "Appreciar 10 publicationes"
 msgid "Like 10 posts to train the Discover feed"
 msgstr "Apprecia 10 publicationes pro trainar le canal Discoperir"
 
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:697
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:699
+msgid "Like as @{0}"
+msgstr ""
+
 #: src/screens/Profile/components/ProfileFeedHeader.tsx:497
 msgid "Like this feed"
 msgstr "Appreciar iste canal"
@@ -6861,6 +6935,11 @@ msgstr "Appreciar iste canal"
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:148
 msgid "Like this labeler"
 msgstr "Appreciar iste etiquettator"
+
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:550
+msgid "Liked as @{0}"
+msgstr ""
 
 #: src/Navigation.tsx:303
 #: src/Navigation.tsx:308
@@ -7015,6 +7094,11 @@ msgstr ""
 #: src/components/dms/BlockedByListDialog.tsx:38
 msgid "Lists blocking this user:"
 msgstr "Listas que bloca iste usator:"
+
+#: src/screens/Settings/CountsMetricsSettings.tsx:123
+#: src/screens/Settings/CountsMetricsSettings.tsx:125
+msgid "Lite"
+msgstr ""
 
 #. Live status indicator on avatar. Should be extremely short, not much space for more than 4 characters
 #: src/features/liveNow/components/LiveIndicator.tsx:46
@@ -7463,6 +7547,10 @@ msgstr ""
 msgid "Movies"
 msgstr "Cinema"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:185
+msgid "Multi-account actions"
+msgstr ""
+
 #: src/lib/interests.ts:65
 msgid "Music"
 msgstr "Musica"
@@ -7483,8 +7571,8 @@ msgstr "Silentiar"
 msgid "Mute {0}"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:739
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:745
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:896
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:902
 #: src/view/com/profile/ProfileMenu.tsx:443
 #: src/view/com/profile/ProfileMenu.tsx:450
 msgid "Mute account"
@@ -7540,13 +7628,13 @@ msgstr "Silentiar iste parola solmente in etiquettas"
 msgid "Mute this word until you unmute it"
 msgstr "Silentiar iste parola usque tu lo dissilentia"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:630
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:633
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:787
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:790
 msgid "Mute thread"
 msgstr "Silentiar discussion"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:643
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:645
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:800
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:802
 msgid "Mute words & tags"
 msgstr "Silentiar parolas e etiquettas"
 
@@ -7588,7 +7676,7 @@ msgstr "Le silentiamento es private. Le contos silentiate pote interager con te,
 msgid "Mutual group chats"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:428
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:444
 msgid "Mutuals"
 msgstr ""
 
@@ -7643,8 +7731,8 @@ msgid "Navigation"
 msgstr ""
 
 #: src/Navigation.tsx:411
-#: src/screens/Settings/AppearanceSettings.tsx:190
-#: src/screens/Settings/AppearanceSettings.tsx:193
+#: src/screens/Settings/AppearanceSettings.tsx:246
+#: src/screens/Settings/AppearanceSettings.tsx:249
 msgid "Navigation bar"
 msgstr ""
 
@@ -7898,7 +7986,7 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:521
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:295
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:311
 #: src/view/com/notifications/NotificationFeedItem.tsx:823
 msgid "No longer following {0}"
 msgstr "Non plus sequente {0}"
@@ -8349,9 +8437,14 @@ msgstr ""
 msgid "Open group chat settings"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:556
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:562
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:647
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:653
 msgid "Open in Google Translate"
+msgstr ""
+
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:726
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:728
+msgid "Open in PDSls"
 msgstr ""
 
 #: src/components/Post/Embed/ExternalEmbed/index.tsx:88
@@ -8370,6 +8463,11 @@ msgstr "Aperir pagina de depuration del moderation"
 #: src/screens/Moderation/index.tsx:280
 msgid "Open muted words and tags settings"
 msgstr "Aperir parametros de parolas e etiquettas silentiate"
+
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:735
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:737
+msgid "Open on fediverse"
+msgstr ""
 
 #: src/screens/Search/components/StarterPackCard.tsx:120
 msgid "Open pack"
@@ -8412,6 +8510,11 @@ msgstr "Aperir registro de systema"
 
 #: src/components/intents/GroupChatJoinDialog.tsx:447
 msgid "Open this group chat"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:210
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:214
+msgid "OpenRouter API key"
 msgstr ""
 
 #. placeholder {0}: feedInfo.displayName
@@ -8616,6 +8719,10 @@ msgstr "Nostre equipa de moderation ha recipite tu signalamento."
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
 msgstr "Nostre moderatores ha revidite signalationes e ha decidite disactivar tu accesso a chats super Bluesky."
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:258
+msgid "Override the AppView DID used for AT Protocol proxying. Takes full effect after signing out and back in."
+msgstr ""
+
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
 msgstr ""
@@ -8673,6 +8780,14 @@ msgstr ""
 msgid "Pause video"
 msgstr "Pausar video"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:162
+msgid "PDS badge on profiles"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:117
+msgid "PDSls links in post menu"
+msgstr ""
+
 #: src/screens/ProfileList/index.tsx:167
 #: src/screens/Search/SearchResults.tsx:74
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
@@ -8728,6 +8843,10 @@ msgstr ""
 msgid "People you mention"
 msgstr ""
 
+#: src/lib/media/save-video.ts:130
+msgid "Permission to access your media library was denied. Please enable it in your system settings."
+msgstr ""
+
 #: src/lib/media/save-image.ts:59
 msgid "Permission to access your photo library was denied. Please enable it in your system settings."
 msgstr "Le permission pro acceder a tu bibliotheca de photos ha essite negate. Activa lo in le parametros de tu systema."
@@ -8781,8 +8900,8 @@ msgstr "Fixar al initio"
 msgid "Pin to Home"
 msgstr "Fixar al initio"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:515
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:520
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:606
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:611
 msgid "Pin to your profile"
 msgstr "Fixar in tu profilo"
 
@@ -9012,7 +9131,7 @@ msgstr "Politica"
 msgid "Porn"
 msgstr "Pornographia"
 
-#: src/screens/Settings/AppearanceSettings.tsx:242
+#: src/screens/Settings/AppearanceSettings.tsx:310
 msgid "Post"
 msgstr ""
 
@@ -9049,8 +9168,8 @@ msgstr ""
 msgid "Post blocked"
 msgstr "Publication blocate"
 
-#: src/screens/Settings/AppearanceSettings.tsx:236
-#: src/screens/Settings/AppearanceSettings.tsx:241
+#: src/screens/Settings/AppearanceSettings.tsx:304
+#: src/screens/Settings/AppearanceSettings.tsx:309
 msgid "Post button text"
 msgstr ""
 
@@ -9062,7 +9181,7 @@ msgstr ""
 msgid "Post by @{0}"
 msgstr "Publication de @{0}"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:200
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:212
 msgctxt "toast"
 msgid "Post deleted"
 msgstr "Publication delite"
@@ -9259,7 +9378,7 @@ msgctxt "toast"
 msgid "Profile updated"
 msgstr "Profilo actualisate"
 
-#: src/screens/Settings/AppearanceSettings.tsx:201
+#: src/screens/Settings/AppearanceSettings.tsx:257
 msgid "Profiles"
 msgstr ""
 
@@ -9332,11 +9451,11 @@ msgstr "Codice QR salvate in tu rolo del camera!"
 msgid "Quote post"
 msgstr "Citar publication"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:351
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:363
 msgid "Quote post was re-attached"
 msgstr "Le citation ha essite reannexate"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:350
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:362
 msgid "Quote post was successfully detached"
 msgstr "Le citation ha essite disannexate con successo"
 
@@ -9366,8 +9485,8 @@ msgstr "Limite excedite – tu ha tentate cambiar tu pseudonymo troppo de vices 
 msgid "Rate limit exceeded. Please try again later."
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:699
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:709
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:856
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:866
 msgid "Re-attach quote"
 msgstr "Reannexar citation"
 
@@ -9810,12 +9929,12 @@ msgstr "Le parametros de responsa es eligite per le autor del filo"
 msgid "Reply sorting"
 msgstr "Ordinamento de responsas"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:389
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:401
 msgctxt "toast"
 msgid "Reply visibility updated"
 msgstr "Visibilitate del responsa actualisate"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:388
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:400
 msgid "Reply was successfully hidden"
 msgstr "Le responsa ha essite occultate con successo"
 
@@ -9856,8 +9975,8 @@ msgstr "Signalar lista"
 msgid "Report message"
 msgstr "Signalar message"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:765
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:767
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:922
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:924
 msgid "Report post"
 msgstr "Signalar publication"
 
@@ -9929,12 +10048,23 @@ msgstr "Republication"
 msgid "Repost ({0, plural, one {# repost} other {# reposts}})"
 msgstr "Republication ({0, plural, one {# republication} other {# republicationes}})"
 
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:707
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:710
+msgid "Repost as @{0}"
+msgstr ""
+
 #: src/components/PostControls/RepostButton.tsx:146
 #: src/components/PostControls/RepostButton.web.tsx:43
 #: src/components/PostControls/RepostButton.web.tsx:103
 #: src/screens/StarterPack/StarterPackScreen.tsx:577
 msgid "Repost or quote post"
 msgstr "Republication o citation"
+
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:564
+msgid "Reposted as @{0}"
+msgstr ""
 
 #: src/screens/Post/PostRepostedBy.tsx:31
 msgid "Reposted By"
@@ -10172,8 +10302,8 @@ msgstr ""
 #: src/view/com/composer/GifAltText.tsx:208
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:63
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:76
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:163
-#: src/view/com/composer/photos/ImageAltTextDialog.tsx:173
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:201
+#: src/view/com/composer/photos/ImageAltTextDialog.tsx:211
 msgid "Save"
 msgstr "Salvar"
 
@@ -10898,12 +11028,33 @@ msgstr "Testator de preferentias compartite"
 msgid "Show"
 msgstr "Monstrar"
 
-#: src/screens/Settings/AppearanceSettings.tsx:206
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:190
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:196
+msgid "Show \"Like as…\" and \"Repost as…\" in the post menu for other signed-in accounts"
+msgstr ""
+
+#: src/screens/Settings/AppearanceSettings.tsx:262
 msgid "Show “Mutuals” instead of “Following”"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:211
+#: src/screens/Settings/AppearanceSettings.tsx:267
 msgid "Show “Mutuals” instead of “Following” on profiles you mutually follow"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:128
+msgid "Show \"Open in PDSls\" in the post menu (developer tool for inspecting raw AT Protocol records)"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:122
+msgid "Show \"Open in PDSls\" in the post menu for developer inspection of raw AT Protocol records"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:145
+msgid "Show \"Open on [instance]\" in the post menu for bridged fediverse accounts"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:151
+msgid "Show \"Open on [instance]\" in the post menu when the author is a bridged fediverse account"
 msgstr ""
 
 #: src/components/Post/Embed/VideoEmbed/GifPresentationControls.tsx:86
@@ -10946,8 +11097,8 @@ msgstr ""
 msgid "Show group chat updates"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:602
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:604
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:759
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:761
 msgid "Show less like this"
 msgstr "Monstrar minus como iste"
 
@@ -10968,8 +11119,8 @@ msgstr ""
 msgid "Show More"
 msgstr "Monstrar plus"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:594
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:596
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:751
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:753
 msgid "Show more like this"
 msgstr "Monstrar plus como isto"
 
@@ -10995,8 +11146,8 @@ msgstr "Monstrar responsas"
 msgid "Show replies as"
 msgstr "Monstrar responsas como"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:673
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:683
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:830
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:840
 msgid "Show reply for everyone"
 msgstr "Monstrar responsa pro totes"
 
@@ -11010,11 +11161,19 @@ msgstr "Monstrar republicationes"
 msgid "Show samples of your saved feeds in your Following feed"
 msgstr "Monstrar monstras de tu canales salvate in tu canal Following"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:62
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:82
 msgid "Show the fallback for galleries (5+ photos) instead of the carousel"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:56
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:167
+msgid "Show the hosting PDS as a badge on profile headers"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:173
+msgid "Show the hosting PDS server as a small badge on profile headers"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:76
 msgid "Show the update-your-app fallback for galleries with 5+ photos"
 msgstr ""
 
@@ -11112,8 +11271,8 @@ msgstr "Aperi session in Bluesky o crea un nove conto"
 msgid "Sign in to request access to this group chat."
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:580
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:582
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:681
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:683
 msgid "Sign in to view post"
 msgstr "Aperi session pro vider le publication"
 
@@ -11184,7 +11343,7 @@ msgstr ""
 msgid "slide"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:164
+#: src/screens/Settings/AppearanceSettings.tsx:220
 msgid "Smaller"
 msgstr "Minor"
 
@@ -11309,7 +11468,7 @@ msgstr "Alcun problema? Informa nos."
 msgid "Sorry, we're unable to load account suggestions at this time."
 msgstr ""
 
-#: src/App.native.tsx:138
+#: src/App.native.tsx:144
 #: src/App.web.tsx:117
 msgid "Sorry! Your session expired. Please sign in again."
 msgstr "Pardono! Tu session ha expirate. Aperi session de novo."
@@ -11597,8 +11756,8 @@ msgstr "Cambiar a {0}"
 
 #: src/components/dialogs/Embed.tsx:154
 #: src/components/dialogs/Embed.tsx:156
-#: src/screens/Settings/AppearanceSettings.tsx:97
-#: src/screens/Settings/AppearanceSettings.tsx:147
+#: src/screens/Settings/AppearanceSettings.tsx:101
+#: src/screens/Settings/AppearanceSettings.tsx:203
 msgid "System"
 msgstr "Systema"
 
@@ -11793,8 +11952,8 @@ msgid "That's everything!"
 msgstr "Illo es toto!"
 
 #: src/components/moderation/BlockDialog.tsx:153
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:205
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:448
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:221
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:464
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Le conto potera interager con te post le disblocage."
 
@@ -11909,7 +12068,7 @@ msgstr "Le codice de verification que tu ha fornite es invalide. Assecura te que
 msgid "The verification provider was unable to send a code to your phone number. Please check your phone number and try again."
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:151
+#: src/screens/Settings/AppearanceSettings.tsx:207
 msgid "Theme"
 msgstr "Thema"
 
@@ -11987,18 +12146,18 @@ msgid "There was an issue updating your feeds, please check your internet connec
 msgstr "Il ha habite un problema durante le actualisation de tu canales, verifica tu connexion al internet e tenta de novo."
 
 #. placeholder {0}: e.toString()
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:432
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:455
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:475
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:444
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:467
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:487
 #: src/screens/Messages/ConversationSettings/Member.tsx:71
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:114
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:127
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:117
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:130
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:97
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:279
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:306
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:102
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:295
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:322
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:338
 #: src/view/com/profile/ProfileMenu.tsx:144
 #: src/view/com/profile/ProfileMenu.tsx:157
 #: src/view/com/profile/ProfileMenu.tsx:174
@@ -12036,7 +12195,7 @@ msgstr "Il ha habite un grande quantitate de usatores nove a Bluesky! Nos activa
 msgid "These are your default settings"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:42
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:62
 msgid "These features are experimental and may change or break at any time."
 msgstr ""
 
@@ -12315,7 +12474,7 @@ msgstr "Iste publication es visibile solmente a usatores con session aperte."
 msgid "This post was deleted by its author"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:818
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:990
 msgid "This post will be hidden from feeds and threads. This cannot be undone."
 msgstr "Iste publication essera occultate de canales e filos. Iste action es irreversibile."
 
@@ -12327,7 +12486,7 @@ msgstr "Le autor del publication ha disactivate le citationes."
 msgid "This profile is only visible to logged-in users. It won't be visible to people who aren't signed in."
 msgstr "Iste profilo solmente es visibile a usatores con session aperte. Illo non essera visibile a personas qui non ha aperite session."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:853
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1025
 msgid "This reply will be sorted into a hidden section at the bottom of your thread and will mute notifications for subsequent replies - both for yourself and others."
 msgstr "Iste responsa essera placiate in un section occulte in basso de tu filo e silentiara notificationes pro responsas subsequente – pro te mesme e pro alteres."
 
@@ -12417,7 +12576,7 @@ msgstr ""
 msgid "This will remove @{0} from the quick access list."
 msgstr "Isto removera @{0} del lista de accesso rapide."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:846
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1018
 msgid "This will remove your post from this quote post for all users, and replace it with a placeholder."
 msgstr "Isto removera tu publication de iste citation pro tote le usatores, e lo substituera per un marcator de position."
 
@@ -12520,8 +12679,8 @@ msgstr "Topico"
 #: src/components/dms/MessageContextMenu.tsx:179
 #: src/components/Post/Translated/index.tsx:150
 #: src/components/Post/Translated/index.tsx:157
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:557
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:563
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:648
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:654
 msgid "Translate"
 msgstr "Traducer"
 
@@ -12533,8 +12692,8 @@ msgstr ""
 msgid "Translating"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:538
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:540
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:629
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:631
 msgid "Translating…"
 msgstr ""
 
@@ -12682,15 +12841,15 @@ msgstr "Information super le canal indisponibile"
 #: src/components/moderation/BlockDialog.tsx:190
 #: src/components/moderation/BlockDialog.tsx:211
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:227
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:211
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:387
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:453
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:227
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:403
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:469
 #: src/screens/ProfileList/components/Header.tsx:166
 #: src/screens/ProfileList/components/Header.tsx:173
 msgid "Unblock"
 msgstr "Disblocar"
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:391
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:407
 msgctxt "action"
 msgid "Unblock"
 msgstr "Disblocar"
@@ -12710,8 +12869,8 @@ msgstr "Disblocar conto"
 msgid "Unblock account?"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:203
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:219
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:462
 msgid "Unblock Account?"
 msgstr "Disblocar le conto?"
 
@@ -12748,7 +12907,7 @@ msgid "Undo repost ({0, plural, one {# repost} other {# reposts}})"
 msgstr "Disfacer republication ({0, plural, one {# republication} other {# republicationes}})"
 
 #. placeholder {0}: profile.handle
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:418
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:434
 msgid "Unfollow {0}"
 msgstr "Cessar de sequer {0}"
 
@@ -12820,8 +12979,8 @@ msgstr "Dissilentiar"
 msgid "Unmute {0}"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:738
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:744
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:895
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:901
 #: src/view/com/profile/ProfileMenu.tsx:442
 #: src/view/com/profile/ProfileMenu.tsx:448
 msgid "Unmute account"
@@ -12840,8 +12999,8 @@ msgstr "Dissilentiar lista"
 msgid "Unmute this group chat"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:630
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:633
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:787
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:790
 msgid "Unmute thread"
 msgstr "Dissilentiar filo"
 
@@ -12866,8 +13025,8 @@ msgstr "Disfixar canal"
 msgid "Unpin from home"
 msgstr "Disfixar del initio"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:515
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:520
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:606
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:611
 msgid "Unpin from profile"
 msgstr "Disfixar del profilo"
 
@@ -12978,12 +13137,12 @@ msgstr "Actualisa tu e-mail"
 msgid "Update your location"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:356
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:368
 msgctxt "toast"
 msgid "Updating quote attachment failed"
 msgstr "Non ha essite possibile actualisar le annexo del citation"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:405
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:417
 msgctxt "toast"
 msgid "Updating reply visibility failed"
 msgstr "Non ha essite possibile actualisar le visibilitate del responsa"
@@ -13060,19 +13219,27 @@ msgstr "Usar mi navigator predefinite"
 msgid "Use recommended"
 msgstr "Usar recommendate"
 
-#: src/screens/Settings/AppearanceSettings.tsx:221
+#: src/screens/Settings/AppearanceSettings.tsx:294
+msgid "Use rectangular buttons instead of pill-shaped"
+msgstr ""
+
+#: src/screens/Settings/AppearanceSettings.tsx:277
 msgid "Use square avatars"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:226
+#: src/screens/Settings/AppearanceSettings.tsx:282
 msgid "Use square avatars instead of circular"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:79
+#: src/screens/Settings/AppearanceSettings.tsx:289
+msgid "Use square buttons"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:99
 msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\""
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:85
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:105
 msgid "Use the legacy “Find friends from contacts” instead of “Find and invite friends”"
 msgstr ""
 
@@ -13082,6 +13249,10 @@ msgstr "Usa isto pro aperir session in le altere application insimul con tu pseu
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:278
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:226
+msgid "Used to generate alt text for images in the composer via OpenRouter's vision API. Get a key at openrouter.ai."
 msgstr ""
 
 #: src/view/screens/Profile.tsx:383
@@ -13320,6 +13491,10 @@ msgstr "Video in reproduction"
 msgid "Video not found."
 msgstr "Video non trovate."
 
+#: src/lib/media/save-video.ts:103
+msgid "Video saved"
+msgstr ""
+
 #: src/view/com/composer/videos/SubtitleDialog.tsx:107
 msgid "Video settings"
 msgstr "Configurationes de video"
@@ -13336,6 +13511,10 @@ msgstr "Video: {0}"
 #: src/view/screens/Profile.tsx:237
 msgid "Videos"
 msgstr "Videos"
+
+#: src/lib/media/save-video.ts:122
+msgid "Videos cannot be saved unless permission is granted to access your media library."
+msgstr ""
 
 #: src/view/com/composer/SelectMediaButton.tsx:434
 msgid "Videos must be less than 3 minutes long."
@@ -13918,11 +14097,11 @@ msgstr ""
 msgid "Yes, delete this starter pack"
 msgstr "Si, deler iste pacchetto de initio"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:848
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1020
 msgid "Yes, detach"
 msgstr "Si, disannexar"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:855
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:1027
 msgid "Yes, hide"
 msgstr "Si, occultar"
 
@@ -14340,11 +14519,11 @@ msgstr "Le session de tote tu contos se claudera."
 msgid "You will no longer receive notifications for {0}"
 msgstr "Tu non recipera plus notificationes de {0}"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:246
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:258
 msgid "You will no longer receive notifications for this thread"
 msgstr "Tu non recipera plus notificationes de iste filo"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:237
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:249
 msgid "You will now receive notifications for this thread"
 msgstr "Ora tu recipera notificationes de iste filo"
 
@@ -14599,6 +14778,10 @@ msgstr "Tu contrasigno debe haber al minus 8 characteres."
 
 #: src/view/com/composer/Composer.tsx:1140
 msgid "Your post was sent"
+msgstr ""
+
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:982
+msgid "Your post will be deleted and its text reopened in the composer. Images and videos won't be re-attached."
 msgstr ""
 
 #: src/view/com/composer/Composer.tsx:1137
