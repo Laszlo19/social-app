@@ -103,6 +103,49 @@ export type Device = {
   quickActionItems?: NavItemId[]
 
   /**
+   * Fork feed tweaks (Settings > Following feed preferences). Hide the inline
+   * "What's up?" composer prompt at the top of feeds.
+   */
+  hideComposerPrompt?: boolean
+
+  /**
+   * Hide the floating "scroll to top / load new posts" button on feeds.
+   */
+  hideLoadLatestButton?: boolean
+
+  /**
+   * Don't fall back to the Discover feed when the Following feed runs out.
+   */
+  noDiscoverFallback?: boolean
+
+  /**
+   * Show "Mutuals" instead of "Following" on profiles you mutually follow.
+   * Settings > Appearance.
+   */
+  mutualsLabel?: boolean
+
+  /**
+   * Custom word for the composer's publish button (replaces "Post"). Empty/
+   * absent uses the default. Settings > Appearance.
+   */
+  postWord?: string
+
+  /**
+   * Density display prefs read app-wide via the display-prefs context
+   * (state/preferences/display-prefs). Square avatars instead of circular.
+   */
+  squareAvatars?: boolean
+
+  /**
+   * "Counts & metrics" prefs (calm timeline). Read via the display-prefs
+   * context. Hide post engagement counts (likes/reposts/replies), profile
+   * counts (followers/following/posts), and the "Follows you" label.
+   */
+  hidePostCounts?: boolean
+  hideProfileCounts?: boolean
+  hideFollowsYou?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean

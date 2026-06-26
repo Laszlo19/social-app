@@ -37,6 +37,7 @@ import {
   compressImage,
   createComposerImage,
 } from '#/state/gallery'
+import {useDisplayPrefs} from '#/state/preferences'
 import {unstableCacheProfileView} from '#/state/queries/unstable-profile-cache'
 import {EditImageDialog} from '#/view/com/composer/photos/EditImageDialog'
 import {atoms as a, tokens, useTheme} from '#/alf'
@@ -104,7 +105,10 @@ let DefaultAvatar = ({
   shape?: 'square' | 'circle'
   size: number
 }): React.ReactNode => {
-  const finalShape = overrideShape ?? (type === 'user' ? 'circle' : 'square')
+  const {squareAvatars} = useDisplayPrefs()
+  const finalShape =
+    overrideShape ??
+    (type === 'user' ? (squareAvatars ? 'square' : 'circle') : 'square')
 
   const aviStyle = useMemo(() => {
     if (finalShape === 'square') {
@@ -230,7 +234,10 @@ let UserAvatar = ({
   extraAviStyle,
 }: UserAvatarProps): React.ReactNode => {
   const t = useTheme()
-  const finalShape = overrideShape ?? (type === 'user' ? 'circle' : 'square')
+  const {squareAvatars} = useDisplayPrefs()
+  const finalShape =
+    overrideShape ??
+    (type === 'user' ? (squareAvatars ? 'square' : 'circle') : 'square')
 
   const aviStyle = useMemo(() => {
     let borderRadius

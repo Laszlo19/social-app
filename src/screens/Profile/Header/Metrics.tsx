@@ -5,6 +5,7 @@ import {useLingui} from '@lingui/react'
 
 import {makeProfileLink} from '#/lib/routes/links'
 import {type Shadow} from '#/state/cache/types'
+import {useDisplayPrefs} from '#/state/preferences'
 import {formatCount} from '#/view/com/util/numeric/format'
 import {atoms as a, useTheme} from '#/alf'
 import {InlineLinkText} from '#/components/Link'
@@ -17,6 +18,7 @@ export function ProfileHeaderMetrics({
 }) {
   const t = useTheme()
   const {_, i18n} = useLingui()
+  const {hideProfileCounts} = useDisplayPrefs()
   const following = formatCount(i18n, profile.followsCount || 0)
   const followers = formatCount(i18n, profile.followersCount || 0)
   const pluralizedFollowers = plural(profile.followersCount || 0, {
@@ -37,7 +39,9 @@ export function ProfileHeaderMetrics({
         style={[a.flex_row, t.atoms.text]}
         to={makeProfileLink(profile, 'followers')}
         label={`${profile.followersCount || 0} ${pluralizedFollowers}`}>
-        <Text style={[a.font_semi_bold, a.text_md]}>{followers} </Text>
+        {!hideProfileCounts && (
+          <Text style={[a.font_semi_bold, a.text_md]}>{followers} </Text>
+        )}
         <Text style={[t.atoms.text_contrast_medium, a.text_md]}>
           {pluralizedFollowers}
         </Text>
@@ -47,13 +51,16 @@ export function ProfileHeaderMetrics({
         style={[a.flex_row, t.atoms.text]}
         to={makeProfileLink(profile, 'follows')}
         label={_(msg`${profile.followsCount || 0} following`)}>
-        <Text style={[a.font_semi_bold, a.text_md]}>{following} </Text>
+        {!hideProfileCounts && (
+          <Text style={[a.font_semi_bold, a.text_md]}>{following} </Text>
+        )}
         <Text style={[t.atoms.text_contrast_medium, a.text_md]}>
           {pluralizedFollowings}
         </Text>
       </InlineLinkText>
       <Text style={[a.font_semi_bold, t.atoms.text, a.text_md]}>
-        {formatCount(i18n, profile.postsCount || 0)}{' '}
+        {!hideProfileCounts &&
+          `${formatCount(i18n, profile.postsCount || 0)} `}
         <Text style={[t.atoms.text_contrast_medium, a.font_normal, a.text_md]}>
           {plural(profile.postsCount || 0, {one: 'post', other: 'posts'})}
         </Text>

@@ -44,6 +44,7 @@ import {
 import {truncateAndInvalidate} from '#/state/queries/util'
 import {useSession} from '#/state/session'
 import {useProgressGuide} from '#/state/shell/progress-guide'
+import {device, useStorage} from '#/storage'
 import {useSelectedFeed} from '#/state/shell/selected-feed'
 import {List, type ListRef} from '#/view/com/util/List'
 import {PostFeedLoadingPlaceholder} from '#/view/com/util/LoadingPlaceholder'
@@ -758,6 +759,8 @@ let PostFeed = ({
   // rendering
   // =
 
+  const [hideComposerPrompt] = useStorage(device, ['hideComposerPrompt'])
+
   const renderItem = useCallback(
     ({item: row, index: rowIndex}: ListRenderItemInfo<FeedRow>) => {
       if (row.type === 'empty') {
@@ -793,7 +796,7 @@ let PostFeed = ({
       } else if (row.type === 'liveEventFeedsAndTrendingBanner') {
         return <DiscoverFeedLiveEventFeedsAndTrendingBanner />
       } else if (row.type === 'composerPrompt') {
-        return <ComposerPrompt />
+        return hideComposerPrompt ? null : <ComposerPrompt />
       } else if (row.type === 'interstitialTrendingVideos') {
         return <TrendingVideosInterstitial />
       } else if (row.type === 'fallbackMarker') {
@@ -880,6 +883,7 @@ let PostFeed = ({
       feedTab,
       feedCacheKey,
       onPressShowLess,
+      hideComposerPrompt,
     ],
   )
 

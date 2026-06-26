@@ -14,6 +14,7 @@ import {AnimatedLikeIcon} from '#/lib/custom-animations/LikeIcon'
 import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {type Shadow} from '#/state/cache/types'
 import {useFeedFeedbackContext} from '#/state/feed-feedback'
+import {useDisplayPrefs} from '#/state/preferences'
 import {
   usePostLikeMutationQueue,
   usePostRepostMutationQueue,
@@ -75,6 +76,7 @@ let PostControls = ({
   const ax = useAnalytics()
   const t = useTheme()
   const {t: l} = useLingui()
+  const {hidePostCounts} = useDisplayPrefs()
   const {openComposer} = useOpenComposer()
   const {feedDescriptor} = useFeedFeedbackContext()
   const [queueLike, queueUnlike] = usePostLikeMutationQueue(
@@ -247,17 +249,23 @@ let PostControls = ({
             })}
             big={big}>
             <PostControlButtonIcon icon={Bubble} />
-            {typeof post.replyCount !== 'undefined' && post.replyCount > 0 && (
-              <PostControlButtonText>
-                {formatPostStatCount(post.replyCount)}
-              </PostControlButtonText>
-            )}
+            {!hidePostCounts &&
+              typeof post.replyCount !== 'undefined' &&
+              post.replyCount > 0 && (
+                <PostControlButtonText>
+                  {formatPostStatCount(post.replyCount)}
+                </PostControlButtonText>
+              )}
           </PostControlButton>
         </View>
         <View style={[a.flex_1, a.align_start]}>
           <RepostButton
             isReposted={!!post.viewer?.repost}
-            repostCount={(post.repostCount ?? 0) + (post.quoteCount ?? 0)}
+            repostCount={
+              hidePostCounts
+                ? undefined
+                : (post.repostCount ?? 0) + (post.quoteCount ?? 0)
+            }
             onRepost={() => void onRepost()}
             onQuote={onQuote}
             big={big}
@@ -295,16 +303,18 @@ let PostControls = ({
               big={big}
               hasBeenToggled={hasLikeIconBeenToggled}
             />
-            <CountWheel
-              count={post.likeCount ?? 0}
-              isToggled={Boolean(post.viewer?.like)}
-              hasBeenToggled={hasLikeIconBeenToggled}
-              renderCount={({count}) => (
-                <PostControlButtonText testID="likeCount">
-                  {formatPostStatCount(count)}
-                </PostControlButtonText>
-              )}
-            />
+            {!hidePostCounts && (
+              <CountWheel
+                count={post.likeCount ?? 0}
+                isToggled={Boolean(post.viewer?.like)}
+                hasBeenToggled={hasLikeIconBeenToggled}
+                renderCount={({count}) => (
+                  <PostControlButtonText testID="likeCount">
+                    {formatPostStatCount(count)}
+                  </PostControlButtonText>
+                )}
+              />
+            )}
           </PostControlButton>
         </View>
         {/* Spacer! */}

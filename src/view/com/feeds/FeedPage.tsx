@@ -21,6 +21,7 @@ import {listenSoftReset} from '#/state/events'
 import {FeedFeedbackProvider, useFeedFeedback} from '#/state/feed-feedback'
 import {useSetHomeBadge} from '#/state/home-badge'
 import {type FeedSourceInfo} from '#/state/queries/feed'
+import {device, useStorage} from '#/storage'
 import {
   type FeedDescriptor,
   type FeedParams,
@@ -74,6 +75,7 @@ export function FeedPage({
   const scrollElRef = useRef<ListMethods>(null)
   const [hasNew, setHasNew] = useState(false)
   const setHomeBadge = useSetHomeBadge()
+  const [hideLoadLatestButton] = useStorage(device, ['hideLoadLatestButton'])
   const isVideoFeed = useMemo(() => {
     const isBskyVideoFeed = VIDEO_FEED_URIS.includes(feedInfo.uri)
     const feedIsVideoMode =
@@ -162,7 +164,7 @@ export function FeedPage({
           />
         </FeedFeedbackProvider>
       </MainScrollProvider>
-      {(isScrolledDown || hasNew) && (
+      {!hideLoadLatestButton && (isScrolledDown || hasNew) && (
         <LoadLatestBtn
           onPress={onPressLoadLatest}
           label={_(msg`Load new posts`)}

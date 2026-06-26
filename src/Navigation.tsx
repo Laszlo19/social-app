@@ -110,6 +110,7 @@ import {AccountSettingsScreen} from '#/screens/Settings/AccountSettings'
 import {ActivityPrivacySettingsScreen} from '#/screens/Settings/ActivityPrivacySettings'
 import {AppearanceSettingsScreen} from '#/screens/Settings/AppearanceSettings'
 import {NavigationBarSettingsScreen} from '#/screens/Settings/NavigationBarSettings'
+import {CountsMetricsSettingsScreen} from '#/screens/Settings/CountsMetricsSettings'
 import {AppIconSettingsScreen} from '#/screens/Settings/AppIconSettings'
 import {ExperimentalFeaturesSettingsScreen} from '#/screens/Settings/ExperimentalFeaturesSettings'
 import {AppPasswordsScreen} from '#/screens/Settings/AppPasswords'
@@ -408,6 +409,14 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         getComponent={() => NavigationBarSettingsScreen}
         options={{
           title: title(msg`Navigation bar`),
+          requireAuth: true,
+        }}
+      />
+      <Stack.Screen
+        name="CountsMetricsSettings"
+        getComponent={() => CountsMetricsSettingsScreen}
+        options={{
+          title: title(msg`Counts & metrics`),
           requireAuth: true,
         }}
       />

@@ -10,11 +10,14 @@ import {
   usePreferencesQuery,
   useSetFeedViewPreferencesMutation,
 } from '#/state/queries/preferences'
+import {device, useStorage} from '#/storage'
 import {atoms as a} from '#/alf'
 import {Admonition} from '#/components/Admonition'
 import * as Toggle from '#/components/forms/Toggle'
 import {Beaker_Stroke2_Corner2_Rounded as BeakerIcon} from '#/components/icons/Beaker'
 import {Bubbles_Stroke2_Corner2_Rounded as BubblesIcon} from '#/components/icons/Bubble'
+import {EyeSlash_Stroke2_Corner0_Rounded as EyeSlashIcon} from '#/components/icons/EyeSlash'
+import {Hashtag_Stroke2_Corner0_Rounded as HashtagIcon} from '#/components/icons/Hashtag'
 import {CloseQuote_Stroke2_Corner1_Rounded as QuoteIcon} from '#/components/icons/Quote'
 import {Repost_Stroke2_Corner2_Rounded as RepostIcon} from '#/components/icons/Repost'
 import * as Layout from '#/components/Layout'
@@ -26,6 +29,16 @@ type Props = NativeStackScreenProps<
 >
 export function FollowingFeedPreferencesScreen({}: Props) {
   const {_} = useLingui()
+
+  const [hideComposerPrompt, setHideComposerPrompt] = useStorage(device, [
+    'hideComposerPrompt',
+  ])
+  const [hideLoadLatestButton, setHideLoadLatestButton] = useStorage(device, [
+    'hideLoadLatestButton',
+  ])
+  const [noDiscoverFallback, setNoDiscoverFallback] = useStorage(device, [
+    'noDiscoverFallback',
+  ])
 
   const {data: preferences} = usePreferencesQuery()
   const {mutate: setFeedViewPref, variables} =
@@ -120,6 +133,20 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <Toggle.Platform />
             </SettingsList.Item>
           </Toggle.Item>
+          <Toggle.Item
+            type="checkbox"
+            name="discover-fallback"
+            label={_(msg`Show Discover posts when your Following feed runs out`)}
+            value={!noDiscoverFallback}
+            onChange={value => setNoDiscoverFallback(!value)}>
+            <SettingsList.Item>
+              <SettingsList.ItemIcon icon={HashtagIcon} />
+              <SettingsList.ItemText>
+                <Trans>Fall back to Discover when Following runs out</Trans>
+              </SettingsList.ItemText>
+              <Toggle.Platform />
+            </SettingsList.Item>
+          </Toggle.Item>
           <SettingsList.Divider />
           <SettingsList.Group>
             <SettingsList.ItemIcon icon={BeakerIcon} />
@@ -143,6 +170,37 @@ export function FollowingFeedPreferencesScreen({}: Props) {
                 <Trans>
                   Show samples of your saved feeds in your Following feed
                 </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+          <SettingsList.Divider />
+          <SettingsList.Group>
+            <SettingsList.ItemIcon icon={EyeSlashIcon} />
+            <SettingsList.ItemText>
+              <Trans>Feed display</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              type="checkbox"
+              name="hide-composer-prompt"
+              label={_(msg`Hide the composer prompt at the top of feeds`)}
+              value={!!hideComposerPrompt}
+              onChange={value => setHideComposerPrompt(value)}
+              style={[a.w_full, a.gap_md]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>Hide the composer prompt at the top of feeds</Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+            <Toggle.Item
+              type="checkbox"
+              name="hide-load-latest"
+              label={_(msg`Hide the "load new posts" button`)}
+              value={!!hideLoadLatestButton}
+              onChange={value => setHideLoadLatestButton(value)}
+              style={[a.w_full, a.gap_md]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>Hide the “load new posts” button</Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>

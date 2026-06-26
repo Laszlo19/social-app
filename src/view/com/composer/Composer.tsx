@@ -99,6 +99,7 @@ import {resolveLinkQueryOptions} from '#/state/queries/resolve-link'
 import {useAgent, useSession} from '#/state/session'
 import {useComposerControls} from '#/state/shell/composer'
 import {type ComposerOpts, type OnPostSuccessData} from '#/state/shell/composer'
+import {device, useStorage} from '#/storage'
 import {CharProgress} from '#/view/com/composer/char-progress/CharProgress'
 import {ComposerReplyTo} from '#/view/com/composer/ComposerReplyTo'
 import {DraftsButton} from '#/view/com/composer/drafts/DraftsButton'
@@ -1716,6 +1717,7 @@ function ComposerTopBar({
 }) {
   const t = useTheme()
   const {t: l} = useLingui()
+  const [postWord] = useStorage(device, ['postWord'])
 
   return (
     <Animated.View
@@ -1802,6 +1804,8 @@ function ComposerTopBar({
                   <Trans context="action">Reply</Trans>
                 ) : isThread ? (
                   <Trans context="action">Post All</Trans>
+                ) : postWord ? (
+                  postWord
                 ) : (
                   <Trans context="action">Post</Trans>
                 )}
