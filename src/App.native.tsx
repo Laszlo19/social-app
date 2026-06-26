@@ -45,7 +45,7 @@ import {
 } from '#/state/session'
 import {readLastActiveAccount} from '#/state/session/util'
 import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
-import {device} from '#/storage'
+import {device, useStorage} from '#/storage'
 import {Provider as ShellStateProvider} from '#/state/shell'
 import {Provider as ComposerProvider} from '#/state/shell/composer'
 import {Provider as LandingProvider} from '#/state/shell/landing'
