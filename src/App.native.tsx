@@ -57,6 +57,7 @@ import {Provider as HiddenRepliesProvider} from '#/state/threadgate-hidden-repli
 import {TestCtrls} from '#/view/com/testing/TestCtrls'
 import {Shell} from '#/view/shell'
 import {atoms as a, ThemeProvider as Alf} from '#/alf'
+import {themes} from '#/alf/themes'
 import {buildAccentThemesOverride} from '#/alf/util/accentTheme'
 import {useColorModeTheme} from '#/alf/util/useColorModeTheme'
 import {Provider as ContextMenuProvider} from '#/components/ContextMenu'
@@ -114,9 +115,16 @@ function InnerApp() {
   const {currentAccount} = useSession()
   const {resumeSession} = useSessionApi()
   const theme = useColorModeTheme()
-  const [accentHue] = useStorage(device, ['accentHue'])
-  const accentThemesOverride =
-    accentHue != null ? buildAccentThemesOverride(accentHue) : undefined
+  const [accentHue, setAccentHue] = useStorage(device, ['accentHue'])
+  let accentThemesOverride: Partial<typeof themes> | undefined
+  if (accentHue != null) {
+    try {
+      accentThemesOverride = buildAccentThemesOverride(accentHue)
+    } catch {
+      // Stored hue produced a bad theme — reset to default so the app can start.
+      setAccentHue(undefined)
+    }
+  }
   const {t: l} = useLingui()
   const hasCheckedLanding = useLandingEntry()
 
