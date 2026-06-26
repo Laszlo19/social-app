@@ -69,12 +69,16 @@ levels - v1 ships Hidden vs Visible only.
 | Open posts/profiles in bridged fedi instances | **post menu**, **Experimental** toggle | ✅ done - detects *.ap.brid.gy handles, links to fedi profile |
 | Use handles instead of DIDs in profile links | **Experimental features** toggle | skipped - handles are already preferred by default in makeProfileLink/toShareUrl |
 
-## Phase 5 – Post actions (no settings, just actions)
+## Phase 5 – Post actions (no settings, just actions) ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| Delete-and-redraft (effectively edit) | **post dropdown menu** action | delete + reopen composer prefilled |
-| Download video | **video/post menu** action | reuse media-save plumbing |
+| Delete-and-redraft (effectively edit) | **post dropdown menu** action | ✅ done - "Delete and redraft" prompts, deletes, reopens composer with text |
+| Download video | **video/post menu** action (native only) | ✅ done - "Download video" on video posts; saves via PDS blob sync endpoint + MediaLibrary |
+
+Notes:
+- Delete-and-redraft prefills text only; images/video are not re-attached (CDN blobs, not local files)
+- Video download uses `bsky.social` as PDS — works for the vast majority; federated PDSes are a TODO
 
 ## Phase 6 – Multi-account & identity (Experimental)
 
