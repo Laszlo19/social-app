@@ -44,6 +44,8 @@ import {
   useSessionApi,
 } from '#/state/session'
 import {readLastActiveAccount} from '#/state/session/util'
+import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
+import {device} from '#/storage'
 import {Provider as ShellStateProvider} from '#/state/shell'
 import {Provider as ComposerProvider} from '#/state/shell/composer'
 import {Provider as LandingProvider} from '#/state/shell/landing'
@@ -217,7 +219,14 @@ function App() {
 
   useEffect(() => {
     void Promise.all([initPersistedState(), Geo.resolve(), setupDeviceId]).then(
-      () => setIsReady(true),
+      () => {
+        // Apply custom AppView DID override before any session/agent is created
+        const overrideDid = device.get(['infraAppviewDid'])
+        if (overrideDid) {
+          BLUESKY_PROXY_HEADER.set(`${overrideDid}#bsky_appview`)
+        }
+        setIsReady(true)
+      },
     )
   }, [])
 

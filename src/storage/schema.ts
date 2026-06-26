@@ -107,6 +107,18 @@ export type Device = {
   experimentalMultiAccount?: boolean
 
   /**
+   * OpenRouter API key used for AI alt-text generation in the image composer.
+   */
+  openRouterApiKey?: string
+
+  /**
+   * Override the AT Protocol AppView DID used as the bsky_appview proxy.
+   * Leave empty to use the default (did:web:api.bsky.app). Takes effect
+   * after signing out and back in.
+   */
+  infraAppviewDid?: string
+
+  /**
    * Ordered list of nav-item ids shown in the mobile bottom bar. Customized
    * via Settings > Appearance > Navigation bar. Absent means "use defaults".
    * See features/customNav.

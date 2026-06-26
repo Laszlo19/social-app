@@ -1,4 +1,5 @@
 import {useMemo, useState} from 'react'
+import {ActivityIndicator} from 'react-native'
 import {type ImageStyle, useWindowDimensions, View} from 'react-native'
 import {Image} from 'expo-image'
 import {msg} from '@lingui/core/macro'
@@ -6,8 +7,10 @@ import {useLingui} from '@lingui/react'
 import {Plural, Trans} from '@lingui/react/macro'
 
 import {MAX_ALT_TEXT} from '#/lib/constants'
+import {generateAltTextViaOpenRouter} from '#/lib/ai/alt-text'
 import {enforceLen} from '#/lib/strings/helpers'
 import {type ComposerImage} from '#/state/gallery'
+import {device, useStorage} from '#/storage'
 import {AltTextCounterWrapper} from '#/view/com/composer/AltTextCounterWrapper'
 import {atoms as a, tokens, useTheme} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -16,7 +19,7 @@ import {type DialogControlProps} from '#/components/Dialog'
 import * as TextField from '#/components/forms/TextField'
 import {CircleInfo_Stroke2_Corner0_Rounded as CircleInfo} from '#/components/icons/CircleInfo'
 import {Text} from '#/components/Typography'
-import {IS_LIQUID_GLASS, IS_WEB} from '#/env'
+import {IS_LIQUID_GLASS, IS_NATIVE, IS_WEB} from '#/env'
 
 type Props = {
   control: Dialog.DialogOuterProps['control']
@@ -68,6 +71,24 @@ const ImageAltTextInner = ({
   const {_, i18n} = useLingui()
   const t = useTheme()
   const {width: screenWidth} = useWindowDimensions()
+  const [openRouterApiKey] = useStorage(device, ['openRouterApiKey'])
+  const [isGenerating, setIsGenerating] = useState(false)
+
+  const onGenerateAltText = async () => {
+    if (!openRouterApiKey || !IS_NATIVE) return
+    const imagePath = (image.transformed ?? image.source).path
+    setIsGenerating(true)
+    try {
+      const generated = await generateAltTextViaOpenRouter(imagePath, openRouterApiKey)
+      setAltText(enforceLen(generated, MAX_ALT_TEXT, true))
+    } catch (e) {
+      // Toast is unavailable here (inside Dialog) — let the error surface silently
+      // eslint-disable-next-line no-console
+      console.error('AI alt-text generation failed:', e)
+    } finally {
+      setIsGenerating(false)
+    }
+  }
 
   const imageStyle = useMemo<ImageStyle>(() => {
     const maxWidth = IS_WEB
@@ -159,20 +180,38 @@ const ImageAltTextInner = ({
         </View>
 
         <AltTextCounterWrapper altText={altText}>
-          <Button
-            label={_(msg`Save`)}
-            disabled={altText === image.alt}
-            size="large"
-            color="primary"
-            variant="solid"
-            onPress={() => {
-              control.close()
-            }}
-            style={[a.flex_grow]}>
-            <ButtonText>
-              <Trans>Save</Trans>
-            </ButtonText>
-          </Button>
+          <View style={[a.flex_row, a.gap_sm, a.flex_1]}>
+            {IS_NATIVE && !!openRouterApiKey && (
+              <Button
+                label={_(msg`Generate alt text with AI`)}
+                disabled={isGenerating}
+                size="large"
+                color="secondary"
+                variant="solid"
+                onPress={() => void onGenerateAltText()}
+                style={[a.flex_shrink]}>
+                {isGenerating ? (
+                  <ActivityIndicator size="small" />
+                ) : (
+                  <ButtonText>{'✨ AI'}</ButtonText>
+                )}
+              </Button>
+            )}
+            <Button
+              label={_(msg`Save`)}
+              disabled={altText === image.alt}
+              size="large"
+              color="primary"
+              variant="solid"
+              onPress={() => {
+                control.close()
+              }}
+              style={[a.flex_grow]}>
+              <ButtonText>
+                <Trans>Save</Trans>
+              </ButtonText>
+            </Button>
+          </View>
         </AltTextCounterWrapper>
       </View>
     </Dialog.ScrollableInner>
