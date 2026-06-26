@@ -61,13 +61,13 @@ display-prefs context:
 🔜 TODO (future): the per-metric **Lite** (rounded) and **Exact** (un-abbreviated)
 levels - v1 ships Hidden vs Visible only.
 
-## Phase 4 – Post menu items & link behavior
+## Phase 4 – Post menu items & link behavior ✅
 
-| Feature | Home | Notes |
+| Feature | Home | Status |
 |---|---|---|
-| "Open original post" / "Open in PDSls" menu items | **post dropdown menu**, gated by an **Experimental** toggle | adds menu rows |
-| Use handles instead of DIDs in profile links | **Experimental features** toggle | link-builder change |
-| Open posts in bridged fedi instances | **post menu**, **Experimental** toggle | detect bridged accounts |
+| "Open in PDSls" menu item | **post dropdown menu**, gated by **Experimental** toggle | ✅ done - opens pdsls.dev with post AT URI |
+| Open posts/profiles in bridged fedi instances | **post menu**, **Experimental** toggle | ✅ done - detects *.ap.brid.gy handles, links to fedi profile |
+| Use handles instead of DIDs in profile links | **Experimental features** toggle | skipped - handles are already preferred by default in makeProfileLink/toShareUrl |
 
 ## Phase 5 – Post actions (no settings, just actions)
 
