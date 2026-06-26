@@ -8,8 +8,10 @@ import {
 } from '#/lib/routes/types'
 import {atoms as a} from '#/alf'
 import {Admonition} from '#/components/Admonition'
+import * as SegmentedControl from '#/components/forms/SegmentedControl'
 import * as Toggle from '#/components/forms/Toggle'
 import {EyeSlash_Stroke2_Corner0_Rounded as EyeSlashIcon} from '#/components/icons/EyeSlash'
+import {HashtagWide_Stroke1_Corner0_Rounded as HashIcon} from '#/components/icons/Hashtag'
 import * as Layout from '#/components/Layout'
 import {device, useStorage} from '#/storage'
 import * as SettingsList from './components/SettingsList'
@@ -30,6 +32,7 @@ export function CountsMetricsSettingsScreen({}: Props) {
   const [hideFollowsYou, setHideFollowsYou] = useStorage(device, [
     'hideFollowsYou',
   ])
+  const [countsFormat, setCountsFormat] = useStorage(device, ['countsFormat'])
 
   return (
     <Layout.Screen testID="countsMetricsSettingsScreen">
@@ -92,6 +95,42 @@ export function CountsMetricsSettingsScreen({}: Props) {
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Divider />
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]} iconInset={false}>
+            <SettingsList.ItemIcon icon={HashIcon} />
+            <SettingsList.ItemText>
+              <Trans>Count format</Trans>
+            </SettingsList.ItemText>
+            <SegmentedControl.Root
+              type="radio"
+              label={_(msg`Count format`)}
+              value={countsFormat ?? 'default'}
+              onChange={value =>
+                setCountsFormat(
+                  value as 'default' | 'lite' | 'exact',
+                )
+              }>
+              <SegmentedControl.Item
+                label={_(msg`Default`)}
+                value="default">
+                <SegmentedControl.ItemText>
+                  <Trans>Default</Trans>
+                </SegmentedControl.ItemText>
+              </SegmentedControl.Item>
+              <SegmentedControl.Item label={_(msg`Lite`)} value="lite">
+                <SegmentedControl.ItemText>
+                  <Trans>Lite</Trans>
+                </SegmentedControl.ItemText>
+              </SegmentedControl.Item>
+              <SegmentedControl.Item label={_(msg`Exact`)} value="exact">
+                <SegmentedControl.ItemText>
+                  <Trans>Exact</Trans>
+                </SegmentedControl.ItemText>
+              </SegmentedControl.Item>
+            </SegmentedControl.Root>
           </SettingsList.Group>
         </SettingsList.Container>
       </Layout.Content>

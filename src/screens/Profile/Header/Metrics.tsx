@@ -6,9 +6,9 @@ import {useLingui} from '@lingui/react'
 import {makeProfileLink} from '#/lib/routes/links'
 import {type Shadow} from '#/state/cache/types'
 import {useDisplayPrefs} from '#/state/preferences'
-import {formatCount} from '#/view/com/util/numeric/format'
 import {atoms as a, useTheme} from '#/alf'
 import {InlineLinkText} from '#/components/Link'
+import {useFormatPostStatCount} from '#/components/PostControls/util'
 import {Text} from '#/components/Typography'
 
 export function ProfileHeaderMetrics({
@@ -17,10 +17,11 @@ export function ProfileHeaderMetrics({
   profile: Shadow<AppBskyActorDefs.ProfileViewDetailed>
 }) {
   const t = useTheme()
-  const {_, i18n} = useLingui()
+  const {_} = useLingui()
   const {hideProfileCounts} = useDisplayPrefs()
-  const following = formatCount(i18n, profile.followsCount || 0)
-  const followers = formatCount(i18n, profile.followersCount || 0)
+  const formatCount = useFormatPostStatCount()
+  const following = formatCount(profile.followsCount || 0)
+  const followers = formatCount(profile.followersCount || 0)
   const pluralizedFollowers = plural(profile.followersCount || 0, {
     one: 'follower',
     other: 'followers',
@@ -60,7 +61,7 @@ export function ProfileHeaderMetrics({
       </InlineLinkText>
       <Text style={[a.font_semi_bold, t.atoms.text, a.text_md]}>
         {!hideProfileCounts &&
-          `${formatCount(i18n, profile.postsCount || 0)} `}
+          `${formatCount(profile.postsCount || 0)} `}
         <Text style={[t.atoms.text_contrast_medium, a.font_normal, a.text_md]}>
           {plural(profile.postsCount || 0, {one: 'post', other: 'posts'})}
         </Text>

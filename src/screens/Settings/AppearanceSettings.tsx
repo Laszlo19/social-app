@@ -49,6 +49,7 @@ export function AppearanceSettingsScreen({}: Props) {
   const [squareAvatars, setSquareAvatars] = useStorage(device, [
     'squareAvatars',
   ])
+  const [squareButtons, setSquareButtons] = useStorage(device, ['squareButtons'])
 
   const onChangeAppearance = useCallback(
     (value: 'light' | 'system' | 'dark') => {
@@ -279,6 +280,18 @@ export function AppearanceSettingsScreen({}: Props) {
                   style={[a.w_full, a.gap_md]}>
                   <Toggle.LabelText style={[a.flex_1]}>
                     <Trans>Use square avatars instead of circular</Trans>
+                  </Toggle.LabelText>
+                  <Toggle.Platform />
+                </Toggle.Item>
+                <Toggle.Item
+                  type="checkbox"
+                  name="square-buttons"
+                  label={_(msg`Use square buttons`)}
+                  value={!!squareButtons}
+                  onChange={value => setSquareButtons(value)}
+                  style={[a.w_full, a.gap_md]}>
+                  <Toggle.LabelText style={[a.flex_1]}>
+                    <Trans>Use rectangular buttons instead of pill-shaped</Trans>
                   </Toggle.LabelText>
                   <Toggle.Platform />
                 </Toggle.Item>

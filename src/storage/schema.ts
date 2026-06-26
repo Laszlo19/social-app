@@ -172,6 +172,13 @@ export type Device = {
   squareAvatars?: boolean
 
   /**
+   * Replace pill-shaped buttons with rectangular ones (borderRadius ~10px).
+   * Only affects shape='default' buttons; icon-only round/square buttons are
+   * unaffected. Settings > Appearance.
+   */
+  squareButtons?: boolean
+
+  /**
    * "Counts & metrics" prefs (calm timeline). Read via the display-prefs
    * context. Hide post engagement counts (likes/reposts/replies), profile
    * counts (followers/following/posts), and the "Follows you" label.
@@ -179,6 +186,15 @@ export type Device = {
   hidePostCounts?: boolean
   hideProfileCounts?: boolean
   hideFollowsYou?: boolean
+
+  /**
+   * How to display engagement/profile counts when not hidden.
+   * - 'default': compact notation with up to 1 decimal (1.2k, 12k)
+   * - 'lite': compact notation, no decimals (1k, 12k, 1M)
+   * - 'exact': full standard notation (1,234 or 1,234,567)
+   * Settings > Counts & metrics.
+   */
+  countsFormat?: 'default' | 'lite' | 'exact'
 
   /**
    * Accent hue override (0-359). Shifts all primary palette colors from the
