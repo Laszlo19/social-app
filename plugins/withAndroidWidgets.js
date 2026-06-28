@@ -54,7 +54,7 @@ function widgetStringsXml() {
   <string name="widget_stats_card_period">Last 30 days</string>
   <string name="widget_composer_label">Quick composer</string>
   <string name="widget_composer_description">Tap to start composing a post</string>
-  <string name="widget_composer_placeholder">What\'s up?</string>
+  <string name="widget_composer_placeholder">What\\'s up?</string>
   <string name="widget_composer_camera">Camera</string>
   <string name="widget_composer_photo">Photo</string>
   <string name="widget_composer_gif">GIF</string>
