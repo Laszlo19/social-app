@@ -7,6 +7,7 @@ import {
   type NativeStackScreenProps,
 } from '#/lib/routes/types'
 import {atoms as a} from '#/alf'
+import {useDisplayPrefs} from '#/state/preferences'
 import {Admonition} from '#/components/Admonition'
 import * as SegmentedControl from '#/components/forms/SegmentedControl'
 import * as Toggle from '#/components/forms/Toggle'
@@ -22,6 +23,7 @@ type Props = NativeStackScreenProps<
 >
 export function CountsMetricsSettingsScreen({}: Props) {
   const {_} = useLingui()
+  const {witchskyEnabled} = useDisplayPrefs()
 
   const [hidePostCounts, setHidePostCounts] = useStorage(device, [
     'hidePostCounts',
@@ -54,7 +56,7 @@ export function CountsMetricsSettingsScreen({}: Props) {
         </Admonition>
 
         <SettingsList.Container>
-          <SettingsList.Group iconInset={false}>
+          {!!witchskyEnabled && <SettingsList.Group iconInset={false}>
             <SettingsList.ItemIcon icon={EyeSlashIcon} />
             <SettingsList.ItemText>
               <Trans>Hide counts</Trans>
@@ -95,9 +97,9 @@ export function CountsMetricsSettingsScreen({}: Props) {
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>
-          </SettingsList.Group>
+          </SettingsList.Group>}
 
-          <SettingsList.Divider />
+          {!!witchskyEnabled && <><SettingsList.Divider />
 
           <SettingsList.Group contentContainerStyle={[a.gap_sm]} iconInset={false}>
             <SettingsList.ItemIcon icon={HashIcon} />
@@ -131,7 +133,7 @@ export function CountsMetricsSettingsScreen({}: Props) {
                 </SegmentedControl.ItemText>
               </SegmentedControl.Item>
             </SegmentedControl.Root>
-          </SettingsList.Group>
+          </SettingsList.Group></>}
         </SettingsList.Container>
       </Layout.Content>
     </Layout.Screen>

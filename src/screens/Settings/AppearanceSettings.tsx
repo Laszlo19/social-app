@@ -15,6 +15,7 @@ import {
   type NativeStackScreenProps,
 } from '#/lib/routes/types'
 import {useSetThemePrefs, useThemePrefs} from '#/state/shell'
+import {useDisplayPrefs} from '#/state/preferences'
 import {SettingsListItem as AppIconSettingsListItem} from '#/screens/Settings/AppIconSettings/SettingsListItem'
 import {type Alf, atoms as a, native, useAlf, useTheme} from '#/alf'
 import {Bars3_Stroke2_Corner0_Rounded as BarsIcon} from '#/components/icons/Bars'
@@ -42,6 +43,7 @@ export function AppearanceSettingsScreen({}: Props) {
 
   const {colorMode, darkTheme} = useThemePrefs()
   const {setColorMode, setDarkTheme} = useSetThemePrefs()
+  const {witchskyEnabled} = useDisplayPrefs()
 
   const [accentHue, setAccentHue] = useStorage(device, ['accentHue'])
   const [mutualsLabel, setMutualsLabel] = useStorage(device, ['mutualsLabel'])
@@ -137,6 +139,7 @@ export function AppearanceSettingsScreen({}: Props) {
               </Animated.View>
             )}
 
+            {!!witchskyEnabled && <>
             <SettingsList.Divider />
             <SettingsList.Group contentContainerStyle={[a.gap_sm]} iconInset={false}>
               <SettingsList.ItemIcon icon={ColorPaletteIcon} />
@@ -250,8 +253,9 @@ export function AppearanceSettingsScreen({}: Props) {
                 </SettingsList.ItemText>
               </SettingsList.LinkItem>
 
+              </>}
               <SettingsList.Divider />
-              <SettingsList.Group iconInset={false}>
+              {!!witchskyEnabled && <SettingsList.Group iconInset={false}>
                 <SettingsList.ItemIcon icon={GroupIcon} />
                 <SettingsList.ItemText>
                   <Trans>Profiles</Trans>
@@ -295,8 +299,9 @@ export function AppearanceSettingsScreen({}: Props) {
                   </Toggle.LabelText>
                   <Toggle.Platform />
                 </Toggle.Item>
-              </SettingsList.Group>
+              </SettingsList.Group>}
 
+              {!!witchskyEnabled && <>
               <SettingsList.Divider />
               <SettingsList.Group iconInset={false}>
                 <SettingsList.ItemIcon icon={Aa} />
@@ -315,6 +320,7 @@ export function AppearanceSettingsScreen({}: Props) {
                   </TextField.Root>
                 </View>
               </SettingsList.Group>
+              </>}
             </Animated.View>
           </SettingsList.Container>
         </Layout.Content>

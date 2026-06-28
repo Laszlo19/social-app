@@ -12,8 +12,25 @@ import {Admonition} from '#/components/Admonition'
 import * as TextField from '#/components/forms/TextField'
 import * as Toggle from '#/components/forms/Toggle'
 import {Beaker_Stroke2_Corner2_Rounded as BeakerIcon} from '#/components/icons/Beaker'
+import {Moon_Stroke2_Corner0_Rounded as WitchskyIcon} from '#/components/icons/Moon'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
+
+const WITCHSKY_BOOL_KEYS = [
+  'experimentalPdslsLinks',
+  'experimentalBridgedFedi',
+  'experimentalPdsBadge',
+  'experimentalMultiAccount',
+  'squareAvatars',
+  'squareButtons',
+  'mutualsLabel',
+  'hideComposerPrompt',
+  'hideLoadLatestButton',
+  'noDiscoverFallback',
+  'hidePostCounts',
+  'hideProfileCounts',
+  'hideFollowsYou',
+] as const
 
 type Props = NativeStackScreenProps<
   CommonNavigatorParams,
@@ -22,6 +39,9 @@ type Props = NativeStackScreenProps<
 export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const {_} = useLingui()
   const t = useTheme()
+  const [witchskyEnabled, setWitchskyEnabled] = useStorage(device, [
+    'witchskyEnabled',
+  ])
   const [galleryFallback, setGalleryFallback] = useStorage(device, [
     'experimentalGalleryFallback',
   ])
@@ -45,6 +65,22 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
     'infraAppviewDid',
   ])
 
+  const onToggleWitchsky = (value: boolean) => {
+    setWitchskyEnabled(value)
+    if (value) {
+      for (const key of WITCHSKY_BOOL_KEYS) {
+        device.set([key], true)
+      }
+    } else {
+      for (const key of WITCHSKY_BOOL_KEYS) {
+        device.set([key], undefined)
+      }
+      device.set(['countsFormat'], undefined)
+      device.set(['accentHue'], undefined)
+      device.set(['postWord'], undefined)
+    }
+  }
+
   return (
     <Layout.Screen>
       <Layout.Header.Outer>
@@ -64,6 +100,28 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
               time.
             </Trans>
           </Admonition>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={WitchskyIcon} />
+            <SettingsList.ItemText>
+              <Trans>Witchsky</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="witchsky_enabled"
+              label={_(msg`Enable all Witchsky fork features`)}
+              value={!!witchskyEnabled}
+              onChange={onToggleWitchsky}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Enable all Witchsky features — accent colors, square avatars,
+                  counts controls, PDSls links, and more. Disabling turns
+                  everything off and hides the controls.
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
 
           <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
             <SettingsList.ItemIcon icon={BeakerIcon} />
@@ -111,7 +169,7 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
             </Toggle.Item>
           </SettingsList.Group>
 
-          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+          {!!witchskyEnabled && <><SettingsList.Group contentContainerStyle={[a.gap_sm]}>
             <SettingsList.ItemIcon icon={BeakerIcon} />
             <SettingsList.ItemText>
               <Trans>PDSls links in post menu</Trans>
@@ -260,7 +318,7 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                 full effect after signing out and back in.
               </Trans>
             </Text>
-          </SettingsList.Group>
+          </SettingsList.Group></>}
         </SettingsList.Container>
       </Layout.Content>
     </Layout.Screen>
