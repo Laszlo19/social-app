@@ -35,6 +35,10 @@ export function ClearableDateField({
     <View style={[a.w_full, a.relative]}>
       <DateField
         label={label}
+        /*
+         * An empty value renders the placeholder and leaves the field inactive
+         * until the user confirms a date.
+         */
         value={active ? value : ''}
         placeholder={l({
           message: 'Any time',
@@ -43,11 +47,19 @@ export function ClearableDateField({
         accessibilityHint={accessibilityHint}
         maximumDate={maximumDate}
         minimumDate={minimumDate}
+        /*
+         * onChangeDate is required, but activation is driven by onConfirm so
+         * that iOS scroll ticks don't mark the field active.
+         */
         onChangeDate={() => {}}
         onConfirm={onConfirm}
       />
 
       {active && (
+        /*
+         * Nudged left of the browser's native date-picker icon, which (in
+         * Firefox especially) can't be hidden via CSS.
+         */
         <View
           style={[
             a.absolute,

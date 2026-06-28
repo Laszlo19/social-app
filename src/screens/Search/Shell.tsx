@@ -62,19 +62,25 @@ import {SearchLanguageDropdown} from './components/SearchLanguageDropdown'
 import {Explore} from './Explore'
 import {SearchResults} from './SearchResults'
 
+/**
+ * Derived from the route param so the two can't drift. NonNullable because the
+ * tab param is optional on the route but the handlers below always work with a
+ * concrete value.
+ */
 type TabParam = NonNullable<SearchParams['tab']>
 
+// Map tab parameter to tab index
 function getTabIndex(tabParam?: TabParam) {
   switch (tabParam) {
     case 'feed':
-      return 3
+      return 3 // Feeds tab
     case 'user':
     case 'profile':
-      return 2
+      return 2 // People tab
     case 'latest':
-      return 1
+      return 1 // Latest tab
     default:
-      return 0
+      return 0 // Top tab
   }
 }
 
@@ -103,16 +109,17 @@ export function SearchScreenShell({
   const {currentAccount} = useSession()
   const queryClient = useQueryClient()
 
-  // SearchV2 uses the v2 API backend; AdvancedSearchV2 enables the dialog UI.
-  // In this fork SearchV2 is disabled (uses v1 API) but the dialog is enabled.
   const searchV2Enabled = ax.features.enabled(ax.features.SearchV2Enable)
+  // Fork: dialog is enabled independently of v2 API (which uses v1 stub)
   const advancedSearchV2Enabled = ax.features.enabled(
     ax.features.AdvancedSearchV2Enable,
   )
 
+  // Get tab parameter from route params
   const tabParam = (route.params as {q?: string; tab?: TabParam})?.tab
   const [activeTab, setActiveTab] = useState(() => getTabIndex(tabParam))
 
+  // Query terms
   const [searchText, setSearchText] = useState<string>(queryParam)
   const searchTextRef = useRef(searchText)
   const updateSearchText = useCallback((text: string) => {
@@ -142,6 +149,11 @@ export function SearchScreenShell({
   const updateSearchHistory = useCallback(
     (q: string, searchFilters: SearchFilters = {}) => {
       if (!q) return
+      /*
+       * Store the query plus any advanced-search filters. Term-only searches
+       * serialize to a plain string (back-compatible with existing history);
+       * filtered searches serialize to JSON. Dedupe on the serialized form.
+       */
       const item = serializeHistoryEntry(q, searchFilters)
       const newSearchHistory = [
         item,
@@ -190,6 +202,7 @@ export function SearchScreenShell({
     [filters, setFilters],
   )
 
+  // web only - measure header height for sticky positioning
   const [headerHeight, setHeaderHeight] = useState(0)
   const headerRef = useRef(null)
   useLayoutEffect(() => {
@@ -200,6 +213,12 @@ export function SearchScreenShell({
     }
   }, [])
 
+  /*
+   * On native, navigating to an already-mounted Search screen with a new `q`
+   * (e.g. from a post hashtag/search link) updates the route param without
+   * remounting, so re-sync the input. Web handles this via the focus effect
+   * below, which fires on back/forward navigation.
+   */
   useEffect(() => {
     if (IS_NATIVE) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -216,7 +235,16 @@ export function SearchScreenShell({
 
   const onPressClearQuery = useCallback(() => {
     scrollToTopWeb()
+    /*
+     * Clearing the query also resets any advanced-search filters, then keeps
+     * the input focused so the user can immediately type a new search.
+     */
     if (IS_WEB) {
+      /*
+       * Replace the param set so q/tab/filters drop out of the URL instead of
+       * serializing as the literal string "undefined". fixedParams live on the
+       * route already and are preserved by withoutSearchParams.
+       */
       const parameters = withoutSearchParams(
         route.params as Record<string, unknown>,
       )
@@ -264,6 +292,10 @@ export function SearchScreenShell({
     textInput.current?.blur()
     setShowAutocomplete(false)
     if (IS_WEB) {
+      /*
+       * Empty params resets the URL to be /search rather than /search?q=
+       * Also clear tab and advanced-search filter parameters.
+       */
       const parameters = withoutSearchParams(
         route.params as Record<string, unknown>,
       )
@@ -304,6 +336,11 @@ export function SearchScreenShell({
         filterCount: countActiveFilters(nextFilters),
       })
       if (IS_WEB) {
+        /*
+         * Build a fresh param set so removed filters drop out of the URL.
+         * Only defined filters are included - undefined values would serialize
+         * as the literal string "undefined".
+         */
         const nextParams = {
           ...withoutFilterParams(route.params as Record<string, unknown>),
           ...definedFilterParams(nextFilters),
@@ -313,6 +350,7 @@ export function SearchScreenShell({
         navigation.push(route.name, nextParams)
       } else {
         textInput.current?.blur()
+        // setParams merges, so pass undefined for absent keys to clear them.
         navigation.setParams({...filtersToRouteParams(nextFilters), q: text})
       }
     },
@@ -329,6 +367,11 @@ export function SearchScreenShell({
 
   const handleHistoryItemClick = useCallback(
     (item: string) => {
+      /*
+       * History entries may carry advanced-search filters (JSON-encoded);
+       * term-only entries are plain strings. Restore both the query and
+       * filters.
+       */
       const {q, filters: itemFilters} = parseHistoryEntry(item)
       updateSearchText(q)
       navigateToItem(q, itemFilters)
@@ -339,6 +382,7 @@ export function SearchScreenShell({
   const handleProfileClick = useCallback(
     (profile: bsky.profile.AnyProfileView) => {
       unstableCacheProfileView(queryClient, profile)
+      // Slight delay to avoid updating during push nav animation.
       setTimeout(() => {
         updateProfileHistory(profile)
       }, 400)
@@ -348,6 +392,10 @@ export function SearchScreenShell({
 
   const onSoftReset = useCallback(() => {
     if (IS_WEB) {
+      /*
+       * Empty params resets the URL to be /search rather than /search?q=
+       * Also clear tab and advanced-search filter parameters.
+       */
       const parameters = withoutSearchParams(
         route.params as Record<string, unknown>,
       )
@@ -372,6 +420,8 @@ export function SearchScreenShell({
 
   const onSearchInputFocus = useCallback(() => {
     if (IS_WEB) {
+      // Prevent a jump on iPad by ensuring that
+      // the initial focused render has no result list.
       requestAnimationFrame(() => {
         setShowAutocomplete(true)
       })
@@ -383,6 +433,8 @@ export function SearchScreenShell({
   const focusSearchInput = useCallback(
     (tab?: TabParam) => {
       textInput.current?.focus()
+
+      // If a tab is specified, set the tab parameter
       if (tab) {
         if (IS_WEB) {
           navigation.setParams({...route.params, tab})
@@ -430,6 +482,9 @@ export function SearchScreenShell({
         <Layout.Center style={t.atoms.bg}>
           {showHeader && (
             <View
+              // HACK: shift up search input. we can't remove the top padding
+              // on the search input because it messes up the layout animation
+              // if we add it only when the header is hidden
               style={{marginBottom: tokens.space.xs * -1}}>
               <Layout.Header.Outer noBottomBorder>
                 {navButton === 'menu' ? (
@@ -663,10 +718,12 @@ function useQueryManager({
   const navigation = useNavigation<NavigationProp>()
   const route = useRoute()
 
+  // Free text only - structured filters live in sibling route params now.
   const query = initialQuery
 
   const filters = useMemo(() => {
     const fromRoute = readSearchFilters(route.params as Record<string, unknown>)
+    // fixedParams (e.g. ProfileSearch's author) always win and can't be cleared.
     return {...fromRoute, ...fixedParams}
   }, [route.params, fixedParams])
 
@@ -674,6 +731,10 @@ function useQueryManager({
     (next: SearchFilters) => {
       const merged = {...next, ...fixedParams}
       if (IS_WEB) {
+        /*
+         * Replace the param set so removed filters drop out of the URL instead
+         * of serializing as the literal string "undefined".
+         */
         const nextParams = {
           ...withoutFilterParams(route.params as Record<string, unknown>),
           ...definedFilterParams(merged),

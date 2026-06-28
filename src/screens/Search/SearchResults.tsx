@@ -52,12 +52,21 @@ let SearchResults = ({
   headerHeight: number
 }): React.ReactNode => {
   const {t: l} = useLingui()
+  /*
+   * People/Feeds visibility keys off post-only filters: a `lang` filter applies
+   * to people and feeds too, so it must not hide those tabs (which would also
+   * regress the non-v2 legacy language dropdown). Other filters are post-only.
+   */
   const hasPostFilters = hasPostOnlyFilters(filters)
   const activePage = hasPostFilters && activeTab > 1 ? 0 : activeTab
   const tabShape = hasPostFilters ? 'filtered' : 'plain'
 
   const sections = useMemo(() => {
     if (!query && !hasFilters) return []
+    /*
+     * People and Feeds tabs only make sense without post-restricting filters -
+     * those filters don't apply to actors or feeds.
+     */
     const noFilters = !hasPostFilters
     return [
       {
@@ -112,6 +121,7 @@ let SearchResults = ({
     activePage,
   ])
 
+  // There may be fewer tabs after changing the search options.
   const selectedPage = activePage > sections.length - 1 ? 0 : activePage
 
   return (
@@ -198,6 +208,8 @@ function NoResultsText({
   const t = useTheme()
   const {t: l} = useLingui()
 
+  const searchV2Enabled = ax.features.enabled(ax.features.SearchV2Enable)
+  // Fork: dialog is enabled independently of v2 API (which uses v1 stub)
   const advancedSearchV2Enabled = ax.features.enabled(
     ax.features.AdvancedSearchV2Enable,
   )
@@ -208,8 +220,8 @@ function NoResultsText({
         {hasFilters ? (
           query ? (
             <Trans>
-              No results found for "
-              <Text style={[a.text_lg, a.font_medium]}>{query}</Text>" with
+              No results found for “
+              <Text style={[a.text_lg, a.font_medium]}>{query}</Text>” with
               advanced search filters applied.
             </Trans>
           ) : (
@@ -220,8 +232,8 @@ function NoResultsText({
           )
         ) : (
           <Trans>
-            No results found for "
-            <Text style={[a.text_lg, a.font_medium]}>{query}</Text>".
+            No results found for “
+            <Text style={[a.text_lg, a.font_medium]}>{query}</Text>”.
           </Trans>
         )}
       </Text>
@@ -322,6 +334,11 @@ let SearchScreenPostResults = ({
     return augmentSearchQuery(queryWithParams || '', {did: currentAccount?.did})
   }, [queryWithParams, currentAccount])
 
+  /*
+   * Both hooks are called to keep hook order stable; `enabled` ensures only the
+   * gated one actually fetches. V2 sends structured `filters` as separate
+   * params, V1 keeps the existing single-`q` behavior.
+   */
   const v1 = useSearchPostsQuery({
     query: augmentedV1Query,
     sort,
@@ -389,6 +406,7 @@ let SearchScreenPostResults = ({
 
   const fireTracking = useCallOnce(() => {
     if (sort) {
+      // ts only
       ax.metric('search:results:loaded', {
         tab: sort,
         initialCount: items.length,
@@ -437,7 +455,7 @@ let SearchScreenPostResults = ({
 
   return error ? (
     <EmptyState
-      messageText={l`We're sorry, but your search could not be completed. Please try again in a few minutes.`}
+      messageText={l`We’re sorry, but your search could not be completed. Please try again in a few minutes.`}
       error={cleanError(error)}
     />
   ) : (
@@ -574,7 +592,7 @@ let SearchScreenUserResults = ({
   if (error) {
     return (
       <EmptyState
-        messageText={l`We're sorry, but your search could not be completed. Please try again in a few minutes.`}
+        messageText={l`We’re sorry, but your search could not be completed. Please try again in a few minutes.`}
         error={error.toString()}
       />
     )
