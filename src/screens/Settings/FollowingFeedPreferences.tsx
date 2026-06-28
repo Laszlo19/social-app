@@ -183,8 +183,8 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <Trans>Feed display</Trans>
             </SettingsList.ItemText>
             <Toggle.Item
-              type=”checkbox”
-              name=”hide-composer-prompt”
+              type="checkbox"
+              name="hide-composer-prompt"
               label={_(msg`Hide the composer prompt at the top of feeds`)}
               value={!!hideComposerPrompt}
               onChange={value => setHideComposerPrompt(value)}
@@ -195,14 +195,14 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <Toggle.Platform />
             </Toggle.Item>
             <Toggle.Item
-              type=”checkbox”
-              name=”hide-load-latest”
-              label={_(msg`Hide the “load new posts” button`)}
+              type="checkbox"
+              name="hide-load-latest"
+              label={_(msg`Hide the "load new posts" button`)}
               value={!!hideLoadLatestButton}
               onChange={value => setHideLoadLatestButton(value)}
               style={[a.w_full, a.gap_md]}>
               <Toggle.LabelText style={[a.flex_1]}>
-                <Trans>Hide the “load new posts” button</Trans>
+                <Trans>Hide the "load new posts" button</Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>

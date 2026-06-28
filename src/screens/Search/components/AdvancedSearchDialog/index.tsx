@@ -262,7 +262,7 @@ function DialogInner({
               label={l`This exact phrase`}
               defaultValue={exactPhrase}
               placeholder={l({
-                message: 'what’s up',
+                message: 'what's up',
                 comment: 'Advanced search: Example of an "exact phrase" search',
               })}
               onChangeText={setExactPhrase}
@@ -418,7 +418,7 @@ function DialogInner({
           {filters.length >= MAX_FILTERS && (
             <Admonition type="info">
               <Trans>
-                You’ve reached the maximum of{' '}
+                You've reached the maximum of{' '}
                 <Plural value={MAX_FILTERS} one="# filter" other="# filters" />.
                 Add more values to an existing filter instead of creating new
                 ones.

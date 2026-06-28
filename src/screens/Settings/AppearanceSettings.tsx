@@ -252,8 +252,9 @@ export function AppearanceSettingsScreen({}: Props) {
                   <Trans>Navigation bar</Trans>
                 </SettingsList.ItemText>
               </SettingsList.LinkItem>
+            </Animated.View>
 
-              </>}
+            </>}
               <SettingsList.Divider />
               {!!witchskyEnabled && <SettingsList.Group iconInset={false}>
                 <SettingsList.ItemIcon icon={GroupIcon} />
@@ -263,13 +264,13 @@ export function AppearanceSettingsScreen({}: Props) {
                 <Toggle.Item
                   type="checkbox"
                   name="mutuals-label"
-                  label={_(msg`Show “Mutuals” instead of “Following”`)}
+                  label={_(msg`Show "Mutuals" instead of "Following"`)}
                   value={!!mutualsLabel}
                   onChange={value => setMutualsLabel(value)}
                   style={[a.w_full, a.gap_md]}>
                   <Toggle.LabelText style={[a.flex_1]}>
                     <Trans>
-                      Show “Mutuals” instead of “Following” on profiles you
+                      Show "Mutuals" instead of "Following" on profiles you
                       mutually follow
                     </Trans>
                   </Toggle.LabelText>

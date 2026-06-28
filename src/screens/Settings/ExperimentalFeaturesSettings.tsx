@@ -161,8 +161,8 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
               style={[a.w_full]}>
               <Toggle.LabelText style={[a.flex_1]}>
                 <Trans>
-                  Use the legacy “Find friends from contacts” instead of “Find
-                  and invite friends”
+                  Use the legacy "Find friends from contacts" instead of "Find
+                  and invite friends"
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />

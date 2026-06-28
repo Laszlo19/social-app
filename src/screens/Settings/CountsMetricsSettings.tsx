@@ -88,12 +88,12 @@ export function CountsMetricsSettingsScreen({}: Props) {
             <Toggle.Item
               type="checkbox"
               name="hide-follows-you"
-              label={_(msg`Hide the “Follows you” label`)}
+              label={_(msg`Hide the "Follows you" label`)}
               value={!!hideFollowsYou}
               onChange={value => setHideFollowsYou(value)}
               style={[a.w_full, a.gap_md]}>
               <Toggle.LabelText style={[a.flex_1]}>
-                <Trans>Hide the “Follows you” label on profiles</Trans>
+                <Trans>Hide the "Follows you" label on profiles</Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>
