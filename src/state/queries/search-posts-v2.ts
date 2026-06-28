@@ -1,9 +1,3 @@
-/**
- * Fork stub: wraps the v1 searchPosts endpoint with the same interface as the
- * upstream v2 hook, converting structured filters to legacy operator syntax.
- * This keeps full compatibility with @atproto/api 0.20.15 while allowing the
- * advanced-search UI to function.
- */
 import {useCallback, useMemo, useRef} from 'react'
 import {type AppBskyFeedDefs, moderatePost} from '@atproto/api'
 import {
@@ -14,11 +8,7 @@ import {
 
 import {useModerationOpts} from '#/state/preferences/moderation-opts'
 import {useAgent} from '#/state/session'
-import {
-  filtersToLegacyParams,
-  type SearchFilters,
-} from '#/screens/Search/searchParams'
-import {augmentSearchQuery} from '#/lib/strings/helpers'
+import {type SearchFilters} from '#/screens/Search/searchParams'
 
 type SearchV2Page = {
   posts: AppBskyFeedDefs.PostView[]
@@ -37,6 +27,41 @@ const searchPostsV2QueryKey = ({
   sort?: string
   filters?: SearchFilters
 }) => [searchPostsQueryKeyRoot, query, sort, filters]
+
+/** Split a space-separated string param into an array, dropping empties. */
+function splitParam(value?: string): string[] | undefined {
+  if (!value) return undefined
+  const parts = value.trim().split(/\s+/).filter(Boolean)
+  return parts.length > 0 ? parts : undefined
+}
+
+/** Map our SearchFilters (route params) to app.bsky.feed.searchPostsV2 params. */
+function filtersToV2Params(
+  filters: SearchFilters,
+): Record<string, string | string[] | boolean | undefined> {
+  return {
+    authors: splitParam(filters.author),
+    mentions: splitParam(filters.mentions),
+    domains: splitParam(filters.domain),
+    urls: splitParam(filters.url),
+    hashtags: splitParam(filters.tag),
+    excludeAuthors: splitParam(filters.excludeAuthor),
+    excludeMentions: splitParam(filters.excludeMentions),
+    excludeDomains: splitParam(filters.excludeDomain),
+    excludeUrls: splitParam(filters.excludeUrl),
+    excludeHashtags: splitParam(filters.excludeTag),
+    languages: filters.lang ? [filters.lang] : undefined,
+    since: filters.since,
+    until: filters.until,
+    excludeReplies:
+      filters.replies === 'none' ? true : undefined,
+    repliesOnly:
+      filters.replies === 'only' ? true : undefined,
+    hasMedia: filters.media === 'true' ? true : undefined,
+    hasVideo: filters.video === 'true' ? true : undefined,
+    following: filters.following === 'true' ? true : undefined,
+  }
+}
 
 export function useSearchPostsV2Query({
   query,
@@ -74,20 +99,18 @@ export function useSearchPostsV2Query({
   >({
     queryKey: searchPostsV2QueryKey({query, sort, filters}),
     queryFn: async ({pageParam}) => {
-      // Build a legacy query string from the structured filters.
-      const legacyExtra = filtersToLegacyParams(filters ?? {})
-      const combinedQ = [query, legacyExtra.q].filter(Boolean).join(' ')
-
-      const res = await agent.app.bsky.feed.searchPosts({
-        q: combinedQ,
-        sort: sort === 'latest' ? 'latest' : 'top',
+      const v2Params = filtersToV2Params(filters ?? {})
+      const res = await agent.app.bsky.feed.searchPostsV2({
+        query: query || undefined,
+        sort: sort === 'latest' ? 'recent' : 'top',
         limit: 25,
         cursor: pageParam,
+        ...v2Params,
       })
       return {
         posts: res.data.posts,
         cursor: res.data.cursor,
-        detectedQueryLanguages: [],
+        detectedQueryLanguages: res.data.detectedQueryLanguages ?? [],
       }
     },
     initialPageParam: undefined,
