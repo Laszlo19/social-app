@@ -16,11 +16,14 @@ export function DateField({
   value,
   inputRef,
   onChangeDate,
+  onConfirm: onConfirmProp,
   label,
   isInvalid,
   testID,
   accessibilityHint,
   maximumDate,
+  minimumDate,
+  placeholder,
 }: DateFieldProps) {
   const {i18n} = useLingui()
   const t = useTheme()
@@ -32,8 +35,9 @@ export function DateField({
 
       const formatted = toSimpleDateString(date)
       onChangeDate(formatted)
+      onConfirmProp?.(formatted)
     },
-    [onChangeDate, setOpen],
+    [onChangeDate, onConfirmProp, setOpen],
   )
 
   useImperativeHandle(
@@ -66,6 +70,7 @@ export function DateField({
         onPress={onPress}
         isInvalid={isInvalid}
         accessibilityHint={accessibilityHint}
+        placeholder={placeholder}
       />
       {open && (
         // Android implementation of DatePicker currently does not change default button colors according to theme and only takes hex values for buttonColor
@@ -89,6 +94,9 @@ export function DateField({
           accessibilityHint={accessibilityHint}
           maximumDate={
             maximumDate ? new Date(toSimpleDateString(maximumDate)) : undefined
+          }
+          minimumDate={
+            minimumDate ? new Date(toSimpleDateString(minimumDate)) : undefined
           }
         />
       )}

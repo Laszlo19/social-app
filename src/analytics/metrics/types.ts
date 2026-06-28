@@ -774,6 +774,7 @@ export type Events = {
 
   'search:query': {
     source: 'typed' | 'history' | 'autocomplete'
+    filterCount?: number
   }
 
   'search:results:loaded': {
@@ -786,6 +787,18 @@ export type Events = {
     resultType: 'post' | 'profile' | 'feed'
     position: number
     uri: string
+  }
+
+  'search:advanced:press': {
+    filterCount: number
+  }
+
+  'search:addFilter:press': {
+    filterCount: number
+  }
+
+  'search:shareLink:press': {
+    filterCount: number
   }
 
   'search:recent:press': {
