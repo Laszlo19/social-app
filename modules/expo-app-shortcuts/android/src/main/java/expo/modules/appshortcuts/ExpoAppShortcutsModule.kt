@@ -45,7 +45,19 @@ class ExpoAppShortcutsModule : Module() {
     val context = appContext.reactContext ?: return
     val manager = AppWidgetManager.getInstance(context) ?: return
     val pkg = context.packageName
-    for (cls in listOf("StatsWidgetProvider", "NewPostWidgetProvider")) {
+    // Keep in sync with the providers declared in plugins/withAndroidWidgets.js.
+    // Collection widgets (Pinned Feeds, Lists) reload their data in onUpdate via
+    // notifyAppWidgetViewDataChanged, so an ACTION_APPWIDGET_UPDATE is enough.
+    val providers = listOf(
+      "NewPostWidgetProvider",
+      "StatsWidgetProvider",
+      "StatsCardWidgetProvider",
+      "ComposerWidgetProvider",
+      "InteractionsWidgetProvider",
+      "PinnedFeedsWidgetProvider",
+      "ListsWidgetProvider",
+    )
+    for (cls in providers) {
       try {
         val comp = ComponentName(pkg, "$pkg.widgets.$cls")
         val ids = manager.getAppWidgetIds(comp)
