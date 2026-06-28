@@ -322,7 +322,6 @@ export function AppearanceSettingsScreen({}: Props) {
                 </View>
               </SettingsList.Group>
               </>}
-            </Animated.View>
           </SettingsList.Container>
         </Layout.Content>
       </Layout.Screen>

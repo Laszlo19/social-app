@@ -262,7 +262,7 @@ function DialogInner({
               label={l`This exact phrase`}
               defaultValue={exactPhrase}
               placeholder={l({
-                message: 'what's up',
+                message: "what's up",
                 comment: 'Advanced search: Example of an "exact phrase" search',
               })}
               onChangeText={setExactPhrase}
