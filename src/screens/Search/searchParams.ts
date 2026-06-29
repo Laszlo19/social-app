@@ -50,9 +50,12 @@ export const FILTER_PARAM_KEYS = [
 
 /** Pull the active filter keys from a route-params object. */
 export function readSearchFilters(
-  params: Record<string, unknown>,
+  params: Record<string, unknown> | undefined,
 ): SearchFilters {
   const filters: SearchFilters = {}
+  // route.params is undefined when the Search tab is opened with no params, so
+  // bail before indexing into it (Hermes throws on `undefined[key]`).
+  if (!params) return filters
   for (const key of FILTER_PARAM_KEYS) {
     const value = params[key]
     if (typeof value === 'string' && value) {
