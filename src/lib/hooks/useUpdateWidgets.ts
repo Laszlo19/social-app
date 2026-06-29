@@ -28,6 +28,9 @@ const INTERACTIONS_THROTTLE_MS = 30 * 60 * 1000
  *   widget_interactions.json – recent reply/repost counts (Interactions widget)
  *   widget_pinned_feeds.json – pinned feed names + AT URIs (Pinned Feeds widget)
  *   widget_lists.json        – list names + AT URIs (Lists widget)
+ *   widget_labels.json       – localized static labels for all widgets, so the
+ *                              providers can override their @string defaults and
+ *                              follow the app language
  */
 export function useUpdateWidgets() {
   const {t: l} = useLingui()
@@ -42,6 +45,31 @@ export function useUpdateWidgets() {
   const newPostLabel = l`New post`
   const followersLabel = l`Followers`
   const followingLabel = l`Following`
+
+  /*
+   * Static labels for the newer widgets. The Android layouts ship English
+   * @string defaults; these localized values override them at runtime so all
+   * widget text follows the app language. Keep the keys in sync with the
+   * providers in plugins/withAndroidWidgets.js.
+   */
+  const labelsPayload = JSON.stringify({
+    statsCardTitle: l`Account statistics`,
+    statsCardPeriod: l`Last 30 days`,
+    composerPlaceholder: l`What's up?`,
+    composerCamera: l`Camera`,
+    composerPhoto: l`Photo`,
+    composerGif: l`GIF`,
+    composerPost: l`Post`,
+    interactionsTitle: l`Interactions`,
+    interactionsReplies: l`Replies`,
+    interactionsReposts: l`Reposts`,
+    interactionsPeriod: l`Last 7 days`,
+    interactionsEmpty: l`Open the app to load interactions`,
+    pinnedFeedsTitle: l`Pinned feeds`,
+    pinnedFeedsEmpty: l`No pinned feeds yet`,
+    listsTitle: l`Lists`,
+    listsEmpty: l`No lists found`,
+  })
 
   // Profile / stats data — refreshed whenever profile changes.
   const profilePayload = JSON.stringify({
@@ -85,6 +113,17 @@ export function useUpdateWidgets() {
     }
     void run()
   }, [profilePayload])
+
+  // Localized static labels — rewritten whenever the app language changes.
+  useEffect(() => {
+    if (!IS_ANDROID || !documentDirectory) return
+    void writeAsStringAsync(
+      documentDirectory + 'widget_labels.json',
+      labelsPayload,
+    )
+      .then(() => AppShortcuts.refreshWidgets())
+      .catch(() => {})
+  }, [labelsPayload])
 
   // Pinned feeds — refreshed when the feeds list changes.
   useEffect(() => {

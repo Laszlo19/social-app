@@ -252,6 +252,7 @@ function statsCardLayoutXml() {
   android:background="@drawable/widget_card_bg"
   android:padding="14dp">
   <TextView
+    android:id="@+id/widget_card_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/widget_stats_card_title"
@@ -309,6 +310,7 @@ function statsCardLayoutXml() {
     </LinearLayout>
   </LinearLayout>
   <TextView
+    android:id="@+id/widget_card_period"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/widget_stats_card_period"
@@ -405,6 +407,7 @@ function interactionsLayoutXml() {
   android:background="@drawable/widget_card_bg"
   android:padding="14dp">
   <TextView
+    android:id="@+id/widget_interactions_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/widget_interactions_title"
@@ -455,6 +458,7 @@ function interactionsLayoutXml() {
         android:textSize="20sp"
         android:textStyle="bold" />
       <TextView
+        android:id="@+id/widget_interactions_replies_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/widget_interactions_replies_label"
@@ -475,6 +479,7 @@ function interactionsLayoutXml() {
         android:textSize="20sp"
         android:textStyle="bold" />
       <TextView
+        android:id="@+id/widget_interactions_reposts_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/widget_interactions_reposts_label"
@@ -483,6 +488,7 @@ function interactionsLayoutXml() {
     </LinearLayout>
   </LinearLayout>
   <TextView
+    android:id="@+id/widget_interactions_period"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/widget_interactions_period"
@@ -503,6 +509,7 @@ function feedsListLayoutXml(idPrefix, titleStringName, emptyStringName) {
   android:background="@drawable/widget_card_bg"
   android:padding="14dp">
   <TextView
+    android:id="@+id/${idPrefix}_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/${titleStringName}"
@@ -844,6 +851,27 @@ class ${STATS_PROVIDER} : AppWidgetProvider() {
 // New Kotlin providers
 // ---------------------------------------------------------------------------
 
+// Shared method that overrides static @string labels with the localized values
+// the app writes to widget_labels.json, so widget text follows the app language.
+// Requires java.io.File and org.json.JSONObject imports in the host file.
+function widgetLabelsHelperKt() {
+  return `
+  private fun applyLabels(context: Context, views: RemoteViews, map: Map<Int, String>) {
+    try {
+      val file = File(context.filesDir, "widget_labels.json")
+      if (!file.exists()) return
+      val json = JSONObject(file.readText())
+      for ((viewId, key) in map) {
+        val value = json.optString(key, "")
+        if (value.isNotEmpty()) views.setTextViewText(viewId, value)
+      }
+    } catch (e: Exception) {
+      // best-effort; keep the @string defaults baked into the layout
+    }
+  }
+`
+}
+
 function statsCardProviderKt(pkg) {
   return `package ${pkg}.widgets
 
@@ -866,6 +894,10 @@ class ${STATS_CARD_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_stats_card)
+      applyLabels(context, views, mapOf(
+        R.id.widget_card_title to "statsCardTitle",
+        R.id.widget_card_period to "statsCardPeriod",
+      ))
       var handle = ""
       try {
         val dataFile = File(context.filesDir, "widget_data.json")
@@ -912,7 +944,7 @@ class ${STATS_CARD_PROVIDER} : AppWidgetProvider() {
       appWidgetManager.updateAppWidget(appWidgetId, views)
     }
   }
-}
+${widgetLabelsHelperKt()}}
 `
 }
 
@@ -927,6 +959,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import java.io.File
+import org.json.JSONObject
 import ${pkg}.R
 
 class ${COMPOSER_PROVIDER} : AppWidgetProvider() {
@@ -937,6 +971,13 @@ class ${COMPOSER_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_composer)
+      applyLabels(context, views, mapOf(
+        R.id.widget_composer_placeholder to "composerPlaceholder",
+        R.id.widget_composer_camera to "composerCamera",
+        R.id.widget_composer_photo to "composerPhoto",
+        R.id.widget_composer_gif to "composerGif",
+        R.id.widget_composer_post to "composerPost",
+      ))
 
       fun composePendingIntent(requestCode: Int, source: String): PendingIntent {
         val uri = Uri.parse("bluesky://intent/compose?source=" + source)
@@ -961,7 +1002,7 @@ class ${COMPOSER_PROVIDER} : AppWidgetProvider() {
       appWidgetManager.updateAppWidget(appWidgetId, views)
     }
   }
-}
+${widgetLabelsHelperKt()}}
 `
 }
 
@@ -987,6 +1028,15 @@ class ${INTERACTIONS_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_interactions)
+      // Applied first so the data block below can override the handle row with
+      // the most recent interaction when there is one.
+      applyLabels(context, views, mapOf(
+        R.id.widget_interactions_title to "interactionsTitle",
+        R.id.widget_interactions_handle to "interactionsEmpty",
+        R.id.widget_interactions_replies_label to "interactionsReplies",
+        R.id.widget_interactions_reposts_label to "interactionsReposts",
+        R.id.widget_interactions_period to "interactionsPeriod",
+      ))
       try {
         val dataFile = File(context.filesDir, "widget_interactions.json")
         if (dataFile.exists()) {
@@ -1028,7 +1078,7 @@ class ${INTERACTIONS_PROVIDER} : AppWidgetProvider() {
       appWidgetManager.updateAppWidget(appWidgetId, views)
     }
   }
-}
+${widgetLabelsHelperKt()}}
 `
 }
 
@@ -1070,6 +1120,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import java.io.File
+import org.json.JSONObject
 import ${pkg}.R
 
 class ${PINNED_FEEDS_PROVIDER} : AppWidgetProvider() {
@@ -1080,6 +1132,10 @@ class ${PINNED_FEEDS_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_pinned_feeds)
+      applyLabels(context, views, mapOf(
+        R.id.widget_pinned_feeds_title to "pinnedFeedsTitle",
+        R.id.widget_pinned_feeds_empty to "pinnedFeedsEmpty",
+      ))
 
       val serviceIntent = Intent(context, ${PINNED_FEEDS_SERVICE}::class.java).apply {
         putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
@@ -1104,7 +1160,7 @@ class ${PINNED_FEEDS_PROVIDER} : AppWidgetProvider() {
       appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_pinned_feeds_list)
     }
   }
-}
+${widgetLabelsHelperKt()}}
 `
 }
 
@@ -1193,6 +1249,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
+import java.io.File
+import org.json.JSONObject
 import ${pkg}.R
 
 class ${LISTS_PROVIDER} : AppWidgetProvider() {
@@ -1203,6 +1261,10 @@ class ${LISTS_PROVIDER} : AppWidgetProvider() {
   ) {
     for (appWidgetId in appWidgetIds) {
       val views = RemoteViews(context.packageName, R.layout.widget_lists)
+      applyLabels(context, views, mapOf(
+        R.id.widget_lists_title to "listsTitle",
+        R.id.widget_lists_empty to "listsEmpty",
+      ))
 
       val serviceIntent = Intent(context, ${LISTS_SERVICE}::class.java).apply {
         putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
@@ -1227,7 +1289,7 @@ class ${LISTS_PROVIDER} : AppWidgetProvider() {
       appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_lists_list)
     }
   }
-}
+${widgetLabelsHelperKt()}}
 `
 }
 
