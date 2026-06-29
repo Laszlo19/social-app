@@ -825,7 +825,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr ""
 
 #: src/screens/Hashtag.tsx:226
-#: src/screens/Search/SearchResults.tsx:416
+#: src/screens/Search/SearchResults.tsx:434
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr ""
 
@@ -1048,6 +1048,10 @@ msgstr ""
 msgid "Account removed from quick access"
 msgstr "Обліковий запис вилучено зі швидкого доступу"
 
+#: src/lib/hooks/useUpdateWidgets.ts:56
+msgid "Account statistics"
+msgstr ""
+
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:109
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:97
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:333
@@ -1133,7 +1137,7 @@ msgstr "Додати альтернативний текст"
 msgid "Add alt text (optional)"
 msgstr "Додати альтернативний текст (за бажанням)"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:429
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:449
 msgid "Add an additional search filter"
 msgstr ""
 
@@ -1170,7 +1174,7 @@ msgstr ""
 msgid "Add emoji reaction"
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:437
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:457
 msgid "Add filter"
 msgstr ""
 
@@ -1346,7 +1350,7 @@ msgid "Advanced"
 msgstr "Розширені"
 
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:76
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:234
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:252
 msgid "Advanced search"
 msgstr ""
 
@@ -1410,7 +1414,7 @@ msgstr ""
 msgid "All languages will be shown in your feeds."
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:241
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:259
 msgid "All of these words"
 msgstr ""
 
@@ -1691,7 +1695,7 @@ msgid "Announcing verification on Bluesky"
 msgstr ""
 
 #. Placeholder text for a date picker
-#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:39
+#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:43
 msgid "Any time"
 msgstr ""
 
@@ -2202,8 +2206,8 @@ msgstr ""
 msgid "Bluesky"
 msgstr ""
 
-#. Advanced search: Example of an "all of these words" search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:246
+#. Advanced search: Example of an “all of these words” search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:264
 msgid "bluesky atproto"
 msgstr ""
 
@@ -2414,6 +2418,7 @@ msgstr "Зі створенням облікового запису ви пог�
 msgid "By you"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:59
 #: src/view/com/composer/photos/OpenCameraBtn.tsx:69
 msgid "Camera"
 msgstr "Камера"
@@ -2460,8 +2465,8 @@ msgstr ""
 #: src/screens/Messages/ConversationSettings/prompts.tsx:180
 #: src/screens/Profile/Header/EditProfileDialog.tsx:215
 #: src/screens/Profile/Header/EditProfileDialog.tsx:223
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:198
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:205
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:216
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:223
 #: src/screens/Settings/AppIconSettings/index.tsx:42
 #: src/screens/Settings/AppIconSettings/index.tsx:228
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:80
@@ -2491,7 +2496,7 @@ msgstr ""
 msgid "Cancel reply"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:474
+#: src/screens/Search/Shell.tsx:529
 msgid "Cancel search"
 msgstr "Скасувати пошук"
 
@@ -2768,8 +2773,8 @@ msgstr "Вкажіть пароль"
 msgid "Choose your username"
 msgstr "Ваш псевдонім"
 
-#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.native.tsx:63
-#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.tsx:91
+#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.native.tsx:73
+#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.tsx:110
 #: src/screens/Search/components/AdvancedSearchDialog/ClearableInput.tsx:59
 msgid "Clear"
 msgstr ""
@@ -2782,7 +2787,7 @@ msgstr ""
 msgid "Clear all storage data (restart after this)"
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:58
+#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:70
 msgid "Clear date"
 msgstr ""
 
@@ -3252,7 +3257,7 @@ msgstr ""
 msgid "Copied build version to clipboard"
 msgstr "Скопійовано версію збірки до буфера обміну"
 
-#: src/screens/Search/Shell.tsx:408
+#: src/screens/Search/Shell.tsx:460
 msgid "Copied link to clipboard"
 msgstr ""
 
@@ -3263,6 +3268,7 @@ msgstr ""
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:77
 #: src/lib/sharing.ts:24
 #: src/lib/sharing.ts:42
+#: src/view/com/util/error/ErrorScreen.tsx:91
 msgid "Copied to clipboard"
 msgstr "Скопійовано"
 
@@ -3304,11 +3310,19 @@ msgstr ""
 msgid "Copy code"
 msgstr "Скопіювати код"
 
+#: src/view/com/util/error/ErrorScreen.tsx:102
+msgid "Copy details"
+msgstr ""
+
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:504
 #: src/view/com/profile/ProfileMenu.tsx:510
 #: src/view/com/profile/ProfileMenu.tsx:513
 msgid "Copy DID"
 msgstr "Копіювати ідентифікатор"
+
+#: src/view/com/util/error/ErrorScreen.tsx:99
+msgid "Copy error details"
+msgstr ""
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:436
 msgid "Copy host"
@@ -3497,8 +3511,8 @@ msgstr ""
 msgid "Counts & metrics"
 msgstr ""
 
-#. Advanced search: Example of an "none of these words" search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:280
+#. Advanced search: Example of an “none of these words” search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:298
 msgid "cows pigs"
 msgstr ""
 
@@ -3557,7 +3571,7 @@ msgstr "Реєстрація"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:235
-#: src/screens/Search/SearchResults.tsx:422
+#: src/screens/Search/SearchResults.tsx:440
 msgid "Create an account"
 msgstr "Створити обліковий запис"
 
@@ -3904,7 +3918,7 @@ msgstr ""
 msgid "Dialog: adjust who can interact with this post"
 msgstr "Діалог: налаштувати, хто може взаємодіяти з цим постом"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:229
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:247
 msgid "Dialog: Set advanced search options"
 msgstr ""
 
@@ -4581,7 +4595,7 @@ msgid "Entertainment"
 msgstr ""
 
 #: src/view/com/composer/Composer.tsx:2602
-#: src/view/com/util/error/ErrorScreen.tsx:40
+#: src/view/com/util/error/ErrorScreen.tsx:43
 msgid "Error"
 msgstr "Помилка"
 
@@ -4610,7 +4624,7 @@ msgstr "Сталася помилка під час збереження"
 msgid "Error receiving captcha response."
 msgstr "Помилка отримання відповіді Captcha."
 
-#: src/screens/Search/SearchResults.tsx:178
+#: src/screens/Search/SearchResults.tsx:188
 msgid "Error: {error}"
 msgstr ""
 
@@ -4740,7 +4754,7 @@ msgstr "Відверті сексуальні зображення."
 
 #: src/features/customNav/catalog.tsx:123
 #: src/Navigation.tsx:792
-#: src/screens/Search/Shell.tsx:442
+#: src/screens/Search/Shell.tsx:497
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
 msgstr ""
@@ -4820,9 +4834,13 @@ msgstr ""
 msgid "Failed to change handle. Please try again."
 msgstr "Не вдалось змінити псевдонім. Будь ласка, спробуйте ще раз."
 
+#: src/view/com/util/error/ErrorScreen.tsx:93
+msgid "Failed to copy"
+msgstr ""
+
 #: src/components/Lightbox/Lightbox.web.tsx:302
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:130
-#: src/screens/Search/Shell.tsx:409
+#: src/screens/Search/Shell.tsx:461
 msgid "Failed to copy link"
 msgstr ""
 
@@ -5201,7 +5219,7 @@ msgstr ""
 #: src/Navigation.tsx:558
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:96
+#: src/screens/Search/SearchResults.tsx:105
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:239
@@ -5338,7 +5356,7 @@ msgstr ""
 msgid "Find people you know"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:647
+#: src/screens/Search/Shell.tsx:702
 msgid "Find posts, users, and feeds on Bluesky"
 msgstr ""
 
@@ -5487,7 +5505,7 @@ msgstr "Читають <0>{0}</0> та <1>{1}</1>"
 msgid "Followed by <0>{0}</0>, <1>{1}</1>, and {2, plural, one {# other} other {# others}}"
 msgstr "Читають <0>{0}</0>, <1>{1}</1>, та {2, plural, one {# інші} few {# інші} many {# інші} other {# інші}}"
 
-#: src/lib/hooks/useUpdateWidgets.ts:43
+#: src/lib/hooks/useUpdateWidgets.ts:46
 msgid "Followers"
 msgstr ""
 
@@ -5510,7 +5528,7 @@ msgstr "Читачі, яких читаєте ви"
 #: src/components/ProfileCard.tsx:537
 #: src/components/ProfileHoverCard/index.web.tsx:494
 #: src/components/ProfileHoverCard/index.web.tsx:505
-#: src/lib/hooks/useUpdateWidgets.ts:44
+#: src/lib/hooks/useUpdateWidgets.ts:47
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
 #: src/screens/VideoFeed/index.tsx:864
@@ -5623,7 +5641,7 @@ msgstr ""
 msgid "Free your feed"
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:400
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:420
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:162
 msgid "From"
 msgstr ""
@@ -5759,6 +5777,7 @@ msgstr ""
 
 #: src/components/MediaPreview.tsx:182
 #: src/components/Post/Embed/VideoEmbed/GifPresentationControls.tsx:69
+#: src/lib/hooks/useUpdateWidgets.ts:61
 msgid "GIF"
 msgstr ""
 
@@ -6562,7 +6581,7 @@ msgstr ""
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:58
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:75
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:81
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:386
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:406
 msgid "Include"
 msgstr ""
 
@@ -6576,12 +6595,12 @@ msgid "Include posts and/or replies (currently: {currentLabel})"
 msgstr ""
 
 #. Advanced search filter
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:301
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:319
 msgid "Include posts made since this date"
 msgstr ""
 
 #. Advanced search filter
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:324
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:343
 msgid "Include posts made until this date"
 msgstr ""
 
@@ -6611,6 +6630,10 @@ msgstr "Взаємодія обмежена"
 
 #: src/screens/Moderation/index.tsx:269
 msgid "Interaction settings"
+msgstr ""
+
+#: src/lib/hooks/useUpdateWidgets.ts:63
+msgid "Interactions"
 msgstr ""
 
 #: src/components/dialogs/nuxs/ActivitySubscriptions.tsx:33
@@ -6869,7 +6892,7 @@ msgstr "Мітки на вашому обліковому записі"
 msgid "Labels on your content"
 msgstr "Мітки на вашому контенті"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:351
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:371
 msgid "Language"
 msgstr ""
 
@@ -6887,6 +6910,14 @@ msgstr "Мови"
 msgid "Larger"
 msgstr "Більше"
 
+#: src/lib/hooks/useUpdateWidgets.ts:57
+msgid "Last 30 days"
+msgstr ""
+
+#: src/lib/hooks/useUpdateWidgets.ts:66
+msgid "Last 7 days"
+msgstr ""
+
 #: src/ageAssurance/components/NoAccessScreen.tsx:377
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:201
 msgid "Last initiated {timeAgo} ago"
@@ -6898,7 +6929,7 @@ msgid "Last initiated just now"
 msgstr ""
 
 #: src/screens/Hashtag.tsx:99
-#: src/screens/Search/SearchResults.tsx:77
+#: src/screens/Search/SearchResults.tsx:86
 #: src/screens/Topic.tsx:65
 msgid "Latest"
 msgstr "Нещодавні"
@@ -6921,12 +6952,12 @@ msgstr ""
 msgid "Learn More"
 msgstr "Дізнатися більше"
 
-#: src/screens/Search/SearchResults.tsx:251
+#: src/screens/Search/SearchResults.tsx:263
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use advanced search</0>."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:265
+#: src/screens/Search/SearchResults.tsx:277
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use search filters</0>."
 msgstr ""
@@ -7258,6 +7289,7 @@ msgid "List unmuted"
 msgstr "Список більше не ігноровано"
 
 #: src/features/customNav/catalog.tsx:175
+#: src/lib/hooks/useUpdateWidgets.ts:70
 #: src/Navigation.tsx:179
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
@@ -7493,7 +7525,7 @@ msgstr ""
 msgid "Maybe later"
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:369
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:389
 #: src/view/screens/Profile.tsx:236
 msgid "Media"
 msgstr "Медіа"
@@ -8030,7 +8062,7 @@ msgid "New password"
 msgstr "Новий пароль"
 
 #: src/features/customNav/catalog.tsx:200
-#: src/lib/hooks/useUpdateWidgets.ts:42
+#: src/lib/hooks/useUpdateWidgets.ts:45
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8167,6 +8199,10 @@ msgstr "Ще немає вподобань"
 msgid "No lists"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:71
+msgid "No lists found"
+msgstr ""
+
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
@@ -8219,6 +8255,10 @@ msgstr "Ніхто, окрім автора, не може цитувати це
 
 #: src/screens/Messages/components/ChatLocked.tsx:73
 msgid "No one can send messages"
+msgstr ""
+
+#: src/lib/hooks/useUpdateWidgets.ts:69
+msgid "No pinned feeds yet"
 msgstr ""
 
 #: src/screens/Notifications/ActivityList.tsx:43
@@ -8277,15 +8317,15 @@ msgstr "Нічого не знайдено"
 msgid "No results found for \"{query}\""
 msgstr "Нічого не знайдено за запитом «{query}»"
 
-#: src/screens/Search/SearchResults.tsx:210
-msgid "No results found for \"<0>{query}</0>\" with advanced search filters applied."
-msgstr ""
-
 #: src/screens/Search/SearchResults.tsx:222
-msgid "No results found for \"<0>{query}</0>\"."
+msgid "No results found for “<0>{query}</0>” with advanced search filters applied."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:216
+#: src/screens/Search/SearchResults.tsx:234
+msgid "No results found for “<0>{query}</0>”."
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:228
 msgid "No results found for your query with advanced search filters applied."
 msgstr ""
 
@@ -8344,8 +8384,8 @@ msgstr ""
 msgid "Non-sexual Nudity"
 msgstr "Несексуальна оголеність"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:275
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:278
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:293
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:296
 msgid "None of these words"
 msgstr ""
 
@@ -8438,7 +8478,7 @@ msgstr "Вимкнено"
 #. Title of the error screen shown when the GIF picker crashes unexpectedly.
 #: src/components/dialogs/LanguageSelectDialog.tsx:347
 #: src/features/gifPicker/components/GifPickerErrorBoundary.tsx:22
-#: src/view/com/util/ErrorBoundary.tsx:57
+#: src/view/com/util/ErrorBoundary.tsx:82
 msgid "Oh no!"
 msgstr "О, ні!"
 
@@ -8726,6 +8766,10 @@ msgstr "Відкрити storybook сторінку"
 msgid "Open system log"
 msgstr "Відкрити системний журнал"
 
+#: src/lib/hooks/useUpdateWidgets.ts:67
+msgid "Open the app to load interactions"
+msgstr ""
+
 #: src/components/intents/GroupChatJoinDialog.tsx:447
 msgid "Open this group chat"
 msgstr ""
@@ -9007,7 +9051,7 @@ msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:167
-#: src/screens/Search/SearchResults.tsx:90
+#: src/screens/Search/SearchResults.tsx:99
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 msgid "People"
 msgstr "Люди"
@@ -9091,6 +9135,10 @@ msgstr ""
 msgid "Phone number verified"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:60
+msgid "Photo"
+msgstr ""
+
 #: src/lib/interests.ts:69
 msgid "Photography"
 msgstr "Фотографування"
@@ -9132,6 +9180,10 @@ msgstr "Закріплені"
 #: src/screens/Profile/components/ProfileFeedHeader.tsx:159
 #: src/screens/Profile/components/ProfileFeedHeader.tsx:173
 msgid "Pinned {0} to Home"
+msgstr ""
+
+#: src/lib/hooks/useUpdateWidgets.ts:68
+msgid "Pinned feeds"
 msgstr ""
 
 #: src/screens/SavedFeeds.tsx:146
@@ -9350,6 +9402,7 @@ msgstr "Політика"
 msgid "Porn"
 msgstr "Порнографія"
 
+#: src/lib/hooks/useUpdateWidgets.ts:62
 #: src/screens/Settings/AppearanceSettings.tsx:316
 msgid "Post"
 msgstr ""
@@ -9739,12 +9792,12 @@ msgstr "Повторна активація облікового запису"
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:254
+#: src/screens/Search/SearchResults.tsx:266
 msgctxt "english-only-resource"
 msgid "Read about how to use advanced search filters"
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:268
+#: src/screens/Search/SearchResults.tsx:280
 msgctxt "english-only-resource"
 msgid "Read about how to use search filters"
 msgstr ""
@@ -9942,7 +9995,7 @@ msgid "Remove feed?"
 msgstr "Видалити стрічку?"
 
 #. Advanced search filter
-#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:137
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:143
 msgid "Remove filter"
 msgstr ""
 
@@ -10114,6 +10167,7 @@ msgstr ""
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:274
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:286
 #: src/lib/hooks/useNotificationHandler.ts:174
+#: src/lib/hooks/useUpdateWidgets.ts:64
 #: src/screens/Settings/NotificationSettings/index.tsx:160
 #: src/screens/Settings/NotificationSettings/index.tsx:275
 #: src/view/screens/Profile.tsx:235
@@ -10314,6 +10368,7 @@ msgid "Reposted by you"
 msgstr "Ви зробили репост"
 
 #: src/lib/hooks/useNotificationHandler.ts:167
+#: src/lib/hooks/useUpdateWidgets.ts:65
 #: src/screens/Settings/NotificationSettings/index.tsx:193
 #: src/screens/Settings/NotificationSettings/index.tsx:300
 msgid "Reposts"
@@ -10453,7 +10508,7 @@ msgid "Retries signing in"
 msgstr ""
 
 #: src/view/com/util/error/ErrorMessage.tsx:56
-#: src/view/com/util/error/ErrorScreen.tsx:93
+#: src/view/com/util/error/ErrorScreen.tsx:118
 msgid "Retries the last action, which errored out"
 msgstr "Повторити останню дію, яка спричинила помилку"
 
@@ -10481,7 +10536,7 @@ msgstr "Повторити останню дію, яка спричинила п
 #: src/screens/PostThread/components/ThreadError.tsx:87
 #: src/screens/Signup/BackNextButtons.tsx:54
 #: src/view/com/util/error/ErrorMessage.tsx:55
-#: src/view/com/util/error/ErrorScreen.tsx:91
+#: src/view/com/util/error/ErrorScreen.tsx:116
 #: src/view/screens/Storybook/Admonitions.tsx:64
 msgid "Retry"
 msgstr "Повторити спробу"
@@ -10667,11 +10722,11 @@ msgstr "Прогорнути вгору"
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
 #: src/features/customNav/catalog.tsx:122
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:214
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:220
-#: src/screens/Search/Shell.tsx:442
-#: src/screens/Search/Shell.tsx:493
-#: src/screens/Search/Shell.tsx:635
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:232
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:238
+#: src/screens/Search/Shell.tsx:497
+#: src/screens/Search/Shell.tsx:548
+#: src/screens/Search/Shell.tsx:690
 msgid "Search"
 msgstr "Пошук"
 
@@ -10730,7 +10785,7 @@ msgid "Search GIFs"
 msgstr "Пошук GIF-файлів"
 
 #: src/screens/Hashtag.tsx:224
-#: src/screens/Search/SearchResults.tsx:414
+#: src/screens/Search/SearchResults.tsx:432
 msgid "Search is currently unavailable when logged out"
 msgstr ""
 
@@ -10759,7 +10814,7 @@ msgstr ""
 msgid "Search profiles"
 msgstr "Пошук профілів"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:244
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:262
 msgid "Search query"
 msgstr ""
 
@@ -11236,7 +11291,7 @@ msgstr "Поширити QR-код"
 msgid "Share this feed"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:522
+#: src/screens/Search/Shell.tsx:577
 msgid "Share this search"
 msgstr ""
 
@@ -11468,7 +11523,7 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:356
 #: src/screens/Messages/JoinRequest.tsx:290
 #: src/screens/Messages/JoinRequest.tsx:296
-#: src/screens/Search/SearchResults.tsx:417
+#: src/screens/Search/SearchResults.tsx:435
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:124
 #: src/view/com/auth/SplashScreen.web.tsx:122
@@ -11553,8 +11608,8 @@ msgstr "Необхідно увійти для перегляду"
 msgid "Signed in as @{0}"
 msgstr "Ви увійшли як @{0}"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:295
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:298
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:313
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:316
 msgid "Since"
 msgstr ""
 
@@ -12433,7 +12488,7 @@ msgstr "Виникла проблема. Перевірте підключенн
 #. Body of the error screen shown when the GIF picker crashes unexpectedly. Encourages the user to report the issue.
 #: src/components/dialogs/LanguageSelectDialog.tsx:349
 #: src/features/gifPicker/components/GifPickerErrorBoundary.tsx:27
-#: src/view/com/util/ErrorBoundary.tsx:59
+#: src/view/com/util/ErrorBoundary.tsx:84
 msgid "There was an unexpected issue in the application. Please let us know if this happened to you!"
 msgstr "У застосунку сталася неочікувана проблема. Будь ласка, повідомте нас, якщо ви отримали це повідомлення!"
 
@@ -12591,8 +12646,8 @@ msgstr ""
 msgid "This email is already associated with your account."
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:259
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:262
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:277
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:280
 msgid "This exact phrase"
 msgstr ""
 
@@ -12929,7 +12984,7 @@ msgid "Too many contacts - you've exceeded the number of contacts you can import
 msgstr ""
 
 #: src/screens/Hashtag.tsx:88
-#: src/screens/Search/SearchResults.tsx:64
+#: src/screens/Search/SearchResults.tsx:73
 #: src/screens/Topic.tsx:59
 msgid "Top"
 msgstr "Топ"
@@ -13001,11 +13056,11 @@ msgstr ""
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:237
+#: src/screens/Search/SearchResults.tsx:249
 msgid "Try a different search term or remove some filters."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:239
+#: src/screens/Search/SearchResults.tsx:251
 msgid "Try a different search term."
 msgstr ""
 
@@ -13014,7 +13069,7 @@ msgstr ""
 msgid "Try again"
 msgstr "Спробувати ще раз"
 
-#: src/view/com/util/error/ErrorScreen.tsx:97
+#: src/view/com/util/error/ErrorScreen.tsx:122
 msgctxt "action"
 msgid "Try again"
 msgstr "Спробувати ще раз"
@@ -13351,8 +13406,8 @@ msgstr ""
 msgid "Unsupported video type: {mimeType}"
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:318
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:321
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:337
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:340
 msgid "Until"
 msgstr ""
 
@@ -14171,9 +14226,9 @@ msgstr "Дуже прикро, але нам не вдалося знайти ц
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "На жаль, ми не змогли зараз завантажити ваші ігноровані слова. Будь ласка, спробуйте ще раз."
 
-#: src/screens/Search/SearchResults.tsx:440
-#: src/screens/Search/SearchResults.tsx:577
-msgid "We're sorry, but your search could not be completed. Please try again in a few minutes."
+#: src/screens/Search/SearchResults.tsx:458
+#: src/screens/Search/SearchResults.tsx:595
+msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
 msgstr ""
 
 #: src/components/ageAssurance/AgeRestrictedScreen.tsx:62
@@ -14230,11 +14285,12 @@ msgstr "Чим ви цікавитесь?"
 msgid "What do you want to call your starter pack?"
 msgstr "Яку назву оберете для власної підбірки?"
 
-#. Advanced search: Example of an "exact phrase" search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:264
-msgid "what's up"
+#. Advanced search: Example of an “exact phrase” search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:282
+msgid "what’s up"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:58
 #: src/view/com/auth/SplashScreen.web.tsx:98
 #: src/view/com/composer/Composer.tsx:1520
 #: src/view/com/feeds/ComposerPrompt.tsx:193
@@ -14900,8 +14956,8 @@ msgstr ""
 msgid "You've reached the maximum number of requests allowed. Please try again later."
 msgstr ""
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:420
-msgid "You've reached the maximum of {MAX_FILTERS, plural, one {# filter} other {# filters}}. Add more values to an existing filter instead of creating new ones."
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:440
+msgid "You’ve reached the maximum of {MAX_FILTERS, plural, one {# filter} other {# filters}}. Add more values to an existing filter instead of creating new ones."
 msgstr ""
 
 #: src/components/FocusScope/index.tsx:88
