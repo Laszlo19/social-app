@@ -180,11 +180,11 @@ function DeleteAccountDialogInner({
         <>
           <Prompt.Content>
             <Prompt.TitleText>
-              {_(msg`Delete account “${currentHandle}”`)}
+              {_(msg`Delete account "${currentHandle}"`)}
             </Prompt.TitleText>
             <Prompt.DescriptionText>
               <Trans>
-                For security reasons, we’ll need to send a confirmation code to
+                For security reasons, we'll need to send a confirmation code to
                 your email address{' '}
                 <Span style={[a.font_semi_bold, t.atoms.text]}>
                   {currentEmail}
@@ -227,7 +227,7 @@ function DeleteAccountDialogInner({
         <>
           <Prompt.Content>
             <Prompt.TitleText>
-              {_(msg`Delete account “${currentHandle}”`)}
+              {_(msg`Delete account "${currentHandle}"`)}
             </Prompt.TitleText>
             <Prompt.DescriptionText>
               <Trans>
@@ -267,7 +267,7 @@ function DeleteAccountDialogInner({
               </Trans>
             ) : (
               <Trans>
-                Don’t see a code?{' '}
+                Don't see a code?{' '}
                 <SimpleInlineLinkText
                   label={_(msg`Click here to resend the email`)}
                   {...createStaticClick(handleSendEmail)}>

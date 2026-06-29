@@ -11,4 +11,7 @@ export type DateFieldProps = {
   testID?: string
   accessibilityHint?: string
   maximumDate?: string | Date
+  minimumDate?: string | Date
+  onConfirm?: (date: string) => void
+  placeholder?: string
 }

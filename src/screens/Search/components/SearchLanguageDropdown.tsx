@@ -18,9 +18,11 @@ import * as Menu from '#/components/Menu'
 export function SearchLanguageDropdown({
   value,
   onChange,
+  showIcon = true,
 }: {
   value: string
   onChange(value: string): void
+  showIcon?: boolean
 }) {
   const {_} = useLingui()
   const {appLanguage, contentLanguages, primaryLanguage} = useLanguagePrefs()
@@ -82,7 +84,7 @@ export function SearchLanguageDropdown({
               a.px_sm,
               {marginRight: tokens.space.sm * -1},
             ])}>
-            <ButtonIcon icon={EarthIcon} />
+            {showIcon && <ButtonIcon icon={EarthIcon} />}
             <ButtonText>{currentLanguageLabel}</ButtonText>
             <ButtonIcon
               icon={platform({

@@ -13,6 +13,8 @@ import {device} from '#/storage'
 export type CountsFormat = 'default' | 'lite' | 'exact'
 
 export type DisplayPrefs = {
+  /** Master toggle: all Witchsky fork features are visible/active. */
+  witchskyEnabled: boolean
   /** Use square avatars instead of circular. */
   squareAvatars: boolean
   /** Replace pill-shaped buttons with rectangular ones. */
@@ -28,6 +30,7 @@ export type DisplayPrefs = {
 }
 
 const DISPLAY_PREF_KEYS = [
+  'witchskyEnabled',
   'squareAvatars',
   'squareButtons',
   'hidePostCounts',
@@ -37,6 +40,7 @@ const DISPLAY_PREF_KEYS = [
 ] as const
 
 const defaults: DisplayPrefs = {
+  witchskyEnabled: false,
   squareAvatars: false,
   squareButtons: false,
   hidePostCounts: false,
@@ -46,13 +50,18 @@ const defaults: DisplayPrefs = {
 }
 
 function readPrefs(): DisplayPrefs {
+  const witchskyEnabled = device.get(['witchskyEnabled']) ?? false
   return {
-    squareAvatars: device.get(['squareAvatars']) ?? false,
-    squareButtons: device.get(['squareButtons']) ?? false,
-    hidePostCounts: device.get(['hidePostCounts']) ?? false,
-    hideProfileCounts: device.get(['hideProfileCounts']) ?? false,
-    hideFollowsYou: device.get(['hideFollowsYou']) ?? false,
-    countsFormat: device.get(['countsFormat']) ?? 'default',
+    witchskyEnabled,
+    squareAvatars: witchskyEnabled && (device.get(['squareAvatars']) ?? false),
+    squareButtons: witchskyEnabled && (device.get(['squareButtons']) ?? false),
+    hidePostCounts: witchskyEnabled && (device.get(['hidePostCounts']) ?? false),
+    hideProfileCounts:
+      witchskyEnabled && (device.get(['hideProfileCounts']) ?? false),
+    hideFollowsYou: witchskyEnabled && (device.get(['hideFollowsYou']) ?? false),
+    countsFormat: witchskyEnabled
+      ? (device.get(['countsFormat']) ?? 'default')
+      : 'default',
   }
 }
 

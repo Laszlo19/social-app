@@ -204,6 +204,14 @@ export type Device = {
   accentHue?: number
 
   /**
+   * Master toggle for all Witchsky fork features. When false (or absent),
+   * every Witchsky-specific UI section is hidden and the corresponding prefs
+   * are treated as off. Toggling on enables all boolean features at once.
+   * Settings > Experimental features.
+   */
+  witchskyEnabled?: boolean
+
+  /**
    * Policy update overlays. New IDs are required for each new announcement.
    */
   policyUpdateDebugOverride?: boolean

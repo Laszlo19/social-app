@@ -1,4 +1,4 @@
-import {useCallback, useImperativeHandle} from 'react'
+import {useCallback, useImperativeHandle, useRef} from 'react'
 import {Keyboard, View} from 'react-native'
 import DatePicker from 'react-native-date-picker'
 import {msg} from '@lingui/core/macro'
@@ -28,20 +28,25 @@ export function DateField({
   value,
   inputRef,
   onChangeDate,
+  onConfirm,
   testID,
   label,
   isInvalid,
   accessibilityHint,
   maximumDate,
+  minimumDate,
+  placeholder,
 }: DateFieldProps) {
   const {_, i18n} = useLingui()
   const t = useTheme()
   const control = Dialog.useDialogControl()
+  const pendingDate = useRef<string | null>(null)
 
   const onChangeInternal = useCallback(
     (date: Date | undefined) => {
       if (date) {
         const formatted = toSimpleDateString(date)
+        pendingDate.current = formatted
         onChangeDate(formatted)
       }
     },
@@ -73,6 +78,7 @@ export function DateField({
         }}
         isInvalid={isInvalid}
         accessibilityHint={accessibilityHint}
+        placeholder={placeholder}
       />
       <Dialog.Outer
         control={control}
@@ -98,11 +104,21 @@ export function DateField({
                     ? new Date(toSimpleDateString(maximumDate))
                     : undefined
                 }
+                minimumDate={
+                  minimumDate
+                    ? new Date(toSimpleDateString(minimumDate))
+                    : undefined
+                }
               />
             </View>
             <Button
               label={_(msg`Done`)}
-              onPress={() => control.close()}
+              onPress={() => {
+                if (onConfirm && pendingDate.current) {
+                  onConfirm(pendingDate.current)
+                }
+                control.close()
+              }}
               size="large"
               color="primary"
               variant="solid">

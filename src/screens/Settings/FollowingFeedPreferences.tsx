@@ -12,6 +12,7 @@ import {
 } from '#/state/queries/preferences'
 import {device, useStorage} from '#/storage'
 import {atoms as a} from '#/alf'
+import {useDisplayPrefs} from '#/state/preferences'
 import {Admonition} from '#/components/Admonition'
 import * as Toggle from '#/components/forms/Toggle'
 import {Beaker_Stroke2_Corner2_Rounded as BeakerIcon} from '#/components/icons/Beaker'
@@ -29,6 +30,7 @@ type Props = NativeStackScreenProps<
 >
 export function FollowingFeedPreferencesScreen({}: Props) {
   const {_} = useLingui()
+  const {witchskyEnabled} = useDisplayPrefs()
 
   const [hideComposerPrompt, setHideComposerPrompt] = useStorage(device, [
     'hideComposerPrompt',
@@ -133,7 +135,7 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <Toggle.Platform />
             </SettingsList.Item>
           </Toggle.Item>
-          <Toggle.Item
+          {!!witchskyEnabled && <Toggle.Item
             type="checkbox"
             name="discover-fallback"
             label={_(msg`Show Discover posts when your Following feed runs out`)}
@@ -146,7 +148,7 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               </SettingsList.ItemText>
               <Toggle.Platform />
             </SettingsList.Item>
-          </Toggle.Item>
+          </Toggle.Item>}
           <SettingsList.Divider />
           <SettingsList.Group>
             <SettingsList.ItemIcon icon={BeakerIcon} />
@@ -174,7 +176,7 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               <Toggle.Platform />
             </Toggle.Item>
           </SettingsList.Group>
-          <SettingsList.Divider />
+          {!!witchskyEnabled && <><SettingsList.Divider />
           <SettingsList.Group>
             <SettingsList.ItemIcon icon={EyeSlashIcon} />
             <SettingsList.ItemText>
@@ -200,11 +202,11 @@ export function FollowingFeedPreferencesScreen({}: Props) {
               onChange={value => setHideLoadLatestButton(value)}
               style={[a.w_full, a.gap_md]}>
               <Toggle.LabelText style={[a.flex_1]}>
-                <Trans>Hide the “load new posts” button</Trans>
+                <Trans>Hide the "load new posts" button</Trans>
               </Toggle.LabelText>
               <Toggle.Platform />
             </Toggle.Item>
-          </SettingsList.Group>
+          </SettingsList.Group></>}
         </SettingsList.Container>
       </Layout.Content>
     </Layout.Screen>

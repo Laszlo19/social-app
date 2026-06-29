@@ -300,6 +300,12 @@ msgstr "{0} fue eliminado"
 msgid "{0} was removed from the group"
 msgstr "{0} fue eliminado del grupo"
 
+#. List formatting: {0}, {1}, {2}
+#. placeholder {0}: link(lang)
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:106
+msgid "{0}, "
+msgstr ""
+
 #. placeholder {0}: createSanitizedDisplayName(members[0])
 #. placeholder {1}: createSanitizedDisplayName(members[1])
 #: src/screens/Messages/ConversationSettings/AddMembersLink.tsx:49
@@ -819,7 +825,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr "<0>{displayName}</0><1/><2> te añadió</2>"
 
 #: src/screens/Hashtag.tsx:226
-#: src/screens/Search/SearchResults.tsx:315
+#: src/screens/Search/SearchResults.tsx:416
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr "<0>Inicia sesión</0><1> o </1><2>crea una cuenta</2><3> </3><4>para acceder a noticias, deportes, debates políticos y todo lo que sucede en Bluesky.</4>"
 
@@ -935,7 +941,7 @@ msgstr "Acerca de"
 msgid "Abusive or discriminatory behavior"
 msgstr "Comportamiento abusivo o discriminatorio"
 
-#: src/screens/Settings/AppearanceSettings.tsx:144
+#: src/screens/Settings/AppearanceSettings.tsx:147
 msgid "Accent color"
 msgstr ""
 
@@ -1127,6 +1133,10 @@ msgstr "Añadir un texto alternativo"
 msgid "Add alt text (optional)"
 msgstr "Añadir un texto alternativo (opcional)"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:429
+msgid "Add an additional search filter"
+msgstr ""
+
 #: src/screens/Settings/Settings.tsx:630
 #: src/screens/Settings/Settings.tsx:633
 #: src/view/shell/desktop/LeftNav.tsx:242
@@ -1159,6 +1169,10 @@ msgstr "Añadir etiqueta de automatización a la cuenta"
 #: src/components/dms/EmojiReactionPicker.web.tsx:31
 msgid "Add emoji reaction"
 msgstr "Añadir reacción con emoji"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:437
+msgid "Add filter"
+msgstr ""
 
 #: src/components/dms/AddMembersFlow.tsx:492
 msgid "Add group chat members"
@@ -1331,6 +1345,11 @@ msgstr "Contenido de abuso sexual a adultos"
 msgid "Advanced"
 msgstr "Avanzado"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:76
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:234
+msgid "Advanced search"
+msgstr ""
+
 #: src/components/ageAssurance/AgeAssuranceBadge.tsx:42
 msgid "Age Assurance"
 msgstr "Verificación de edad"
@@ -1349,7 +1368,7 @@ msgstr "Solicitud de verificación de edad enviada"
 msgid "Age assurance only takes a few minutes"
 msgstr "La verificación de edad tarda unos pocos minutos"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:207
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:265
 msgid "AI alt-text (OpenRouter)"
 msgstr ""
 
@@ -1360,6 +1379,7 @@ msgstr "alice@ejemplo.com"
 #. the default tab in the interests tab bar
 #: src/components/dms/ReactionsDialog.tsx:292
 #: src/screens/Onboarding/StepSuggestedAccounts/index.tsx:201
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:26
 #: src/view/screens/Notifications.tsx:86
 msgid "All"
 msgstr "Todas"
@@ -1380,15 +1400,24 @@ msgid "All friends followed!"
 msgstr "¡Sigues a todos tus amigos!"
 
 #: src/components/dialogs/LanguageSelectDialog.tsx:255
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:65
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:100
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:67
 #: src/screens/Search/components/SearchLanguageDropdown.tsx:102
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:104
 msgid "All languages"
 msgstr "Todos los idiomas"
 
 #: src/screens/Settings/LanguageSettings.tsx:189
 msgid "All languages will be shown in your feeds."
 msgstr "Se mostrarán todos los idiomas en tus feeds."
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:241
+msgid "All of these words"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:27
+msgid "All posts"
+msgstr ""
 
 #: src/view/screens/Feeds.tsx:700
 msgid "All the feeds you've saved, right in one place."
@@ -1661,6 +1690,11 @@ msgstr "Anuncio"
 msgid "Announcing verification on Bluesky"
 msgstr "La verificación llega a Bluesky"
 
+#. Placeholder text for a date picker
+#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:39
+msgid "Any time"
+msgstr ""
+
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
 msgid "Anyone"
 msgstr "Cualquiera"
@@ -1774,7 +1808,7 @@ msgid "Appeal this decision"
 msgstr "Apelar esta decisión"
 
 #: src/Navigation.tsx:403
-#: src/screens/Settings/AppearanceSettings.tsx:89
+#: src/screens/Settings/AppearanceSettings.tsx:91
 #: src/screens/Settings/Settings.tsx:241
 #: src/screens/Settings/Settings.tsx:244
 msgid "Appearance"
@@ -1790,8 +1824,8 @@ msgstr "Aplicar feeds recomendados predeterminados"
 msgid "Apply Pull Request"
 msgstr "Aplicar Pull Request"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:239
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:243
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:297
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:301
 msgid "AppView DID override"
 msgstr ""
 
@@ -1808,6 +1842,24 @@ msgstr "Publicación archivada"
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:327
 msgid "Are you really, really sure?"
 msgstr "¿Estás realmente, realmente seguro?"
+
+#. placeholder {0}: link(languages[0])
+#. placeholder {1}: link(languages[1])
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:93
+msgid "Are you searching for posts in {0} or {1}?"
+msgstr ""
+
+#. placeholder {0}: link(languages[0])
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:88
+msgid "Are you searching for posts in {0}?"
+msgstr ""
+
+#. List formatting: {0}, {1}, or {2}
+#. placeholder {0}: head.map(lang => ( <Trans key={lang.code} comment="List formatting: {0}, {1}, {2}"> {link(lang)},{' '} </Trans> ))
+#. placeholder {1}: link(last)
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:103
+msgid "Are you searching for posts in {0}or {1}?"
+msgstr ""
 
 #. placeholder {0}: appPassword.name
 #: src/screens/Settings/AppPasswords.tsx:210
@@ -2140,10 +2192,20 @@ msgstr "Si bloqueas a un etiquetador aún podrán seguir aplicando etiquetas a t
 msgid "Blog"
 msgstr "Blog"
 
+#. Advanced search: Examples of hashtags
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:17
+msgid "bloomscrolling booksky"
+msgstr ""
+
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
 msgstr "Bluesky"
+
+#. Advanced search: Example of an "all of these words" search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:246
+msgid "bluesky atproto"
+msgstr ""
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:657
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
@@ -2234,7 +2296,7 @@ msgstr ""
 msgid "Breaking site rules"
 msgstr "Incumplimiento de las normas del sitio"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:140
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:198
 msgid "Bridged fediverse links"
 msgstr ""
 
@@ -2398,7 +2460,8 @@ msgstr "Se necesita acceso a la cámara"
 #: src/screens/Messages/ConversationSettings/prompts.tsx:180
 #: src/screens/Profile/Header/EditProfileDialog.tsx:215
 #: src/screens/Profile/Header/EditProfileDialog.tsx:223
-#: src/screens/Search/Shell.tsx:405
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:198
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:205
 #: src/screens/Settings/AppIconSettings/index.tsx:42
 #: src/screens/Settings/AppIconSettings/index.tsx:228
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:80
@@ -2428,7 +2491,7 @@ msgstr "Cancelar la reactivación y cerrar la sesión"
 msgid "Cancel reply"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:396
+#: src/screens/Search/Shell.tsx:474
 msgid "Cancel search"
 msgstr "Cancelar búsqueda"
 
@@ -2705,6 +2768,12 @@ msgstr "Elige tu contraseña"
 msgid "Choose your username"
 msgstr "Tu nombre de usuario"
 
+#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.native.tsx:63
+#: src/screens/Search/components/AdvancedSearchDialog/AutocompleteInput/index.tsx:91
+#: src/screens/Search/components/AdvancedSearchDialog/ClearableInput.tsx:59
+msgid "Clear"
+msgstr ""
+
 #: src/screens/Settings/Settings.tsx:528
 msgid "Clear all storage data"
 msgstr "Borrar todos los datos de almacenamiento"
@@ -2712,6 +2781,10 @@ msgstr "Borrar todos los datos de almacenamiento"
 #: src/screens/Settings/Settings.tsx:530
 msgid "Clear all storage data (restart after this)"
 msgstr "Borrar todos los datos de almacenamiento (reiniciar después de esto)"
+
+#: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:58
+msgid "Clear date"
+msgstr ""
 
 #. Accessibility label for the X button inside the search input that clears the typed query and returns to the trending feed.
 #: src/features/gifPicker/components/GifPickerHeader.tsx:67
@@ -2931,7 +3004,7 @@ msgid "Color"
 msgstr "Color"
 
 #: src/components/dialogs/Embed.tsx:150
-#: src/screens/Settings/AppearanceSettings.tsx:97
+#: src/screens/Settings/AppearanceSettings.tsx:99
 msgid "Color mode"
 msgstr "Modo de color"
 
@@ -3179,6 +3252,10 @@ msgstr "Conversación no encontrada."
 msgid "Copied build version to clipboard"
 msgstr "Versión de compilación copiada al portapapeles"
 
+#: src/screens/Search/Shell.tsx:408
+msgid "Copied link to clipboard"
+msgstr ""
+
 #: src/components/dms/ChatInvite/Root.tsx:99
 #: src/components/dms/MessageContextMenu.tsx:83
 #: src/components/PostControls/DiscoverDebug.tsx:36
@@ -3404,8 +3481,8 @@ msgstr "No se pudieron subir los contactos. Necesitas volver a verificar tu núm
 msgid "Couldn’t load GIFs"
 msgstr "No se pudieron cargar los GIF"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:105
-#: src/screens/Settings/CountsMetricsSettings.tsx:109
+#: src/screens/Settings/CountsMetricsSettings.tsx:107
+#: src/screens/Settings/CountsMetricsSettings.tsx:111
 msgid "Count format"
 msgstr ""
 
@@ -3416,8 +3493,13 @@ msgstr "Código de país"
 #: src/Navigation.tsx:419
 #: src/screens/Settings/ContentAndMediaSettings.tsx:87
 #: src/screens/Settings/ContentAndMediaSettings.tsx:90
-#: src/screens/Settings/CountsMetricsSettings.tsx:43
+#: src/screens/Settings/CountsMetricsSettings.tsx:45
 msgid "Counts & metrics"
+msgstr ""
+
+#. Advanced search: Example of an "none of these words" search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:280
+msgid "cows pigs"
 msgstr ""
 
 #. Text on button to create a new starter pack
@@ -3475,7 +3557,7 @@ msgstr "Crear una cuenta"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:235
-#: src/screens/Search/SearchResults.tsx:321
+#: src/screens/Search/SearchResults.tsx:422
 msgid "Create an account"
 msgstr "Crea una cuenta"
 
@@ -3566,7 +3648,7 @@ msgstr "Chat actual"
 msgid "Custom"
 msgstr "Personalizado"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:236
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:294
 msgid "Custom AppView DID"
 msgstr ""
 
@@ -3588,8 +3670,8 @@ msgstr "Sustancias peligrosas o abuso de drogas"
 
 #: src/components/dialogs/Embed.tsx:164
 #: src/components/dialogs/Embed.tsx:166
-#: src/screens/Settings/AppearanceSettings.tsx:109
-#: src/screens/Settings/AppearanceSettings.tsx:130
+#: src/screens/Settings/AppearanceSettings.tsx:111
+#: src/screens/Settings/AppearanceSettings.tsx:132
 msgid "Dark"
 msgstr "Oscuro"
 
@@ -3598,7 +3680,7 @@ msgctxt "Name of app icon variant"
 msgid "Dark"
 msgstr "Oscuro"
 
-#: src/screens/Settings/AppearanceSettings.tsx:122
+#: src/screens/Settings/AppearanceSettings.tsx:124
 msgid "Dark theme"
 msgstr "Tema oscuro"
 
@@ -3636,9 +3718,9 @@ msgstr "Rechazar esta sugerencia de idioma"
 msgid "Deepfake adult content"
 msgstr "Contenido para adultos deepfake"
 
-#: src/screens/Settings/AppearanceSettings.tsx:224
-#: src/screens/Settings/CountsMetricsSettings.tsx:117
-#: src/screens/Settings/CountsMetricsSettings.tsx:120
+#: src/screens/Settings/AppearanceSettings.tsx:227
+#: src/screens/Settings/CountsMetricsSettings.tsx:119
+#: src/screens/Settings/CountsMetricsSettings.tsx:122
 msgid "Default"
 msgstr "Por Defecto"
 
@@ -3663,8 +3745,8 @@ msgstr "Eliminar la cuenta"
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:183
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:230
-msgid "Delete account “{currentHandle}”"
-msgstr "Eliminar la cuenta \"{currentHandle}\""
+msgid "Delete account \"{currentHandle}\""
+msgstr ""
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:953
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:955
@@ -3822,7 +3904,11 @@ msgstr "El dispositivo no pudo traducir :("
 msgid "Dialog: adjust who can interact with this post"
 msgstr "Ajustar quién puede interactuar con esta publicación"
 
-#: src/screens/Settings/AppearanceSettings.tsx:126
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:229
+msgid "Dialog: Set advanced search options"
+msgstr ""
+
+#: src/screens/Settings/AppearanceSettings.tsx:128
 msgid "Dim"
 msgstr "Tenue"
 
@@ -4002,8 +4088,8 @@ msgid "Don't have a code or need a new one? <0>Click here.</0>"
 msgstr "¿No tienes código o necesitas uno nuevo? <0>Haz clic aquí.</0>"
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:269
-msgid "Don’t see a code? <0>Click here to resend.</0>"
-msgstr "¿No ves un código? <0>Haz clic aquí para reenviarlo.</0>"
+msgid "Don't see a code? <0>Click here to resend.</0>"
+msgstr ""
 
 #: src/components/dialogs/EmailDialog/components/ResendEmailText.tsx:36
 msgid "Don't see an email? <0>Click here to resend.</0>"
@@ -4032,8 +4118,8 @@ msgstr "¡No te preocupes! Todos los mensajes y configuraciones existentes está
 #: src/components/dialogs/ServerInput.tsx:239
 #: src/components/dms/AfterReportConversationDialog.tsx:164
 #: src/components/dms/AfterReportDialog.tsx:145
-#: src/components/forms/DateField/index.tsx:104
-#: src/components/forms/DateField/index.tsx:110
+#: src/components/forms/DateField/index.tsx:115
+#: src/components/forms/DateField/index.tsx:126
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:147
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:153
 #: src/lib/media/picker.tsx:37
@@ -4365,6 +4451,14 @@ msgstr "Activar {0} solamente"
 msgid "Enable adult content"
 msgstr "Mostrar contenido para adultos"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:116
+msgid "Enable all Witchsky features — accent colors, square avatars, counts controls, PDSls links, and more. Disabling turns everything off and hides the controls."
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:111
+msgid "Enable all Witchsky fork features"
+msgstr ""
+
 #: src/components/Post/Embed/VideoEmbed/VideoEmbedInner/web-controls/VideoControls.tsx:415
 msgid "Enable captions"
 msgstr "Activar subtítulos"
@@ -4516,7 +4610,7 @@ msgstr "Se produjo un error al guardar el archivo"
 msgid "Error receiving captcha response."
 msgstr "Error al recibir la respuesta del captcha."
 
-#: src/screens/Search/SearchResults.tsx:154
+#: src/screens/Search/SearchResults.tsx:178
 msgid "Error: {error}"
 msgstr "Error: {error}"
 
@@ -4528,6 +4622,8 @@ msgstr "Todos pueden responder"
 msgid "Everybody can reply to this post."
 msgstr "Todos pueden responder a esta publicación."
 
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:26
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:171
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:174
 msgid "Everyone"
@@ -4548,9 +4644,19 @@ msgstr "Todos"
 msgid "Everything else"
 msgstr "Todo lo demás"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:128
 #: src/screens/Settings/CountsMetricsSettings.tsx:130
+#: src/screens/Settings/CountsMetricsSettings.tsx:132
 msgid "Exact"
+msgstr ""
+
+#. Advanced search filter
+#. Advanced search filter
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:46
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:57
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:86
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:92
+msgid "Exclude"
 msgstr ""
 
 #: src/components/dialogs/MutedWords.tsx:320
@@ -4590,12 +4696,12 @@ msgstr "Amplía o reduce el texto de la publicación"
 msgid "Expected uri to resolve to a record"
 msgstr "Se esperaba que el uri resolviera a un registro"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:154
+#: src/screens/Settings/FollowingFeedPreferences.tsx:156
 msgid "Experimental"
 msgstr "En pruebas"
 
 #: src/Navigation.tsx:427
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:54
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:90
 #: src/screens/Settings/Settings.tsx:264
 #: src/screens/Settings/Settings.tsx:267
 msgid "Experimental features"
@@ -4634,7 +4740,7 @@ msgstr "Imágenes sexuales explícitas."
 
 #: src/features/customNav/catalog.tsx:123
 #: src/Navigation.tsx:792
-#: src/screens/Search/Shell.tsx:362
+#: src/screens/Search/Shell.tsx:442
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
 msgstr "Explorar"
@@ -4716,6 +4822,7 @@ msgstr "Error al cambiar nombre de usuario. Por favor vuelve a intentarlo."
 
 #: src/components/Lightbox/Lightbox.web.tsx:302
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:130
+#: src/screens/Search/Shell.tsx:409
 msgid "Failed to copy link"
 msgstr "Error al copiar el enlace"
 
@@ -5027,7 +5134,7 @@ msgstr "Error al verificar el nombre de usuario. Intenta nuevamente."
 msgid "Fake account or bot"
 msgstr "Cuenta falsa o bot"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:145
+#: src/screens/Settings/FollowingFeedPreferences.tsx:147
 msgid "Fall back to Discover when Following runs out"
 msgstr ""
 
@@ -5058,7 +5165,7 @@ msgstr "Feed por {0}"
 msgid "Feed creator"
 msgstr "Creador del feed"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:181
+#: src/screens/Settings/FollowingFeedPreferences.tsx:183
 msgid "Feed display"
 msgstr ""
 
@@ -5094,7 +5201,7 @@ msgstr "Comentarios enviados al operador del feed"
 #: src/Navigation.tsx:558
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:80
+#: src/screens/Search/SearchResults.tsx:96
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:239
@@ -5127,17 +5234,38 @@ msgstr "Buscar actualizaciones"
 msgid "File saved successfully!"
 msgstr "¡Archivo guardado exitosamente!"
 
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:49
+msgid "Filter by author"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:30
+msgid "Filter by author (currently: {currentLabel})"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:50
+msgid "Filter by media"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:31
+msgid "Filter by media (currently: {currentLabel})"
+msgstr ""
+
 #: src/lib/moderation/useLabelBehaviorDescription.ts:69
 msgid "Filter from feeds"
 msgstr "Filtrar de los feeds"
 
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:98
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:100
 msgid "Filter search by language"
 msgstr "Filtrar la búsqueda por idioma"
 
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:71
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:73
 msgid "Filter search by language (currently: {currentLanguageLabel})"
 msgstr "Filtrar la búsqueda por idioma (actualmente: {currentLanguageLabel})"
+
+#. placeholder {0}: lang.name
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:81
+msgid "Filter this search by {0}"
+msgstr ""
 
 #: src/screens/Settings/ActivityPrivacySettings.tsx:106
 msgid "Filter who can opt to receive notifications for your activity"
@@ -5184,7 +5312,7 @@ msgstr "Encontrar e invitar amigos"
 msgid "Find Contacts"
 msgstr "Buscar contactos"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:94
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:152
 msgid "Find friends experience"
 msgstr ""
 
@@ -5210,7 +5338,7 @@ msgstr "Buscar a gente para seguir"
 msgid "Find people you know"
 msgstr "Encuentra personas que conoces"
 
-#: src/screens/Search/Shell.tsx:537
+#: src/screens/Search/Shell.tsx:647
 msgid "Find posts, users, and feeds on Bluesky"
 msgstr "Buscar publicaciones, usuarios y feeds en Bluesky"
 
@@ -5359,7 +5487,7 @@ msgstr "Seguido por <0>{0}</0> y <1>{1}</1>"
 msgid "Followed by <0>{0}</0>, <1>{1}</1>, and {2, plural, one {# other} other {# others}}"
 msgstr "Seguido por <0>{0}</0>, <1>{1}</1>, y {2, plural, one {# más} other {# más}}"
 
-#: src/lib/hooks/useUpdateWidgets.ts:27
+#: src/lib/hooks/useUpdateWidgets.ts:43
 msgid "Followers"
 msgstr ""
 
@@ -5382,7 +5510,7 @@ msgstr "Seguidores que conoces"
 #: src/components/ProfileCard.tsx:537
 #: src/components/ProfileHoverCard/index.web.tsx:494
 #: src/components/ProfileHoverCard/index.web.tsx:505
-#: src/lib/hooks/useUpdateWidgets.ts:28
+#: src/lib/hooks/useUpdateWidgets.ts:44
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
 #: src/screens/VideoFeed/index.tsx:864
@@ -5420,7 +5548,7 @@ msgid "Following feed preferences"
 msgstr "Preferencias del feed de cuentas que sigues"
 
 #: src/Navigation.tsx:374
-#: src/screens/Settings/FollowingFeedPreferences.tsx:70
+#: src/screens/Settings/FollowingFeedPreferences.tsx:72
 msgid "Following Feed Preferences"
 msgstr "Preferencias del feed de cuentas que sigues"
 
@@ -5429,11 +5557,11 @@ msgstr "Preferencias del feed de cuentas que sigues"
 msgid "Follows you"
 msgstr "Te sigue"
 
-#: src/screens/Settings/AppearanceSettings.tsx:196
+#: src/screens/Settings/AppearanceSettings.tsx:199
 msgid "Font"
 msgstr "Fuente"
 
-#: src/screens/Settings/AppearanceSettings.tsx:216
+#: src/screens/Settings/AppearanceSettings.tsx:219
 msgid "Font size"
 msgstr "Tamaño de fuente"
 
@@ -5446,14 +5574,14 @@ msgid "For organizational accounts, use the birthdate of the person who is respo
 msgstr "Para cuentas organizativas, usa la fecha de nacimiento de la persona responsable de la cuenta."
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:186
-msgid "For security reasons, we’ll need to send a confirmation code to your email address <0>{currentEmail}</0>."
-msgstr "Por razones de seguridad, necesitamos enviar un código de confirmación a tu dirección de correo electrónico <0>{currentEmail}</0>."
+msgid "For security reasons, we'll need to send a confirmation code to your email address <0>{currentEmail}</0>."
+msgstr ""
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:208
 msgid "For security reasons, you won't be able to view this again. If you lose this app password, you'll need to generate a new one."
 msgstr "Por razones de seguridad, no podrás volver a verla. Si pierdes esta contraseña de app, tendrás que generar una nueva."
 
-#: src/screens/Settings/AppearanceSettings.tsx:198
+#: src/screens/Settings/AppearanceSettings.tsx:201
 msgid "For the best experience, we recommend using the theme font."
 msgstr "Para una mejor experiencia, recomendamos que uses la fuente del tema."
 
@@ -5495,6 +5623,7 @@ msgstr "¡Cuatro burbujas de mensajes representando un chat de grupo. Primer men
 msgid "Free your feed"
 msgstr "Libera tu feed"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:400
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:162
 msgid "From"
 msgstr "De"
@@ -5508,7 +5637,12 @@ msgctxt "from-feed"
 msgid "From <0/>"
 msgstr "De <0/>"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:71
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:30
+msgid "From these people"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:129
 msgid "Gallery fallback"
 msgstr ""
 
@@ -6000,7 +6134,7 @@ msgstr "Ocultar"
 msgid "Hide all events"
 msgstr "Ocultar todos los eventos"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:60
+#: src/screens/Settings/CountsMetricsSettings.tsx:62
 msgid "Hide counts"
 msgstr ""
 
@@ -6008,11 +6142,11 @@ msgstr ""
 msgid "Hide customization options"
 msgstr "Ocultar las opciones de personalización"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:50
+#: src/screens/Settings/CountsMetricsSettings.tsx:52
 msgid "Hide engagement numbers for a calmer experience. This only changes what you see."
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:82
+#: src/screens/Settings/CountsMetricsSettings.tsx:84
 msgid "Hide follower, following and post counts"
 msgstr ""
 
@@ -6020,7 +6154,7 @@ msgstr ""
 msgid "Hide group chat updates"
 msgstr "Ocultar actualizaciones del chat de grupo"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:70
+#: src/screens/Settings/CountsMetricsSettings.tsx:72
 msgid "Hide like, repost and reply counts on posts"
 msgstr ""
 
@@ -6028,7 +6162,7 @@ msgstr ""
 msgid "Hide lists"
 msgstr "Ocultar listas"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:65
+#: src/screens/Settings/CountsMetricsSettings.tsx:67
 msgid "Hide post engagement counts"
 msgstr ""
 
@@ -6037,7 +6171,7 @@ msgstr ""
 msgid "Hide post for me"
 msgstr "Ocultar el post para mí"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:77
+#: src/screens/Settings/CountsMetricsSettings.tsx:79
 msgid "Hide profile counts"
 msgstr ""
 
@@ -6051,24 +6185,21 @@ msgstr "Ocultar respuesta para todos"
 msgid "Hide reply for me"
 msgstr "Ocultar la respuesta para mí"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:89
-msgid "Hide the “Follows you” label"
+#: src/screens/Settings/CountsMetricsSettings.tsx:91
+msgid "Hide the \"Follows you\" label"
 msgstr ""
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:94
-msgid "Hide the “Follows you” label on profiles"
+#: src/screens/Settings/CountsMetricsSettings.tsx:96
+msgid "Hide the \"Follows you\" label on profiles"
 msgstr ""
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:198
+#: src/screens/Settings/FollowingFeedPreferences.tsx:200
+#: src/screens/Settings/FollowingFeedPreferences.tsx:205
 msgid "Hide the \"load new posts\" button"
 msgstr ""
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:203
-msgid "Hide the “load new posts” button"
-msgstr ""
-
-#: src/screens/Settings/FollowingFeedPreferences.tsx:186
-#: src/screens/Settings/FollowingFeedPreferences.tsx:191
+#: src/screens/Settings/FollowingFeedPreferences.tsx:188
+#: src/screens/Settings/FollowingFeedPreferences.tsx:193
 msgid "Hide the composer prompt at the top of feeds"
 msgstr ""
 
@@ -6424,6 +6555,40 @@ msgstr "Bandeja de entrada vacía"
 msgid "Inbox zero!"
 msgstr "La bandeja de entrada está vacía"
 
+#. Advanced search filter
+#. Advanced search filter
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:47
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:58
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:75
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:81
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:386
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: filter.mode === 'exclude' ? l({message: 'Exclude', comment: 'Advanced search filter'}) : l({message: 'Include', comment: 'Advanced search filter'})
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:44
+msgid "Include or exclude matching posts (currently: {0})"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:31
+msgid "Include posts and/or replies (currently: {currentLabel})"
+msgstr ""
+
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:301
+msgid "Include posts made since this date"
+msgstr ""
+
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:324
+msgid "Include posts made until this date"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:50
+msgid "Include these results"
+msgstr ""
+
 #: src/screens/Login/LoginForm.tsx:162
 msgid "Incorrect username or password"
 msgstr "Nombre de usuario o contraseña no válidos"
@@ -6704,6 +6869,10 @@ msgstr "Etiquetas en tu cuenta"
 msgid "Labels on your content"
 msgstr "Etiquetas en tu contenido"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:351
+msgid "Language"
+msgstr ""
+
 #: src/Navigation.tsx:225
 msgid "Language Settings"
 msgstr "Ajustes de Idiomas"
@@ -6714,7 +6883,7 @@ msgstr "Ajustes de Idiomas"
 msgid "Languages"
 msgstr "Idiomas"
 
-#: src/screens/Settings/AppearanceSettings.tsx:228
+#: src/screens/Settings/AppearanceSettings.tsx:231
 msgid "Larger"
 msgstr "Más grande"
 
@@ -6729,7 +6898,7 @@ msgid "Last initiated just now"
 msgstr "Última iniciación justo ahora"
 
 #: src/screens/Hashtag.tsx:99
-#: src/screens/Search/SearchResults.tsx:64
+#: src/screens/Search/SearchResults.tsx:77
 #: src/screens/Topic.tsx:65
 msgid "Latest"
 msgstr "Último"
@@ -6751,6 +6920,16 @@ msgstr "Más información"
 #: src/components/moderation/ScreenHider.tsx:147
 msgid "Learn More"
 msgstr "Aprender más"
+
+#: src/screens/Search/SearchResults.tsx:251
+msgctxt "english-only-resource"
+msgid "Learn more about <0>how to use advanced search</0>."
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:265
+msgctxt "english-only-resource"
+msgid "Learn more about <0>how to use search filters</0>."
+msgstr ""
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:66
 msgid "Learn more about age assurance"
@@ -6894,7 +7073,7 @@ msgstr "¡Vamos!"
 
 #: src/components/dialogs/Embed.tsx:159
 #: src/components/dialogs/Embed.tsx:161
-#: src/screens/Settings/AppearanceSettings.tsx:105
+#: src/screens/Settings/AppearanceSettings.tsx:107
 msgid "Light"
 msgstr "Claro"
 
@@ -7095,8 +7274,8 @@ msgstr "Las listas te permiten ver el contenido de tus personas favoritas."
 msgid "Lists blocking this user:"
 msgstr "Listas bloqueando este usuario:"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:123
 #: src/screens/Settings/CountsMetricsSettings.tsx:125
+#: src/screens/Settings/CountsMetricsSettings.tsx:127
 msgid "Lite"
 msgstr ""
 
@@ -7314,6 +7493,7 @@ msgstr ""
 msgid "Maybe later"
 msgstr "En otro momento"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:369
 #: src/view/screens/Profile.tsx:236
 msgid "Media"
 msgstr "Multimedia"
@@ -7355,6 +7535,11 @@ msgstr "usuarios mencionados"
 #: src/view/screens/Notifications.tsx:99
 msgid "Mentions"
 msgstr "Menciones"
+
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:37
+msgid "Mentions of these people"
+msgstr ""
 
 #: src/components/Menu/index.tsx:113
 msgid "Menu"
@@ -7547,7 +7732,7 @@ msgstr "Mover feed arriba"
 msgid "Movies"
 msgstr "Cine"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:185
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:243
 msgid "Multi-account actions"
 msgstr ""
 
@@ -7731,8 +7916,8 @@ msgid "Navigation"
 msgstr ""
 
 #: src/Navigation.tsx:411
-#: src/screens/Settings/AppearanceSettings.tsx:246
 #: src/screens/Settings/AppearanceSettings.tsx:249
+#: src/screens/Settings/AppearanceSettings.tsx:252
 msgid "Navigation bar"
 msgstr ""
 
@@ -7845,7 +8030,7 @@ msgid "New password"
 msgstr "Nueva contraseña"
 
 #: src/features/customNav/catalog.tsx:200
-#: src/lib/hooks/useUpdateWidgets.ts:26
+#: src/lib/hooks/useUpdateWidgets.ts:42
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8054,6 +8239,10 @@ msgstr "No hay citas aún"
 msgid "No recent GIFs yet. Pick one to see it here."
 msgstr "Aún no hay GIF recientes. Elige uno para verlo aquí."
 
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:23
+msgid "No replies"
+msgstr ""
+
 #: src/view/screens/Profile.tsx:456
 msgid "No replies yet"
 msgstr "Aún no hay respuestas"
@@ -8088,9 +8277,17 @@ msgstr "No se encontraron resultados"
 msgid "No results found for \"{query}\""
 msgstr "No se han encontrado resultados para \"{query}\""
 
-#: src/screens/Search/SearchResults.tsx:178
-msgid "No results found for “<0>{query}</0>”."
-msgstr "No se encontraron resultados para \"<0>{query}</0>\"."
+#: src/screens/Search/SearchResults.tsx:210
+msgid "No results found for \"<0>{query}</0>\" with advanced search filters applied."
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:222
+msgid "No results found for \"<0>{query}</0>\"."
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:216
+msgid "No results found for your query with advanced search filters applied."
+msgstr ""
 
 #: src/screens/Search/Explore.tsx:832
 msgid "No results."
@@ -8146,6 +8343,11 @@ msgstr "Imágenes íntimas no consentidas"
 #: src/lib/moderation/useGlobalLabelStrings.ts:42
 msgid "Non-sexual Nudity"
 msgstr "Desnudez no sexual"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:275
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:278
+msgid "None of these words"
+msgstr ""
 
 #: src/features/inviteFriends/InviteScannerScreen.web.tsx:31
 msgid "Not available on this platform"
@@ -8354,6 +8556,18 @@ msgstr "Solo las personas que sigue {0} pueden unirse."
 msgid "Only people the chat owner follows can join"
 msgstr "Solo las personas que sigue el propietario del chat pueden unirse"
 
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:23
+msgid "Only posts with media"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:24
+msgid "Only posts with videos"
+msgstr ""
+
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:24
+msgid "Only replies"
+msgstr ""
+
 #: src/view/com/composer/videos/SubtitleFilePicker.tsx:41
 msgid "Only WebVTT (.vtt) files are supported"
 msgstr "Solo se admiten archivos WebVTT (.vtt)"
@@ -8374,6 +8588,10 @@ msgstr "Ups, este perfil no existe. Prueba escaneando otro."
 #: src/view/screens/Profile.tsx:132
 msgid "Oops!"
 msgstr "¡Uy!"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:64
+msgid "Open advanced search options"
+msgstr ""
 
 #: src/screens/Onboarding/StepProfile/index.tsx:311
 msgid "Open avatar creator"
@@ -8512,8 +8730,8 @@ msgstr "Abrir el registro del sistema"
 msgid "Open this group chat"
 msgstr "Abrir este chat de grupo"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:210
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:214
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:268
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:272
 msgid "OpenRouter API key"
 msgstr ""
 
@@ -8719,7 +8937,7 @@ msgstr "El equipo de moderación ha recibido tu denuncia."
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
 msgstr "Nuestros moderadores han revisado denuncias y han decidido deshabilitar tu acceso a los chats en Bluesky."
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:258
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:316
 msgid "Override the AppView DID used for AT Protocol proxying. Takes full effect after signing out and back in."
 msgstr ""
 
@@ -8780,16 +8998,16 @@ msgstr "Pausar GIF"
 msgid "Pause video"
 msgstr "Pausar video"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:162
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:220
 msgid "PDS badge on profiles"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:117
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:175
 msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:167
-#: src/screens/Search/SearchResults.tsx:74
+#: src/screens/Search/SearchResults.tsx:90
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 msgid "People"
 msgstr "Personas"
@@ -8836,6 +9054,7 @@ msgid "People I follow can request to join"
 msgstr "Las personas que sigo pueden solicitar unirse"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:510
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:23
 msgid "People you follow"
 msgstr "Personas a las que sigues"
 
@@ -9131,7 +9350,7 @@ msgstr "Política"
 msgid "Porn"
 msgstr "Pornografía"
 
-#: src/screens/Settings/AppearanceSettings.tsx:310
+#: src/screens/Settings/AppearanceSettings.tsx:316
 msgid "Post"
 msgstr ""
 
@@ -9168,8 +9387,8 @@ msgstr "Publicar de todas formas"
 msgid "Post blocked"
 msgstr "Publicación bloqueada"
 
-#: src/screens/Settings/AppearanceSettings.tsx:304
-#: src/screens/Settings/AppearanceSettings.tsx:309
+#: src/screens/Settings/AppearanceSettings.tsx:310
+#: src/screens/Settings/AppearanceSettings.tsx:315
 msgid "Post button text"
 msgstr ""
 
@@ -9256,6 +9475,10 @@ msgstr "Publicación desfijado"
 #: src/view/screens/Profile.tsx:234
 msgid "Posts"
 msgstr "Publicaciones"
+
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:22
+msgid "Posts and replies"
+msgstr ""
 
 #: src/components/dialogs/MutedWords.tsx:123
 msgid "Posts can be muted based on their text, their tags, or both. We recommend avoiding common words that appear in many posts, since it can result in no posts being shown."
@@ -9378,7 +9601,7 @@ msgctxt "toast"
 msgid "Profile updated"
 msgstr "Perfil actualizado"
 
-#: src/screens/Settings/AppearanceSettings.tsx:257
+#: src/screens/Settings/AppearanceSettings.tsx:262
 msgid "Profiles"
 msgstr ""
 
@@ -9516,10 +9739,15 @@ msgstr "Reactivar tu cuenta"
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr "Leer {0, plural, one {# respuesta más} other {# respuestas más}}"
 
-#: src/screens/Search/SearchResults.tsx:189
+#: src/screens/Search/SearchResults.tsx:254
 msgctxt "english-only-resource"
-msgid "read about how to use search filters"
-msgstr "leer sobre cómo usar los filtros de búsqueda"
+msgid "Read about how to use advanced search filters"
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:268
+msgctxt "english-only-resource"
+msgid "Read about how to use search filters"
+msgstr ""
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:162
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:173
@@ -9712,6 +9940,11 @@ msgstr "Eliminar feed"
 #: src/view/com/posts/PostFeedErrorMessage.tsx:218
 msgid "Remove feed?"
 msgstr "¿Eliminar feed?"
+
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:137
+msgid "Remove filter"
+msgstr ""
 
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:238
 msgid "Remove from chat"
@@ -10434,8 +10667,11 @@ msgstr "Desplazar hacia arriba"
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
 #: src/features/customNav/catalog.tsx:122
-#: src/screens/Search/Shell.tsx:362
-#: src/screens/Search/Shell.tsx:525
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:214
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:220
+#: src/screens/Search/Shell.tsx:442
+#: src/screens/Search/Shell.tsx:493
+#: src/screens/Search/Shell.tsx:635
 msgid "Search"
 msgstr "Buscar"
 
@@ -10488,17 +10724,13 @@ msgstr "Buscar más feeds"
 msgid "Search for people"
 msgstr "Buscar personas"
 
-#: src/screens/Search/Shell.tsx:388
-msgid "Search for posts, users, or feeds"
-msgstr "Buscar publicaciones, usuarios o feeds"
-
 #. Accessibility label for the GIF search input inside the GIF picker dialog.
 #: src/features/gifPicker/components/GifPickerHeader.tsx:40
 msgid "Search GIFs"
 msgstr "Buscar GIFs"
 
 #: src/screens/Hashtag.tsx:224
-#: src/screens/Search/SearchResults.tsx:313
+#: src/screens/Search/SearchResults.tsx:414
 msgid "Search is currently unavailable when logged out"
 msgstr "La búsqueda no está disponible actualmente cuando has cerrado sesión"
 
@@ -10526,6 +10758,10 @@ msgstr "Buscar en sus publicaciones"
 #: src/components/ProgressGuide/FollowDialog.tsx:727
 msgid "Search profiles"
 msgstr "Buscar perfiles"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:244
+msgid "Search query"
+msgstr ""
 
 #: src/screens/Profile/ProfileSearch.tsx:38
 msgid "Search..."
@@ -10658,6 +10894,11 @@ msgstr "Seleccionar los idiomas del contenido"
 #: src/features/liveNow/components/GoLiveDialog.tsx:180
 msgid "Select duration"
 msgstr "Elegir la duración"
+
+#. placeholder {0}: labels[filter.field].title
+#: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:102
+msgid "Select filter type (currently: {0})"
+msgstr ""
 
 #: src/screens/Login/index.tsx:162
 msgid "Select from an existing account"
@@ -10995,6 +11236,10 @@ msgstr "Compartir código QR"
 msgid "Share this feed"
 msgstr "Compartir este feed"
 
+#: src/screens/Search/Shell.tsx:522
+msgid "Share this search"
+msgstr ""
+
 #: src/screens/StarterPack/StarterPackScreen.tsx:440
 msgid "Share this starter pack"
 msgstr "Compartir este paquete de inicio"
@@ -11028,32 +11273,32 @@ msgstr "Probador de Preferencias Compartidas"
 msgid "Show"
 msgstr "Ver"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:190
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:196
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:248
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:254
 msgid "Show \"Like as…\" and \"Repost as…\" in the post menu for other signed-in accounts"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:262
-msgid "Show “Mutuals” instead of “Following”"
-msgstr ""
-
 #: src/screens/Settings/AppearanceSettings.tsx:267
-msgid "Show “Mutuals” instead of “Following” on profiles you mutually follow"
+msgid "Show \"Mutuals\" instead of \"Following\""
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:128
+#: src/screens/Settings/AppearanceSettings.tsx:272
+msgid "Show \"Mutuals\" instead of \"Following\" on profiles you mutually follow"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:186
 msgid "Show \"Open in PDSls\" in the post menu (developer tool for inspecting raw AT Protocol records)"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:122
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:180
 msgid "Show \"Open in PDSls\" in the post menu for developer inspection of raw AT Protocol records"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:145
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:203
 msgid "Show \"Open on [instance]\" in the post menu for bridged fediverse accounts"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:151
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:209
 msgid "Show \"Open on [instance]\" in the post menu when the author is a bridged fediverse account"
 msgstr ""
 
@@ -11089,7 +11334,7 @@ msgstr "Mostrar insignia y filtrar de los feeds"
 msgid "Show customization options"
 msgstr "Mostrar opciones de personalización"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:139
+#: src/screens/Settings/FollowingFeedPreferences.tsx:141
 msgid "Show Discover posts when your Following feed runs out"
 msgstr ""
 
@@ -11132,13 +11377,13 @@ msgstr "Mostrar más respuestas"
 msgid "Show post replies in a threaded tree view"
 msgstr "Mostrar las respuestas a las publicaciones en una vista de árbol con hilos"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:121
-#: src/screens/Settings/FollowingFeedPreferences.tsx:131
+#: src/screens/Settings/FollowingFeedPreferences.tsx:123
+#: src/screens/Settings/FollowingFeedPreferences.tsx:133
 msgid "Show quote posts"
 msgstr "Mostrar citas"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:85
-#: src/screens/Settings/FollowingFeedPreferences.tsx:95
+#: src/screens/Settings/FollowingFeedPreferences.tsx:87
+#: src/screens/Settings/FollowingFeedPreferences.tsx:97
 msgid "Show replies"
 msgstr "Mostrar respuestas"
 
@@ -11151,29 +11396,29 @@ msgstr "Mostrar las respuestas como"
 msgid "Show reply for everyone"
 msgstr "Mostrar respuesta para todos"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:103
-#: src/screens/Settings/FollowingFeedPreferences.tsx:113
+#: src/screens/Settings/FollowingFeedPreferences.tsx:105
+#: src/screens/Settings/FollowingFeedPreferences.tsx:115
 msgid "Show reposts"
 msgstr "Mostrar republicaciones"
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:160
-#: src/screens/Settings/FollowingFeedPreferences.tsx:170
+#: src/screens/Settings/FollowingFeedPreferences.tsx:162
+#: src/screens/Settings/FollowingFeedPreferences.tsx:172
 msgid "Show samples of your saved feeds in your Following feed"
 msgstr "Mostrar parte de tus feeds guardados en tu feed Siguiendo"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:82
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:140
 msgid "Show the fallback for galleries (5+ photos) instead of the carousel"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:167
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:225
 msgid "Show the hosting PDS as a badge on profile headers"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:173
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:231
 msgid "Show the hosting PDS server as a small badge on profile headers"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:76
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:134
 msgid "Show the update-your-app fallback for galleries with 5+ photos"
 msgstr ""
 
@@ -11223,7 +11468,7 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:356
 #: src/screens/Messages/JoinRequest.tsx:290
 #: src/screens/Messages/JoinRequest.tsx:296
-#: src/screens/Search/SearchResults.tsx:316
+#: src/screens/Search/SearchResults.tsx:417
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:124
 #: src/view/com/auth/SplashScreen.web.tsx:122
@@ -11308,6 +11553,11 @@ msgstr "Se requiere iniciar sesión"
 msgid "Signed in as @{0}"
 msgstr "Sesión iniciada como @{0}"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:295
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:298
+msgid "Since"
+msgstr ""
+
 #: src/components/contacts/screens/PhoneInput.tsx:175
 #: src/components/contacts/screens/VerifyNumber.tsx:215
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:86
@@ -11343,7 +11593,7 @@ msgstr "Saltar al siguiente paso"
 msgid "slide"
 msgstr "diapositiva"
 
-#: src/screens/Settings/AppearanceSettings.tsx:220
+#: src/screens/Settings/AppearanceSettings.tsx:223
 msgid "Smaller"
 msgstr "Más pequeño"
 
@@ -11468,7 +11718,7 @@ msgstr "¿Algo va mal? Avísanos."
 msgid "Sorry, we're unable to load account suggestions at this time."
 msgstr "Lo sentimos, no podemos cargar las sugerencias de cuentas en este momento."
 
-#: src/App.native.tsx:144
+#: src/App.native.tsx:152
 #: src/App.web.tsx:117
 msgid "Sorry! Your session expired. Please sign in again."
 msgstr "Lo sentimos, tu sesión ha expirado. Inicia sesión de nuevo."
@@ -11756,8 +12006,8 @@ msgstr "Cambiar a {0}"
 
 #: src/components/dialogs/Embed.tsx:154
 #: src/components/dialogs/Embed.tsx:156
-#: src/screens/Settings/AppearanceSettings.tsx:101
-#: src/screens/Settings/AppearanceSettings.tsx:203
+#: src/screens/Settings/AppearanceSettings.tsx:103
+#: src/screens/Settings/AppearanceSettings.tsx:206
 msgid "System"
 msgstr "Sistema"
 
@@ -12068,7 +12318,7 @@ msgstr "El código de verificación que has proporcionado es inválido. Por favo
 msgid "The verification provider was unable to send a code to your phone number. Please check your phone number and try again."
 msgstr "El proveedor de verificación no pudo enviar un código a tu número de teléfono. Verifica tu número e inténtalo de nuevo."
 
-#: src/screens/Settings/AppearanceSettings.tsx:207
+#: src/screens/Settings/AppearanceSettings.tsx:210
 msgid "Theme"
 msgstr "Tema"
 
@@ -12195,13 +12445,28 @@ msgstr "¡Ha habido una oleada de nuevos usuarios en Bluesky! Activaremos tu cue
 msgid "These are your default settings"
 msgstr "Estos son tus ajustes predeterminados"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:62
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:51
+msgid "These domains"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:98
 msgid "These features are experimental and may change or break at any time."
 msgstr ""
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:79
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:44
+msgid "These hashtags"
+msgstr ""
+
+#: src/screens/Settings/FollowingFeedPreferences.tsx:81
 msgid "These settings only apply to the Following feed."
 msgstr "Estos ajustes solo aplican para el feed Following."
+
+#. Advanced search filter
+#: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:58
+msgid "These URLs"
+msgstr ""
 
 #: src/components/moderation/BlockDialog.tsx:356
 msgid "They own this chat"
@@ -12325,6 +12590,11 @@ msgstr "Este borrador se eliminará de forma permanente."
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:155
 msgid "This email is already associated with your account."
 msgstr "Este correo electrónico ya está asociado con tu cuenta."
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:259
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:262
+msgid "This exact phrase"
+msgstr ""
 
 #: src/screens/Settings/ActivityPrivacySettings.tsx:56
 msgid "This feature allows users to receive notifications for your new posts and replies. Who do you want to enable this for?"
@@ -12659,7 +12929,7 @@ msgid "Too many contacts - you've exceeded the number of contacts you can import
 msgstr "Demasiados contactos: has excedido el número de contactos que puedes importar para encontrar a tus amigos"
 
 #: src/screens/Hashtag.tsx:88
-#: src/screens/Search/SearchResults.tsx:54
+#: src/screens/Search/SearchResults.tsx:64
 #: src/screens/Topic.tsx:59
 msgid "Top"
 msgstr "Destacados"
@@ -12731,10 +13001,13 @@ msgstr "Trolleo"
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr "La confianza se construye a partir de las relaciones, las comunidades y los contextos compartidos. Por ello, también nombramos a <0>verificadores de confianza</0>: organizaciones que pueden verificar cuentas directamente."
 
-#: src/screens/Search/SearchResults.tsx:186
-msgctxt "english-only-resource"
-msgid "Try a different search term, or <0>read about how to use search filters</0>."
-msgstr "Prueba con un término de búsqueda diferente o <0>lee sobre cómo usar los filtros de búsqueda</0>."
+#: src/screens/Search/SearchResults.tsx:237
+msgid "Try a different search term or remove some filters."
+msgstr ""
+
+#: src/screens/Search/SearchResults.tsx:239
+msgid "Try a different search term."
+msgstr ""
 
 #: src/features/inviteFriends/InviteScannerScreen.tsx:221
 #: src/features/inviteFriends/InviteScannerScreen.tsx:226
@@ -13078,6 +13351,11 @@ msgstr "Contenido del portapapeles no admitido"
 msgid "Unsupported video type: {mimeType}"
 msgstr "Tipo de video no aceptado: {mimeType}"
 
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:318
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:321
+msgid "Until"
+msgstr ""
+
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:198
 msgid "Up to 50 people"
 msgstr "Hasta 50 personas"
@@ -13219,28 +13497,25 @@ msgstr "Usar mi navegador predeterminado"
 msgid "Use recommended"
 msgstr "Usar recomendados"
 
-#: src/screens/Settings/AppearanceSettings.tsx:294
+#: src/screens/Settings/AppearanceSettings.tsx:299
 msgid "Use rectangular buttons instead of pill-shaped"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:277
+#: src/screens/Settings/AppearanceSettings.tsx:282
 msgid "Use square avatars"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:282
+#: src/screens/Settings/AppearanceSettings.tsx:287
 msgid "Use square avatars instead of circular"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:289
+#: src/screens/Settings/AppearanceSettings.tsx:294
 msgid "Use square buttons"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:99
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:157
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:163
 msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\""
-msgstr ""
-
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:105
-msgid "Use the legacy “Find friends from contacts” instead of “Find and invite friends”"
 msgstr ""
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:190
@@ -13251,7 +13526,7 @@ msgstr "Utilízala para iniciar sesión en la otra app junto a tu nombre de usua
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
 msgstr "Usa la dirección de correo electrónico de tu cuenta, u otra dirección real que controles, en caso de que KWS o Bluesky necesiten contactarte."
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:226
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:284
 msgid "Used to generate alt text for images in the composer via OpenRouter's vision API. Get a key at openrouter.ai."
 msgstr ""
 
@@ -13896,10 +14171,10 @@ msgstr "Lo sentimos, pero no pudimos resolver esta lista. Si esto persiste, por 
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "Lo sentimos, pero no pudimos cargar tus palabras silenciadas en este momento. Por favor, inténtalo de nuevo."
 
-#: src/screens/Search/SearchResults.tsx:339
-#: src/screens/Search/SearchResults.tsx:472
-msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
-msgstr "Lo sentimos, no se pudo completar tu búsqueda. Inténtalo de nuevo en unos minutos."
+#: src/screens/Search/SearchResults.tsx:440
+#: src/screens/Search/SearchResults.tsx:577
+msgid "We're sorry, but your search could not be completed. Please try again in a few minutes."
+msgstr ""
 
 #: src/components/ageAssurance/AgeRestrictedScreen.tsx:62
 msgid "We're sorry, you cannot access this screen at this time."
@@ -13954,6 +14229,11 @@ msgstr "¿Qué te interesa?"
 #: src/screens/StarterPack/Wizard/StepDetails.tsx:44
 msgid "What do you want to call your starter pack?"
 msgstr "¿Cómo quieres llamar a tu paquete de inicio?"
+
+#. Advanced search: Example of an "exact phrase" search
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:264
+msgid "what's up"
+msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:98
 #: src/view/com/composer/Composer.tsx:1520
@@ -14029,6 +14309,10 @@ msgstr "¿Por qué crees que este paquete de inicio debe ser revisado?"
 #: src/components/moderation/ReportDialog/copy.ts:14
 msgid "Why should this user be reviewed?"
 msgstr "¿Por qué crees que este usuario debe ser revisado?"
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:107
+msgid "Witchsky"
+msgstr ""
 
 #: src/components/dms/AfterReportDialog.tsx:51
 msgid "Would you like to block this user and/or delete this conversation?"
@@ -14615,6 +14899,10 @@ msgstr "Has alcanzado el número máximo de borradores"
 #: src/lib/hooks/useCleanError.ts:68
 msgid "You've reached the maximum number of requests allowed. Please try again later."
 msgstr "Has alcanzado el número máximo de solicitudes permitidas. Inténtalo de nuevo más tarde."
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:420
+msgid "You've reached the maximum of {MAX_FILTERS, plural, one {# filter} other {# filters}}. Add more values to an existing filter instead of creating new ones."
+msgstr ""
 
 #: src/components/FocusScope/index.tsx:88
 msgid "You've reached the start of the active content."
