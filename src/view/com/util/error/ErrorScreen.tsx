@@ -1,4 +1,5 @@
-import {View} from 'react-native'
+import {ScrollView, View} from 'react-native'
+import {setStringAsync} from 'expo-clipboard'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
@@ -7,8 +8,10 @@ import {usePalette} from '#/lib/hooks/usePalette'
 import {atoms as a, useTheme} from '#/alf'
 import {Button, ButtonIcon, ButtonText} from '#/components/Button'
 import {ArrowRotateCounterClockwise_Stroke2_Corner0_Rounded as ArrowRotateCounterClockwiseIcon} from '#/components/icons/ArrowRotate'
+import {Clipboard_Stroke2_Corner2_Rounded as ClipboardIcon} from '#/components/icons/Clipboard'
 import {Warning_Stroke2_Corner0_Rounded as WarningIcon} from '#/components/icons/Warning'
 import * as Layout from '#/components/Layout'
+import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
 
 export function ErrorScreen({
@@ -61,23 +64,45 @@ export function ErrorScreen({
         </Text>
         <Text style={[a.text_center, a.text_md, a.mb_xl]}>{message}</Text>
         {details && (
-          <View
-            style={[
-              a.w_full,
-              a.border,
-              t.atoms.border_contrast_medium,
-              t.atoms.bg_contrast_25,
-              a.mb_xl,
-              a.py_sm,
-              a.px_lg,
-              a.rounded_xs,
-              a.overflow_hidden,
-            ]}>
-            <Text
-              testID={`${testID}-details`}
-              style={[a.text_center, a.text_md, t.atoms.text_contrast_high]}>
-              {details}
-            </Text>
+          <View style={[a.w_full, a.mb_xl, a.gap_sm]}>
+            <ScrollView
+              style={[
+                a.w_full,
+                a.border,
+                t.atoms.border_contrast_medium,
+                t.atoms.bg_contrast_25,
+                a.rounded_xs,
+                {maxHeight: 320},
+              ]}
+              contentContainerStyle={[a.py_sm, a.px_lg]}>
+              <Text
+                testID={`${testID}-details`}
+                selectable
+                style={[a.text_sm, t.atoms.text_contrast_high]}>
+                {details}
+              </Text>
+            </ScrollView>
+            <View style={[a.align_center]}>
+              <Button
+                testID={`${testID}-copyDetails`}
+                onPress={() => {
+                  setStringAsync(details).then(
+                    () =>
+                      Toast.show(_(msg`Copied to clipboard`), {type: 'success'}),
+                    () =>
+                      Toast.show(_(msg`Failed to copy`), {type: 'error'}),
+                  )
+                }}
+                variant="ghost"
+                color="secondary"
+                size="small"
+                label={_(msg`Copy error details`)}>
+                <ButtonIcon icon={ClipboardIcon} />
+                <ButtonText>
+                  <Trans>Copy details</Trans>
+                </ButtonText>
+              </Button>
+            </View>
           </View>
         )}
         {onPressTryAgain && (
