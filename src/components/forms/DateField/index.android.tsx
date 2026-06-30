@@ -82,7 +82,9 @@ export function DateField({
           theme={t.scheme}
           // @ts-ignore TODO
           buttonColor={t.name === 'light' ? '#000000' : '#ffffff'}
-          date={new Date(value)}
+          // An empty value (cleared/optional field) would make an Invalid Date
+          // and crash the native picker, so open at today instead.
+          date={new Date(toSimpleDateString(value || new Date()))}
           onConfirm={onChangeInternal}
           onCancel={onCancel}
           mode="date"

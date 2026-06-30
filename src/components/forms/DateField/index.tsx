@@ -91,7 +91,9 @@ export function DateField({
               <DatePicker
                 timeZoneOffsetInMinutes={0}
                 theme={t.scheme}
-                date={new Date(toSimpleDateString(value))}
+                // An empty value (cleared/optional field) would make an Invalid
+                // Date and crash the picker, so open at today instead.
+                date={new Date(toSimpleDateString(value || new Date()))}
                 onDateChange={onChangeInternal}
                 mode="date"
                 locale={i18n.locale}

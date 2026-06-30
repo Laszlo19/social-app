@@ -62,7 +62,7 @@ export function DateField({
     <TextField.Root isInvalid={isInvalid}>
       <TextField.Icon icon={CalendarDays} />
       <Input
-        value={toSimpleDateString(value)}
+        value={value ? toSimpleDateString(value) : ''}
         inputRef={inputRef as React.Ref<TextInput>}
         label={label}
         onChange={handleOnChange}
