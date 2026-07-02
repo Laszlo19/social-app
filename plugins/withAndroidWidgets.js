@@ -32,6 +32,8 @@ const PINNED_FEEDS_PROVIDER = 'PinnedFeedsWidgetProvider'
 const PINNED_FEEDS_SERVICE = 'PinnedFeedsRemoteViewsService'
 const LISTS_PROVIDER = 'ListsWidgetProvider'
 const LISTS_SERVICE = 'ListsRemoteViewsService'
+const CHATS_PROVIDER = 'ChatsWidgetProvider'
+const CHATS_SERVICE = 'ChatsRemoteViewsService'
 
 // ---------------------------------------------------------------------------
 // Resource XML
@@ -74,6 +76,11 @@ function widgetStringsXml() {
   <string name="widget_lists_description">Your moderation and curation lists</string>
   <string name="widget_lists_title">Lists</string>
   <string name="widget_lists_empty">No lists found</string>
+  <string name="widget_chats_label">Chats</string>
+  <string name="widget_chats_description">Your recent chats and group chats</string>
+  <string name="widget_chats_title">Chats</string>
+  <string name="widget_chats_empty">Say hi to someone</string>
+  <string name="widget_chats_new">New chat</string>
 </resources>
 `
 }
@@ -571,6 +578,96 @@ function feedsListRowXml(idPrefix) {
 `
 }
 
+// Square chats widget: a compact list of recent chats with an app-style empty
+// state ("Say hi to someone" + a New chat button) shown when there are none.
+function chatsLayoutXml() {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/widget_chats_root"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@drawable/widget_card_bg"
+  android:padding="12dp">
+  <TextView
+    android:id="@+id/widget_chats_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/widget_chats_title"
+    android:textColor="@color/widget_text_secondary"
+    android:textSize="10sp"
+    android:letterSpacing="0.08"
+    android:layout_marginBottom="6dp" />
+  <ListView
+    android:id="@+id/widget_chats_list"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:divider="@color/widget_divider"
+    android:dividerHeight="1dp"
+    android:scrollbars="none" />
+  <LinearLayout
+    android:id="@+id/widget_chats_empty"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:visibility="gone">
+    <TextView
+      android:id="@+id/widget_chats_empty_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/widget_chats_empty"
+      android:textColor="@color/widget_text"
+      android:textSize="13sp"
+      android:textStyle="bold"
+      android:gravity="center"
+      android:layout_marginBottom="10dp" />
+    <TextView
+      android:id="@+id/widget_chats_new"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/widget_chats_new"
+      android:textColor="#FFFFFF"
+      android:textSize="12sp"
+      android:textStyle="bold"
+      android:gravity="center"
+      android:paddingLeft="16dp"
+      android:paddingRight="16dp"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:background="@drawable/widget_button_bg" />
+  </LinearLayout>
+</LinearLayout>
+`
+}
+
+function chatsRowXml() {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/widget_chats_row_root"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:gravity="center_vertical"
+  android:paddingTop="9dp"
+  android:paddingBottom="9dp"
+  android:paddingStart="2dp"
+  android:paddingEnd="2dp">
+  <TextView
+    android:id="@+id/widget_chats_row_name"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:textColor="@color/widget_text"
+    android:textSize="13sp"
+    android:maxLines="1"
+    android:ellipsize="end" />
+</LinearLayout>
+`
+}
+
 // ---------------------------------------------------------------------------
 // Widget metadata (appwidget-provider)
 // ---------------------------------------------------------------------------
@@ -689,6 +786,23 @@ function listsInfoXml() {
   android:previewImage="@mipmap/ic_launcher"
   android:previewLayout="@layout/widget_lists"
   android:initialLayout="@layout/widget_lists" />
+`
+}
+
+function chatsInfoXml() {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+  android:minWidth="110dp"
+  android:minHeight="110dp"
+  android:targetCellWidth="2"
+  android:targetCellHeight="2"
+  android:updatePeriodMillis="1800000"
+  android:resizeMode="horizontal|vertical"
+  android:widgetCategory="home_screen"
+  android:description="@string/widget_chats_description"
+  android:previewImage="@mipmap/ic_launcher"
+  android:previewLayout="@layout/widget_chats"
+  android:initialLayout="@layout/widget_chats" />
 `
 }
 
@@ -1377,6 +1491,149 @@ class ListsRemoteViewsFactory(private val context: Context) :
 `
 }
 
+function chatsProviderKt(pkg) {
+  return `package ${pkg}.widgets
+
+import android.app.PendingIntent
+import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.RemoteViews
+import java.io.File
+import org.json.JSONObject
+import ${pkg}.R
+
+class ${CHATS_PROVIDER} : AppWidgetProvider() {
+  override fun onUpdate(
+    context: Context,
+    appWidgetManager: AppWidgetManager,
+    appWidgetIds: IntArray,
+  ) {
+    for (appWidgetId in appWidgetIds) {
+      val views = RemoteViews(context.packageName, R.layout.widget_chats)
+      applyLabels(context, views, mapOf(
+        R.id.widget_chats_title to "chatsTitle",
+        R.id.widget_chats_empty_text to "chatsEmpty",
+        R.id.widget_chats_new to "chatsNew",
+      ))
+
+      val serviceIntent = Intent(context, ${CHATS_SERVICE}::class.java).apply {
+        putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        data = Uri.parse(toUri(Intent.URI_INTENT_SCHEME))
+      }
+      views.setRemoteAdapter(R.id.widget_chats_list, serviceIntent)
+      views.setEmptyView(R.id.widget_chats_list, R.id.widget_chats_empty)
+
+      val templateIntent = Intent(Intent.ACTION_VIEW).apply {
+        setPackage(context.packageName)
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+      }
+      val pendingTemplate = PendingIntent.getActivity(
+        context,
+        appWidgetId + 2000,
+        templateIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE,
+      )
+      views.setPendingIntentTemplate(R.id.widget_chats_list, pendingTemplate)
+
+      // The empty-state "New chat" button opens the Messages tab.
+      val messagesIntent = Intent(Intent.ACTION_VIEW, Uri.parse("bluesky://messages")).apply {
+        setPackage(context.packageName)
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+      }
+      val newChatPending = PendingIntent.getActivity(
+        context,
+        appWidgetId + 3000,
+        messagesIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+      )
+      views.setOnClickPendingIntent(R.id.widget_chats_new, newChatPending)
+
+      appWidgetManager.updateAppWidget(appWidgetId, views)
+      appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.widget_chats_list)
+    }
+  }
+${widgetLabelsHelperKt()}}
+`
+}
+
+function chatsServiceKt(pkg) {
+  return `package ${pkg}.widgets
+
+import android.content.Intent
+import android.widget.RemoteViewsService
+
+class ${CHATS_SERVICE} : RemoteViewsService() {
+  override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
+    return ChatsRemoteViewsFactory(applicationContext)
+  }
+}
+`
+}
+
+function chatsFactoryKt(pkg) {
+  return `package ${pkg}.widgets
+
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.RemoteViews
+import android.widget.RemoteViewsService
+import java.io.File
+import org.json.JSONArray
+import ${pkg}.R
+
+class ChatsRemoteViewsFactory(private val context: Context) :
+  RemoteViewsService.RemoteViewsFactory {
+
+  private data class ChatItem(val name: String, val id: String)
+
+  private var chats: List<ChatItem> = emptyList()
+
+  private fun loadData() {
+    chats = try {
+      val file = File(context.filesDir, "widget_chats.json")
+      if (!file.exists()) return
+      val arr = JSONArray(file.readText())
+      (0 until arr.length()).map { i ->
+        val obj = arr.getJSONObject(i)
+        ChatItem(
+          name = obj.optString("name", ""),
+          id = obj.optString("id", ""),
+        )
+      }.filter { it.name.isNotEmpty() }
+    } catch (e: Exception) {
+      emptyList()
+    }
+  }
+
+  override fun onCreate() { loadData() }
+  override fun onDataSetChanged() { loadData() }
+  override fun onDestroy() {}
+  override fun getCount() = chats.size
+  override fun getLoadingView() = null
+  override fun getViewTypeCount() = 1
+  override fun getItemId(position: Int) = position.toLong()
+  override fun hasStableIds() = true
+
+  override fun getViewAt(position: Int): RemoteViews {
+    val views = RemoteViews(context.packageName, R.layout.widget_chats_row)
+    if (position >= chats.size) return views
+    val chat = chats[position]
+    views.setTextViewText(R.id.widget_chats_row_name, chat.name)
+    val deepLink =
+      if (chat.id.isNotEmpty()) "bluesky://messages/" + chat.id
+      else "bluesky://messages"
+    val fillIn = Intent().apply { data = Uri.parse(deepLink) }
+    views.setOnClickFillInIntent(R.id.widget_chats_row_root, fillIn)
+    return views
+  }
+}
+`
+}
+
 // ---------------------------------------------------------------------------
 // File-system helpers
 // ---------------------------------------------------------------------------
@@ -1446,6 +1703,10 @@ const withWidgetFiles = config => {
       )
       writeFile(path.join(res, 'xml', 'widget_lists_info.xml'), listsInfoXml())
 
+      writeFile(path.join(res, 'layout', 'widget_chats.xml'), chatsLayoutXml())
+      writeFile(path.join(res, 'layout', 'widget_chats_row.xml'), chatsRowXml())
+      writeFile(path.join(res, 'xml', 'widget_chats_info.xml'), chatsInfoXml())
+
       // Kotlin sources
       const javaDir = path.join(main, 'java', ...pkg.split('.'), 'widgets')
       writeFile(path.join(javaDir, `${NEW_POST_PROVIDER}.kt`), newPostProviderKt(pkg))
@@ -1459,6 +1720,9 @@ const withWidgetFiles = config => {
       writeFile(path.join(javaDir, `${LISTS_PROVIDER}.kt`), listsProviderKt(pkg))
       writeFile(path.join(javaDir, `${LISTS_SERVICE}.kt`), listsServiceKt(pkg))
       writeFile(path.join(javaDir, 'ListsRemoteViewsFactory.kt'), listsFactoryKt(pkg))
+      writeFile(path.join(javaDir, `${CHATS_PROVIDER}.kt`), chatsProviderKt(pkg))
+      writeFile(path.join(javaDir, `${CHATS_SERVICE}.kt`), chatsServiceKt(pkg))
+      writeFile(path.join(javaDir, 'ChatsRemoteViewsFactory.kt'), chatsFactoryKt(pkg))
 
       return config
     },
@@ -1548,6 +1812,11 @@ const withWidgetReceivers = config => {
         '@string/widget_lists_label',
         '@xml/widget_lists_info',
       ),
+      receiverNode(
+        `.widgets.${CHATS_PROVIDER}`,
+        '@string/widget_chats_label',
+        '@xml/widget_chats_info',
+      ),
     ]
 
     for (const receiver of receivers) {
@@ -1560,6 +1829,7 @@ const withWidgetReceivers = config => {
     const services = [
       serviceNode(`.widgets.${PINNED_FEEDS_SERVICE}`),
       serviceNode(`.widgets.${LISTS_SERVICE}`),
+      serviceNode(`.widgets.${CHATS_SERVICE}`),
     ]
 
     for (const svc of services) {

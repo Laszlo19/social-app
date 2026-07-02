@@ -56,6 +56,7 @@ class ExpoAppShortcutsModule : Module() {
       "InteractionsWidgetProvider",
       "PinnedFeedsWidgetProvider",
       "ListsWidgetProvider",
+      "ChatsWidgetProvider",
     )
     for (cls in providers) {
       try {
