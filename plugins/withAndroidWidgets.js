@@ -130,6 +130,22 @@ function widgetCardBgXml() {
 `
 }
 
+// Speech-bubble smiley for the Chats empty state, mirroring the app's
+// BubbleSmile icon (src/components/icons/Bubble.tsx, viewBox 64x64).
+function widgetChatsSmileyXml() {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="44dp"
+  android:height="44dp"
+  android:viewportWidth="64"
+  android:viewportHeight="64">
+  <path android:fillColor="@color/widget_text_secondary" android:pathData="M55 32C55 19.298 44.703 9 32 9S9 19.298 9 32c0 3.463.765 6.745 2.134 9.688.358.769.479 1.658.267 2.525l-2.076 8.51a1.667 1.667 0 0 0 1.987 2.02l8.876-2.005a3.84 3.84 0 0 1 2.412.26A22.9 22.9 0 0 0 32 55c12.703 0 23-10.297 23-23Zm2 0c0 13.807-11.193 25-25 25-3.638 0-7.098-.778-10.219-2.177a1.84 1.84 0 0 0-1.152-.133l-8.877 2.004c-2.655.6-5.015-1.802-4.37-4.446l2.077-8.51c.094-.384.046-.809-.139-1.207A24.9 24.9 0 0 1 7 32C7 18.193 18.193 7 32 7s25 11.193 25 25Z" />
+  <path android:fillColor="@color/widget_text_secondary" android:pathData="M17.667 32a2.333 2.333 0 1 0 4.667 0 2.333 2.333 0 0 0-4.667 0Zm24 0a2.334 2.334 0 1 0 4.667 0 2.334 2.334 0 0 0-4.667 0Z" />
+  <path android:fillColor="@color/widget_text_secondary" android:pathData="M35.137 37.215a1 1 0 0 1 1.414 1.414 6.143 6.143 0 0 1-8.687 0 1 1 0 0 1 1.415-1.414 4.14 4.14 0 0 0 5.858 0Z" />
+</vector>
+`
+}
+
 // ---------------------------------------------------------------------------
 // Existing widget layouts
 // ---------------------------------------------------------------------------
@@ -614,6 +630,12 @@ function chatsLayoutXml() {
     android:orientation="vertical"
     android:gravity="center"
     android:visibility="gone">
+    <ImageView
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:src="@drawable/widget_chats_smiley"
+      android:layout_marginBottom="10dp"
+      android:contentDescription="@string/widget_chats_empty" />
     <TextView
       android:id="@+id/widget_chats_empty_text"
       android:layout_width="wrap_content"
@@ -1666,6 +1688,7 @@ const withWidgetFiles = config => {
       writeFile(path.join(res, 'drawable', 'widget_button_bg.xml'), widgetButtonBgXml())
       writeFile(path.join(res, 'drawable', 'widget_button_secondary_bg.xml'), widgetButtonSecondaryBgXml())
       writeFile(path.join(res, 'drawable', 'widget_card_bg.xml'), widgetCardBgXml())
+      writeFile(path.join(res, 'drawable', 'widget_chats_smiley.xml'), widgetChatsSmileyXml())
 
       // Existing widget layouts + metadata
       writeFile(path.join(res, 'layout', 'widget_new_post.xml'), newPostLayoutXml())
