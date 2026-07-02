@@ -8,6 +8,7 @@ import {
 import {useLingui} from '@lingui/react/macro'
 
 import {usePinnedFeedsInfos} from '#/state/queries/feed'
+import {useListConvosQuery} from '#/state/queries/messages/list-conversations'
 import {useMyListsQuery} from '#/state/queries/my-lists'
 import {useProfileQuery} from '#/state/queries/profile'
 import {useAgent, useSession} from '#/state/session'
@@ -28,6 +29,7 @@ const INTERACTIONS_THROTTLE_MS = 30 * 60 * 1000
  *   widget_interactions.json – recent reply/repost counts (Interactions widget)
  *   widget_pinned_feeds.json – pinned feed names + AT URIs (Pinned Feeds widget)
  *   widget_lists.json        – list names + AT URIs (Lists widget)
+ *   widget_chats.json        – chat names + convo ids (Chats widget)
  *   widget_labels.json       – localized static labels for all widgets, so the
  *                              providers can override their @string defaults and
  *                              follow the app language
@@ -39,6 +41,11 @@ export function useUpdateWidgets() {
   const {data: profile} = useProfileQuery({did: currentAccount?.did})
   const {data: pinnedFeeds} = usePinnedFeedsInfos()
   const {data: lists} = useMyListsQuery('all')
+  const {data: convos} = useListConvosQuery({
+    enabled: !!currentAccount,
+    status: 'accepted',
+    limit: 15,
+  })
   const lastInteractionsFetch = useRef(0)
 
   // Resolved through Lingui so widget labels follow the app language.
@@ -69,6 +76,9 @@ export function useUpdateWidgets() {
     pinnedFeedsEmpty: l`No pinned feeds yet`,
     listsTitle: l`Lists`,
     listsEmpty: l`No lists found`,
+    chatsTitle: l`Chats`,
+    chatsEmpty: l`Say hi to someone`,
+    chatsNew: l`New chat`,
   })
 
   // Profile / stats data — refreshed whenever profile changes.
@@ -148,6 +158,30 @@ export function useUpdateWidgets() {
       .then(() => AppShortcuts.refreshWidgets())
       .catch(() => {})
   }, [lists])
+
+  /*
+   * Chats - convo ids + a display name (the other members, excluding self)
+   * for the square Chats widget. Serialized to a string so the effect only
+   * re-runs when the actual chat list changes.
+   */
+  const chatsPayload = JSON.stringify(
+    (convos?.pages.flatMap(page => page.convos) ?? []).map(convo => ({
+      id: convo.id,
+      name: convo.members
+        .filter(m => m.did !== currentAccount?.did)
+        .map(m => m.displayName?.trim() || m.handle)
+        .join(', '),
+    })),
+  )
+  useEffect(() => {
+    if (!IS_ANDROID || !documentDirectory) return
+    void writeAsStringAsync(
+      documentDirectory + 'widget_chats.json',
+      chatsPayload,
+    )
+      .then(() => AppShortcuts.refreshWidgets())
+      .catch(() => {})
+  }, [chatsPayload])
 
   // Interactions — throttled fetch of recent notifications to count replies
   // and reposts and surface the most recent reply excerpt.
