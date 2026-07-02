@@ -21,6 +21,8 @@ const WITCHSKY_BOOL_KEYS = [
   'experimentalBridgedFedi',
   'experimentalPdsBadge',
   'experimentalMultiAccount',
+  'experimentalSearchV2',
+  'experimentalAdvancedSearch',
   'squareAvatars',
   'squareButtons',
   'mutualsLabel',
@@ -57,6 +59,10 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [pdsBadge, setPdsBadge] = useStorage(device, ['experimentalPdsBadge'])
   const [multiAccount, setMultiAccount] = useStorage(device, [
     'experimentalMultiAccount',
+  ])
+  const [searchV2, setSearchV2] = useStorage(device, ['experimentalSearchV2'])
+  const [advancedSearch, setAdvancedSearch] = useStorage(device, [
+    'experimentalAdvancedSearch',
   ])
   const [openRouterApiKey, setOpenRouterApiKey] = useStorage(device, [
     'openRouterApiKey',
@@ -259,6 +265,54 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
               <Toggle.Platform />
             </Toggle.Item>
           </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Search v2 API</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="search_v2"
+              label={_(
+                msg`Use the newer searchPostsV2 API for post search`,
+              )}
+              value={!!searchV2}
+              onChange={value => setSearchV2(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Use the newer searchPostsV2 API for post search. When off, the
+                  stable v1 search endpoint is used.
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Advanced search filters</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="advanced_search"
+              label={_(
+                msg`Show the advanced search filter dialog in the search screen`,
+              )}
+              value={!!advancedSearch}
+              onChange={value => setAdvancedSearch(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Show the advanced search dialog (authors, mentions, domains,
+                  hashtags, dates, media, replies, language) in the search
+                  screen.
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
           <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
             <SettingsList.ItemIcon icon={BeakerIcon} />
             <SettingsList.ItemText>

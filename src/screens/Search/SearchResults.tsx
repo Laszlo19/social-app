@@ -21,6 +21,10 @@ import {Post} from '#/view/com/post/Post'
 import {ProfileCardWithFollowBtn} from '#/view/com/profile/ProfileCard'
 import {List} from '#/view/com/util/List'
 import {
+  useAdvancedSearchEnabled,
+  useSearchV2Enabled,
+} from '#/screens/Search/searchExperiments'
+import {
   hasPostOnlyFilters,
   type SearchFilters,
 } from '#/screens/Search/searchParams'
@@ -204,15 +208,10 @@ function NoResultsText({
   hasFilters?: boolean
   query: string
 }) {
-  const ax = useAnalytics()
   const t = useTheme()
   const {t: l} = useLingui()
 
-  const searchV2Enabled = ax.features.enabled(ax.features.SearchV2Enable)
-  // Fork: dialog is enabled independently of v2 API (which uses v1 stub)
-  const advancedSearchV2Enabled = ax.features.enabled(
-    ax.features.AdvancedSearchV2Enable,
-  )
+  const advancedSearchV2Enabled = useAdvancedSearchEnabled()
 
   return (
     <>
@@ -325,7 +324,7 @@ let SearchScreenPostResults = ({
   const [isPTR, setIsPTR] = useState(false)
   const trackPostView = usePostViewTracking('SearchResults')
 
-  const searchV2Enabled = ax.features.enabled(ax.features.SearchV2Enable)
+  const searchV2Enabled = useSearchV2Enabled()
 
   const augmentedV2Query = useMemo(() => {
     return augmentSearchQuery(query || '', {did: currentAccount?.did})

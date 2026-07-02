@@ -41,6 +41,10 @@ import {
   serializeHistoryEntry,
   withoutFilterParams,
 } from '#/screens/Search/searchParams'
+import {
+  useAdvancedSearchEnabled,
+  useSearchV2Enabled,
+} from '#/screens/Search/searchExperiments'
 import {makeSearchQuery} from '#/screens/Search/utils'
 import {atoms as a, tokens, useBreakpoints, useTheme, web} from '#/alf'
 import {Button, ButtonIcon} from '#/components/Button'
@@ -109,11 +113,10 @@ export function SearchScreenShell({
   const {currentAccount} = useSession()
   const queryClient = useQueryClient()
 
-  const searchV2Enabled = ax.features.enabled(ax.features.SearchV2Enable)
-  // Fork: dialog is enabled independently of v2 API (which uses v1 stub)
-  const advancedSearchV2Enabled = ax.features.enabled(
-    ax.features.AdvancedSearchV2Enable,
-  )
+  // Fork: gated behind experimental device-storage toggles instead of the
+  // GrowthBook stub, so users can opt in/out (and turn them off if unstable).
+  const searchV2Enabled = useSearchV2Enabled()
+  const advancedSearchV2Enabled = useAdvancedSearchEnabled()
 
   // Get tab parameter from route params
   const tabParam = (route.params as {q?: string; tab?: TabParam})?.tab

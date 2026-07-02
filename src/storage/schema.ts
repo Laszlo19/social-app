@@ -107,6 +107,18 @@ export type Device = {
   experimentalMultiAccount?: boolean
 
   /**
+   * Experimental: use the app.bsky.feed.searchPostsV2 API for post search.
+   * When off, the legacy app.bsky.feed.searchPosts (v1) endpoint is used.
+   */
+  experimentalSearchV2?: boolean
+
+  /**
+   * Experimental: show the advanced search filter dialog (authors, mentions,
+   * domains, hashtags, dates, media, replies, language) in the search screen.
+   */
+  experimentalAdvancedSearch?: boolean
+
+  /**
    * OpenRouter API key used for AI alt-text generation in the image composer.
    */
   openRouterApiKey?: string
