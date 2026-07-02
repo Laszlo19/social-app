@@ -149,8 +149,8 @@ msgid "{0, plural, one {# second} other {# seconds}}"
 msgstr ""
 
 #. placeholder {0}: numUnreadNotifications ?? 0
-#: src/view/shell/bottom-bar/BottomBar.tsx:251
-#: src/view/shell/bottom-bar/BottomBar.tsx:283
+#. placeholder {0}: parseInt(notificationCount, 10) || 0
+#: src/view/shell/bottom-bar/BottomBar.tsx:227
 #: src/view/shell/Drawer.tsx:557
 msgid "{0, plural, one {# unread item} other {# unread items}}"
 msgstr ""
@@ -306,12 +306,6 @@ msgstr ""
 #. placeholder {1}: reaction.value
 #: src/components/dms/MessageItem.tsx:346
 msgid "{0} reacted {1}"
-msgstr ""
-
-#. Accessibility hint for the bottom bar chat icon when the number of unread messages exceeds the cap, with the + symbol already included – for example, 99+ unread items
-#. placeholder {0}: numUnreadMessages.numUnread
-#: src/view/shell/bottom-bar/BottomBar.tsx:246
-msgid "{0} unread items"
 msgstr ""
 
 #. placeholder {0}: action.displayName
@@ -875,7 +869,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr ""
 
 #: src/screens/Hashtag.tsx:226
-#: src/screens/Search/SearchResults.tsx:432
+#: src/screens/Search/SearchResults.tsx:433
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr ""
 
@@ -1176,18 +1170,18 @@ msgstr "បន្ថែមអត្ថបទជំនួស (ជាជម្រ�
 msgid "Add an additional search filter"
 msgstr ""
 
-#: src/screens/Settings/Settings.tsx:575
-#: src/screens/Settings/Settings.tsx:578
-#: src/view/shell/desktop/LeftNav.tsx:276
-#: src/view/shell/desktop/LeftNav.tsx:279
+#: src/screens/Settings/Settings.tsx:630
+#: src/screens/Settings/Settings.tsx:633
+#: src/view/shell/desktop/LeftNav.tsx:242
+#: src/view/shell/desktop/LeftNav.tsx:245
 msgid "Add another account"
 msgstr "បន្ថែមគណនីផ្សេងទៀត"
 
-#: src/view/com/composer/Composer.tsx:1605
+#: src/view/com/composer/Composer.tsx:1606
 msgid "Add another post"
 msgstr "បន្ថែមប្រកាសមួយទៀត"
 
-#: src/view/com/composer/Composer.tsx:2271
+#: src/view/com/composer/Composer.tsx:2275
 msgid "Add another post to thread"
 msgstr ""
 
@@ -1389,6 +1383,10 @@ msgstr "កម្រិតខ្ពស់"
 msgid "Advanced search"
 msgstr ""
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:299
+msgid "Advanced search filters"
+msgstr ""
+
 #: src/components/ageAssurance/AgeAssuranceBadge.tsx:42
 msgid "Age Assurance"
 msgstr ""
@@ -1407,7 +1405,7 @@ msgstr ""
 msgid "Age assurance only takes a few minutes"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:265
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:346
 msgid "AI alt-text (OpenRouter)"
 msgstr ""
 
@@ -1863,8 +1861,8 @@ msgstr "អនុវត្ត​មតិព័ត៌មាន​ដែល​ប
 msgid "Apply Pull Request"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:297
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:301
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:378
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:382
 msgid "AppView DID override"
 msgstr ""
 
@@ -1940,7 +1938,7 @@ msgstr "តើអ្នកប្រាកដថាចង់លុបវាចេ
 msgid "Are you sure you want to rescind your request to join {0}?"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1741
+#: src/view/com/composer/Composer.tsx:1742
 msgid "Are you sure you'd like to discard this post?"
 msgstr "តើអ្នកប្រាកដថាចង់បោះបង់ការបង្ហោះនេះទេ?"
 
@@ -2331,7 +2329,7 @@ msgstr ""
 msgid "Breaking site rules"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:198
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:208
 msgid "Bridged fediverse links"
 msgstr ""
 
@@ -2507,8 +2505,8 @@ msgstr ""
 #: src/screens/Settings/Settings.tsx:326
 #: src/screens/Takendown.tsx:102
 #: src/screens/Takendown.tsx:105
-#: src/view/com/composer/Composer.tsx:1819
-#: src/view/com/composer/Composer.tsx:1829
+#: src/view/com/composer/Composer.tsx:1821
+#: src/view/com/composer/Composer.tsx:1831
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:44
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:53
 #: src/view/shell/desktop/LeftNav.tsx:194
@@ -2527,7 +2525,7 @@ msgstr "បោះបង់ការបើកដំណើរការឡើងវ
 msgid "Cancel reply"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:527
+#: src/screens/Search/Shell.tsx:532
 msgid "Cancel search"
 msgstr "បោះបង់ការស្វែងរក"
 
@@ -2695,7 +2693,7 @@ msgid "Chat requests"
 msgstr ""
 
 #: src/components/dms/ConvoMenu.tsx:88
-#: src/Navigation.tsx:506
+#: src/Navigation.tsx:537
 #: src/screens/Messages/ChatList.tsx:95
 #: src/screens/Messages/ChatList.tsx:99
 #: src/screens/Messages/ChatList.tsx:652
@@ -2816,7 +2814,7 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: src/screens/Settings/Settings.tsx:498
+#: src/screens/Settings/Settings.tsx:528
 msgid "Clear all storage data"
 msgstr "សម្អាតទិន្នន័យផ្ទុកទាំងអស់"
 
@@ -3029,7 +3027,7 @@ msgstr ""
 msgid "Closes password update alert"
 msgstr "បិទការជូនដំណឹងអំពីការអាប់ដេតពាក្យសម្ងាត់"
 
-#: src/view/com/composer/Composer.tsx:1827
+#: src/view/com/composer/Composer.tsx:1829
 msgid "Closes post composer and discards post draft"
 msgstr ""
 
@@ -3083,7 +3081,7 @@ msgid "Compose new post"
 msgstr "សរសេរអត្ថបទថ្មី"
 
 #. placeholder {0}: MAX_GRAPHEME_LENGTH || 0
-#: src/view/com/composer/Composer.tsx:1703
+#: src/view/com/composer/Composer.tsx:1704
 msgid "Compose posts up to {0, plural, other {# characters}} in length"
 msgstr ""
 
@@ -3091,11 +3089,11 @@ msgstr ""
 msgid "Compose reply"
 msgstr "សរសេរការឆ្លើយតប"
 
-#: src/view/com/composer/Composer.tsx:2668
+#: src/view/com/composer/Composer.tsx:2672
 msgid "Compressing GIF..."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2670
+#: src/view/com/composer/Composer.tsx:2674
 msgid "Compressing video..."
 msgstr "កំពុង​បង្ហាប់​វីដេអូ..."
 
@@ -3294,7 +3292,7 @@ msgstr ""
 msgid "Copied build version to clipboard"
 msgstr "បានចម្លងកំណែស្ថាបនាទៅ clipboard"
 
-#: src/screens/Search/Shell.tsx:458
+#: src/screens/Search/Shell.tsx:463
 msgid "Copied link to clipboard"
 msgstr ""
 
@@ -3541,6 +3539,13 @@ msgstr ""
 msgid "Country code"
 msgstr ""
 
+#: src/Navigation.tsx:419
+#: src/screens/Settings/ContentAndMediaSettings.tsx:87
+#: src/screens/Settings/ContentAndMediaSettings.tsx:90
+#: src/screens/Settings/CountsMetricsSettings.tsx:45
+msgid "Counts & metrics"
+msgstr ""
+
 #. Advanced search: Example of an “none of these words” search
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:298
 msgid "cows pigs"
@@ -3589,10 +3594,10 @@ msgstr "បង្កើតកញ្ចប់ចាប់ផ្តើមសម្
 #: src/screens/Signup/index.tsx:136
 #: src/view/com/auth/SplashScreen.tsx:107
 #: src/view/com/auth/SplashScreen.web.tsx:116
-#: src/view/shell/bottom-bar/BottomBar.tsx:351
-#: src/view/shell/bottom-bar/BottomBar.tsx:355
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:240
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:245
+#: src/view/shell/bottom-bar/BottomBar.tsx:296
+#: src/view/shell/bottom-bar/BottomBar.tsx:300
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:221
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:226
 #: src/view/shell/NavSignupCard.tsx:48
 #: src/view/shell/NavSignupCard.tsx:53
 msgid "Create account"
@@ -3601,7 +3606,7 @@ msgstr "ចុះឈ្មោះ"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:235
-#: src/screens/Search/SearchResults.tsx:438
+#: src/screens/Search/SearchResults.tsx:439
 msgid "Create an account"
 msgstr "បង្កើតគណនី"
 
@@ -3692,7 +3697,7 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:294
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:375
 msgid "Custom AppView DID"
 msgstr ""
 
@@ -3852,9 +3857,9 @@ msgstr ""
 msgid "Delete my account"
 msgstr "លុបសារពីខ្ញុំ"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:796
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:798
-#: src/view/com/composer/Composer.tsx:1715
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:960
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:962
+#: src/view/com/composer/Composer.tsx:1716
 msgid "Delete post"
 msgstr "លុប post"
 
@@ -3948,7 +3953,7 @@ msgstr "ប្រអប់៖ កែតម្រូវអ្នកដែលអ�
 msgid "Dialog: Set advanced search options"
 msgstr ""
 
-#: src/screens/Settings/AppearanceSettings.tsx:110
+#: src/screens/Settings/AppearanceSettings.tsx:128
 msgid "Dim"
 msgstr ""
 
@@ -4005,9 +4010,9 @@ msgstr "បានបិទ"
 
 #: src/components/dialogs/lists/CreateOrEditListDialog.tsx:101
 #: src/screens/Profile/Header/EditProfileDialog.tsx:79
-#: src/view/com/composer/Composer.tsx:1495
-#: src/view/com/composer/Composer.tsx:1539
-#: src/view/com/composer/Composer.tsx:1748
+#: src/view/com/composer/Composer.tsx:1496
+#: src/view/com/composer/Composer.tsx:1540
+#: src/view/com/composer/Composer.tsx:1749
 #: src/view/com/composer/drafts/DraftItem.tsx:242
 #: src/view/com/composer/drafts/DraftsButton.tsx:131
 msgid "Discard"
@@ -4018,14 +4023,14 @@ msgstr "បោះបង់"
 msgid "Discard changes?"
 msgstr "បោះបង់ "
 
-#: src/view/com/composer/Composer.tsx:1493
+#: src/view/com/composer/Composer.tsx:1494
 #: src/view/com/composer/drafts/DraftItem.tsx:239
 #: src/view/com/composer/drafts/DraftsButton.tsx:98
 msgid "Discard draft?"
 msgstr "បោះបង់ការផ្លាស់ប្តូរ?"
 
-#: src/view/com/composer/Composer.tsx:1510
-#: src/view/com/composer/Composer.tsx:1740
+#: src/view/com/composer/Composer.tsx:1511
+#: src/view/com/composer/Composer.tsx:1741
 msgid "Discard post?"
 msgstr "បោះបង់ការបង្ហោះ?"
 
@@ -4063,7 +4068,7 @@ msgstr "ច្រានចោល"
 msgid "Dismiss banner"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2589
+#: src/view/com/composer/Composer.tsx:2593
 msgid "Dismiss error"
 msgstr "ច្រានចោលកំហុស"
 
@@ -4381,12 +4386,12 @@ msgstr "កែសម្រួលការកំណត់អន្តរកម្
 #: src/screens/Profile/Header/EditProfileDialog.tsx:265
 #: src/screens/Profile/Header/EditProfileDialog.tsx:271
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:299
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:350
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:368
 msgid "Edit profile"
 msgstr "កែប្រវត្តិរូប"
 
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:302
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:352
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:370
 msgid "Edit Profile"
 msgstr "កែប្រវត្តិរូប"
 
@@ -4491,11 +4496,11 @@ msgstr "បើកដំណើរការតែ {0} ប៉ុណ្ណោះ"
 msgid "Enable adult content"
 msgstr "បើកមាតិកាសម្រាប់មនុស្សពេញវ័យ"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:116
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:126
 msgid "Enable all Witchsky features — accent colors, square avatars, counts controls, PDSls links, and more. Disabling turns everything off and hides the controls."
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:111
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:121
 msgid "Enable all Witchsky fork features"
 msgstr ""
 
@@ -4620,8 +4625,8 @@ msgstr ""
 msgid "Entertainment"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2688
-#: src/view/com/util/error/ErrorScreen.tsx:40
+#: src/view/com/composer/Composer.tsx:2692
+#: src/view/com/util/error/ErrorScreen.tsx:43
 msgid "Error"
 msgstr "កំហុស"
 
@@ -4650,7 +4655,7 @@ msgstr "កំហុសបានកើតឡើងខណៈពេលរក្ស
 msgid "Error receiving captcha response."
 msgstr "កំហុសក្នុងការទទួលការឆ្លើយតប captcha"
 
-#: src/screens/Search/SearchResults.tsx:188
+#: src/screens/Search/SearchResults.tsx:192
 msgid "Error: {error}"
 msgstr ""
 
@@ -4682,6 +4687,11 @@ msgstr "ទាំងអស់គ្នា"
 #: src/screens/Settings/NotificationSettings/index.tsx:287
 #: src/screens/Settings/NotificationSettings/index.tsx:389
 msgid "Everything else"
+msgstr ""
+
+#: src/screens/Settings/CountsMetricsSettings.tsx:130
+#: src/screens/Settings/CountsMetricsSettings.tsx:132
+msgid "Exact"
 msgstr ""
 
 #. Advanced search filter
@@ -4736,7 +4746,7 @@ msgid "Experimental"
 msgstr "ពិសោធន៍"
 
 #: src/Navigation.tsx:427
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:90
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:100
 #: src/screens/Settings/Settings.tsx:264
 #: src/screens/Settings/Settings.tsx:267
 msgid "Experimental features"
@@ -4773,9 +4783,9 @@ msgstr "ប្រព័ន្ធផ្សព្វផ្សាយច្បាស
 msgid "Explicit sexual images."
 msgstr "រូបភាពផ្លូវភេទច្បាស់លាស់"
 
-#: src/Navigation.tsx:751
-#: src/screens/Search/Shell.tsx:495
-#: src/view/shell/desktop/LeftNav.tsx:677
+#: src/features/customNav/catalog.tsx:123
+#: src/Navigation.tsx:792
+#: src/screens/Search/Shell.tsx:500
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
 msgstr ""
@@ -4861,7 +4871,7 @@ msgstr ""
 
 #: src/components/Lightbox/Lightbox.web.tsx:302
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:130
-#: src/screens/Search/Shell.tsx:459
+#: src/screens/Search/Shell.tsx:464
 msgid "Failed to copy link"
 msgstr ""
 
@@ -4950,6 +4960,11 @@ msgctxt "toast"
 msgid "Failed to leave group chat"
 msgstr ""
 
+#. placeholder {0}: account.handle
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:554
+msgid "Failed to like as @{0}"
+msgstr ""
+
 #: src/screens/Messages/ChatList.tsx:418
 #: src/screens/Messages/Inbox.tsx:202
 msgid "Failed to load conversations"
@@ -5004,12 +5019,12 @@ msgid "Failed to lock group chat"
 msgstr ""
 
 #: src/screens/Messages/ChatList.tsx:634
-#: src/view/shell/bottom-bar/BottomBar.tsx:447
+#: src/view/shell/bottom-bar/BottomBar.tsx:392
 msgid "Failed to mark all chats as read"
 msgstr ""
 
 #: src/screens/Messages/Inbox.tsx:304
-#: src/view/shell/bottom-bar/BottomBar.tsx:456
+#: src/view/shell/bottom-bar/BottomBar.tsx:401
 msgid "Failed to mark all requests as read"
 msgstr ""
 
@@ -5076,7 +5091,7 @@ msgstr ""
 msgid "Failed to resolve location. Please try again."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:721
+#: src/view/com/composer/Composer.tsx:722
 msgid "Failed to save draft"
 msgstr ""
 
@@ -5239,7 +5254,7 @@ msgstr ""
 #: src/Navigation.tsx:558
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:105
+#: src/screens/Search/SearchResults.tsx:109
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:239
@@ -5350,7 +5365,7 @@ msgstr ""
 msgid "Find Contacts"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:152
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:162
 msgid "Find friends experience"
 msgstr ""
 
@@ -5376,7 +5391,7 @@ msgstr ""
 msgid "Find people you know"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:701
+#: src/screens/Search/Shell.tsx:706
 msgid "Find posts, users, and feeds on Bluesky"
 msgstr ""
 
@@ -5680,6 +5695,10 @@ msgstr "ពី <0/>"
 msgid "From these people"
 msgstr ""
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:139
+msgid "Gallery fallback"
+msgstr ""
+
 #: src/components/StarterPack/ProfileStarterPacks.tsx:337
 msgid "Generate a starter pack"
 msgstr "បង្កើតកញ្ចប់ចាប់ផ្តើម"
@@ -5801,10 +5820,11 @@ msgstr ""
 
 #: src/components/MediaPreview.tsx:182
 #: src/components/Post/Embed/VideoEmbed/GifPresentationControls.tsx:93
+#: src/lib/hooks/useUpdateWidgets.ts:61
 msgid "GIF"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2693
+#: src/view/com/composer/Composer.tsx:2697
 msgid "GIF uploaded"
 msgstr ""
 
@@ -6635,6 +6655,14 @@ msgstr ""
 msgid "Incorrect username or password"
 msgstr "ឈ្មោះអ្នកប្រើ ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:334
+msgid "Inject a fake \"live event\" banner into the Explore screen so the live-events UI can be demoed without a real event."
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:328
+msgid "Inject a fake live event banner into the Explore screen for testing"
+msgstr ""
+
 #: src/screens/Login/SetNewPasswordForm.tsx:135
 msgid "Input code sent to your email for password reset"
 msgstr "បញ្ចូលលេខកូដដែលបានផ្ញើទៅអ៊ីមែលរបស់អ្នកសម្រាប់កំណត់ពាក្យសម្ងាត់ឡើងវិញ"
@@ -6731,7 +6759,7 @@ msgstr "លេខកូដអញ្ជើញ"
 msgid "Invite code not accepted. Check that you input it correctly and try again."
 msgstr "លេខកូដអញ្ជើញមិនត្រូវបានទទួលយកទេ។ ពិនិត្យមើលថាអ្នកបញ្ចូលវាត្រឹមត្រូវ ហើយព្យាយាមម្តងទៀត"
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:372
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:390
 #: src/view/shell/Drawer.tsx:121
 msgid "Invite friends"
 msgstr ""
@@ -6824,7 +6852,7 @@ msgid "It's just you right now! Add more people to your starter pack by searchin
 msgstr "មានតែអ្នកទេឥឡូវនេះ! បន្ថែមមនុស្សបន្ថែមទៀតទៅក្នុងកញ្ចប់ចាប់ផ្តើមរបស់អ្នកដោយស្វែងរកខាងលើ"
 
 #. placeholder {0}: videoState.jobId
-#: src/view/com/composer/Composer.tsx:2608
+#: src/view/com/composer/Composer.tsx:2612
 msgid "Job ID: {0}"
 msgstr ""
 
@@ -6864,8 +6892,8 @@ msgstr "ចូលរួមការសន្ទនា"
 msgid "Journalism"
 msgstr "សារព័ត៌មាន"
 
-#: src/view/com/composer/Composer.tsx:1543
-#: src/view/com/composer/Composer.tsx:1553
+#: src/view/com/composer/Composer.tsx:1544
+#: src/view/com/composer/Composer.tsx:1554
 #: src/view/com/composer/drafts/DraftsButton.tsx:135
 msgid "Keep editing"
 msgstr ""
@@ -6912,7 +6940,7 @@ msgstr "ស្លាកនៅលើមាតិការបស់អ្នក"
 msgid "Language"
 msgstr ""
 
-#: src/Navigation.tsx:218
+#: src/Navigation.tsx:225
 msgid "Language Settings"
 msgstr "ការកំណត់ភាសា"
 
@@ -6945,7 +6973,7 @@ msgid "Last initiated just now"
 msgstr ""
 
 #: src/screens/Hashtag.tsx:99
-#: src/screens/Search/SearchResults.tsx:86
+#: src/screens/Search/SearchResults.tsx:90
 #: src/screens/Topic.tsx:65
 msgid "Latest"
 msgstr "ចុងក្រោយ"
@@ -6968,12 +6996,12 @@ msgstr ""
 msgid "Learn More"
 msgstr "ស្វែងយល់បន្ថែម"
 
-#: src/screens/Search/SearchResults.tsx:261
+#: src/screens/Search/SearchResults.tsx:262
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use advanced search</0>."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:275
+#: src/screens/Search/SearchResults.tsx:276
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use search filters</0>."
 msgstr ""
@@ -7509,13 +7537,13 @@ msgstr ""
 
 #: src/screens/Messages/ChatList.tsx:644
 #: src/screens/Messages/ChatList.tsx:648
-#: src/view/shell/bottom-bar/BottomBar.tsx:465
-#: src/view/shell/bottom-bar/BottomBar.tsx:469
+#: src/view/shell/bottom-bar/BottomBar.tsx:410
+#: src/view/shell/bottom-bar/BottomBar.tsx:414
 msgid "Mark all chats as read"
 msgstr ""
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:473
-#: src/view/shell/bottom-bar/BottomBar.tsx:477
+#: src/view/shell/bottom-bar/BottomBar.tsx:418
+#: src/view/shell/bottom-bar/BottomBar.tsx:422
 msgid "Mark all requests as read"
 msgstr ""
 
@@ -7529,11 +7557,11 @@ msgid "Marked all as read"
 msgstr ""
 
 #: src/screens/Messages/ChatList.tsx:631
-#: src/view/shell/bottom-bar/BottomBar.tsx:444
+#: src/view/shell/bottom-bar/BottomBar.tsx:389
 msgid "Marked all chats as read"
 msgstr ""
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:453
+#: src/view/shell/bottom-bar/BottomBar.tsx:398
 msgid "Marked all requests as read"
 msgstr ""
 
@@ -7773,7 +7801,7 @@ msgstr ""
 msgid "Movies"
 msgstr "ភាពយន្ត"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:243
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:253
 msgid "Multi-account actions"
 msgstr ""
 
@@ -8342,15 +8370,15 @@ msgstr "រកមិនឃើញលទ្ធផលទេ"
 msgid "No results found for \"{query}\""
 msgstr "រកមិនឃើញលទ្ធផលសម្រាប់ \"{query}\""
 
-#: src/screens/Search/SearchResults.tsx:220
+#: src/screens/Search/SearchResults.tsx:221
 msgid "No results found for “<0>{query}</0>” with advanced search filters applied."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:232
+#: src/screens/Search/SearchResults.tsx:233
 msgid "No results found for “<0>{query}</0>”."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:226
+#: src/screens/Search/SearchResults.tsx:227
 msgid "No results found for your query with advanced search filters applied."
 msgstr ""
 
@@ -8453,8 +8481,8 @@ msgid "Nothing saved yet"
 msgstr ""
 
 #: src/components/dialogs/NotificationSettingsDialog.tsx:72
-#: src/Navigation.tsx:443
-#: src/Navigation.tsx:522
+#: src/Navigation.tsx:474
+#: src/Navigation.tsx:553
 #: src/view/screens/Notifications.tsx:134
 msgid "Notification settings"
 msgstr "ការកំណត់ការជូនដំណឹង"
@@ -8464,16 +8492,15 @@ msgstr "ការកំណត់ការជូនដំណឹង"
 msgid "Notification sounds"
 msgstr "សំឡេងជូនដំណឹង"
 
-#: src/Navigation.tsx:517
-#: src/Navigation.tsx:756
+#: src/features/customNav/catalog.tsx:144
+#: src/Navigation.tsx:548
+#: src/Navigation.tsx:797
 #: src/screens/Messages/Settings.tsx:255
 #: src/screens/Notifications/ActivityList.tsx:31
 #: src/screens/Settings/NotificationSettings/index.tsx:114
-#: src/screens/Settings/Settings.tsx:197
-#: src/screens/Settings/Settings.tsx:200
+#: src/screens/Settings/Settings.tsx:203
+#: src/screens/Settings/Settings.tsx:206
 #: src/view/screens/Notifications.tsx:128
-#: src/view/shell/bottom-bar/BottomBar.tsx:279
-#: src/view/shell/desktop/LeftNav.tsx:687
 #: src/view/shell/Drawer.tsx:552
 msgid "Notifications"
 msgstr "ការជូនដំណឹង"
@@ -8549,11 +8576,11 @@ msgstr ""
 msgid "One of the selected recipients has blocked you and cannot be messaged."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:937
+#: src/view/com/composer/Composer.tsx:938
 msgid "One or more GIFs is missing alt text."
 msgstr "GIFs មួយ ឬ​ច្រើន​បាត់​អត្ថបទ​ជំនួស"
 
-#: src/view/com/composer/Composer.tsx:934
+#: src/view/com/composer/Composer.tsx:935
 msgid "One or more images is missing alt text."
 msgstr "រូបភាពមួយ ឬច្រើនបាត់អត្ថបទជំនួស"
 
@@ -8565,11 +8592,11 @@ msgstr ""
 msgid "One or more of your selected files are too large. Maximum size is {VIDEO_MAX_SIZE_MB} MB."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:732
+#: src/view/com/composer/Composer.tsx:733
 msgid "One or more posts are too long to save as a draft. {MAX_DRAFT_GRAPHEME_LENGTH, plural, one {The maximum number of characters is # character.} other {The maximum number of characters is # characters.}}"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:944
+#: src/view/com/composer/Composer.tsx:945
 msgid "One or more videos is missing alt text."
 msgstr "វីដេអូមួយ ឬច្រើនបាត់អត្ថបទជំនួស"
 
@@ -8582,7 +8609,7 @@ msgstr "មានតែ {0} ប៉ុណ្ណោះដែលអាចឆ្ល�
 #. placeholder {0}: result.accepted.length
 #. placeholder {1}: next.length
 #. placeholder {2}: next.length
-#: src/view/com/composer/Composer.tsx:235
+#: src/view/com/composer/Composer.tsx:236
 msgid "Only {0} of {1} {2, plural, one {image} other {images}} added; limit is {MAX_GALLERY_IMAGES}"
 msgstr ""
 
@@ -8686,7 +8713,7 @@ msgid "Open drawer menu"
 msgstr ""
 
 #: src/screens/Messages/components/MessageComposer.tsx:213
-#: src/view/com/composer/Composer.tsx:2248
+#: src/view/com/composer/Composer.tsx:2252
 msgid "Open emoji picker"
 msgstr "បើកកម្មវិធីជ្រើសរើសរូបអារម្មណ៍"
 
@@ -8795,8 +8822,8 @@ msgstr ""
 msgid "Open this group chat"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:268
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:272
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:349
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:353
 msgid "OpenRouter API key"
 msgstr ""
 
@@ -9002,7 +9029,7 @@ msgstr ""
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
 msgstr "អ្នកសម្របសម្រួលរបស់យើងបានពិនិត្យរបាយការណ៍ ហើយបានសម្រេចចិត្តបិទការចូលប្រើការជជែករបស់អ្នកនៅលើ Bluesky"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:316
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:397
 msgid "Override the AppView DID used for AT Protocol proxying. Takes full effect after signing out and back in."
 msgstr ""
 
@@ -9063,16 +9090,16 @@ msgstr ""
 msgid "Pause video"
 msgstr "ផ្អាក video"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:220
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:230
 msgid "PDS badge on profiles"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:175
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:185
 msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:167
-#: src/screens/Search/SearchResults.tsx:99
+#: src/screens/Search/SearchResults.tsx:103
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 msgid "People"
 msgstr "មនុស្ស"
@@ -9423,7 +9450,12 @@ msgstr "នយោបាយ"
 msgid "Porn"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1893
+#: src/lib/hooks/useUpdateWidgets.ts:62
+#: src/screens/Settings/AppearanceSettings.tsx:316
+msgid "Post"
+msgstr ""
+
+#: src/view/com/composer/Composer.tsx:1897
 msgctxt "action"
 msgid "Post"
 msgstr "ការបង្ហោះ"
@@ -9443,12 +9475,12 @@ msgstr ""
 msgid "Post a video"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1891
+#: src/view/com/composer/Composer.tsx:1893
 msgctxt "action"
 msgid "Post All"
 msgstr "Post ទាំងអស់"
 
-#: src/view/com/composer/Composer.tsx:1552
+#: src/view/com/composer/Composer.tsx:1553
 msgid "Post anyway"
 msgstr ""
 
@@ -9634,11 +9666,11 @@ msgstr "គោលការណ៍ឯកជនភាព"
 msgid "Privacy violation of a minor"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2682
+#: src/view/com/composer/Composer.tsx:2686
 msgid "Processing GIF..."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:2684
+#: src/view/com/composer/Composer.tsx:2688
 msgid "Processing video..."
 msgstr "ដំណើរការវីដេអូ..."
 
@@ -9650,8 +9682,7 @@ msgstr "កំពុងដំណើរការ..."
 msgid "profile"
 msgstr "ប្រវត្តិរូប"
 
-#: src/view/shell/bottom-bar/BottomBar.tsx:322
-#: src/view/shell/desktop/LeftNav.tsx:745
+#: src/features/customNav/catalog.tsx:155
 #: src/view/shell/Drawer.tsx:91
 #: src/view/shell/Drawer.tsx:655
 msgid "Profile"
@@ -9688,22 +9719,22 @@ msgid "Public, sharable lists of users to mute or block in bulk."
 msgstr ""
 
 #. Accessibility label for button to publish a single post
-#: src/view/com/composer/Composer.tsx:1877
+#: src/view/com/composer/Composer.tsx:1879
 msgid "Publish post"
 msgstr ""
 
 #. Accessibility label for button to publish multiple posts in a thread
-#: src/view/com/composer/Composer.tsx:1872
+#: src/view/com/composer/Composer.tsx:1874
 msgid "Publish posts"
 msgstr ""
 
 #. Accessibility label for button to publish multiple replies in a thread
-#: src/view/com/composer/Composer.tsx:1861
+#: src/view/com/composer/Composer.tsx:1863
 msgid "Publish replies"
 msgstr ""
 
 #. Accessibility label for button to publish a single reply
-#: src/view/com/composer/Composer.tsx:1866
+#: src/view/com/composer/Composer.tsx:1868
 msgid "Publish reply"
 msgstr ""
 
@@ -9809,12 +9840,12 @@ msgstr "បើកដំណើរការគណនីរបស់អ្នកឡ
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:264
+#: src/screens/Search/SearchResults.tsx:265
 msgctxt "english-only-resource"
 msgid "Read about how to use advanced search filters"
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:278
+#: src/screens/Search/SearchResults.tsx:279
 msgctxt "english-only-resource"
 msgid "Read about how to use search filters"
 msgstr ""
@@ -9959,12 +9990,12 @@ msgstr ""
 msgid "Remove {displayName}?"
 msgstr ""
 
-#: src/screens/Search/components/SearchHistory.tsx:161
-msgid "Remove {q}"
-msgstr ""
-
 #: src/screens/Settings/NavigationBarSettings.tsx:243
 msgid "Remove {label} from the bar"
+msgstr ""
+
+#: src/screens/Search/components/SearchHistory.tsx:161
+msgid "Remove {q}"
 msgstr ""
 
 #: src/screens/Settings/Settings.tsx:709
@@ -10189,6 +10220,7 @@ msgstr ""
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:274
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:286
 #: src/lib/hooks/useNotificationHandler.ts:172
+#: src/lib/hooks/useUpdateWidgets.ts:64
 #: src/screens/Settings/NotificationSettings/index.tsx:170
 #: src/screens/Settings/NotificationSettings/index.tsx:319
 #: src/view/screens/Profile.tsx:235
@@ -10208,7 +10240,7 @@ msgstr "ការឆ្លើយតបទៅនឹងការបង្ហោះ
 msgid "Reply"
 msgstr "ឆ្លើយតប"
 
-#: src/view/com/composer/Composer.tsx:1889
+#: src/view/com/composer/Composer.tsx:1891
 msgctxt "action"
 msgid "Reply"
 msgstr "ឆ្លើយតប"
@@ -10389,6 +10421,7 @@ msgid "Reposted by you"
 msgstr "ផ្សាយឡើងវិញដោយអ្នក"
 
 #: src/lib/hooks/useNotificationHandler.ts:165
+#: src/lib/hooks/useUpdateWidgets.ts:65
 #: src/screens/Settings/NotificationSettings/index.tsx:203
 #: src/screens/Settings/NotificationSettings/index.tsx:344
 msgid "Reposts"
@@ -10625,22 +10658,22 @@ msgstr ""
 #: src/screens/SavedFeeds.tsx:124
 #: src/screens/SavedFeeds.tsx:311
 #: src/screens/SavedFeeds.tsx:315
-#: src/view/com/composer/Composer.tsx:1533
+#: src/view/com/composer/Composer.tsx:1534
 #: src/view/com/composer/drafts/DraftsButton.tsx:125
 msgid "Save changes"
 msgstr "រក្សាទុកការផ្លាស់ប្តូរ"
 
-#: src/view/com/composer/Composer.tsx:1505
+#: src/view/com/composer/Composer.tsx:1506
 #: src/view/com/composer/drafts/DraftsButton.tsx:93
 msgid "Save changes?"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1533
+#: src/view/com/composer/Composer.tsx:1534
 #: src/view/com/composer/drafts/DraftsButton.tsx:125
 msgid "Save draft"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1507
+#: src/view/com/composer/Composer.tsx:1508
 #: src/view/com/composer/drafts/DraftsButton.tsx:95
 msgid "Save draft?"
 msgstr ""
@@ -10741,12 +10774,12 @@ msgstr "រំកិលទៅកំពូល"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
+#: src/features/customNav/catalog.tsx:122
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:232
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:238
-#: src/screens/Search/Shell.tsx:495
-#: src/screens/Search/Shell.tsx:547
-#: src/screens/Search/Shell.tsx:689
-#: src/view/shell/bottom-bar/BottomBar.tsx:216
+#: src/screens/Search/Shell.tsx:500
+#: src/screens/Search/Shell.tsx:552
+#: src/screens/Search/Shell.tsx:694
 msgid "Search"
 msgstr "ស្វែងរក"
 
@@ -10805,7 +10838,7 @@ msgid "Search GIFs"
 msgstr "ស្វែងរក GIFs"
 
 #: src/screens/Hashtag.tsx:224
-#: src/screens/Search/SearchResults.tsx:430
+#: src/screens/Search/SearchResults.tsx:431
 msgid "Search is currently unavailable when logged out"
 msgstr ""
 
@@ -10836,6 +10869,10 @@ msgstr "ស្វែងរកប្រវត្តិរូប"
 
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:262
 msgid "Search query"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:276
+msgid "Search v2 API"
 msgstr ""
 
 #: src/screens/Profile/ProfileSearch.tsx:38
@@ -11325,7 +11362,7 @@ msgstr "ចែករំលែកកូដ QR"
 msgid "Share this feed"
 msgstr ""
 
-#: src/screens/Search/Shell.tsx:576
+#: src/screens/Search/Shell.tsx:581
 msgid "Share this search"
 msgstr ""
 
@@ -11361,6 +11398,35 @@ msgstr "កម្មវិធីសាកល្បងចំណូលចិត្
 #: src/components/moderation/PostHider.tsx:140
 msgid "Show"
 msgstr "បង្ហាញ"
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:258
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:264
+msgid "Show \"Like as…\" and \"Repost as…\" in the post menu for other signed-in accounts"
+msgstr ""
+
+#: src/screens/Settings/AppearanceSettings.tsx:267
+msgid "Show \"Mutuals\" instead of \"Following\""
+msgstr ""
+
+#: src/screens/Settings/AppearanceSettings.tsx:272
+msgid "Show \"Mutuals\" instead of \"Following\" on profiles you mutually follow"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:196
+msgid "Show \"Open in PDSls\" in the post menu (developer tool for inspecting raw AT Protocol records)"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:190
+msgid "Show \"Open in PDSls\" in the post menu for developer inspection of raw AT Protocol records"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:213
+msgid "Show \"Open on [instance]\" in the post menu for bridged fediverse accounts"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:219
+msgid "Show \"Open on [instance]\" in the post menu when the author is a bridged fediverse account"
+msgstr ""
 
 #: src/components/AltBadgeWithDialog.tsx:48
 msgid "Show alt text"
@@ -11466,19 +11532,27 @@ msgstr "បង្ហាញសារឡើងវិញ"
 msgid "Show samples of your saved feeds in your Following feed"
 msgstr "បង្ហាញគំរូនៃមតិព័ត៌មានដែលអ្នកបានរក្សាទុកនៅក្នុងព័ត៌មានបន្ទាប់របស់អ្នក"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:140
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:310
+msgid "Show the advanced search dialog (authors, mentions, domains, hashtags, dates, media, replies, language) in the search screen."
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:304
+msgid "Show the advanced search filter dialog in the search screen"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:150
 msgid "Show the fallback for galleries (5+ photos) instead of the carousel"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:225
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:235
 msgid "Show the hosting PDS as a badge on profile headers"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:231
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:241
 msgid "Show the hosting PDS server as a small badge on profile headers"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:134
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:144
 msgid "Show the update-your-app fallback for galleries with 5+ photos"
 msgstr ""
 
@@ -11528,15 +11602,15 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:356
 #: src/screens/Messages/JoinRequest.tsx:290
 #: src/screens/Messages/JoinRequest.tsx:296
-#: src/screens/Search/SearchResults.tsx:433
+#: src/screens/Search/SearchResults.tsx:434
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:124
 #: src/view/com/auth/SplashScreen.web.tsx:122
 #: src/view/com/auth/SplashScreen.web.tsx:130
-#: src/view/shell/bottom-bar/BottomBar.tsx:360
-#: src/view/shell/bottom-bar/BottomBar.tsx:364
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:250
-#: src/view/shell/bottom-bar/BottomBarWeb.tsx:255
+#: src/view/shell/bottom-bar/BottomBar.tsx:305
+#: src/view/shell/bottom-bar/BottomBar.tsx:309
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:231
+#: src/view/shell/bottom-bar/BottomBarWeb.tsx:236
 #: src/view/shell/NavSignupCard.tsx:58
 #: src/view/shell/NavSignupCard.tsx:63
 msgid "Sign in"
@@ -11618,8 +11692,8 @@ msgstr "ចូលជា @{0}"
 msgid "Since"
 msgstr ""
 
-#: src/components/contacts/screens/PhoneInput.tsx:163
-#: src/components/contacts/screens/VerifyNumber.tsx:205
+#: src/components/contacts/screens/PhoneInput.tsx:175
+#: src/components/contacts/screens/VerifyNumber.tsx:215
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:86
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:90
 #: src/screens/Onboarding/StepFinished/index.tsx:295
@@ -11635,7 +11709,7 @@ msgstr "រំលង"
 msgid "Skip contact sharing and continue to the app"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1550
+#: src/view/com/composer/Composer.tsx:1551
 msgid "Skip empty posts?"
 msgstr ""
 
@@ -12217,6 +12291,10 @@ msgstr "លក្ខខណ្ឌ"
 msgid "Terms of Service"
 msgstr "លក្ខខណ្ឌនៃសេវាកម្ម"
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:323
+msgid "Test live event banner"
+msgstr ""
+
 #: src/components/dialogs/MutedWords.tsx:275
 msgid "Text & tags"
 msgstr "អត្ថបទ & ស្លាក"
@@ -12514,12 +12592,16 @@ msgstr ""
 msgid "These domains"
 msgstr ""
 
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:108
+msgid "These features are experimental and may change or break at any time."
+msgstr ""
+
 #. Advanced search filter
 #: src/screens/Search/components/AdvancedSearchDialog/hooks.tsx:44
 msgid "These hashtags"
 msgstr ""
 
-#: src/screens/Settings/FollowingFeedPreferences.tsx:66
+#: src/screens/Settings/FollowingFeedPreferences.tsx:81
 msgid "These settings only apply to the Following feed."
 msgstr "ការកំណត់ទាំងនេះអនុវត្តចំពោះតែព័ត៌មានខាងក្រោមប៉ុណ្ណោះ"
 
@@ -12808,7 +12890,7 @@ msgstr ""
 msgid "This post will be hidden from feeds and threads. This cannot be undone."
 msgstr "ប្រកាសនេះនឹងត្រូវបានលាក់ពីមតិព័ត៌មាន និងខ្សែស្រលាយ។ នេះមិនអាចត្រឡប់វិញបានទេ"
 
-#: src/view/com/composer/Composer.tsx:1125
+#: src/view/com/composer/Composer.tsx:1126
 msgid "This post's author has disabled quote posts."
 msgstr "អ្នកនិពន្ធនៃប្រកាសនេះបានបិទការបង្ហោះសម្រង់"
 
@@ -12989,7 +13071,7 @@ msgid "Too many contacts - you've exceeded the number of contacts you can import
 msgstr ""
 
 #: src/screens/Hashtag.tsx:88
-#: src/screens/Search/SearchResults.tsx:73
+#: src/screens/Search/SearchResults.tsx:77
 #: src/screens/Topic.tsx:59
 msgid "Top"
 msgstr "កំពូល"
@@ -13061,11 +13143,11 @@ msgstr ""
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:247
+#: src/screens/Search/SearchResults.tsx:248
 msgid "Try a different search term or remove some filters."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:249
+#: src/screens/Search/SearchResults.tsx:250
 msgid "Try a different search term."
 msgstr ""
 
@@ -13407,7 +13489,7 @@ msgstr "ឈប់ជាវពីបញ្ជី"
 msgid "Unsupported clipboard content"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1642
+#: src/view/com/composer/Composer.tsx:1643
 msgid "Unsupported video type: {mimeType}"
 msgstr ""
 
@@ -13512,7 +13594,7 @@ msgstr "បង្ហោះពីឯកសារ"
 msgid "Upload from Library"
 msgstr "បង្ហោះពីបណ្ណាល័យ"
 
-#: src/view/com/composer/Composer.tsx:2675
+#: src/view/com/composer/Composer.tsx:2679
 msgid "Uploading GIF..."
 msgstr ""
 
@@ -13526,7 +13608,7 @@ msgstr "កំពុងបង្ហោះរូបភាព..."
 msgid "Uploading link thumbnail..."
 msgstr "កំពុងបង្ហោះរូបភាពតូចនៃតំណ..."
 
-#: src/view/com/composer/Composer.tsx:2677
+#: src/view/com/composer/Composer.tsx:2681
 msgid "Uploading video..."
 msgstr "កំពុងបង្ហោះវីដេអូ..."
 
@@ -13573,9 +13655,17 @@ msgstr ""
 msgid "Use square buttons"
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:157
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:163
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:167
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:173
 msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\""
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:281
+msgid "Use the newer searchPostsV2 API for post search"
+msgstr ""
+
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:287
+msgid "Use the newer searchPostsV2 API for post search. When off, the stable v1 search endpoint is used."
 msgstr ""
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:190
@@ -13586,7 +13676,7 @@ msgstr ""
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
 msgstr ""
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:284
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:365
 msgid "Used to generate alt text for images in the composer via OpenRouter's vision API. Get a key at openrouter.ai."
 msgstr ""
 
@@ -13834,7 +13924,7 @@ msgstr ""
 msgid "Video settings"
 msgstr "ការកំណត់វីដេអូ"
 
-#: src/view/com/composer/Composer.tsx:2695
+#: src/view/com/composer/Composer.tsx:2699
 msgid "Video uploaded"
 msgstr "បង្ហោះវីដេអូ"
 
@@ -13847,13 +13937,17 @@ msgstr "វីដេអូ៖ {0}"
 msgid "Videos"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:441
-#: src/view/com/composer/Composer.tsx:573
+#: src/lib/media/save-video.ts:122
+msgid "Videos cannot be saved unless permission is granted to access your media library."
+msgstr ""
+
+#: src/view/com/composer/Composer.tsx:442
+#: src/view/com/composer/Composer.tsx:574
 #: src/view/com/composer/SelectMediaButton.tsx:440
 msgid "Videos must be less than 3 minutes long."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1232
+#: src/view/com/composer/Composer.tsx:1233
 msgctxt "Action to view the post the user just created"
 msgid "View"
 msgstr ""
@@ -13942,7 +14036,7 @@ msgstr ""
 msgid "View more trending videos"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1227
+#: src/view/com/composer/Composer.tsx:1228
 msgid "View post"
 msgstr ""
 
@@ -14229,8 +14323,8 @@ msgstr "យើងសុំទោស ប៉ុន្តែយើងមិនអ�
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "យើងសុំទោស ប៉ុន្តែយើងមិនអាចផ្ទុកពាក្យដែលអ្នកបានបិទសំឡេងនៅពេលនេះបានទេ។ សូមព្យាយាមម្តងទៀត"
 
-#: src/screens/Search/SearchResults.tsx:456
-#: src/screens/Search/SearchResults.tsx:593
+#: src/screens/Search/SearchResults.tsx:457
+#: src/screens/Search/SearchResults.tsx:594
 msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
 msgstr ""
 
@@ -14238,7 +14332,7 @@ msgstr ""
 msgid "We're sorry, you cannot access this screen at this time."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1123
+#: src/view/com/composer/Composer.tsx:1124
 msgid "We're sorry! The post you are replying to has been deleted."
 msgstr "យើងសុំទោស! ប្រកាសដែលអ្នកកំពុងឆ្លើយតបត្រូវបានលុប"
 
@@ -14293,8 +14387,9 @@ msgstr "តើអ្នកចង់ហៅកញ្ចប់ចាប់ផ្ត
 msgid "what’s up"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:58
 #: src/view/com/auth/SplashScreen.web.tsx:98
-#: src/view/com/composer/Composer.tsx:1606
+#: src/view/com/composer/Composer.tsx:1607
 #: src/view/com/feeds/ComposerPrompt.tsx:193
 msgid "What's up?"
 msgstr "មានរឿងអី?"
@@ -14368,7 +14463,7 @@ msgstr "ហេតុអ្វីបានជាកញ្ចប់ចាប់ផ
 msgid "Why should this user be reviewed?"
 msgstr "ហេតុអ្វីបានជាអ្នកប្រើប្រាស់នេះគួរត្រូវបានពិនិត្យ?"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:107
+#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:117
 msgid "Witchsky"
 msgstr ""
 
@@ -14384,7 +14479,7 @@ msgstr ""
 msgid "Would you like to save this as a draft before viewing your drafts?"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1521
+#: src/view/com/composer/Composer.tsx:1522
 msgid "Would you like to save this as a draft to edit later?"
 msgstr ""
 
@@ -14393,12 +14488,12 @@ msgstr ""
 msgid "Write a post"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1702
+#: src/view/com/composer/Composer.tsx:1703
 msgid "Write post"
 msgstr "សរសេរសារបង្ហោះ"
 
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:91
-#: src/view/com/composer/Composer.tsx:1604
+#: src/view/com/composer/Composer.tsx:1605
 msgid "Write your reply"
 msgstr "សរសេរការឆ្លើយតបរបស់អ្នក"
 
@@ -14570,11 +14665,11 @@ msgid "You can now sign in with your new password."
 msgstr "ឥឡូវនេះ អ្នកអាចចូលដោយប្រើពាក្យសម្ងាត់ថ្មីរបស់អ្នក"
 
 #. Toast shown when the user tries to add more images but the post gallery is already at the cap
-#: src/view/com/composer/Composer.tsx:222
+#: src/view/com/composer/Composer.tsx:223
 msgid "You can only add up to {MAX_GALLERY_IMAGES, plural, other {# images}} per post"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1526
+#: src/view/com/composer/Composer.tsx:1527
 msgid "You can only save drafts up to 1000 characters."
 msgstr ""
 
@@ -14723,7 +14818,7 @@ msgstr ""
 msgid "You have temporarily reached the limit for video uploads. Please try again later."
 msgstr "អ្នកបានឈានដល់ដែនកំណត់បណ្តោះអាសន្នសម្រាប់ការបង្ហោះវីដេអូ។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ"
 
-#: src/view/com/composer/Composer.tsx:1516
+#: src/view/com/composer/Composer.tsx:1517
 msgid "You have unsaved changes to this draft, would you like to save them?"
 msgstr ""
 
@@ -14950,7 +15045,7 @@ msgstr ""
 msgid "You've reached the end of your feed! Find some more accounts to follow."
 msgstr "អ្នក​បាន​ដល់​ចុង​បញ្ចប់​នៃ​ព័ត៌មាន​របស់​អ្នក​ហើយ! ស្វែងរកគណនីមួយចំនួនទៀតដើម្បីតាមដាន"
 
-#: src/view/com/composer/Composer.tsx:719
+#: src/view/com/composer/Composer.tsx:720
 msgid "You've reached the maximum number of drafts"
 msgstr ""
 
@@ -15122,11 +15217,15 @@ msgstr ""
 msgid "Your password must be at least 8 characters long."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1223
+#: src/view/com/composer/Composer.tsx:1224
 msgid "Your post was sent"
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1220
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:982
+msgid "Your post will be deleted and its text reopened in the composer. Images and videos won't be re-attached."
+msgstr ""
+
+#: src/view/com/composer/Composer.tsx:1221
 msgid "Your posts were sent"
 msgstr ""
 
@@ -15147,7 +15246,7 @@ msgstr ""
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 msgstr "ប្រវត្តិរូប ការបង្ហោះ មតិព័ត៌មាន និងបញ្ជីរបស់អ្នកនឹងលែងអាចមើលឃើញដោយអ្នកប្រើប្រាស់ Bluesky ផ្សេងទៀត។ អ្នកអាចដំណើរការគណនីរបស់អ្នកឡើងវិញបានគ្រប់ពេលដោយការចូល"
 
-#: src/view/com/composer/Composer.tsx:1222
+#: src/view/com/composer/Composer.tsx:1223
 msgid "Your reply was sent"
 msgstr ""
 
@@ -15160,7 +15259,7 @@ msgstr ""
 msgid "Your selected interests help us serve you content you care about."
 msgstr ""
 
-#: src/view/com/composer/Composer.tsx:1551
+#: src/view/com/composer/Composer.tsx:1552
 msgid "Your thread has empty posts that will be skipped. The remaining posts will be published as a thread."
 msgstr ""
 
