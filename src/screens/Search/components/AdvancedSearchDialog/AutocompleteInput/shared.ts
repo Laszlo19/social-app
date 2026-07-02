@@ -18,7 +18,8 @@ export function lastTokenOf(value: string): string {
 
 /**
  * Replaces the in-progress last token with the chosen handle, keeping earlier
- * values, and leaves a trailing space to start the next one.
+ * values, and leaves a trailing space to start the next one. The trailing space
+ * empties the last token, which dismisses the list.
  */
 export function appendSelection(
   value: string,

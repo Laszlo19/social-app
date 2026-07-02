@@ -21,13 +21,13 @@ import {Post} from '#/view/com/post/Post'
 import {ProfileCardWithFollowBtn} from '#/view/com/profile/ProfileCard'
 import {List} from '#/view/com/util/List'
 import {
-  useAdvancedSearchEnabled,
-  useSearchV2Enabled,
-} from '#/screens/Search/searchExperiments'
-import {
   hasPostOnlyFilters,
   type SearchFilters,
 } from '#/screens/Search/searchParams'
+import {
+  useAdvancedSearchEnabled,
+  useSearchV2Enabled,
+} from '#/screens/Search/searchExperiments'
 import {atoms as a, useTheme, web} from '#/alf'
 import * as FeedCard from '#/components/FeedCard'
 import * as Layout from '#/components/Layout'

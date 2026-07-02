@@ -14,17 +14,17 @@ import {Text} from '#/components/Typography'
 export function DateFieldButton({
   label,
   value,
+  placeholder,
   onPress,
   isInvalid,
   accessibilityHint,
-  placeholder,
 }: {
   label: string
   value: string | Date
+  placeholder?: string
   onPress: () => void
   isInvalid?: boolean
   accessibilityHint?: string
-  placeholder?: string
 }) {
   const {i18n} = useLingui()
   const t = useTheme()
@@ -80,24 +80,18 @@ export function DateFieldButton({
           a.align_center,
           hovered ? chromeHover : {},
           focused || pressed ? chromeFocus : {},
-          isInvalid || isInvalid ? chromeError : {},
-          (isInvalid || isInvalid) && (hovered || focused)
-            ? chromeErrorHover
-            : {},
+          isInvalid ? chromeError : {},
+          isInvalid && (hovered || focused) ? chromeErrorHover : {},
         ]}>
         <TextField.Icon icon={CalendarDays} />
         <Text
           style={[
             a.text_md,
             a.pl_xs,
-            value
-              ? t.atoms.text
-              : t.atoms.text_contrast_low,
+            value === '' ? t.atoms.text_contrast_low : t.atoms.text,
             {lineHeight: a.text_md.fontSize * 1.1875},
           ]}>
-          {value
-            ? i18n.date(value, {timeZone: 'UTC'})
-            : (placeholder ?? '')}
+          {value === '' ? placeholder : i18n.date(value, {timeZone: 'UTC'})}
         </Text>
       </Pressable>
     </View>
