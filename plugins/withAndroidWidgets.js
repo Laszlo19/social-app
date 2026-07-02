@@ -345,13 +345,14 @@ function statsCardLayoutXml() {
 }
 
 function composerLayoutXml() {
+  // Square 2x2 layout: placeholder on top, then a 2x2 grid of action buttons.
   return `<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
   android:background="@drawable/widget_card_bg"
-  android:padding="14dp">
+  android:padding="12dp">
   <TextView
     android:id="@+id/widget_composer_placeholder"
     android:layout_width="match_parent"
@@ -359,22 +360,20 @@ function composerLayoutXml() {
     android:layout_weight="1"
     android:text="@string/widget_composer_placeholder"
     android:textColor="@color/widget_text_secondary"
-    android:textSize="16sp"
-    android:gravity="top" />
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@color/widget_divider"
-    android:layout_marginBottom="10dp" />
+    android:textSize="14sp"
+    android:maxLines="2"
+    android:ellipsize="end"
+    android:gravity="top"
+    android:layout_marginBottom="8dp" />
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:layout_marginBottom="6dp">
     <TextView
       android:id="@+id/widget_composer_camera"
       android:layout_width="0dp"
-      android:layout_height="36dp"
+      android:layout_height="32dp"
       android:layout_weight="1"
       android:layout_marginEnd="6dp"
       android:text="@string/widget_composer_camera"
@@ -385,18 +384,22 @@ function composerLayoutXml() {
     <TextView
       android:id="@+id/widget_composer_photo"
       android:layout_width="0dp"
-      android:layout_height="36dp"
+      android:layout_height="32dp"
       android:layout_weight="1"
-      android:layout_marginEnd="6dp"
       android:text="@string/widget_composer_photo"
       android:textColor="@color/widget_text"
       android:textSize="12sp"
       android:gravity="center"
       android:background="@drawable/widget_button_secondary_bg" />
+  </LinearLayout>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
       android:id="@+id/widget_composer_gif"
       android:layout_width="0dp"
-      android:layout_height="36dp"
+      android:layout_height="32dp"
       android:layout_weight="1"
       android:layout_marginEnd="6dp"
       android:text="@string/widget_composer_gif"
@@ -407,7 +410,7 @@ function composerLayoutXml() {
     <TextView
       android:id="@+id/widget_composer_post"
       android:layout_width="0dp"
-      android:layout_height="36dp"
+      android:layout_height="32dp"
       android:layout_weight="1"
       android:text="@string/widget_composer_post"
       android:textColor="#FFFFFF"
@@ -747,9 +750,9 @@ function statsCardInfoXml() {
 function composerInfoXml() {
   return `<?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-  android:minWidth="250dp"
+  android:minWidth="110dp"
   android:minHeight="110dp"
-  android:targetCellWidth="4"
+  android:targetCellWidth="2"
   android:targetCellHeight="2"
   android:resizeMode="horizontal|vertical"
   android:widgetCategory="home_screen"
@@ -780,10 +783,10 @@ function interactionsInfoXml() {
 function pinnedFeedsInfoXml() {
   return `<?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-  android:minWidth="180dp"
-  android:minHeight="200dp"
-  android:targetCellWidth="3"
-  android:targetCellHeight="4"
+  android:minWidth="110dp"
+  android:minHeight="110dp"
+  android:targetCellWidth="2"
+  android:targetCellHeight="2"
   android:updatePeriodMillis="1800000"
   android:resizeMode="horizontal|vertical"
   android:widgetCategory="home_screen"
@@ -797,10 +800,10 @@ function pinnedFeedsInfoXml() {
 function listsInfoXml() {
   return `<?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-  android:minWidth="180dp"
-  android:minHeight="200dp"
-  android:targetCellWidth="3"
-  android:targetCellHeight="4"
+  android:minWidth="110dp"
+  android:minHeight="110dp"
+  android:targetCellWidth="2"
+  android:targetCellHeight="2"
   android:updatePeriodMillis="1800000"
   android:resizeMode="horizontal|vertical"
   android:widgetCategory="home_screen"
