@@ -12,7 +12,11 @@ import {
 import {usePreferencesQuery} from '#/state/queries/preferences'
 import {IS_DEV, LIVE_EVENTS_URL} from '#/env'
 import {useLiveEventPreferences} from '#/features/liveEvents/preferences'
-import {type LiveEventsWorkerResponse} from '#/features/liveEvents/types'
+import {
+  type LiveEventFeed,
+  type LiveEventsWorkerResponse,
+} from '#/features/liveEvents/types'
+import {device, useStorage} from '#/storage'
 import {useDevMode} from '#/storage/hooks/dev-mode'
 
 const qc = new QueryClient()
@@ -20,6 +24,35 @@ const liveEventsQueryKey = ['live-events']
 
 export const DEFAULT_LIVE_EVENTS = {
   feeds: [],
+}
+
+/**
+ * Fork testing aid: a hardcoded live event injected when the
+ * `experimentalTestLiveEvent` toggle is on, so the banner can be demoed without
+ * a real remote event. `url` points at the Discover feed so the card links
+ * somewhere valid; the image is a stable placeholder.
+ */
+const TEST_LIVE_EVENT: LiveEventFeed = {
+  id: 'fork-test-live-event',
+  preview: false,
+  title: 'Test Live Event',
+  url: 'https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/feed/whats-hot',
+  layouts: {
+    wide: {
+      title: 'Test Live Event',
+      overlayColor: '#1083FE',
+      textColor: '#FFFFFF',
+      image: 'https://picsum.photos/seed/bskyliveevent/576/144',
+      blurhash: 'L6PZfSi_.AyE_3t7t7R**0o#DgR4',
+    },
+    compact: {
+      title: 'Test Live Event',
+      overlayColor: '#1083FE',
+      textColor: '#FFFFFF',
+      image: 'https://picsum.photos/seed/bskyliveevent/369/100',
+      blurhash: 'L6PZfSi_.AyE_3t7t7R**0o#DgR4',
+    },
+  },
 }
 
 async function fetchLiveEvents(): Promise<LiveEventsWorkerResponse | null> {
@@ -37,6 +70,7 @@ const Context = createContext<LiveEventsWorkerResponse>(DEFAULT_LIVE_EVENTS)
 
 export function Provider({children}: React.PropsWithChildren<{}>) {
   const [isDevMode] = useDevMode()
+  const [testEvent] = useStorage(device, ['experimentalTestLiveEvent'])
   const isBskyTeam = useIsBskyTeam()
   const {data: preferences} = usePreferencesQuery()
   const mutedWords = useMemo(
@@ -62,7 +96,11 @@ export function Provider({children}: React.PropsWithChildren<{}>) {
   })
 
   const ctx = useMemo(() => {
-    if (!data) return DEFAULT_LIVE_EVENTS
+    // Fork testing: inject a fake event so the banner shows without a real one.
+    const injected = testEvent ? [TEST_LIVE_EVENT] : []
+    if (!data) {
+      return injected.length ? {feeds: injected} : DEFAULT_LIVE_EVENTS
+    }
     const skipMuteFilter = isBskyTeam || IS_DEV
     const feeds = data.feeds.filter(f => {
       if (f.preview && !isBskyTeam) return false
@@ -81,9 +119,12 @@ export function Provider({children}: React.PropsWithChildren<{}>) {
     return {
       ...data,
       // only one at a time for now, unless bsky team and dev mode
-      feeds: isBskyTeam && isDevMode ? feeds : feeds.slice(0, 1),
+      feeds: [
+        ...injected,
+        ...(isBskyTeam && isDevMode ? feeds : feeds.slice(0, 1)),
+      ],
     }
-  }, [data, isBskyTeam, isDevMode, mutedWords])
+  }, [data, isBskyTeam, isDevMode, mutedWords, testEvent])
 
   return <Context.Provider value={ctx}>{children}</Context.Provider>
 }

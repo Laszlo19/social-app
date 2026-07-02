@@ -16,18 +16,31 @@ export function DateField({
   value,
   inputRef,
   onChangeDate,
-  onConfirm: onConfirmProp,
+  onConfirm,
+  placeholder,
   label,
   isInvalid,
   testID,
   accessibilityHint,
   maximumDate,
   minimumDate,
-  placeholder,
 }: DateFieldProps) {
   const {i18n} = useLingui()
   const t = useTheme()
   const [open, setOpen] = useState(false)
+
+  /*
+   * The picker requires a valid date, so when value is empty we open at
+   * maximumDate (if set) or today. Normalize through toSimpleDateString so a
+   * date-only value is parsed as UTC midnight, consistent with the picker's
+   * timeZoneOffsetInMinutes={0} and the maximumDate below.
+   */
+  const initialDate =
+    value === ''
+      ? maximumDate
+        ? new Date(toSimpleDateString(maximumDate))
+        : new Date()
+      : new Date(toSimpleDateString(value))
 
   const onChangeInternal = useCallback(
     (date: Date) => {
@@ -35,9 +48,9 @@ export function DateField({
 
       const formatted = toSimpleDateString(date)
       onChangeDate(formatted)
-      onConfirmProp?.(formatted)
+      onConfirm?.(formatted)
     },
-    [onChangeDate, onConfirmProp, setOpen],
+    [onChangeDate, onConfirm, setOpen],
   )
 
   useImperativeHandle(
@@ -67,10 +80,10 @@ export function DateField({
       <DateFieldButton
         label={label}
         value={value}
+        placeholder={placeholder}
         onPress={onPress}
         isInvalid={isInvalid}
         accessibilityHint={accessibilityHint}
-        placeholder={placeholder}
       />
       {open && (
         // Android implementation of DatePicker currently does not change default button colors according to theme and only takes hex values for buttonColor
@@ -82,9 +95,7 @@ export function DateField({
           theme={t.scheme}
           // @ts-ignore TODO
           buttonColor={t.name === 'light' ? '#000000' : '#ffffff'}
-          // An empty value (cleared/optional field) would make an Invalid Date
-          // and crash the native picker, so open at today instead.
-          date={new Date(toSimpleDateString(value || new Date()))}
+          date={initialDate}
           onConfirm={onChangeInternal}
           onCancel={onCancel}
           mode="date"

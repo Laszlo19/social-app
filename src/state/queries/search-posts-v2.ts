@@ -1,5 +1,5 @@
 import {useCallback, useMemo, useRef} from 'react'
-import {type AppBskyFeedDefs, moderatePost} from '@atproto/api'
+import {type AppBskyFeedSearchPostsV2, moderatePost} from '@atproto/api'
 import {
   type InfiniteData,
   type QueryKey,
@@ -9,15 +9,19 @@ import {
 import {useModerationOpts} from '#/state/preferences/moderation-opts'
 import {useAgent} from '#/state/session'
 import {type SearchFilters} from '#/screens/Search/searchParams'
+import {
+  buildSearchPostsV2Filters,
+  extractSearchPostsParams,
+} from './search-posts-params'
 
-type SearchV2Page = {
-  posts: AppBskyFeedDefs.PostView[]
-  cursor?: string
-  detectedQueryLanguages?: string[]
-}
-
+/**
+ * V2 search shares the `'search-posts'` query-key root with the original hook
+ * (src/state/queries/search-posts.ts) so the shadow-cache generators there -
+ * findAllPostsInQueryData / findAllProfilesInQueryData - discover V2 results
+ * too. This module is only used behind the AdvancedSearchV2Enable gate; the
+ * original hook is unchanged.
+ */
 const searchPostsQueryKeyRoot = 'search-posts'
-
 const searchPostsV2QueryKey = ({
   query,
   sort,
@@ -27,41 +31,6 @@ const searchPostsV2QueryKey = ({
   sort?: string
   filters?: SearchFilters
 }) => [searchPostsQueryKeyRoot, query, sort, filters]
-
-/** Split a space-separated string param into an array, dropping empties. */
-function splitParam(value?: string): string[] | undefined {
-  if (!value) return undefined
-  const parts = value.trim().split(/\s+/).filter(Boolean)
-  return parts.length > 0 ? parts : undefined
-}
-
-/** Map our SearchFilters (route params) to app.bsky.feed.searchPostsV2 params. */
-function filtersToV2Params(
-  filters: SearchFilters,
-): Record<string, string | string[] | boolean | undefined> {
-  return {
-    authors: splitParam(filters.author),
-    mentions: splitParam(filters.mentions),
-    domains: splitParam(filters.domain),
-    urls: splitParam(filters.url),
-    hashtags: splitParam(filters.tag),
-    excludeAuthors: splitParam(filters.excludeAuthor),
-    excludeMentions: splitParam(filters.excludeMentions),
-    excludeDomains: splitParam(filters.excludeDomain),
-    excludeUrls: splitParam(filters.excludeUrl),
-    excludeHashtags: splitParam(filters.excludeTag),
-    languages: filters.lang ? [filters.lang] : undefined,
-    since: filters.since,
-    until: filters.until,
-    excludeReplies:
-      filters.replies === 'none' ? true : undefined,
-    repliesOnly:
-      filters.replies === 'only' ? true : undefined,
-    hasMedia: filters.media === 'true' ? true : undefined,
-    hasVideo: filters.video === 'true' ? true : undefined,
-    following: filters.following === 'true' ? true : undefined,
-  }
-}
 
 export function useSearchPostsV2Query({
   query,
@@ -78,63 +47,90 @@ export function useSearchPostsV2Query({
   const moderationOpts = useModerationOpts()
   const selectArgs = useMemo(
     () => ({
-      isSearchingSpecificUser:
-        /from:(\w+)/.test(query) || !!filters?.author,
+      isSearchingSpecificUser: /from:(\w+)/.test(query) || !!filters?.author,
       moderationOpts,
     }),
     [query, filters?.author, moderationOpts],
   )
   const lastRun = useRef<{
-    data: InfiniteData<SearchV2Page>
+    data: InfiniteData<AppBskyFeedSearchPostsV2.OutputSchema>
     args: typeof selectArgs
-    result: InfiniteData<SearchV2Page>
+    result: InfiniteData<AppBskyFeedSearchPostsV2.OutputSchema>
   } | null>(null)
 
   return useInfiniteQuery<
-    SearchV2Page,
+    AppBskyFeedSearchPostsV2.OutputSchema,
     Error,
-    InfiniteData<SearchV2Page>,
+    InfiniteData<AppBskyFeedSearchPostsV2.OutputSchema>,
     QueryKey,
     string | undefined
   >({
     queryKey: searchPostsV2QueryKey({query, sort, filters}),
     queryFn: async ({pageParam}) => {
-      const v2Params = filtersToV2Params(filters ?? {})
+      /*
+       * Operators embedded in the query string (e.g. for back-compat links) are
+       * merged with the explicit structured filters from the advanced search
+       * dialog; see buildSearchPostsV2Filters for how the two sources combine.
+       */
+      const {q, ...embedded} = extractSearchPostsParams(query)
+      const builtFilters = buildSearchPostsV2Filters(embedded, filters)
+      /*
+       * v2 defaults to a recent-post window; the Latest tab keeps that, while
+       * Top searches the full index. But an explicit since/until date filter
+       * must search the full index too, otherwise the recent window would
+       * silently override the user's date range and return nothing for older
+       * dates.
+       */
+      const hasDateFilter = !!(builtFilters.since || builtFilters.until)
       const res = await agent.app.bsky.feed.searchPostsV2({
-        query: query || undefined,
-        sort: sort === 'latest' ? 'recent' : 'top',
+        ...builtFilters,
+        query: q,
         limit: 25,
         cursor: pageParam,
-        ...v2Params,
+        /*
+         * v2 calls the recency sort 'recent'; the rest of the app still uses
+         * the v1 'latest' label.
+         */
+        sort: sort === 'latest' ? 'recent' : sort,
+        allTime: sort !== 'latest' || hasDateFilter,
       })
-      return {
-        posts: res.data.posts,
-        cursor: res.data.cursor,
-        detectedQueryLanguages: res.data.detectedQueryLanguages ?? [],
-      }
+      return res.data
     },
     initialPageParam: undefined,
     getNextPageParam: lastPage => lastPage.cursor,
     enabled: enabled ?? !!moderationOpts,
     select: useCallback(
-      (data: InfiniteData<SearchV2Page>) => {
-        const {moderationOpts: opts, isSearchingSpecificUser} = selectArgs
+      (data: InfiniteData<AppBskyFeedSearchPostsV2.OutputSchema>) => {
+        const {moderationOpts, isSearchingSpecificUser} = selectArgs
 
+        /*
+         * If a user applies the `from:<user>` filter, don't apply any
+         * moderation. Note that if we add any more filtering logic below, we
+         * may need to adjust this.
+         */
         if (isSearchingSpecificUser) {
           return data
         }
 
-        let reusedPages: SearchV2Page[] = []
+        /*
+         * Keep track of the last run and whether we can reuse some already
+         * selected pages from there.
+         */
+        let reusedPages = []
         if (lastRun.current) {
-          const {data: lastData, args: lastArgs, result: lastResult} =
-            lastRun.current
+          const {
+            data: lastData,
+            args: lastArgs,
+            result: lastResult,
+          } = lastRun.current
           let canReuse = true
-          for (const key in selectArgs) {
-            if (Object.prototype.hasOwnProperty.call(selectArgs, key)) {
+          for (let key in selectArgs) {
+            if (selectArgs.hasOwnProperty(key)) {
               if (
                 (selectArgs as Record<string, unknown>)[key] !==
                 (lastArgs as Record<string, unknown>)[key]
               ) {
+                // Can't do reuse anything if any input has changed.
                 canReuse = false
                 break
               }
@@ -146,6 +142,7 @@ export function useSearchPostsV2Query({
                 reusedPages.push(lastResult.pages[i])
                 continue
               }
+              // Stop as soon as pages stop matching up.
               break
             }
           }
@@ -155,13 +152,15 @@ export function useSearchPostsV2Query({
           ...data,
           pages: [
             ...reusedPages,
-            ...data.pages.slice(reusedPages.length).map(page => ({
-              ...page,
-              posts: page.posts.filter(post => {
-                const mod = moderatePost(post, opts!)
-                return !mod.ui('contentList').filter
-              }),
-            })),
+            ...data.pages.slice(reusedPages.length).map(page => {
+              return {
+                ...page,
+                posts: page.posts.filter(post => {
+                  const mod = moderatePost(post, moderationOpts!)
+                  return !mod.ui('contentList').filter
+                }),
+              }
+            }),
           ],
         }
 
