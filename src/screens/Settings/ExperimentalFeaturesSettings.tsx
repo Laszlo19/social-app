@@ -23,6 +23,7 @@ const WITCHSKY_BOOL_KEYS = [
   'experimentalMultiAccount',
   'experimentalSearchV2',
   'experimentalAdvancedSearch',
+  'experimentalTestLiveEvent',
   'squareAvatars',
   'squareButtons',
   'mutualsLabel',
@@ -63,6 +64,9 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
   const [searchV2, setSearchV2] = useStorage(device, ['experimentalSearchV2'])
   const [advancedSearch, setAdvancedSearch] = useStorage(device, [
     'experimentalAdvancedSearch',
+  ])
+  const [testLiveEvent, setTestLiveEvent] = useStorage(device, [
+    'experimentalTestLiveEvent',
   ])
   const [openRouterApiKey, setOpenRouterApiKey] = useStorage(device, [
     'openRouterApiKey',
@@ -307,6 +311,29 @@ export function ExperimentalFeaturesSettingsScreen({}: Props) {
                   Show the advanced search dialog (authors, mentions, domains,
                   hashtags, dates, media, replies, language) in the search
                   screen.
+                </Trans>
+              </Toggle.LabelText>
+              <Toggle.Platform />
+            </Toggle.Item>
+          </SettingsList.Group>
+
+          <SettingsList.Group contentContainerStyle={[a.gap_sm]}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Test live event banner</Trans>
+            </SettingsList.ItemText>
+            <Toggle.Item
+              name="test_live_event"
+              label={_(
+                msg`Inject a fake live event banner into the Explore screen for testing`,
+              )}
+              value={!!testLiveEvent}
+              onChange={value => setTestLiveEvent(value)}
+              style={[a.w_full]}>
+              <Toggle.LabelText style={[a.flex_1]}>
+                <Trans>
+                  Inject a fake "live event" banner into the Explore screen so
+                  the live-events UI can be demoed without a real event.
                 </Trans>
               </Toggle.LabelText>
               <Toggle.Platform />

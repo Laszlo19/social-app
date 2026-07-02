@@ -119,6 +119,12 @@ export type Device = {
   experimentalAdvancedSearch?: boolean
 
   /**
+   * Experimental/testing: inject a fake "live event" banner into the Explore
+   * screen so the live-events UI can be demoed without a real remote event.
+   */
+  experimentalTestLiveEvent?: boolean
+
+  /**
    * OpenRouter API key used for AI alt-text generation in the image composer.
    */
   openRouterApiKey?: string
