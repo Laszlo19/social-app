@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "Account removed from quick access"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:56
+#: src/lib/hooks/useUpdateWidgets.ts:63
 msgid "Account statistics"
 msgstr "Account statistics"
 
@@ -2442,7 +2442,7 @@ msgstr ""
 msgid "By you"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:59
+#: src/lib/hooks/useUpdateWidgets.ts:66
 #: src/view/com/composer/photos/OpenCameraBtn.tsx:69
 msgid "Camera"
 msgstr ""
@@ -2719,6 +2719,7 @@ msgctxt "toast"
 msgid "Chat unmuted"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:79
 #: src/screens/Messages/ChatList.tsx:89
 #: src/screens/Messages/ChatList.tsx:553
 #: src/screens/Messages/ChatList.tsx:593
@@ -5535,7 +5536,7 @@ msgstr ""
 msgid "Followed by <0>{0}</0>, <1>{1}</1>, and {2, plural, one {# other} other {# others}}"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:46
+#: src/lib/hooks/useUpdateWidgets.ts:53
 msgid "Followers"
 msgstr "Followers"
 
@@ -5558,7 +5559,7 @@ msgstr ""
 #: src/components/ProfileCard.tsx:537
 #: src/components/ProfileHoverCard/index.web.tsx:494
 #: src/components/ProfileHoverCard/index.web.tsx:505
-#: src/lib/hooks/useUpdateWidgets.ts:47
+#: src/lib/hooks/useUpdateWidgets.ts:54
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
 #: src/screens/VideoFeed/index.tsx:864
@@ -5815,7 +5816,7 @@ msgstr ""
 
 #: src/components/MediaPreview.tsx:182
 #: src/components/Post/Embed/VideoEmbed/GifPresentationControls.tsx:93
-#: src/lib/hooks/useUpdateWidgets.ts:61
+#: src/lib/hooks/useUpdateWidgets.ts:68
 msgid "GIF"
 msgstr ""
 
@@ -6678,7 +6679,7 @@ msgstr ""
 msgid "Interaction settings"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:63
+#: src/lib/hooks/useUpdateWidgets.ts:70
 msgid "Interactions"
 msgstr "Interactions"
 
@@ -6949,11 +6950,11 @@ msgstr ""
 msgid "Larger"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:57
+#: src/lib/hooks/useUpdateWidgets.ts:64
 msgid "Last 30 days"
 msgstr "Last 30 days"
 
-#: src/lib/hooks/useUpdateWidgets.ts:66
+#: src/lib/hooks/useUpdateWidgets.ts:73
 msgid "Last 7 days"
 msgstr "Last 7 days"
 
@@ -7328,7 +7329,7 @@ msgid "List unmuted"
 msgstr ""
 
 #: src/features/customNav/catalog.tsx:175
-#: src/lib/hooks/useUpdateWidgets.ts:70
+#: src/lib/hooks/useUpdateWidgets.ts:77
 #: src/Navigation.tsx:179
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
@@ -8020,6 +8021,7 @@ msgstr ""
 
 #: src/components/dms/dialogs/NewChatDialog.tsx:169
 #: src/components/dms/dialogs/NewChatDialog.tsx:184
+#: src/lib/hooks/useUpdateWidgets.ts:81
 #: src/screens/Messages/ChatList.tsx:229
 #: src/screens/Messages/ChatList.tsx:230
 #: src/screens/Messages/ChatList.tsx:453
@@ -8110,7 +8112,7 @@ msgid "New password"
 msgstr ""
 
 #: src/features/customNav/catalog.tsx:200
-#: src/lib/hooks/useUpdateWidgets.ts:45
+#: src/lib/hooks/useUpdateWidgets.ts:52
 #: src/screens/Profile/ProfileFeed/index.tsx:217
 #: src/screens/ProfileList/index.tsx:237
 #: src/screens/ProfileList/index.tsx:280
@@ -8247,7 +8249,7 @@ msgstr ""
 msgid "No lists"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:71
+#: src/lib/hooks/useUpdateWidgets.ts:78
 msgid "No lists found"
 msgstr "No lists found"
 
@@ -8305,7 +8307,7 @@ msgstr ""
 msgid "No one can send messages"
 msgstr "No one can send messages"
 
-#: src/lib/hooks/useUpdateWidgets.ts:69
+#: src/lib/hooks/useUpdateWidgets.ts:76
 msgid "No pinned feeds yet"
 msgstr "No pinned feeds yet"
 
@@ -8809,7 +8811,7 @@ msgstr ""
 msgid "Open system log"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:67
+#: src/lib/hooks/useUpdateWidgets.ts:74
 msgid "Open the app to load interactions"
 msgstr "Open the app to load interactions"
 
@@ -9178,7 +9180,7 @@ msgstr ""
 msgid "Phone number verified"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:60
+#: src/lib/hooks/useUpdateWidgets.ts:67
 msgid "Photo"
 msgstr "Photo"
 
@@ -9225,7 +9227,7 @@ msgstr ""
 msgid "Pinned {0} to Home"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:68
+#: src/lib/hooks/useUpdateWidgets.ts:75
 msgid "Pinned feeds"
 msgstr "Pinned feeds"
 
@@ -9445,7 +9447,7 @@ msgstr ""
 msgid "Porn"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:62
+#: src/lib/hooks/useUpdateWidgets.ts:69
 #: src/screens/Settings/AppearanceSettings.tsx:316
 msgid "Post"
 msgstr "Post"
@@ -10215,7 +10217,7 @@ msgstr "Replied-to message, tap to scroll to it"
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:274
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:286
 #: src/lib/hooks/useNotificationHandler.ts:172
-#: src/lib/hooks/useUpdateWidgets.ts:64
+#: src/lib/hooks/useUpdateWidgets.ts:71
 #: src/screens/Settings/NotificationSettings/index.tsx:170
 #: src/screens/Settings/NotificationSettings/index.tsx:319
 #: src/view/screens/Profile.tsx:235
@@ -10416,7 +10418,7 @@ msgid "Reposted by you"
 msgstr ""
 
 #: src/lib/hooks/useNotificationHandler.ts:165
-#: src/lib/hooks/useUpdateWidgets.ts:65
+#: src/lib/hooks/useUpdateWidgets.ts:72
 #: src/screens/Settings/NotificationSettings/index.tsx:203
 #: src/screens/Settings/NotificationSettings/index.tsx:344
 msgid "Reposts"
@@ -10727,6 +10729,7 @@ msgstr ""
 msgid "Say hello!"
 msgstr ""
 
+#: src/lib/hooks/useUpdateWidgets.ts:80
 #: src/screens/Messages/ChatList.tsx:220
 #: src/screens/Messages/ChatList.tsx:444
 msgid "Say hi to someone"
@@ -14382,7 +14385,7 @@ msgstr ""
 msgid "what’s up"
 msgstr "what’s up"
 
-#: src/lib/hooks/useUpdateWidgets.ts:58
+#: src/lib/hooks/useUpdateWidgets.ts:65
 #: src/view/com/auth/SplashScreen.web.tsx:98
 #: src/view/com/composer/Composer.tsx:1607
 #: src/view/com/feeds/ComposerPrompt.tsx:193
