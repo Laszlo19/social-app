@@ -47,6 +47,7 @@ export type CommonNavigatorParams = {
   ProfileFeedLikedBy: {name: string; rkey: string}
   ProfileLabelerLikedBy: {name: string}
   Debug: undefined
+  StorybookOld: undefined
   DebugMod: undefined
   SharedPreferencesTester: undefined
   Log: undefined
