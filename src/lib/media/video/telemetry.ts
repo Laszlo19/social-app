@@ -2,7 +2,10 @@ import {Platform} from 'react-native'
 import {type ImagePickerAsset} from 'expo-image-picker'
 import {nanoid} from 'nanoid/non-secure'
 
-import {type VideoCompressSkipReason} from '#/lib/media/video/types'
+import {
+  type ProbedMetadata,
+  type VideoCompressSkipReason,
+} from '#/lib/media/video/types'
 import {Sentry} from '#/logger/sentry/lib'
 import {type Metrics} from '#/analytics/metrics'
 
@@ -23,11 +26,17 @@ function errorClass(e: unknown): string {
   return 'Unknown'
 }
 
+function errorMessage(e: unknown): string {
+  const message = e instanceof Error ? e.message : String(e)
+  return message.slice(0, 256)
+}
+
 export type VideoTelemetry = {
   readonly uploadId: string
   readonly engine: string
   picked: () => void
   compressStarted: () => void
+  probed: (metadata: ProbedMetadata) => void
   compressSkipped: (video: {
     size: number
     mimeType: string
@@ -155,6 +164,24 @@ export function createVideoTelemetry({
       })
     },
 
+    probed(metadata) {
+      metric('video:upload:probed', {
+        uploadId,
+        engine,
+        mimeType: metadata.mimeType,
+        codec: metadata.codec,
+        width: metadata.width,
+        height: metadata.height,
+        duration: metadata.duration,
+        bitrate: metadata.bitrate,
+        fileSize: metadata.fileSize,
+        hasAudio: metadata.hasAudio,
+        frameRate: metadata.frameRate,
+        rotation: metadata.rotation,
+        isHDR: metadata.isHDR,
+      })
+    },
+
     compressSkipped({size, mimeType, skipReason}) {
       metric('video:upload:compressSkipped', {
         uploadId,
@@ -186,6 +213,7 @@ export function createVideoTelemetry({
         uploadId,
         engine,
         errorClass: errorClass(e),
+        errorMessage: errorMessage(e),
         elapsedMs: Date.now() - phaseStartedAt,
       })
       endTxn('error')
