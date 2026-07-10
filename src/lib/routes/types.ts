@@ -77,6 +77,7 @@ export type CommonNavigatorParams = {
   ExperimentalFeaturesSettings: undefined
   FindContactsSettings: undefined
   InviteScanner: undefined
+  WhatsNew: undefined
   Search: SearchParams
   Hashtag: {tag: string; author?: string}
   Topic: {topic: string}

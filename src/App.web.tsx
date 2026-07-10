@@ -72,6 +72,7 @@ import {
   prefetchLiveEvents,
   Provider as LiveEventsProvider,
 } from '#/features/liveEvents/context'
+import {Provider as WhatsNewProvider} from '#/features/whatsNew'
 import * as Geo from '#/geolocation'
 import {Splash} from '#/Splash'
 import {BackgroundNotificationPreferencesProvider} from '../modules/expo-background-notification-handler/src/BackgroundNotificationHandlerProvider'
@@ -155,8 +156,10 @@ function InnerApp() {
                                                             <IntentDialogProvider>
                                                               <TranslateOnDeviceProvider>
                                                                 <HotkeysProvider>
-                                                                  <Shell />
-                                                                  <ToastOutlet />
+                                                                  <WhatsNewProvider>
+                                                                    <Shell />
+                                                                    <ToastOutlet />
+                                                                  </WhatsNewProvider>
                                                                 </HotkeysProvider>
                                                               </TranslateOnDeviceProvider>
                                                             </IntentDialogProvider>
