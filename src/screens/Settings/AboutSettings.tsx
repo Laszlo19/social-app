@@ -11,11 +11,13 @@ import {useMutation} from '@tanstack/react-query'
 import {STATUS_PAGE_URL} from '#/lib/constants'
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {purgeTemporaryImageFiles} from '#/state/gallery'
+import {useWhatsNew} from '#/features/whatsNew'
 import * as SettingsList from '#/screens/Settings/components/SettingsList'
 import {Atom_Stroke2_Corner0_Rounded as AtomIcon} from '#/components/icons/Atom'
 import {BroomSparkle_Stroke2_Corner2_Rounded as BroomSparkleIcon} from '#/components/icons/BroomSparkle'
 import {Bubbles_Stroke2_Corner2_Rounded as BubblesIcon} from '#/components/icons/Bubble'
 import {CodeLines_Stroke2_Corner2_Rounded as CodeLinesIcon} from '#/components/icons/CodeLines'
+import {Gift1_Stroke2_Corner0_Rounded as GiftIcon} from '#/components/icons/Gift1'
 import {Globe_Stroke2_Corner0_Rounded as GlobeIcon} from '#/components/icons/Globe'
 import {Newspaper_Stroke2_Corner2_Rounded as NewspaperIcon} from '#/components/icons/Newspaper'
 import {Wrench_Stroke2_Corner2_Rounded as WrenchIcon} from '#/components/icons/Wrench'
@@ -34,6 +36,7 @@ import {OTAInfo} from './components/OTAInfo'
 type Props = NativeStackScreenProps<CommonNavigatorParams, 'AboutSettings'>
 export function AboutSettingsScreen({}: Props) {
   const {_, i18n} = useLingui()
+  const whatsNew = useWhatsNew()
   const [devModeEnabled, setDevModeEnabled] = useDevMode()
   const [demoModeEnabled, setDemoModeEnabled] = useDemoMode()
   const sendErrorReportControl = Prompt.usePromptControl()
@@ -89,6 +92,14 @@ export function AboutSettingsScreen({}: Props) {
       </Layout.Header.Outer>
       <Layout.Content>
         <SettingsList.Container>
+          <SettingsList.PressableItem
+            label={_(msg`What's new`)}
+            onPress={() => whatsNew.open()}>
+            <SettingsList.ItemIcon icon={GiftIcon} />
+            <SettingsList.ItemText>
+              <Trans>What's new</Trans>
+            </SettingsList.ItemText>
+          </SettingsList.PressableItem>
           <SettingsList.LinkItem
             to="https://bsky.social/about/support/tos"
             label={_(msg`Terms of Service`)}>
