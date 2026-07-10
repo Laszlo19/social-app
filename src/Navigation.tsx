@@ -30,7 +30,7 @@ import {
 } from '#/lib/hooks/useNotificationHandler'
 import {useWebScrollRestoration} from '#/lib/hooks/useWebScrollRestoration'
 import {useCallOnce} from '#/lib/once'
-import {buildStateObject} from '#/lib/routes/helpers'
+import {buildStateObject, getCurrentRoute} from '#/lib/routes/helpers'
 import {
   type AllNavigatorParams,
   type BottomTabNavigatorParams,
@@ -55,7 +55,6 @@ import {
 import {useCloseAllActiveElements} from '#/state/util'
 import {CommunityGuidelinesScreen} from '#/view/screens/CommunityGuidelines'
 import {CopyrightPolicyScreen} from '#/view/screens/CopyrightPolicy'
-import {DebugScreen} from '#/view/screens/Debug'
 import {DebugModScreen} from '#/view/screens/DebugMod'
 import {FeedsScreen} from '#/view/screens/Feeds'
 import {
@@ -312,11 +311,6 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         name="Debug"
         getComponent={() => StorybookScreen}
         options={{title: title(msg`Storybook`), requireAuth: true}}
-      />
-      <Stack.Screen
-        name="StorybookOld"
-        getComponent={() => DebugScreen}
-        options={{title: title(msg`Storybook (old)`), requireAuth: true}}
       />
       <Stack.Screen
         name="DebugMod"
@@ -830,10 +824,7 @@ const LINKING = {
 
   getPathFromState(state: State) {
     // find the current node in the navigation tree
-    let node = state.routes[state.index || 0]
-    while (node.state?.routes && typeof node.state?.index === 'number') {
-      node = node.state?.routes[node.state?.index]
-    }
+    const node = getCurrentRoute(state)
 
     // build the path
     const route = router.matchName(node.name)

@@ -1,17 +1,8 @@
 import {type ImagePickerAsset} from 'expo-image-picker'
 import {
-  ALL_FORMATS,
   type AudioCodec,
-  BlobSource,
-  BufferTarget,
-  canEncodeAudio,
-  canEncodeVideo,
-  Conversion,
-  Input,
-  Mp4OutputFormat,
-  Output,
+  type Input as MediaBunnyInput,
   type VideoCodec,
-  WebMOutputFormat,
 } from 'mediabunny'
 
 import {VIDEO_MAX_SIZE} from '#/lib/constants'
@@ -23,7 +14,8 @@ import {
   COMPRESSION_MIN_SIZE_BYTES,
   COMPRESSION_TARGET_BITRATE,
 } from './constants'
-import {type CompressedVideo} from './types'
+import {loadMediaBunny} from './mediabunny'
+import {type CompressedVideo, type ProbedMetadata} from './types'
 
 // Codecs to try in order of preference
 // avc (H.264) is most compatible, vp9/vp8 are fallbacks for WebM
@@ -34,20 +26,37 @@ export async function compressVideo(
   opts?: {
     signal?: AbortSignal
     onProgress?: (progress: number) => void
+    onProbe?: (metadata: ProbedMetadata) => void
   },
 ): Promise<CompressedVideo> {
-  const {onProgress, signal} = opts || {}
+  const {onProgress, signal, onProbe} = opts || {}
 
   logger.debug('compress: starting', {
     uri: asset.uri.slice(0, 50),
     hasWebCodecs: hasWebCodecs(),
   })
 
-  const response = await fetch(asset.uri)
-  const blob = await response.blob()
+  /*
+   * Prefer the original File over re-fetching the blob URL. A fetch round
+   * trip copies the bytes and fails with a bare TypeError if the URL was
+   * revoked or the read fails - the top web compressFailed error class.
+   */
+  const blob = asset.file ?? (await (await fetch(asset.uri)).blob())
 
   const isGif = blob.type === 'image/gif'
   const hasCodecs = hasWebCodecs()
+
+  // Probe pass: extract source metadata via mediabunny before any compression
+  // decision. Fires before doCompression so the probed event lands ahead of
+  // compressCompleted/compressSkipped in the funnel. GIFs and missing
+  // WebCodecs both skip - mediabunny needs a parseable container + decoder.
+  if (onProbe && !isGif && hasCodecs) {
+    try {
+      onProbe(await probeWithMediaBunny(blob))
+    } catch (e) {
+      logger.debug('video probe failed', {safeMessage: e})
+    }
+  }
 
   logger.debug('compress: fetched blob', {
     size: blob.size,
@@ -98,10 +107,50 @@ export async function compressVideo(
   }
 }
 
+async function probeWithMediaBunny(blob: Blob): Promise<ProbedMetadata> {
+  const {ALL_FORMATS, BlobSource, Input} = await loadMediaBunny()
+  const input = new Input({source: new BlobSource(blob), formats: ALL_FORMATS})
+  try {
+    const videoTrack = await input.getPrimaryVideoTrack()
+    if (!videoTrack) {
+      throw new Error('No video track found')
+    }
+    const audioTrack = await input.getPrimaryAudioTrack()
+    const [codec, codedWidth, codedHeight, rotation, isHDR, stats, duration] =
+      await Promise.all([
+        videoTrack.getCodec(),
+        videoTrack.getCodedWidth(),
+        videoTrack.getCodedHeight(),
+        videoTrack.getRotation(),
+        videoTrack.hasHighDynamicRange(),
+        // Sample a small fixed slice instead of scanning the whole file - we
+        // only want an approximate bitrate / frame rate for telemetry.
+        videoTrack.computePacketStats(100),
+        input.computeDuration(),
+      ])
+    return {
+      mimeType: blob.type || 'video/mp4',
+      codec: codec ?? 'unknown',
+      width: codedWidth,
+      height: codedHeight,
+      duration,
+      bitrate: Math.round(stats.averageBitrate),
+      fileSize: blob.size,
+      hasAudio: audioTrack !== null,
+      frameRate: stats.averagePacketRate,
+      rotation,
+      isHDR,
+    }
+  } finally {
+    input.dispose()
+  }
+}
+
 async function findEncodableVideoCodec(
   width: number,
   height: number,
 ): Promise<{codec: VideoCodec; useWebM: boolean} | null> {
+  const {canEncodeVideo} = await loadMediaBunny()
   for (const codec of VIDEO_CODECS) {
     const canEncode = await canEncodeVideo(codec, {
       width,
@@ -128,9 +177,10 @@ const AUDIO_CODECS_MP4: AudioCodec[] = ['aac']
 const AUDIO_CODECS_WEBM: AudioCodec[] = ['opus', 'vorbis']
 
 async function findEncodableAudioCodec(
-  audioTrack: Awaited<ReturnType<Input['getPrimaryAudioTrack']>>,
+  audioTrack: Awaited<ReturnType<MediaBunnyInput['getPrimaryAudioTrack']>>,
   useWebM: boolean,
 ): Promise<{codec: AudioCodec} | null> {
+  const {canEncodeAudio} = await loadMediaBunny()
   if (!audioTrack) {
     return null
   }
@@ -176,6 +226,17 @@ async function doCompression(
   },
 ): Promise<CompressedVideo> {
   const {onProgress, signal} = opts
+
+  const {
+    ALL_FORMATS,
+    BlobSource,
+    BufferTarget,
+    Conversion,
+    Input,
+    Mp4OutputFormat,
+    Output,
+    WebMOutputFormat,
+  } = await loadMediaBunny()
 
   const input = new Input({
     source: new BlobSource(blob),

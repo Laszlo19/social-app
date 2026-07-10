@@ -8,7 +8,7 @@ msgstr ""
 "Language: cs\n"
 "Project-Id-Version: 49a8cb746fbc2ae5707392ee41ddec4c\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-29 15:43\n"
+"PO-Revision-Date: 2026-07-09 10:58\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -24,7 +24,7 @@ msgid "\"{interestsDisplayName}\" category (active)"
 msgstr "Kategorie \"{interestsDisplayName}\" (aktivní)"
 
 #. A reply summary in chat
-#: src/components/dms/MessageItem.tsx:862
+#: src/components/dms/MessageItem.tsx:882
 msgid "(blocked message hidden)"
 msgstr "(blokovaná zpráva skryta)"
 
@@ -39,7 +39,7 @@ msgid "(contains embedded content)"
 msgstr "(obsahuje vložený obsah)"
 
 #. A reply summary in chat
-#: src/components/dms/MessageItem.tsx:870
+#: src/components/dms/MessageItem.tsx:896
 msgid "(deleted message)"
 msgstr "(smazaná zpráva)"
 
@@ -52,6 +52,11 @@ msgstr "(zakázaný odkaz na pozvánku ke konverzaci)"
 #: src/components/dms/replyPreview.ts:77
 msgid "(invalid chat invite link)"
 msgstr "(neplatný odkaz na pozvánku ke konverzaci)"
+
+#. A reply summary in chat
+#: src/components/dms/MessageItem.tsx:890
+msgid "(message sent before you joined)"
+msgstr "(zpráva odeslána před tím, než jste se připojili)"
 
 #: src/screens/Settings/AccountSettings.tsx:76
 msgid "(no email)"
@@ -201,7 +206,7 @@ msgid "{0, plural, other {+# more}}"
 msgstr "{0, plural, one {+# další} few {+# další} many {+# dalších} other {+# dalších}}"
 
 #. placeholder {0}: aaRegionConfig.minAccessAge
-#: src/screens/Signup/StepInfo/index.tsx:311
+#: src/screens/Signup/StepInfo/index.tsx:314
 msgid "{0, plural, other {You must be # years of age or older to create an account in your region.}}"
 msgstr "{0, plural, one {Pro vytvoření účtu ve vašem regionu vám musí být alespoň # rok.} few {Pro vytvoření účtu ve vašem regionu vám musí být alespoň # roky.} many {Pro vytvoření účtu ve vašem regionu vám musí být alespoň # roku.} other {Pro vytvoření účtu ve vašem regionu vám musí být alespoň # let.}}"
 
@@ -256,7 +261,7 @@ msgid "{0} is live"
 msgstr "{0} živě"
 
 #. placeholder {0}: createFullHandle(draftValue, state.userDomain)
-#: src/screens/Signup/StepHandle/index.tsx:186
+#: src/screens/Signup/StepHandle/index.tsx:211
 msgid "{0} is not available"
 msgstr "{0} není dostupný"
 
@@ -330,7 +335,7 @@ msgstr "{0} byl odstraněn ze skupiny"
 
 #. List formatting: {0}, {1}, {2}
 #. placeholder {0}: link(lang)
-#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:118
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:113
 msgid "{0}, "
 msgstr "{0}, "
 
@@ -383,7 +388,7 @@ msgstr "{0}/{1} {2, plural, one {člen} few {členové} many {členů} other {č
 
 #. Badge showing the current image position out of the total number of images in a gallery.
 #. placeholder {0}: index + 1
-#: src/components/images/Gallery/index.tsx:521
+#: src/components/images/Gallery/index.tsx:524
 msgctxt "gallery-badge-image-position-numbers"
 msgid "{0}/{imageCount}"
 msgstr "{0}/{imageCount}"
@@ -478,159 +483,159 @@ msgstr "{estimatedTimeHrs, plural, one {hodina} few {hodiny} many {hodin} other 
 msgid "{estimatedTimeMins, plural, one {minute} other {minutes}}"
 msgstr "{estimatedTimeMins, plural, one {minuta} few {minuty} many {minut} other {minut}}"
 
-#: src/screens/Search/components/SearchHistory.tsx:155
+#: src/screens/Search/components/SearchHistory.tsx:170
 msgid "{filterCount, plural, one {+# filter} other {+# filters}}"
 msgstr "{filterCount, plural, one {+# filtr} few {+# filtry} many {+# filtrů} other {+# filtrů}}"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:361
+#: src/view/com/notifications/NotificationFeedItem.tsx:355
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> followed you"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další vás začali} few {{formattedAuthorsCount} další vás začali} many {{formattedAuthorsCount} dalších vás začalo} other {{formattedAuthorsCount} dalších vás začalo}}</0> sledovat"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:395
+#: src/view/com/notifications/NotificationFeedItem.tsx:389
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> liked your custom feed"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další dal} few {{formattedAuthorsCount} dalších dalo} many {{formattedAuthorsCount} dalších dalo} other {{formattedAuthorsCount} dalších dalo}}</0> lajk vašemu vlastnímu kanálu"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:304
+#: src/view/com/notifications/NotificationFeedItem.tsx:298
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> liked your post"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další dal/a} few {{formattedAuthorsCount} dalších dalo} many {{formattedAuthorsCount} dalších dalo} other {{formattedAuthorsCount} dalších dalo}}</0> lajk vašemu příspěvku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:500
+#: src/view/com/notifications/NotificationFeedItem.tsx:494
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> liked your repost"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšímu} few {{formattedAuthorsCount} dalším} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}}</0> se líbí váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:473
+#: src/view/com/notifications/NotificationFeedItem.tsx:467
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> removed their verifications from your account"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další} few {{formattedAuthorsCount} dalších} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}}</0> odebrali svá ověření z vašeho účtu"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:328
+#: src/view/com/notifications/NotificationFeedItem.tsx:322
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> reposted your post"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další repostoval} few {{formattedAuthorsCount} dalších repostovalo} many {{formattedAuthorsCount} dalších repostovalo} other {{formattedAuthorsCount} dalších repostovalo}}</0> váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:524
+#: src/view/com/notifications/NotificationFeedItem.tsx:518
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> reposted your repost"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další repostoval} few {{formattedAuthorsCount} dalších repostovalo} many {{formattedAuthorsCount} dalších repostovalo} other {{formattedAuthorsCount} dalších repostovalo}}</0> váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:419
+#: src/view/com/notifications/NotificationFeedItem.tsx:413
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> signed up with your starter pack"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další se zaregistroval} few {{formattedAuthorsCount} dalších se zaregistrovalo} many {{formattedAuthorsCount} dalších se zaregistrovalo} other {{formattedAuthorsCount} dalších se zaregistrovalo}}</0> pomocí vašeho startovacího balíčku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:448
+#: src/view/com/notifications/NotificationFeedItem.tsx:442
 msgid "{firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> verified you"
 msgstr "{firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} další} few {{formattedAuthorsCount} další} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}}</0> vás ověřili"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:373
+#: src/view/com/notifications/NotificationFeedItem.tsx:367
 msgid "{firstAuthorLink} followed you"
 msgstr "{firstAuthorLink} vás sleduje"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:350
+#: src/view/com/notifications/NotificationFeedItem.tsx:344
 msgid "{firstAuthorLink} followed you back"
 msgstr "{firstAuthorLink} vás také sleduje"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:407
+#: src/view/com/notifications/NotificationFeedItem.tsx:401
 msgid "{firstAuthorLink} liked your custom feed"
 msgstr "{firstAuthorLink} dal vašemu vláknu lajk"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:316
+#: src/view/com/notifications/NotificationFeedItem.tsx:310
 msgid "{firstAuthorLink} liked your post"
 msgstr "{firstAuthorLink} dal vašemu příspěvku lajk"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:512
+#: src/view/com/notifications/NotificationFeedItem.tsx:506
 msgid "{firstAuthorLink} liked your repost"
 msgstr "{firstAuthorLink} dal vašemu repostu lajk"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:485
+#: src/view/com/notifications/NotificationFeedItem.tsx:479
 msgid "{firstAuthorLink} removed their verification from your account"
 msgstr "{firstAuthorLink} odstranil/a ověření z vašeho účtu"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:340
+#: src/view/com/notifications/NotificationFeedItem.tsx:334
 msgid "{firstAuthorLink} reposted your post"
 msgstr "{firstAuthorLink} repostoval váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:536
+#: src/view/com/notifications/NotificationFeedItem.tsx:530
 msgid "{firstAuthorLink} reposted your repost"
 msgstr "{firstAuthorLink} repostoval váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:431
+#: src/view/com/notifications/NotificationFeedItem.tsx:425
 msgid "{firstAuthorLink} signed up with your starter pack"
 msgstr "{firstAuthorLink} se registroval pomocí vašeho startovacího balíčku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:460
+#: src/view/com/notifications/NotificationFeedItem.tsx:454
 msgid "{firstAuthorLink} verified you"
 msgstr "Váš účet byl ověřen díky {firstAuthorLink}"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:354
+#: src/view/com/notifications/NotificationFeedItem.tsx:348
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} followed you"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další vás začal} few {{formattedAuthorsCount} dalších vás začalo} many {{formattedAuthorsCount} dalších vás začalo} other {{formattedAuthorsCount} dalších vás začalo}} sledovat"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:388
+#: src/view/com/notifications/NotificationFeedItem.tsx:382
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} liked your custom feed"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšímu} few {{formattedAuthorsCount} dalším} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}} se líbí váš vlastní kanál"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:297
+#: src/view/com/notifications/NotificationFeedItem.tsx:291
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} liked your post"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšímu} few {{formattedAuthorsCount} dalším} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}} se líbí váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:493
+#: src/view/com/notifications/NotificationFeedItem.tsx:487
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} liked your repost"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšímu} few {{formattedAuthorsCount} dalším} many {{formattedAuthorsCount} dalším} other {{formattedAuthorsCount} dalším}} se líbí váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:466
+#: src/view/com/notifications/NotificationFeedItem.tsx:460
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} removed their verifications from your account"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další odebral/a} few {{formattedAuthorsCount} další odebrali} many {{formattedAuthorsCount} dalších odebralo} other {{formattedAuthorsCount} dalších odebralo}} ověření z vašeho účtu"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:321
+#: src/view/com/notifications/NotificationFeedItem.tsx:315
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} reposted your post"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další repostoval} few {{formattedAuthorsCount} další repostovali} many {{formattedAuthorsCount} dalších repostovalo} other {{formattedAuthorsCount} dalších repostovalo}} váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:517
+#: src/view/com/notifications/NotificationFeedItem.tsx:511
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} reposted your repost"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další repostoval} few {{formattedAuthorsCount} další repostovali} many {{formattedAuthorsCount} dalších repostovalo} other {{formattedAuthorsCount} dalších repostovalo}} váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:412
+#: src/view/com/notifications/NotificationFeedItem.tsx:406
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} signed up with your starter pack"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další se zaregistroval} few {{formattedAuthorsCount} další se zaregistrovali} many {{formattedAuthorsCount} dalších se zaregistrovalo} other {{formattedAuthorsCount} dalších se zaregistrovalo}} pomocí vašeho startovacího balíčku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:441
+#: src/view/com/notifications/NotificationFeedItem.tsx:435
 msgid "{firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}} verified you"
 msgstr "{firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} další vás ověřil/a} few {{formattedAuthorsCount} další vás ověřili} many {{formattedAuthorsCount} dalších vás ověřilo} other {{formattedAuthorsCount} dalších vás ověřilo}}"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:359
+#: src/view/com/notifications/NotificationFeedItem.tsx:353
 msgid "{firstAuthorName} followed you"
 msgstr "{firstAuthorName} vás sleduje"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:349
+#: src/view/com/notifications/NotificationFeedItem.tsx:343
 msgid "{firstAuthorName} followed you back"
 msgstr "{firstAuthorName} vás také sleduje"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:393
+#: src/view/com/notifications/NotificationFeedItem.tsx:387
 msgid "{firstAuthorName} liked your custom feed"
 msgstr "{firstAuthorName} lajkoval váš kanál"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:302
+#: src/view/com/notifications/NotificationFeedItem.tsx:296
 msgid "{firstAuthorName} liked your post"
 msgstr "{firstAuthorName} lajkoval váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:498
+#: src/view/com/notifications/NotificationFeedItem.tsx:492
 msgid "{firstAuthorName} liked your repost"
 msgstr "{firstAuthorName} lajkoval váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:471
+#: src/view/com/notifications/NotificationFeedItem.tsx:465
 msgid "{firstAuthorName} removed their verification from your account"
 msgstr "{firstAuthorName} odstranil ověření z vašeho účtu"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:326
+#: src/view/com/notifications/NotificationFeedItem.tsx:320
 msgid "{firstAuthorName} reposted your post"
 msgstr "{firstAuthorName} repostoval váš příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:522
+#: src/view/com/notifications/NotificationFeedItem.tsx:516
 msgid "{firstAuthorName} reposted your repost"
 msgstr "{firstAuthorName} repostoval váš repost"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:417
+#: src/view/com/notifications/NotificationFeedItem.tsx:411
 msgid "{firstAuthorName} signed up with your starter pack"
 msgstr "{firstAuthorName} se registroval pomocí vašeho startovacího balíčku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:446
+#: src/view/com/notifications/NotificationFeedItem.tsx:440
 msgid "{firstAuthorName} verified you"
 msgstr "Váš účet byl ověřen díky {firstAuthorName}"
 
@@ -651,11 +656,11 @@ msgstr "Nemůžete posílat zprávy {handle}"
 msgid "{handle} can’t be messaged"
 msgstr "Nemůžete posílat zprávy {handle}"
 
-#: src/features/liveNow/utils.ts:15
+#: src/features/liveNow/utils.ts:40
 msgid "{hours, plural, one {# hour {minutesString}} other {# hours {minutesString}}}"
 msgstr "{hours, plural, one {# hodina {minutesString}} few {# hodiny {minutesString}} many {# hodin {minutesString}} other {# hodin {minutesString}}}"
 
-#: src/features/liveNow/utils.ts:19
+#: src/features/liveNow/utils.ts:44
 msgid "{hours, plural, one {# hour} other {# hours}}"
 msgstr "{hours, plural, one {# hodina} few {# hodiny} many {# hodin} other {# hodin}}"
 
@@ -695,7 +700,7 @@ msgstr "{MAX_HIDDEN_REPLIES, plural, one {Můžete skrýt maximálně # odpově�
 msgid "{memberCount}/{memberLimit}"
 msgstr "{memberCount}/{memberLimit}"
 
-#: src/features/liveNow/utils.ts:10
+#: src/features/liveNow/utils.ts:35
 msgid "{minutes, plural, one {# minute} other {# minutes}}"
 msgstr "{minutes, plural, one {# minuta} few {# minuty} many {# minuty} other {# minut}}"
 
@@ -738,15 +743,15 @@ msgstr "{profileName} se připojil/a k Bluesky pomocí startovacího balíčku p
 msgid "{rank}."
 msgstr "{rank}."
 
-#: src/components/dms/MessageItem.tsx:814
+#: src/components/dms/MessageItem.tsx:791
 msgid "{replierDisplayName} replied"
 msgstr "{replierDisplayName} odpověděl/a"
 
-#: src/components/dms/MessageItem.tsx:810
+#: src/components/dms/MessageItem.tsx:790
 msgid "{replierDisplayName} replied to {originalName}"
 msgstr "{replierDisplayName} odpověděl/a uživateli {originalName}"
 
-#: src/components/dms/MessageItem.tsx:808
+#: src/components/dms/MessageItem.tsx:788
 msgid "{replierDisplayName} replied to you"
 msgstr "{replierDisplayName} vám odpověděl/a"
 
@@ -873,7 +878,7 @@ msgstr "<0>{displayName}</0><1/><2> vás přidal</2>"
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr "<0>Přihlaste se</0><1> nebo si </1><2>vytvořte účet</2><3> </3><4>a vyhledávejte zprávy, sport, politiku a vše ostatní, co se na Bluesky děje.</4>"
 
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:276
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:250
 msgid "<0>Tap here to update your location with GPS.</0>"
 msgstr "<0>Klepnutím sem aktualizujte svou polohu pomocí GPS.</0>"
 
@@ -882,7 +887,8 @@ msgstr "<0>Klepnutím sem aktualizujte svou polohu pomocí GPS.</0>"
 msgid "<0>You</0> and<1> </1><2>{0} </2>are included in your starter pack"
 msgstr "<0>Vy</0> a<1> </1><2>{0} </2>jste zahrnuti ve vašem startovacím balíčku"
 
-#: src/screens/Profile/Header/Handle.tsx:60
+#: src/lib/strings/handles.ts:38
+#: src/screens/Profile/Header/Handle.tsx:58
 msgid "⚠Invalid Handle"
 msgstr "⚠Neplatné uživatelské jméno"
 
@@ -892,7 +898,7 @@ msgstr "⚠Neplatné uživatelské jméno"
 msgid "24 hours"
 msgstr "24 hodin"
 
-#: src/screens/Login/LoginForm.tsx:278
+#: src/screens/Login/LoginForm.tsx:436
 msgid "2FA Confirmation"
 msgstr "2FA potvrzení"
 
@@ -941,6 +947,10 @@ msgstr "Byl zaslán nový kód"
 msgid "A new form of verification"
 msgstr "Nový způsob ověření"
 
+#: src/components/dms/MessageItem.tsx:801
+msgid "A reply to a message sent before you joined"
+msgstr "Odpověď na zprávu odeslanou před tím, než jste se připojili"
+
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:147
 msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!\""
@@ -964,10 +974,10 @@ msgstr "Snímek obrazovky editoru příspěvků s novým tlačítkem vedle tlač
 msgid "A selected recipient is not followed by the sender."
 msgstr "Vybraný příjemce není sledován odesílatelem."
 
-#: src/Navigation.tsx:502
-#: src/screens/Settings/AboutSettings.tsx:78
-#: src/screens/Settings/Settings.tsx:281
-#: src/screens/Settings/Settings.tsx:284
+#: src/Navigation.tsx:465
+#: src/screens/Settings/AboutSettings.tsx:85
+#: src/screens/Settings/Settings.tsx:255
+#: src/screens/Settings/Settings.tsx:258
 msgid "About"
 msgstr "Informace"
 
@@ -1021,8 +1031,7 @@ msgstr "Přístupnost"
 msgid "Accessibility Settings"
 msgstr "Nastavení přístupnosti"
 
-#: src/Navigation.tsx:441
-#: src/screens/Login/LoginForm.tsx:192
+#: src/Navigation.tsx:404
 #: src/screens/Settings/AccountSettings.tsx:56
 #: src/screens/Settings/Settings.tsx:179
 #: src/screens/Settings/Settings.tsx:182
@@ -1069,11 +1078,7 @@ msgstr "Účet byl ztlumen ze seznamu"
 msgid "Account options"
 msgstr "Možnosti účtu"
 
-#: src/components/dialogs/ServerInput.tsx:138
-msgid "Account provider"
-msgstr "Poskytovatel účtu"
-
-#: src/screens/Settings/Settings.tsx:733
+#: src/screens/Settings/Settings.tsx:671
 msgid "Account removed from quick access"
 msgstr "Účet byl odebrán z rychlého přístupu"
 
@@ -1082,8 +1087,8 @@ msgid "Account statistics"
 msgstr ""
 
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:109
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:97
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:333
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:87
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:295
 #: src/view/com/profile/ProfileMenu.tsx:169
 msgctxt "toast"
 msgid "Account unblocked"
@@ -1105,8 +1110,8 @@ msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. 
 msgstr "Účty s vroubkovanou modrou značkou zaškrtnutí <0><1/></0> mohou ověřovat ostatní. Tyto důvěryhodné ověřovatele vybírá Bluesky."
 
 #: src/lib/hooks/useNotificationHandler.ts:214
-#: src/screens/Settings/NotificationSettings/index.tsx:214
-#: src/screens/Settings/NotificationSettings/index.tsx:353
+#: src/screens/Settings/NotificationSettings/index.tsx:226
+#: src/screens/Settings/NotificationSettings/index.tsx:365
 msgid "Activity from others"
 msgstr "Aktivita od ostatních"
 
@@ -1138,7 +1143,7 @@ msgstr ""
 msgid "Add a content warning"
 msgstr "Přidat varování o obsahu"
 
-#: src/features/liveNow/components/GoLiveDialog.tsx:108
+#: src/features/liveNow/components/GoLiveDialog.tsx:114
 msgid "Add a temporary live status to your profile. When someone clicks on your avatar, they’ll see information about your live event."
 msgstr "Přidejte do svého profilu dočasný stav živého vysílání. Když někdo klikne na váš avatar, zobrazí se mu informace o vaší živé události."
 
@@ -1166,24 +1171,24 @@ msgstr "Přidat alternativní text"
 msgid "Add alt text (optional)"
 msgstr "Přidat alternativní text (volitelně)"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:449
-msgid "Add an additional search filter"
-msgstr "Přidat další filtr vyhledávání"
-
-#: src/screens/Settings/Settings.tsx:637
-#: src/screens/Settings/Settings.tsx:640
-#: src/view/shell/desktop/LeftNav.tsx:242
-#: src/view/shell/desktop/LeftNav.tsx:245
+#: src/screens/Settings/Settings.tsx:575
+#: src/screens/Settings/Settings.tsx:578
+#: src/view/shell/desktop/LeftNav.tsx:276
+#: src/view/shell/desktop/LeftNav.tsx:279
 msgid "Add another account"
 msgstr "Přidat jiný účet"
 
-#: src/view/com/composer/Composer.tsx:1606
+#: src/view/com/composer/Composer.tsx:1601
 msgid "Add another post"
 msgstr "Přidat další příspěvek"
 
-#: src/view/com/composer/Composer.tsx:2275
+#: src/view/com/composer/Composer.tsx:2267
 msgid "Add another post to thread"
 msgstr "Přidat další příspěvek do vlákna"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:435
+msgid "Add another search filter"
+msgstr "Přidat další filtr vyhledávání"
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:102
 msgid "Add app password"
@@ -1203,7 +1208,7 @@ msgstr "Přidat automatický štítek k účtu"
 msgid "Add emoji reaction"
 msgstr "Přidat reakci emoji"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:457
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:443
 msgid "Add filter"
 msgstr "Přidat filtr"
 
@@ -1211,7 +1216,7 @@ msgstr "Přidat filtr"
 msgid "Add group chat members"
 msgstr "Přidat účastníky skupinové konverzace"
 
-#: src/view/com/feeds/ComposerPrompt.tsx:224
+#: src/view/com/feeds/ComposerPrompt.tsx:223
 msgid "Add image"
 msgstr "Přidat obrázek"
 
@@ -1302,7 +1307,7 @@ msgstr "Přidat do startovacích balíčků"
 msgid "Add user to list"
 msgstr "Přidat uživatele do seznamu"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:234
+#: src/ageAssurance/components/NoAccessScreen.tsx:297
 msgid "Add your birthdate"
 msgstr "Přidat datum narození"
 
@@ -1378,15 +1383,6 @@ msgstr "Obsah sexuálního zneužívání dospělých"
 msgid "Advanced"
 msgstr "Rozšířené"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:76
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:252
-msgid "Advanced search"
-msgstr "Pokročilé vyhledávání"
-
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:299
-msgid "Advanced search filters"
-msgstr ""
-
 #: src/components/ageAssurance/AgeAssuranceBadge.tsx:42
 msgid "Age Assurance"
 msgstr "Ověření věku"
@@ -1400,14 +1396,13 @@ msgctxt "toast"
 msgid "Age assurance inquiry was submitted"
 msgstr "Žádost o ověření věku byla odeslána"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:383
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:207
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:185
 msgid "Age assurance only takes a few minutes"
 msgstr "Ověření věku trvá pouze několik minut"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:346
-msgid "AI alt-text (OpenRouter)"
-msgstr ""
+#: src/ageAssurance/components/NoAccessScreen.tsx:449
+msgid "Age assurance only takes a few minutes."
+msgstr "Ověření věku trvá pouze pár minut."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:220
 msgid "alice@example.com"
@@ -1447,7 +1442,7 @@ msgstr "Všechny jazyky"
 msgid "All languages will be shown in your feeds."
 msgstr "Ve vašich kanálech se zobrazí všechny jazyky."
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:259
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:245
 msgid "All of these words"
 msgstr "Všechna tato slova"
 
@@ -1514,7 +1509,7 @@ msgstr "Umožnit vašim sledujícím odpovědět"
 msgid "Allows access to direct messages"
 msgstr "Umožnit přístup k přímým zprávám"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:180
+#: src/screens/Login/ForgotPasswordForm.tsx:174
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:237
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:243
 msgid "Already have a code?"
@@ -1525,13 +1520,13 @@ msgid "Already have an account?"
 msgstr "Už máte účet?"
 
 #. placeholder {0}: account.handle
-#: src/screens/Login/ChooseAccountForm.tsx:46
+#: src/screens/Login/ChooseAccountForm.tsx:44
 msgid "Already signed in as @{0}"
 msgstr "Již přihlášen/a jako @{0}"
 
 #: src/components/AltBadgeWithDialog.tsx:76
 #: src/components/images/AutoSizedImage.tsx:205
-#: src/components/images/Gallery/index.tsx:585
+#: src/components/images/Gallery/index.tsx:588
 #: src/components/images/ImageLayoutGridItem.tsx:135
 #: src/view/com/composer/GifAltText.tsx:100
 #: src/view/com/composer/photos/Gallery.tsx:211
@@ -1578,7 +1573,7 @@ msgstr "Došlo k chybě"
 msgid "An error occurred"
 msgstr "Nastala chyba"
 
-#: src/view/com/composer/state/video.ts:432
+#: src/view/com/composer/state/video.ts:433
 msgid "An error occurred while compressing the video."
 msgstr "Při kompresi videa došlo k chybě."
 
@@ -1624,11 +1619,11 @@ msgstr "Došlo k chybě při ukládání QR kódu!"
 msgid "An error occurred while trying to follow all"
 msgstr "Při pokusu o sledování všech došlo k chybě"
 
-#: src/view/com/composer/state/video.ts:484
+#: src/view/com/composer/state/video.ts:485
 msgid "An error occurred while uploading the video. {message}"
 msgstr "Došlo k chybě při nahrávání videa. {message}"
 
-#: src/view/com/composer/state/video.ts:476
+#: src/view/com/composer/state/video.ts:477
 msgid "An error occurred while uploading the video. Please check your internet connection and try again."
 msgstr "Při nahrávání videa došlo k chybě. Zkontrolujte prosím připojení k internetu a zkuste to znovu."
 
@@ -1681,18 +1676,14 @@ msgstr "Při pokusu o otevření konverzace došlo k problému"
 #: src/components/hooks/useFollowMethods.ts:52
 #: src/components/ProfileCard.tsx:508
 #: src/components/ProfileCard.tsx:530
-#: src/view/com/notifications/NotificationFeedItem.tsx:808
-#: src/view/com/notifications/NotificationFeedItem.tsx:830
+#: src/view/com/notifications/NotificationFeedItem.tsx:792
+#: src/view/com/notifications/NotificationFeedItem.tsx:814
 msgid "An issue occurred, please try again."
 msgstr "Došlo k chybě, zkuste to prosím znovu."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:121
 msgid "An mockup of a iPhone showing the Bluesky app open to the profile of a verified user with a blue checkmark next to their display name."
 msgstr "Maketa iPhonu zobrazující aplikaci Bluesky otevřenou na profilu ověřeného uživatele s modrou fajfkou vedle zobrazovaného jména."
-
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:165
-msgid "An unknown error occurred."
-msgstr "Došlo k neznámé chybě."
 
 #: src/components/moderation/ModerationDetailsDialog.tsx:138
 #: src/lib/moderation/useModerationCauseDescription.ts:145
@@ -1729,10 +1720,12 @@ msgstr "Oznámení ověření na Bluesky"
 
 #. Placeholder text for a date picker
 #: src/screens/Search/components/AdvancedSearchDialog/ClearableDateField.tsx:43
-msgid "Any time"
-msgstr "Kdykoli"
+msgid "Any date"
+msgstr ""
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:25
 msgid "Anyone"
 msgstr "Kdokoli"
 
@@ -1790,7 +1783,7 @@ msgid "App password name must be unique"
 msgstr "Název hesla aplikace musí být jedinečný"
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:62
-msgid "App password names can only contain letters, numbers, spaces, dashes, and underscores"
+msgid "App password names can only contain letters, numbers, spaces, hyphens, and underscores"
 msgstr "Názvy hesel aplikací mohou obsahovat pouze písmena, číslice, mezery, pomlčky a podtržítka"
 
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:80
@@ -1882,19 +1875,19 @@ msgstr "Jste si opravdu jisti?"
 
 #. placeholder {0}: link(languages[0])
 #. placeholder {1}: link(languages[1])
-#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:105
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:100
 msgid "Are you searching for posts in {0} or {1}?"
 msgstr "Hledáte příspěvky v jazyce {0} nebo {1}?"
 
 #. placeholder {0}: link(languages[0])
-#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:100
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:95
 msgid "Are you searching for posts in {0}?"
 msgstr "Hledáte příspěvky v jazyce {0}?"
 
 #. List formatting: {0}, {1}, or {2}
 #. placeholder {0}: head.map(lang => ( <Trans key={lang.code} comment="List formatting: {0}, {1}, {2}"> {link(lang)},{' '} </Trans> ))
 #. placeholder {1}: link(last)
-#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:115
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:110
 msgid "Are you searching for posts in {0}or {1}?"
 msgstr "Hledáte příspěvky v {0}nebo {1}?"
 
@@ -1938,7 +1931,7 @@ msgstr "Opravdu chcete odstranit tuto položku z vašich kanálů?"
 msgid "Are you sure you want to rescind your request to join {0}?"
 msgstr "Opravdu chcete odvolat svou žádost o připojení k {0}?"
 
-#: src/view/com/composer/Composer.tsx:1742
+#: src/view/com/composer/Composer.tsx:1737
 msgid "Are you sure you'd like to discard this post?"
 msgstr "Opravdu chcete zrušit tento příspěvek?"
 
@@ -1981,6 +1974,11 @@ msgstr "Aurora"
 msgid "Automated account"
 msgstr "Automatizovaný účet"
 
+#: src/screens/Login/components/HostingProviderDialog.tsx:165
+#: src/screens/Login/components/HostingProviderDialog.tsx:167
+msgid "Automatic"
+msgstr "Automaticky"
+
 #: src/screens/Settings/AccountSettings.tsx:157
 #: src/screens/Settings/AccountSettings.tsx:160
 msgid "Automation label"
@@ -1997,8 +1995,9 @@ msgid "Autoplay videos and GIFs"
 msgstr "Automatické přehrávání videa a GIFů"
 
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:149
-#: src/screens/Signup/StepHandle/HandleSuggestions.tsx:73
+#. Shown next to an available username suggestion in the account creation flow
+#: src/screens/Signup/StepHandle/HandleSuggestions/index.native.tsx:69
+#: src/screens/Signup/StepHandle/HandleSuggestions/index.tsx:88
 msgid "Available"
 msgstr "Dostupný"
 
@@ -2010,14 +2009,14 @@ msgstr "Dostupný"
 #: src/components/dms/InitiateChatFlow.tsx:765
 #: src/components/moderation/LabelsOnMeDialog.tsx:334
 #: src/components/moderation/LabelsOnMeDialog.tsx:335
-#: src/screens/Login/ChooseAccountForm.tsx:98
-#: src/screens/Login/ChooseAccountForm.tsx:102
-#: src/screens/Login/ForgotPasswordForm.tsx:127
-#: src/screens/Login/ForgotPasswordForm.tsx:132
-#: src/screens/Login/LoginForm.tsx:317
-#: src/screens/Login/LoginForm.tsx:322
-#: src/screens/Login/SetNewPasswordForm.tsx:172
-#: src/screens/Login/SetNewPasswordForm.tsx:178
+#: src/screens/Login/ChooseAccountForm.tsx:96
+#: src/screens/Login/ChooseAccountForm.tsx:100
+#: src/screens/Login/ForgotPasswordForm.tsx:119
+#: src/screens/Login/ForgotPasswordForm.tsx:124
+#: src/screens/Login/LoginForm.tsx:511
+#: src/screens/Login/LoginForm.tsx:516
+#: src/screens/Login/SetNewPasswordForm.tsx:157
+#: src/screens/Login/SetNewPasswordForm.tsx:163
 #: src/screens/Messages/components/ChatDisabled.tsx:164
 #: src/screens/Messages/components/ChatDisabled.tsx:166
 #: src/screens/Messages/components/InviteLinkDialog.tsx:276
@@ -2045,11 +2044,19 @@ msgstr "Zakázané činnosti nebo porušení zabezpečení"
 msgid "Banned user returning"
 msgstr "Vracení zakázaného uživatele"
 
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:259
-msgid "Based on your device's location, we think you're in <0>{region}</0>. This estimate may be inaccurate if you're using a VPN."
-msgstr "Na základě polohy vašeho zařízení si myslíme, že jste v <0>{region}</0>. Tento odhad může být nepřesný, pokud používáte VPN."
+#: src/ageAssurance/components/NoAccessScreen.tsx:184
+msgid "Based on your device's location, we think you're in <0>{geolocationString}</0>."
+msgstr "Podle polohy vašeho zařízení se domníváme, že se nacházíte v <0>{geolocationString}</0>."
 
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:265
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:236
+msgid "Based on your device's location, we think you're in <0>{region}</0>."
+msgstr "Podle polohy vašeho zařízení se domníváme, že se nacházíte v <0>{region}</0>."
+
+#: src/ageAssurance/components/NoAccessScreen.tsx:194
+msgid "Based on your network, we think you're in <0>{geolocationString}</0>. This estimate may be inaccurate if you're using a VPN."
+msgstr "Podle vaší sítě se domníváme, že se nacházíte v <0>{geolocationString}</0>. Tento odhad může být nepřesný, pokud používáte VPN."
+
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:241
 msgid "Based on your network, we think you're in <0>{region}</0>. This estimate may be inaccurate if you're using a VPN."
 msgstr "Na základě vaší sítě si myslíme, že jste ve městě <0>{region}</0>. Tento odhad může být nepřesný, pokud používáte VPN."
 
@@ -2116,7 +2123,7 @@ msgstr "Narozeniny"
 #: src/components/moderation/BlockDialog.tsx:192
 #: src/components/moderation/BlockDialog.tsx:211
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:227
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:227
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:190
 msgid "Block"
 msgstr "Blokovat"
 
@@ -2235,11 +2242,6 @@ msgstr "bloomscrolling booksky"
 msgid "Bluesky"
 msgstr "Bluesky"
 
-#. Advanced search: Example of an “all of these words” search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:264
-msgid "bluesky atproto"
-msgstr "bluesky atproto"
-
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:657
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
 msgstr "Bluesky nemůže potvrdit pravost požadovaného data."
@@ -2254,6 +2256,7 @@ msgid "Bluesky helps friends find each other by creating an encoded digital fing
 msgstr "Bluesky pomáhá přátelům najít se navzájem vytvořením zakódovaného digitálního otisku, nazvaného \"hash\" a pak hledáním odpovídajících hashů."
 
 #: src/components/dialogs/ServerInput.tsx:214
+#: src/screens/Login/components/HostingProviderDialog.tsx:236
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
 msgstr "Bluesky je otevřená síť, kde si můžete vybrat svého poskytovatele hostingu. Pokud jste vývojář, můžete hostovat svůj vlastní server."
 
@@ -2389,7 +2392,7 @@ msgstr "Procházet téma {displayName}"
 msgid "Business"
 msgstr "Byznys"
 
-#: src/screens/Bookmarks/index.tsx:302
+#: src/screens/Bookmarks.tsx:295
 msgid "Button to go back to the home timeline"
 msgstr "Tlačítko pro návrat na domácí časovou osu"
 
@@ -2480,10 +2483,8 @@ msgstr "Je vyžadován přístup ke kameře"
 #: src/components/Prompt.tsx:154
 #: src/components/SendErrorReportDialog.tsx:98
 #: src/components/SendErrorReportDialog.tsx:102
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:152
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:157
-#: src/features/liveNow/components/GoLiveDialog.tsx:248
 #: src/features/liveNow/components/GoLiveDialog.tsx:254
+#: src/features/liveNow/components/GoLiveDialog.tsx:260
 #: src/lib/media/picker.tsx:38
 #: src/screens/Deactivated.tsx:150
 #: src/screens/Messages/components/InviteLinkDialog.tsx:500
@@ -2494,8 +2495,8 @@ msgstr "Je vyžadován přístup ke kameře"
 #: src/screens/Messages/ConversationSettings/prompts.tsx:180
 #: src/screens/Profile/Header/EditProfileDialog.tsx:215
 #: src/screens/Profile/Header/EditProfileDialog.tsx:223
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:216
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:223
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:202
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:209
 #: src/screens/Settings/AppIconSettings/index.tsx:42
 #: src/screens/Settings/AppIconSettings/index.tsx:228
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:80
@@ -2505,8 +2506,8 @@ msgstr "Je vyžadován přístup ke kameře"
 #: src/screens/Settings/Settings.tsx:326
 #: src/screens/Takendown.tsx:102
 #: src/screens/Takendown.tsx:105
-#: src/view/com/composer/Composer.tsx:1821
-#: src/view/com/composer/Composer.tsx:1831
+#: src/view/com/composer/Composer.tsx:1815
+#: src/view/com/composer/Composer.tsx:1825
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:44
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:53
 #: src/view/shell/desktop/LeftNav.tsx:194
@@ -2525,13 +2526,17 @@ msgstr "Zrušit opětovné aktivaci a odhlásit se"
 msgid "Cancel reply"
 msgstr "Zrušit odpověď"
 
-#: src/screens/Search/Shell.tsx:532
+#: src/screens/Search/Shell.tsx:608
 msgid "Cancel search"
 msgstr "Zrušit vyhledávání"
 
-#: src/components/PostControls/index.tsx:110
-#: src/components/PostControls/index.tsx:140
-#: src/components/PostControls/index.tsx:168
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:161
+msgid "Cancels signing in so you can check your username"
+msgstr "Zruší přihlašování, abyste si mohli zkontrolovat uživatelské jméno"
+
+#: src/components/PostControls/index.tsx:108
+#: src/components/PostControls/index.tsx:138
+#: src/components/PostControls/index.tsx:166
 #: src/state/shell/composer/index.tsx:105
 msgid "Cannot interact with a blocked user"
 msgstr "Nelze komunikovat s blokovaným uživatelem"
@@ -2552,6 +2557,11 @@ msgstr "karusel"
 #: src/components/RichTextTag.tsx:53
 msgid "Cashtag {tag}"
 msgstr "Cashtag {tag}"
+
+#. Advanced search: Example of an “all of these words” search. Paired with “cows pigs”.
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:250
+msgid "cats dogs"
+msgstr "kočky psi"
 
 #: src/components/Post/Translated/index.tsx:439
 #: src/screens/Settings/components/Email2FAToggle.tsx:31
@@ -2577,6 +2587,10 @@ msgstr "Změnit jazyk aplikace"
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:100
 msgid "Change Handle"
 msgstr "Změnit uživatelské jméno"
+
+#: src/screens/Login/LoginForm.tsx:644
+msgid "Change hosting provider"
+msgstr "Změnit poskytovatele hostingu"
 
 #: src/components/moderation/ReportDialog/index.tsx:445
 msgid "Change moderation service"
@@ -2740,7 +2754,7 @@ msgstr "Zkontrolujte <0>{currentEmail}</0> pro e-mail s potvrzovacím kódem, kt
 msgid "Check my status"
 msgstr "Zkontrolovat můj status"
 
-#: src/screens/Login/LoginForm.tsx:307
+#: src/screens/Login/LoginForm.tsx:463
 msgid "Check your email for a sign in code and enter it here."
 msgstr "Zkontrolujte svůj e-mail pro přihlášení a zadejte ho zde."
 
@@ -2794,18 +2808,19 @@ msgid "Choose who to invite"
 msgstr "Vyberte koho pozvat"
 
 #: src/components/dialogs/ServerInput.tsx:134
-msgid "Choose your account provider"
-msgstr "Vyberte poskytovatele účtu"
+#: src/screens/Login/components/HostingProviderDialog.tsx:155
+msgid "Choose your hosting provider"
+msgstr "Vyberte poskytovatele hostingu"
 
 #: src/view/screens/Feeds.tsx:726
 msgid "Choose your own timeline! Feeds built by the community help you find content you love."
 msgstr "Vyberte si svoji vlastní časovou osu! Kanály vytvořené komunitou vám pomohou najít obsah, který milujete."
 
-#: src/screens/Signup/StepInfo/index.tsx:268
+#: src/screens/Signup/StepInfo/index.tsx:271
 msgid "Choose your password"
 msgstr "Zvolte své heslo"
 
-#: src/screens/Signup/index.tsx:193
+#: src/screens/Signup/index.tsx:203
 msgid "Choose your username"
 msgstr "Zvolte své uživatelské jméno"
 
@@ -2832,8 +2847,8 @@ msgstr "Vymazat datum"
 msgid "Clear GIF search"
 msgstr "Vymazat vyhledávání GIF"
 
-#: src/screens/Settings/AboutSettings.tsx:127
-#: src/screens/Settings/AboutSettings.tsx:131
+#: src/screens/Settings/AboutSettings.tsx:134
+#: src/screens/Settings/AboutSettings.tsx:138
 msgid "Clear image cache"
 msgstr "Vymazat mezipaměť obrázků"
 
@@ -2853,19 +2868,15 @@ msgstr "klikněte zde"
 msgid "Click here to add people to this group chat"
 msgstr "Klikněte zde pro přidání osob do tohoto skupinového chatu"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:129
-msgid "Click here to contact our support team"
-msgstr "Klikněte zde pro kontaktování našeho týmu podpory"
-
 #: src/screens/Messages/components/MessagesListGroupInfoPanel.tsx:143
 msgid "Click here to create or manage an invite link for this group chat"
 msgstr "Klikněte zde pro vytvoření nebo správu pozvánky pro tuto skupinovou konverzaci"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:263
+#: src/ageAssurance/components/NoAccessScreen.tsx:327
 msgid "Click here to delete your account"
 msgstr "Klikněte zde pro odstranění vašeho účtu"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:254
+#: src/ageAssurance/components/NoAccessScreen.tsx:318
 msgid "Click here to log out"
 msgstr "Klikněte zde pro odhlášení"
 
@@ -2878,8 +2889,8 @@ msgstr "Klikněte zde pro opětovné odeslání e-mailu"
 msgid "Click here to restart the verification process."
 msgstr "Klikněte zde pro restartování ověřovacího procesu."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:109
-#: src/ageAssurance/components/NoAccessScreen.tsx:231
+#: src/ageAssurance/components/NoAccessScreen.tsx:119
+#: src/ageAssurance/components/NoAccessScreen.tsx:294
 msgid "Click here to update your birthdate"
 msgstr "Klikněte zde pro aktualizaci data narození"
 
@@ -2946,8 +2957,8 @@ msgstr "Klikněte pro opakování neúspěšné zprávy"
 #: src/components/WhoCanReply.tsx:236
 #: src/components/WhoCanReply.tsx:243
 #: src/features/gifPicker/components/GifPickerErrorBoundary.tsx:45
-#: src/features/liveNow/components/EditLiveDialog.tsx:217
-#: src/features/liveNow/components/EditLiveDialog.tsx:223
+#: src/features/liveNow/components/EditLiveDialog.tsx:210
+#: src/features/liveNow/components/EditLiveDialog.tsx:216
 #: src/screens/Messages/components/InviteLinkDialog.tsx:524
 #: src/screens/Messages/components/InviteLinkDialog.tsx:529
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:288
@@ -2962,7 +2973,7 @@ msgstr "Zavřít"
 msgid "Close active dialog"
 msgstr "Zavřít aktivní dialogové okno"
 
-#: src/screens/Login/PasswordUpdatedForm.tsx:32
+#: src/screens/Login/PasswordUpdatedForm.tsx:30
 msgid "Close alert"
 msgstr "Zavřít upozornění"
 
@@ -3024,19 +3035,19 @@ msgstr "Zavřít tento dialog"
 msgid "Close welcome modal"
 msgstr "Zavřít uvítací okno"
 
-#: src/screens/Login/PasswordUpdatedForm.tsx:33
+#: src/screens/Login/PasswordUpdatedForm.tsx:31
 msgid "Closes password update alert"
 msgstr "Zavře upozornění o aktualizaci hesla"
 
-#: src/view/com/composer/Composer.tsx:1829
+#: src/view/com/composer/Composer.tsx:1823
 msgid "Closes post composer and discards post draft"
 msgstr "Zavře editor příspěvku a zahodí koncept příspěvku"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:611
+#: src/view/com/notifications/NotificationFeedItem.tsx:605
 msgid "Collapse list of users"
 msgstr "Sbalit seznam uživatelů"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:959
+#: src/view/com/notifications/NotificationFeedItem.tsx:943
 msgid "Collapses list of users for a given notification"
 msgstr "Sbalí seznam uživatelů pro dané oznámení"
 
@@ -3071,7 +3082,7 @@ msgstr "Obecné zásady komunity"
 msgid "Complete onboarding and start using your account"
 msgstr "Dokončit úvodní nastavení a začít používat svůj účet"
 
-#: src/screens/Signup/index.tsx:195
+#: src/screens/Signup/index.tsx:205
 msgid "Complete the challenge"
 msgstr "Dokončete výzvu"
 
@@ -3082,7 +3093,7 @@ msgid "Compose new post"
 msgstr "Vytvořit nový příspěvek"
 
 #. placeholder {0}: MAX_GRAPHEME_LENGTH || 0
-#: src/view/com/composer/Composer.tsx:1704
+#: src/view/com/composer/Composer.tsx:1699
 msgid "Compose posts up to {0, plural, other {# characters}} in length"
 msgstr "Napiš příspěvky dlouhé až {0, plural, one {# znak} few {# znaky} many {# znaků}other {# znaků}}"
 
@@ -3090,21 +3101,17 @@ msgstr "Napiš příspěvky dlouhé až {0, plural, one {# znak} few {# znaky} m
 msgid "Compose reply"
 msgstr "Napište odpověď"
 
-#: src/view/com/composer/Composer.tsx:2672
+#: src/view/com/composer/Composer.tsx:2671
 msgid "Compressing GIF..."
 msgstr "Komprese GIF..."
 
-#: src/view/com/composer/Composer.tsx:2674
+#: src/view/com/composer/Composer.tsx:2673
 msgid "Compressing video..."
 msgstr "Komprese videa..."
 
 #: src/components/moderation/LabelPreference.tsx:88
 msgid "Configure content filtering setting for category: {name}"
 msgstr "Konfigurace nastavení filtrování obsahu pro kategorii: {name}"
-
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:37
-msgid "Configure live event banner"
-msgstr "Nakonfigurovat banner živé události"
 
 #: src/components/moderation/LabelPreference.tsx:254
 msgid "Configured in <0>moderation settings</0>."
@@ -3118,7 +3125,7 @@ msgid "Confirm"
 msgstr "Potvrdit"
 
 #: src/components/dialogs/EmailDialog/components/TokenField.tsx:37
-#: src/screens/Login/LoginForm.tsx:284
+#: src/screens/Login/LoginForm.tsx:442
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:187
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:191
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:244
@@ -3127,29 +3134,37 @@ msgstr "Potvrdit"
 msgid "Confirmation code"
 msgstr "Potvrzovací kód"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:140
-#: src/screens/Login/LoginForm.tsx:340
+#: src/screens/Login/ForgotPasswordForm.tsx:132
 msgid "Connecting to service..."
 msgstr "Připojování ke službě..."
+
+#: src/screens/Login/LoginForm.tsx:542
+msgid "Connecting to service…"
+msgstr "Připojování ke službě…"
+
+#: src/screens/Login/ForgotPasswordForm.tsx:138
+#: src/screens/Login/LoginForm.tsx:548
+msgid "Connecting…"
+msgstr "Připojování…"
 
 #: src/ageAssurance/components/RedirectOverlay.tsx:297
 #: src/components/ageAssurance/AgeAssuranceRedirectDialog.tsx:209
 msgid "Connection issue"
 msgstr "Problém s připojením"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:334
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:146
+#: src/ageAssurance/components/NoAccessScreen.tsx:404
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:128
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:31
 msgid "Contact our moderation team"
 msgstr "Kontaktujte náš moderátorský tým"
 
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:127
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:109
 msgid "Contact our support team"
 msgstr "Kontaktujte náš tým podpory"
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:156
-#: src/screens/Signup/index.tsx:240
-#: src/screens/Signup/index.tsx:243
+#: src/screens/Signup/index.tsx:250
+#: src/screens/Signup/index.tsx:253
 msgid "Contact support"
 msgstr "Kontakt na podporu"
 
@@ -3225,6 +3240,8 @@ msgstr "Pozadí kontextové nabídky, kliknutím nabídku zavřete."
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:163
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:171
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:149
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:152
 #: src/screens/Onboarding/StepInterests/index.tsx:93
 #: src/screens/Onboarding/StepProfile/index.tsx:304
 #: src/screens/Onboarding/StepSuggestedAccounts/index.tsx:305
@@ -3236,6 +3253,10 @@ msgstr "Pokračovat"
 #: src/components/AccountList.tsx:134
 msgid "Continue as {0} (currently signed in)"
 msgstr "Pokračovat jako {0} (aktuálně přihlášeno)"
+
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:150
+msgid "Continue signing in"
+msgstr "Pokračovat v přihlašování"
 
 #: src/screens/PostThread/components/ThreadItemReadMoreUp.tsx:28
 msgid "Continue thread"
@@ -3289,11 +3310,11 @@ msgstr "Konverzace zbývá"
 msgid "Conversation not found."
 msgstr "Konverzace nenalezena."
 
-#: src/screens/Settings/AboutSettings.tsx:162
+#: src/screens/Settings/AboutSettings.tsx:169
 msgid "Copied build version to clipboard"
 msgstr "Verze sestavení zkopírována do schránky"
 
-#: src/screens/Search/Shell.tsx:463
+#: src/screens/Search/Shell.tsx:523
 msgid "Copied link to clipboard"
 msgstr "Odkaz zkopírován do schránky"
 
@@ -3314,7 +3335,7 @@ msgstr "Zkopírováno do schránky"
 msgid "Copied!"
 msgstr "Zkopírováno!"
 
-#: src/screens/Settings/AboutSettings.tsx:138
+#: src/screens/Settings/AboutSettings.tsx:145
 msgid "Copies build version to clipboard"
 msgstr "Kopírovat verzi sestavení do schránky"
 
@@ -3496,10 +3517,6 @@ msgstr "Profil se nepodařilo načíst"
 msgid "Could not mute chat"
 msgstr "Nelze ztlumit konverzaci"
 
-#: src/view/com/composer/videos/VideoPreview.web.tsx:66
-msgid "Could not process your video"
-msgstr "Nelze zpracovat vaše video"
-
 #: src/components/moderation/BlockDialog.tsx:311
 msgid "Could not remove member."
 msgstr "Člena nebylo možné odebrat."
@@ -3540,15 +3557,8 @@ msgstr ""
 msgid "Country code"
 msgstr "Kód země"
 
-#: src/Navigation.tsx:425
-#: src/screens/Settings/ContentAndMediaSettings.tsx:87
-#: src/screens/Settings/ContentAndMediaSettings.tsx:90
-#: src/screens/Settings/CountsMetricsSettings.tsx:45
-msgid "Counts & metrics"
-msgstr ""
-
-#. Advanced search: Example of an “none of these words” search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:298
+#. Advanced search: Example of a “none of these words” search. Paired with “cats dogs”.
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:268
 msgid "cows pigs"
 msgstr "krávy prasata"
 
@@ -3592,8 +3602,8 @@ msgstr "Vytvořit pro mě startovací balíček"
 #: src/components/WelcomeModal.tsx:158
 #: src/components/WelcomeModal.tsx:166
 #: src/screens/Messages/JoinRequest.tsx:310
-#: src/screens/Signup/index.tsx:136
-#: src/view/com/auth/SplashScreen.tsx:107
+#: src/screens/Signup/index.tsx:141
+#: src/view/com/auth/SplashScreen.tsx:106
 #: src/view/com/auth/SplashScreen.web.tsx:116
 #: src/view/shell/bottom-bar/BottomBar.tsx:296
 #: src/view/shell/bottom-bar/BottomBar.tsx:300
@@ -3647,7 +3657,7 @@ msgid "Create moderation list"
 msgstr "Vytvořit seznam moderování"
 
 #: src/screens/Messages/JoinRequest.tsx:304
-#: src/view/com/auth/SplashScreen.tsx:100
+#: src/view/com/auth/SplashScreen.tsx:89
 #: src/view/com/auth/SplashScreen.web.tsx:108
 msgid "Create new account"
 msgstr "Vytvořit nový účet"
@@ -3734,7 +3744,7 @@ msgstr "Tmavý"
 msgid "Dark theme"
 msgstr "Tmavý motiv"
 
-#: src/screens/Signup/StepInfo/index.tsx:296
+#: src/screens/Signup/StepInfo/index.tsx:299
 msgid "Date of birth"
 msgstr "Datum narození"
 
@@ -3755,10 +3765,6 @@ msgstr "Deaktivovat účet"
 #: src/screens/Settings/Settings.tsx:500
 msgid "Debug Moderation"
 msgstr "Ladít Moderaci"
-
-#: src/view/screens/Debug.tsx:75
-msgid "Debug panel"
-msgstr "Panel ladění"
 
 #: src/view/com/composer/select-language/SuggestedLanguage.tsx:469
 msgid "Decline this language suggestion"
@@ -3858,9 +3864,9 @@ msgstr "Smazat zprávu pro mě"
 msgid "Delete my account"
 msgstr "Smazat můj účet"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:960
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:962
-#: src/view/com/composer/Composer.tsx:1716
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:796
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:798
+#: src/view/com/composer/Composer.tsx:1711
 msgid "Delete post"
 msgstr "Smazat příspěvek"
 
@@ -3927,12 +3933,12 @@ msgstr "Odpojit citaci"
 msgid "Detach quote post?"
 msgstr "Odpojit citaci příspěvku?"
 
-#: src/screens/Settings/AboutSettings.tsx:151
+#: src/screens/Settings/AboutSettings.tsx:158
 msgctxt "toast"
 msgid "Developer mode disabled"
 msgstr "Vývojářský režim zakázán"
 
-#: src/screens/Settings/AboutSettings.tsx:145
+#: src/screens/Settings/AboutSettings.tsx:152
 msgctxt "toast"
 msgid "Developer mode enabled"
 msgstr "Vývojářský režim povolen"
@@ -3950,9 +3956,9 @@ msgstr "Překlad zařízení se nezdařil :("
 msgid "Dialog: adjust who can interact with this post"
 msgstr "Dialog: upravit, kdo může reagovat na tento příspěvek"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:247
-msgid "Dialog: Set advanced search options"
-msgstr "Dialog: Nastavit pokročilé možnosti vyhledávání"
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:233
+msgid "Dialog: Set search filters"
+msgstr ""
 
 #: src/screens/Settings/AppearanceSettings.tsx:128
 msgid "Dim"
@@ -4011,9 +4017,9 @@ msgstr "Neaktivní"
 
 #: src/components/dialogs/lists/CreateOrEditListDialog.tsx:101
 #: src/screens/Profile/Header/EditProfileDialog.tsx:79
-#: src/view/com/composer/Composer.tsx:1496
-#: src/view/com/composer/Composer.tsx:1540
-#: src/view/com/composer/Composer.tsx:1749
+#: src/view/com/composer/Composer.tsx:1491
+#: src/view/com/composer/Composer.tsx:1535
+#: src/view/com/composer/Composer.tsx:1744
 #: src/view/com/composer/drafts/DraftItem.tsx:242
 #: src/view/com/composer/drafts/DraftsButton.tsx:131
 msgid "Discard"
@@ -4024,14 +4030,14 @@ msgstr "Zahodit"
 msgid "Discard changes?"
 msgstr "Zahodit změny?"
 
-#: src/view/com/composer/Composer.tsx:1494
+#: src/view/com/composer/Composer.tsx:1489
 #: src/view/com/composer/drafts/DraftItem.tsx:239
 #: src/view/com/composer/drafts/DraftsButton.tsx:98
 msgid "Discard draft?"
 msgstr "Zahodit koncept?"
 
-#: src/view/com/composer/Composer.tsx:1511
-#: src/view/com/composer/Composer.tsx:1741
+#: src/view/com/composer/Composer.tsx:1506
+#: src/view/com/composer/Composer.tsx:1736
 msgid "Discard post?"
 msgstr "Zahodit příspěvek?"
 
@@ -4069,7 +4075,7 @@ msgstr "Odmítnout"
 msgid "Dismiss banner"
 msgstr "Odmítnout banner"
 
-#: src/view/com/composer/Composer.tsx:2593
+#: src/view/com/composer/Composer.tsx:2592
 msgid "Dismiss error"
 msgstr "Odmítnout chybu"
 
@@ -4169,6 +4175,8 @@ msgstr "Žádné obavy! Všechny stávající zprávy a nastavení jsou uložen�
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:147
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:153
 #: src/lib/media/picker.tsx:37
+#: src/screens/Login/components/HostingProviderDialog.tsx:253
+#: src/screens/Login/components/HostingProviderDialog.tsx:255
 #: src/screens/Onboarding/StepProfile/index.tsx:354
 #: src/screens/Onboarding/StepProfile/index.tsx:357
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:214
@@ -4387,12 +4395,12 @@ msgstr "Upravit nastavení interakcí s příspěvkem"
 #: src/screens/Profile/Header/EditProfileDialog.tsx:265
 #: src/screens/Profile/Header/EditProfileDialog.tsx:271
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:299
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:368
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:330
 msgid "Edit profile"
 msgstr "Upravit profil"
 
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:302
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:370
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:332
 msgid "Edit Profile"
 msgstr "Upravit profil"
 
@@ -4426,7 +4434,7 @@ msgid "Either the creator of this list has blocked you or you have blocked the c
 msgstr "Tvůrce tohoto seznamu vás buď zablokoval, nebo jste vy zablokovali tvůrce."
 
 #: src/screens/Settings/AccountSettings.tsx:71
-#: src/screens/Signup/StepInfo/index.tsx:220
+#: src/screens/Signup/StepInfo/index.tsx:223
 msgid "Email"
 msgstr "E-mail"
 
@@ -4439,7 +4447,7 @@ msgstr "E-mailové 2FA zakázáno"
 msgid "Email 2FA enabled"
 msgstr "E-mailové 2FA povoleno"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:95
+#: src/screens/Login/ForgotPasswordForm.tsx:90
 msgid "Email address"
 msgstr "E-mailová adresa"
 
@@ -4526,8 +4534,8 @@ msgstr "Povolit přehrávače médií pro"
 msgid "Enable notifications for an account by visiting their profile and pressing the <0>bell icon</0> <1/>."
 msgstr "Povolte oznámení pro účet tak, že navštívíte jeho profil a stisknete <0>ikonu zvonečku</0> <1/>."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:124
-#: src/screens/Settings/NotificationSettings/index.tsx:128
+#: src/screens/Settings/NotificationSettings/index.tsx:136
+#: src/screens/Settings/NotificationSettings/index.tsx:140
 msgid "Enable push notifications"
 msgstr "Povolit push oznámení"
 
@@ -4565,7 +4573,7 @@ msgstr "Ujistěte se, že jste pro každý soubor s titulky vybrali jazyk."
 msgid "Enter 6-digit code that was sent to your phone number"
 msgstr "Zadejte 6místný kód, který byl odeslán na vaše telefonní číslo"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:149
+#: src/screens/Login/SetNewPasswordForm.tsx:136
 msgid "Enter a password"
 msgstr "Zadejte heslo"
 
@@ -4592,11 +4600,11 @@ msgstr "Zadejte 6místný kód odeslaný na {prettyNumber}"
 msgid "Enter the domain you want to use"
 msgstr "Zadejte doménu, kterou chcete použít"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:115
+#: src/screens/Login/ForgotPasswordForm.tsx:109
 msgid "Enter the email you used to create your account. We'll send you a \"reset code\" so you can set a new password."
 msgstr "Zadejte e-mail, který jste použili při vytváření účtu. Pošleme vám „resetovací kód“, abyste si mohli nastavit nové heslo."
 
-#: src/screens/Login/LoginForm.tsx:218
+#: src/screens/Login/LoginForm.tsx:337
 msgid "Enter the username or email address you used when you created your account"
 msgstr "Zadejte uživatelské jméno nebo e-mailovou adresu, kterou jste použili při vytváření účtu"
 
@@ -4604,17 +4612,17 @@ msgstr "Zadejte uživatelské jméno nebo e-mailovou adresu, kterou jste použil
 msgid "Enter your birthdate"
 msgstr "Zadejte své datum narození"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:101
-#: src/screens/Signup/StepInfo/index.tsx:240
+#: src/screens/Login/ForgotPasswordForm.tsx:96
+#: src/screens/Signup/StepInfo/index.tsx:243
 msgid "Enter your email address"
 msgstr "Zadejte svou e-mailovou adresu"
 
-#: src/screens/Login/LoginForm.tsx:243
+#: src/screens/Login/LoginForm.tsx:389
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:291
 msgid "Enter your password"
 msgstr "Zadejte své heslo"
 
-#: src/screens/Login/index.tsx:141
+#: src/screens/Login/index.tsx:144
 msgid "Enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
 
@@ -4626,8 +4634,8 @@ msgstr "Přejde do režimu celé obrazovky"
 msgid "Entertainment"
 msgstr "Zábava"
 
-#: src/view/com/composer/Composer.tsx:2692
-#: src/view/com/util/error/ErrorScreen.tsx:43
+#: src/view/com/composer/Composer.tsx:2691
+#: src/view/com/util/error/ErrorScreen.tsx:40
 msgid "Error"
 msgstr "Chyba"
 
@@ -4668,8 +4676,6 @@ msgstr "Odpovídat může každý"
 msgid "Everybody can reply to this post."
 msgstr "Na tento příspěvek může odpovědět kdokoli."
 
-#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:22
-#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:26
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:168
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:171
 msgid "Everyone"
@@ -4685,15 +4691,14 @@ msgctxt "allow messages from"
 msgid "Everyone"
 msgstr "Všichni"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:287
-#: src/screens/Settings/NotificationSettings/index.tsx:389
+#: src/screens/Settings/NotificationSettings/index.tsx:299
+#: src/screens/Settings/NotificationSettings/index.tsx:401
 msgid "Everything else"
 msgstr "Vše ostatní"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:130
-#: src/screens/Settings/CountsMetricsSettings.tsx:132
-msgid "Exact"
-msgstr ""
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:76
+msgid "Everything look right?"
+msgstr "Vypadá vše správně?"
 
 #. Advanced search filter
 #. Advanced search filter
@@ -4722,7 +4727,7 @@ msgstr "Ukončit režim celé obrazovky"
 msgid "Expand alt text"
 msgstr "Rozbalit alternativní text"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:612
+#: src/view/com/notifications/NotificationFeedItem.tsx:606
 msgid "Expand list of users"
 msgstr "Rozbalit seznam uživatelů"
 
@@ -4771,7 +4776,7 @@ msgstr "Vyprší za {0}"
 
 #. placeholder {0}: displayDuration(i18n, minutesUntilExpiry)
 #. placeholder {1}: i18n.date(expiryDateTime, { hour: 'numeric', minute: '2-digit', hour12: true, })
-#: src/features/liveNow/components/EditLiveDialog.tsx:132
+#: src/features/liveNow/components/EditLiveDialog.tsx:125
 msgid "Expires in {0} at {1}"
 msgstr "Vyprší za {0} v {1}"
 
@@ -4784,9 +4789,9 @@ msgstr "Explicitní nebo potenciálně znepokojivý obsah."
 msgid "Explicit sexual images."
 msgstr "Explicitní sexuální obrázky."
 
-#: src/features/customNav/catalog.tsx:123
-#: src/Navigation.tsx:798
-#: src/screens/Search/Shell.tsx:500
+#: src/Navigation.tsx:751
+#: src/screens/Search/Shell.tsx:560
+#: src/view/shell/desktop/LeftNav.tsx:677
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
 msgstr "Prozkoumat"
@@ -4872,7 +4877,7 @@ msgstr ""
 
 #: src/components/Lightbox/Lightbox.web.tsx:302
 #: src/features/inviteFriends/InviteFriendsDialogInner.tsx:130
-#: src/screens/Search/Shell.tsx:464
+#: src/screens/Search/Shell.tsx:524
 msgid "Failed to copy link"
 msgstr "Nepodařilo se zkopírovat odkaz"
 
@@ -4986,9 +4991,9 @@ msgstr "Nepodařilo se načíst předvolby kanálů"
 
 #: src/components/dialogs/NotificationSettingsDialog.tsx:85
 #: src/screens/Messages/Settings.tsx:369
-#: src/screens/Settings/NotificationSettings/index.tsx:137
-#: src/screens/Settings/NotificationSettings/index.tsx:256
-#: src/screens/Settings/NotificationSettings/index.tsx:273
+#: src/screens/Settings/NotificationSettings/index.tsx:149
+#: src/screens/Settings/NotificationSettings/index.tsx:268
+#: src/screens/Settings/NotificationSettings/index.tsx:285
 msgid "Failed to load notification settings."
 msgstr "Nepodařilo se načíst nastavení oznámení."
 
@@ -5092,7 +5097,7 @@ msgstr "Nepodařilo se zrušit váš požadavek. Zkuste to prosím znovu."
 msgid "Failed to resolve location. Please try again."
 msgstr "Nepodařilo se zjistit polohu. Zkuste to prosím znovu."
 
-#: src/view/com/composer/Composer.tsx:722
+#: src/view/com/composer/Composer.tsx:725
 msgid "Failed to save draft"
 msgstr "Nepodařilo se uložit koncept"
 
@@ -5288,11 +5293,11 @@ msgstr "Načíst aktualizaci"
 msgid "File saved successfully!"
 msgstr "Soubor byl úspěšně uložen!"
 
-#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:49
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:48
 msgid "Filter by author"
 msgstr "Filtrovat podle autora"
 
-#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:30
+#: src/screens/Search/components/AdvancedSearchDialog/FollowingDropdown.tsx:29
 msgid "Filter by author (currently: {currentLabel})"
 msgstr "Filtrovat podle autora (aktuálně: {currentLabel})"
 
@@ -5317,7 +5322,7 @@ msgid "Filter search by language (currently: {currentLanguageLabel})"
 msgstr "Filtrovat vyhledávání podle jazyka (aktuálně: {currentLanguageLabel})"
 
 #. placeholder {0}: lang.name
-#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:93
+#: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:88
 msgid "Filter this search by {0}"
 msgstr "Filtrovat toto vyhledávání podle {0}"
 
@@ -5328,6 +5333,12 @@ msgstr "Filtrujte, kdo si může nastavit oznámení o vaší aktivitě"
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:163
 msgid "Filter who you receive notifications from"
 msgstr "Filtrujte, od koho dostáváte oznámení"
+
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:78
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:238
+msgctxt "search"
+msgid "Filters"
+msgstr ""
 
 #: src/screens/Onboarding/StepFinished/index.tsx:335
 msgid "Finalizing"
@@ -5392,7 +5403,7 @@ msgstr "Najděte lidi, které budete sledovat"
 msgid "Find people you know"
 msgstr "Najděte lidi, které znáte"
 
-#: src/screens/Search/Shell.tsx:706
+#: src/screens/Search/Shell.tsx:791
 msgid "Find posts, users, and feeds on Bluesky"
 msgstr "Najděte příspěvky, uživatele a kanály na Bluesky"
 
@@ -5446,16 +5457,16 @@ msgstr "Zaměřit vyhledávací pole"
 #: src/components/ProfileHoverCard/index.web.tsx:506
 #: src/screens/Messages/ConversationSettings/Member.tsx:170
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:157
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:451
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:409
 #: src/screens/VideoFeed/index.tsx:866
-#: src/view/com/notifications/NotificationFeedItem.tsx:874
-#: src/view/com/notifications/NotificationFeedItem.tsx:881
+#: src/view/com/notifications/NotificationFeedItem.tsx:858
+#: src/view/com/notifications/NotificationFeedItem.tsx:865
 msgid "Follow"
 msgstr "Sledovat"
 
 #. placeholder {0}: profile.handle
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:144
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:435
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:397
 msgid "Follow {0}"
 msgstr "Sledovat {0}"
 
@@ -5503,9 +5514,9 @@ msgstr "Sledovat všechny účty"
 #. User is not following this account, click to follow back
 #: src/components/ProfileCard.tsx:542
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:155
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:449
-#: src/view/com/notifications/NotificationFeedItem.tsx:874
-#: src/view/com/notifications/NotificationFeedItem.tsx:881
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:407
+#: src/view/com/notifications/NotificationFeedItem.tsx:858
+#: src/view/com/notifications/NotificationFeedItem.tsx:865
 msgid "Follow back"
 msgstr "Sledovat také"
 
@@ -5566,10 +5577,10 @@ msgstr "Sledující, které znáte"
 #: src/components/ProfileHoverCard/index.web.tsx:505
 #: src/lib/hooks/useUpdateWidgets.ts:54
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:446
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:405
 #: src/screens/VideoFeed/index.tsx:864
-#: src/view/com/notifications/NotificationFeedItem.tsx:852
-#: src/view/com/notifications/NotificationFeedItem.tsx:869
+#: src/view/com/notifications/NotificationFeedItem.tsx:836
+#: src/view/com/notifications/NotificationFeedItem.tsx:853
 msgid "Following"
 msgstr "Sledované"
 
@@ -5583,8 +5594,8 @@ msgstr "Sledované"
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:498
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:285
-#: src/view/com/notifications/NotificationFeedItem.tsx:801
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:247
+#: src/view/com/notifications/NotificationFeedItem.tsx:785
 msgid "Following {0}"
 msgstr "Sledujete {0}"
 
@@ -5623,7 +5634,7 @@ msgstr "Velikost písma"
 msgid "Food"
 msgstr "Jídlo"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:96
+#: src/ageAssurance/components/NoAccessScreen.tsx:106
 msgid "For organizational accounts, use the birthdate of the person who is responsible for the account."
 msgstr "U organizačních účtů použijte datum narození osoby, která je za účet odpovědná."
 
@@ -5655,18 +5666,15 @@ msgstr "Navždy"
 msgid "Forget the noise"
 msgstr "Zapomeňte na šum"
 
-#: src/screens/Login/index.tsx:172
-#: src/screens/Login/index.tsx:188
+#: src/screens/Login/index.tsx:176
+#: src/screens/Login/index.tsx:192
 msgid "Forgot Password"
 msgstr "Zapomenuté heslo"
 
-#: src/screens/Login/LoginForm.tsx:258
+#: src/screens/Login/LoginForm.tsx:421
+#: src/screens/Login/LoginForm.tsx:428
 msgid "Forgot password?"
 msgstr "Zapomněli jste heslo?"
-
-#: src/screens/Login/LoginForm.tsx:269
-msgid "Forgot?"
-msgstr "Zapomněli jste?"
 
 #. This is alt text for a marketing image which transcribes English text that appears in the image
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:153
@@ -5677,12 +5685,16 @@ msgstr "Čtyři bubliny zpráv představující skupinový chat. První zpráva:
 msgid "Free your feed"
 msgstr "Osvoboďte svůj kanál"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:420
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:406
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:159
 msgid "From"
 msgstr "Od"
 
-#: src/screens/Hashtag.tsx:124
+#: src/screens/Hashtag.tsx:125
+msgid "From {sanitizedAuthor}"
+msgstr "Od {sanitizedAuthor}"
+
+#: src/screens/Hashtag.tsx:126
 msgid "From @{sanitizedAuthor}"
 msgstr "Od @{sanitizedAuthor}"
 
@@ -5744,39 +5756,39 @@ msgstr "Germ DM znovu připojeno"
 msgid "Get help"
 msgstr "Získat pomoc"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:391
+#: src/screens/Settings/NotificationSettings/index.tsx:403
 msgid "Get notifications for starter pack joins, verification, and other activity."
 msgstr "Dostávejte oznámení o připojeních ke startovacímu balíčku, ověřeních a dalších aktivitách."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:313
+#: src/screens/Settings/NotificationSettings/index.tsx:325
 msgid "Get notifications when people follow you."
 msgstr "Dostávejte upozornění, když vás někdo začne sledovat."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:305
+#: src/screens/Settings/NotificationSettings/index.tsx:317
 msgid "Get notifications when people like your posts."
 msgstr "Dostávejte oznámení, když se lidem líbí vaše příspěvky."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:368
+#: src/screens/Settings/NotificationSettings/index.tsx:380
 msgid "Get notifications when people like your reposts."
 msgstr "Dostávejte oznámení, když se lidem líbí vaše reposty."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:329
+#: src/screens/Settings/NotificationSettings/index.tsx:341
 msgid "Get notifications when people mention you."
 msgstr "Dostávejte oznámení, když vás někdo zmíní."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:337
+#: src/screens/Settings/NotificationSettings/index.tsx:349
 msgid "Get notifications when people quote your posts."
 msgstr "Dostávejte oznámení, když lidé citují vaše příspěvky."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:321
+#: src/screens/Settings/NotificationSettings/index.tsx:333
 msgid "Get notifications when people reply to your posts."
 msgstr "Dostávejte upozornění, když lidé odpoví na vaše příspěvky."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:346
+#: src/screens/Settings/NotificationSettings/index.tsx:358
 msgid "Get notifications when people repost your posts."
 msgstr "Dostávejte oznámení, když lidé repostují vaše příspěvky."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:377
+#: src/screens/Settings/NotificationSettings/index.tsx:389
 msgid "Get notifications when people repost your reposts."
 msgstr "Dostávejte oznámení, když lidé repostují vaše reposty."
 
@@ -5788,7 +5800,7 @@ msgstr "Dostávejte oznámení, když vám lidé pošlou žádost o zprávu."
 msgid "Get notifications when people send you messages."
 msgstr "Dostávejte oznámení, když vám lidé pošlou zprávu."
 
-#: src/screens/Settings/NotificationSettings/index.tsx:355
+#: src/screens/Settings/NotificationSettings/index.tsx:367
 msgid "Get notifications when there's activity on posts you're subscribed to."
 msgstr "Dostávejte oznámení, když je aktivita u příspěvků, k jejichž odběru jste přihlášeni."
 
@@ -5825,7 +5837,7 @@ msgstr "Začínáme"
 msgid "GIF"
 msgstr "GIF"
 
-#: src/view/com/composer/Composer.tsx:2697
+#: src/view/com/composer/Composer.tsx:2696
 msgid "GIF uploaded"
 msgstr "GIF nahrán"
 
@@ -5842,13 +5854,15 @@ msgstr "Glorifikace násilí"
 #: src/components/Layout/Header/index.tsx:133
 #: src/components/moderation/ScreenHider.tsx:161
 #: src/components/moderation/ScreenHider.tsx:170
-#: src/screens/Login/components/AuthLayout/Header/index.tsx:75
+#: src/screens/Login/components/AuthLayout/Header/index.tsx:74
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:160
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:163
 #: src/screens/ProfileList/components/ErrorScreen.tsx:35
 #: src/screens/ProfileList/components/ErrorScreen.tsx:41
 #: src/screens/VideoFeed/components/Header.tsx:163
 #: src/screens/VideoFeed/index.tsx:1168
 #: src/screens/VideoFeed/index.tsx:1172
-#: src/view/com/auth/LoggedOut.tsx:103
+#: src/view/com/auth/LoggedOut.tsx:127
 #: src/view/com/profile/ProfileFollowers.tsx:211
 #: src/view/com/profile/ProfileFollowers.tsx:212
 #: src/view/screens/NotFound.tsx:51
@@ -5871,16 +5885,10 @@ msgstr "Zpět"
 msgid "Go back to previous step"
 msgstr "Přejít zpět na předchozí krok"
 
-#: src/screens/Bookmarks/index.tsx:303
+#: src/screens/Bookmarks.tsx:296
 #: src/view/screens/NotFound.tsx:51
 #: src/view/screens/NotFound.tsx:52
 #: src/view/screens/NotFound.tsx:57
-msgid "Go home"
-msgstr "Přejít na domovskou stránku"
-
-#: src/screens/Bookmarks/components/EmptyState.tsx:44
-#: src/screens/Bookmarks/components/EmptyState.tsx:52
-msgctxt "Button to go back to the home timeline"
 msgid "Go home"
 msgstr "Přejít na domovskou stránku"
 
@@ -5889,10 +5897,10 @@ msgstr "Přejít na domovskou stránku"
 msgid "Go live"
 msgstr "Začít vysílat"
 
-#: src/features/liveNow/components/GoLiveDialog.tsx:100
-#: src/features/liveNow/components/GoLiveDialog.tsx:105
-#: src/features/liveNow/components/GoLiveDialog.tsx:233
-#: src/features/liveNow/components/GoLiveDialog.tsx:242
+#: src/features/liveNow/components/GoLiveDialog.tsx:106
+#: src/features/liveNow/components/GoLiveDialog.tsx:111
+#: src/features/liveNow/components/GoLiveDialog.tsx:239
+#: src/features/liveNow/components/GoLiveDialog.tsx:248
 msgid "Go Live"
 msgstr "Začít vysílat"
 
@@ -5901,11 +5909,11 @@ msgstr "Začít vysílat"
 msgid "Go live (disabled)"
 msgstr "Přejít do živého vysílání (zakázáno)"
 
-#: src/features/liveNow/components/GoLiveDialog.tsx:175
+#: src/features/liveNow/components/GoLiveDialog.tsx:181
 msgid "Go live for"
 msgstr "Začít vysílat živě na"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:256
+#: src/view/com/notifications/NotificationFeedItem.tsx:250
 msgid "Go to {firstAuthorName}'s profile"
 msgstr "Přejít na profil uživatele {firstAuthorName}"
 
@@ -5925,7 +5933,7 @@ msgstr "Přejít na konverzaci s {0}"
 msgid "Go to feed"
 msgstr "Přejít na kanál"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:174
+#: src/screens/Login/ForgotPasswordForm.tsx:168
 msgid "Go to next"
 msgstr "Přejít na další"
 
@@ -6119,11 +6127,11 @@ msgstr "Nenávistné projevy"
 msgid "Have a code? <0>Click here.</0>"
 msgstr "Máte kód? <0>Klikněte sem.</0>"
 
-#: src/screens/Signup/StepInfo/index.tsx:320
+#: src/screens/Signup/StepInfo/index.tsx:323
 msgid "Have we got your location wrong? <0>Tap here to update your location with GPS.</0>"
 msgstr "Máme špatnou polohu? <0>Klepnutím sem aktualizujte svou polohu pomocí GPS.</0>"
 
-#: src/screens/Signup/index.tsx:238
+#: src/screens/Signup/index.tsx:248
 msgid "Having trouble?"
 msgstr "Máte potíže?"
 
@@ -6152,11 +6160,11 @@ msgstr "Zde je vaše heslo aplikace!"
 msgid "Hey there 👋"
 msgstr "Ahoj 👋"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:173
+#: src/ageAssurance/components/NoAccessScreen.tsx:171
 msgid "Hey there!"
 msgstr "Ahoj!"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:213
+#: src/ageAssurance/components/NoAccessScreen.tsx:276
 msgid "Hi there!"
 msgstr "Ahoj!"
 
@@ -6187,19 +6195,10 @@ msgstr "Skrytý seznam"
 msgid "Hide"
 msgstr "Skrýt"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:966
+#: src/view/com/notifications/NotificationFeedItem.tsx:950
 msgctxt "action"
 msgid "Hide"
 msgstr "Skrýt"
-
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:139
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:146
-msgid "Hide all events"
-msgstr "Skrýt všechny události"
-
-#: src/screens/Settings/CountsMetricsSettings.tsx:62
-msgid "Hide counts"
-msgstr ""
 
 #: src/components/dialogs/Embed.tsx:124
 msgid "Hide customization options"
@@ -6225,12 +6224,12 @@ msgstr ""
 msgid "Hide lists"
 msgstr "Skrýt seznamy"
 
-#: src/screens/Settings/CountsMetricsSettings.tsx:67
-msgid "Hide post engagement counts"
-msgstr ""
+#: src/screens/Login/LoginForm.tsx:613
+msgid "Hide password"
+msgstr "Skrýt heslo"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:820
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:660
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:663
 msgid "Hide post for me"
 msgstr "Skrýt příspěvek pro mě"
 
@@ -6270,12 +6269,7 @@ msgstr ""
 msgid "Hide this card"
 msgstr "Skrýt tuto kartu"
 
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:127
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:134
-msgid "Hide this event"
-msgstr "Skrýt tuto událost"
-
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:989
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:817
 msgid "Hide this post?"
 msgstr "Skrýt tento příspěvek?"
 
@@ -6304,7 +6298,7 @@ msgstr "Skrýt populární témata?"
 msgid "Hide trending videos?"
 msgstr "Skrýt populární videa?"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:957
+#: src/view/com/notifications/NotificationFeedItem.tsx:941
 msgid "Hide user list"
 msgstr "Skrýt seznam uživatelů"
 
@@ -6325,6 +6319,14 @@ msgstr "Skryje propagační banner pro pozvání přátel"
 #: src/components/dialogs/BirthDateSettings.tsx:76
 msgid "Hmm, it looks like you're signed in with an <0>App Password</0>. To set your birthdate, you'll need to sign in with your main account password, or ask whomever controls this account to do so."
 msgstr "Hmm, vypadá to, že jste přihlášeni pomocí <0>hesla aplikace</0>. Pro nastavení data narození se musíte přihlásit hlavním heslem účtu, nebo o to požádejte toho, kdo tento účet spravuje."
+
+#: src/ageAssurance/useVerificationFlow.ts:122
+msgid "Hmm, it seems we weren't able to compute your level of access. Please try again."
+msgstr "Hmm, zdá se, že se nám nepodařilo zjistit úroveň vašeho přístupu. Zkuste to prosím znovu."
+
+#: src/ageAssurance/useVerificationFlow.ts:141
+msgid "Hmm, it seems your device was unable to share age information with us."
+msgstr "Hmm, zdá se, že vaše zařízení s námi nedokázalo sdílet informace o věku."
 
 #: src/view/com/posts/PostFeedErrorMessage.tsx:125
 msgid "Hmm, some kind of issue occurred when contacting the feed server. Please let the feed owner know about this issue."
@@ -6354,7 +6356,7 @@ msgstr "Hmm, zdá se, že máme problém s načtením těchto dat. Více informa
 msgid "Hmmmm, we couldn't load that moderation service."
 msgstr "Hmm, nepodařilo se nám načíst tuto moderační službu."
 
-#: src/view/com/composer/state/video.ts:446
+#: src/view/com/composer/state/video.ts:447
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Vydržte! Přístup k videu zpřístupňujeme postupně a vy stále čekáte ve frontě. Zkuste to brzy znovu!"
 
@@ -6369,10 +6371,21 @@ msgstr "Domů"
 msgid "Host:"
 msgstr "Hostitel:"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:85
-#: src/screens/Login/LoginForm.tsx:182
+#: src/components/dialogs/ServerInput.tsx:138
+#: src/screens/Login/components/HostingProviderDialog.tsx:159
+#: src/screens/Login/ForgotPasswordForm.tsx:80
+#: src/screens/Login/LoginForm.tsx:659
 msgid "Hosting provider"
 msgstr "Poskytovatel hostingu"
+
+#. placeholder {0}: toNiceHostingUrl(state.pdsUrl)
+#: src/screens/Login/LoginForm.tsx:655
+msgid "Hosting provider: {0}"
+msgstr "Poskytovatel hostingu: {0}"
+
+#: src/screens/Login/LoginForm.tsx:657
+msgid "Hosting provider: Bluesky"
+msgstr "Poskytovatel hostingu: Bluesky"
 
 #: src/screens/Search/modules/ExploreTrendingTopics.tsx:179
 msgid "Hot"
@@ -6426,25 +6439,17 @@ msgstr "Pokud je alternativní text dlouhý, přepíná stav rozbalení alternat
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "Pokud nevyberete žádný, ve vašich kanálech se zobrazí všechny jazyky."
 
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:121
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:103
 msgid "If you are 18 years of age or older and want to try again, click the button below and use a different verification method if one is available in your region. If you have questions or concerns, <0>our support team can help.</0>"
 msgstr "Pokud je vám 18 nebo více let a chcete to zkusit znovu, klikněte na tlačítko níže a použijte jinou metodu ověření, pokud je ve vašem regionu k dispozici. Máte-li dotazy nebo obavy, <0>náš tým podpory vám pomůže.</0>"
 
-#: src/screens/Signup/StepInfo/index.tsx:337
+#: src/screens/Signup/StepInfo/index.tsx:340
 msgid "If you are not yet an adult according to the laws of your country, your parent or legal guardian must read these Terms on your behalf."
 msgstr "Pokud podle zákonů vaší země ještě nejste dospělí, musí si tyto Podmínky přečíst váš rodič nebo zákonný zástupce za vás."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:125
-msgid "If you believe your birthdate is incorrect, please <0>contact our support team</0>."
-msgstr "Pokud se domníváte, že vaše datum narození je nesprávné, <0>kontaktujte náš tým podpory</0>."
-
-#: src/ageAssurance/components/NoAccessScreen.tsx:106
+#: src/ageAssurance/components/NoAccessScreen.tsx:116
 msgid "If you believe your birthdate is incorrect, you can update it by <0>clicking here</0>."
 msgstr "Pokud se domníváte, že vaše datum narození je nesprávné, můžete jej aktualizovat <0>kliknutím sem</0>."
-
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:118
-msgid "If you choose to hide all events, you can always re-enable them from <0>Settings → Content & Media</0>."
-msgstr "Pokud se rozhodnete skrýt všechny události, můžete je kdykoli znovu povolit v <0>Nastavení → Obsah a média</0>."
 
 #: src/screens/ProfileList/components/MoreOptionsMenu.tsx:272
 msgid "If you delete this list, you won't be able to recover it."
@@ -6487,7 +6492,7 @@ msgid "Image"
 msgstr "Obrázek"
 
 #. placeholder {0}: index + 1
-#: src/components/images/Gallery/index.tsx:454
+#: src/components/images/Gallery/index.tsx:457
 msgid "Image {0}"
 msgstr "Obrázek {0}"
 
@@ -6498,17 +6503,17 @@ msgid "Image {0} of {1}"
 msgstr "Obrázek {0} z {1}"
 
 #. placeholder {0}: index + 1
-#: src/components/images/Gallery/index.tsx:439
+#: src/components/images/Gallery/index.tsx:442
 msgid "Image {0} of {imageCount}"
 msgstr "Obrázek {0} z {imageCount}"
 
-#: src/screens/Settings/AboutSettings.tsx:67
+#: src/screens/Settings/AboutSettings.tsx:74
 msgid "Image cache cleared"
 msgstr "Mezipaměť obrázků vymazána"
 
 #. Android-only toast message which includes amount of space freed using localized number formatting
 #. placeholder {0}: i18n.number( Math.abs(sizeDiffBytes / 1024 / 1024), { notation: 'compact', style: 'unit', unit: 'megabyte', }, )
-#: src/screens/Settings/AboutSettings.tsx:53
+#: src/screens/Settings/AboutSettings.tsx:60
 msgid "Image cache cleared, freed {0}"
 msgstr "Mezipaměť obrázků vymazána, uvolněno {0}"
 
@@ -6577,7 +6582,7 @@ msgstr "Importujte kontakty a najděte své přátele"
 msgid "Imported on {0}"
 msgstr "Importováno {0}"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:216
+#: src/ageAssurance/components/NoAccessScreen.tsx:279
 msgid "In order to provide an age-appropriate experience, we need to know your birthdate. This is a one-time thing, and your data will be kept private."
 msgstr "Abychom mohli poskytnout zážitek odpovídající vašemu věku, potřebujeme znát vaše datum narození. Jedná se o jednorázovou záležitost a vaše údaje zůstanou soukromé."
 
@@ -6625,7 +6630,7 @@ msgstr "Schránka je prázdná!"
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:58
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:75
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:81
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:406
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:392
 msgid "Include"
 msgstr "Zahrnout"
 
@@ -6639,12 +6644,12 @@ msgid "Include posts and/or replies (currently: {currentLabel})"
 msgstr "Zahrnout příspěvky a/nebo odpovědi (aktuálně: {currentLabel})"
 
 #. Advanced search filter
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:319
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:305
 msgid "Include posts made since this date"
 msgstr "Zahrnout příspěvky vytvořené od tohoto data"
 
 #. Advanced search filter
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:343
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:329
 msgid "Include posts made until this date"
 msgstr "Zahrnout příspěvky vytvořené do tohoto data"
 
@@ -6652,27 +6657,19 @@ msgstr "Zahrnout příspěvky vytvořené do tohoto data"
 msgid "Include these results"
 msgstr "Zahrnout tyto výsledky"
 
-#: src/screens/Login/LoginForm.tsx:162
+#: src/screens/Login/LoginForm.tsx:165
 msgid "Incorrect username or password"
 msgstr "Nesprávné uživatelské jméno nebo heslo"
 
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:334
-msgid "Inject a fake \"live event\" banner into the Explore screen so the live-events UI can be demoed without a real event."
-msgstr ""
-
-#: src/screens/Settings/ExperimentalFeaturesSettings.tsx:328
-msgid "Inject a fake live event banner into the Explore screen for testing"
-msgstr ""
-
-#: src/screens/Login/SetNewPasswordForm.tsx:135
+#: src/screens/Login/SetNewPasswordForm.tsx:124
 msgid "Input code sent to your email for password reset"
 msgstr "Zadejte kód zaslaný na váš e-mail pro obnovení hesla"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:161
+#: src/screens/Login/SetNewPasswordForm.tsx:148
 msgid "Input new password"
 msgstr "Zadejte nové heslo"
 
-#: src/screens/Login/LoginForm.tsx:299
+#: src/screens/Login/LoginForm.tsx:456
 msgid "Input the code which has been emailed to you"
 msgstr "Zadejte kód, který vám byl zaslán e-mailem"
 
@@ -6708,7 +6705,7 @@ msgstr "Představujeme skupinové chaty"
 msgid "Introducing saved posts AKA bookmarks"
 msgstr "Představujeme uložené příspěvky neboli záložky"
 
-#: src/screens/Login/LoginForm.tsx:153
+#: src/screens/Login/LoginForm.tsx:156
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:71
 msgid "Invalid 2FA confirmation code."
 msgstr "Neplatný ověřovací kód 2FA."
@@ -6752,7 +6749,7 @@ msgstr "Pozvat"
 msgid "Invite {name} to join Bluesky"
 msgstr "Pozvat uživatele {name} na Bluesky"
 
-#: src/screens/Signup/StepInfo/index.tsx:190
+#: src/screens/Signup/StepInfo/index.tsx:193
 msgid "Invite code"
 msgstr "Zvací kód"
 
@@ -6760,7 +6757,7 @@ msgstr "Zvací kód"
 msgid "Invite code not accepted. Check that you input it correctly and try again."
 msgstr "Zvací kód nebyl přijat. Zkontrolujte, zda jste ho zadali správně, a zkuste to znovu."
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:390
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:352
 #: src/view/shell/Drawer.tsx:121
 msgid "Invite friends"
 msgstr "Pozvat přátele"
@@ -6831,15 +6828,11 @@ msgstr "Pozván/a"
 msgid "Invites, but personal"
 msgstr "Pozvánky, ale osobní"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:394
-msgid "Is your location not accurate? <0>Tap here to update your location with GPS.</0>"
-msgstr "Není vaše poloha přesná? <0>Klepnutím sem aktualizujte svou polohu pomocí GPS.</0>"
-
 #: src/components/contacts/components/InviteInfo.tsx:47
 msgid "It looks like some of your contacts have not tried to find you here yet. You can personally invite them by customizing a draft message we will provide."
 msgstr "Vypadá to, že se vás zde některé z vašich kontaktů ještě nepokusily najít. Můžete je osobně pozvat úpravou návrhu zprávy, který vám poskytneme."
 
-#: src/screens/Signup/StepInfo/index.tsx:370
+#: src/screens/Signup/StepInfo/index.tsx:373
 msgid "It's correct"
 msgstr "Je to správné"
 
@@ -6853,7 +6846,7 @@ msgid "It's just you right now! Add more people to your starter pack by searchin
 msgstr "Zatím jste tu jen vy! Přidejte do svého startovacího balíčku další lidi pomocí vyhledávání výše."
 
 #. placeholder {0}: videoState.jobId
-#: src/view/com/composer/Composer.tsx:2612
+#: src/view/com/composer/Composer.tsx:2611
 msgid "Job ID: {0}"
 msgstr "ID úlohy: {0}"
 
@@ -6893,8 +6886,8 @@ msgstr "Připojit se ke konverzaci"
 msgid "Journalism"
 msgstr "Žurnalistika"
 
-#: src/view/com/composer/Composer.tsx:1544
-#: src/view/com/composer/Composer.tsx:1554
+#: src/view/com/composer/Composer.tsx:1539
+#: src/view/com/composer/Composer.tsx:1549
 #: src/view/com/composer/drafts/DraftsButton.tsx:135
 msgid "Keep editing"
 msgstr "Pokračovat v úpravách"
@@ -6937,7 +6930,7 @@ msgstr "Štítky na vašem účtu"
 msgid "Labels on your content"
 msgstr "Štítky na vašem obsahu"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:371
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:357
 msgid "Language"
 msgstr "Jazyk"
 
@@ -6955,21 +6948,13 @@ msgstr "Jazyky"
 msgid "Larger"
 msgstr "Větší"
 
-#: src/lib/hooks/useUpdateWidgets.ts:64
-msgid "Last 30 days"
-msgstr ""
-
-#: src/lib/hooks/useUpdateWidgets.ts:73
-msgid "Last 7 days"
-msgstr ""
-
-#: src/ageAssurance/components/NoAccessScreen.tsx:377
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:201
+#: src/ageAssurance/components/NoAccessScreen.tsx:443
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:179
 msgid "Last initiated {timeAgo} ago"
 msgstr "Naposledy zahájeno před {timeAgo}"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:375
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:199
+#: src/ageAssurance/components/NoAccessScreen.tsx:441
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:177
 msgid "Last initiated just now"
 msgstr "Naposledy spuštěno právě teď"
 
@@ -7027,6 +7012,7 @@ msgid "Learn more about importing contacts"
 msgstr "Zjistit více o importu kontaktů"
 
 #: src/components/dialogs/ServerInput.tsx:220
+#: src/screens/Login/components/HostingProviderDialog.tsx:241
 msgid "Learn more about self hosting your PDS."
 msgstr "Zjistěte více o vlastním hostování vašeho PDS."
 
@@ -7069,6 +7055,7 @@ msgstr "Více informací najdete v <0>nastavení účtu.</0>"
 
 #: src/components/dialogs/ServerInput.tsx:222
 #: src/components/moderation/ContentHider.tsx:259
+#: src/screens/Login/components/HostingProviderDialog.tsx:243
 msgid "Learn more."
 msgstr "Zjistit více."
 
@@ -7138,8 +7125,8 @@ msgstr "zbývá."
 msgid "Let me choose"
 msgstr "Nech mě vybrat"
 
-#: src/screens/Login/index.tsx:173
-#: src/screens/Login/index.tsx:189
+#: src/screens/Login/index.tsx:177
+#: src/screens/Login/index.tsx:193
 msgid "Let's get your password reset!"
 msgstr "Pojďme obnovit vaše heslo!"
 
@@ -7222,15 +7209,15 @@ msgid "Liked by {likeCount, plural, one {# user} other {# users}}"
 msgstr "To se líbí {likeCount, plural, one {# uživateli} few {# uživatelům} many {# uživatelům} other {# uživatelům}}"
 
 #: src/lib/hooks/useNotificationHandler.ts:158
-#: src/screens/Settings/NotificationSettings/index.tsx:148
-#: src/screens/Settings/NotificationSettings/index.tsx:303
+#: src/screens/Settings/NotificationSettings/index.tsx:160
+#: src/screens/Settings/NotificationSettings/index.tsx:315
 #: src/view/screens/Profile.tsx:238
 msgid "Likes"
 msgstr "Lajky"
 
 #: src/lib/hooks/useNotificationHandler.ts:200
-#: src/screens/Settings/NotificationSettings/index.tsx:227
-#: src/screens/Settings/NotificationSettings/index.tsx:366
+#: src/screens/Settings/NotificationSettings/index.tsx:239
+#: src/screens/Settings/NotificationSettings/index.tsx:378
 msgid "Likes of your reposts"
 msgstr "Lajky vašich repostů"
 
@@ -7372,27 +7359,19 @@ msgstr "Probíhá živé vysílání: {0}"
 msgid "Live event hidden"
 msgstr "Živá událost skryta"
 
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:106
-msgid "Live event options"
-msgstr "Možnosti živé události"
-
 #: src/features/liveEvents/components/DiscoverFeedLiveEventFeedsAndTrendingBanner.tsx:53
 #: src/features/liveEvents/components/SidebarLiveEventFeedsBanner.tsx:35
 msgid "Live event unhidden"
 msgstr "Živá událost zobrazena"
 
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:110
-msgid "Live events appear occasionally when something exciting is happening. If you'd like, you can hide this particular event, or all events for this placement in your app interface."
-msgstr "Živé události se občas objeví, když se děje něco zajímavého. Pokud chcete, můžete tuto konkrétní událost skrýt, nebo skrýt všechny události pro toto umístění v rozhraní aplikace."
-
 #: src/features/liveNow/components/LiveStatusDialog.tsx:245
 msgid "Live feature is in beta"
 msgstr "Funkce živého vysílání je v beta verzi"
 
-#: src/features/liveNow/components/EditLiveDialog.tsx:149
-#: src/features/liveNow/components/EditLiveDialog.tsx:153
-#: src/features/liveNow/components/GoLiveDialog.tsx:131
-#: src/features/liveNow/components/GoLiveDialog.tsx:135
+#: src/features/liveNow/components/EditLiveDialog.tsx:142
+#: src/features/liveNow/components/EditLiveDialog.tsx:146
+#: src/features/liveNow/components/GoLiveDialog.tsx:137
+#: src/features/liveNow/components/GoLiveDialog.tsx:141
 msgid "Live link"
 msgstr "Odkaz na živé vysílání"
 
@@ -7485,7 +7464,7 @@ msgstr "Logo od <0>@sawaratsuki.bsky.social</0>"
 msgid "Long press to open tag menu for {0}"
 msgstr "Dlouhým stisknutím otevřete menu značky pro {0}"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:124
+#: src/screens/Login/SetNewPasswordForm.tsx:114
 msgid "Looks like XXXXX-XXXXX"
 msgstr "Vypadá to jako XXXXX-XXXXX"
 
@@ -7531,6 +7510,11 @@ msgstr "Spravovat nastavení ověřování"
 msgid "Manage your muted words and tags"
 msgstr "Spravujte svá ztlumená slova a štítky"
 
+#: src/screens/Login/components/HostingProviderDialog.tsx:173
+#: src/screens/Login/components/HostingProviderDialog.tsx:174
+msgid "Manual"
+msgstr "Ručně"
+
 #: src/screens/Messages/Inbox.tsx:312
 #: src/screens/Messages/Inbox.tsx:318
 msgid "Mark all as read"
@@ -7571,7 +7555,7 @@ msgstr "Všechny žádosti byly označeny jako přečtené"
 msgid "Maybe later"
 msgstr "Možná později"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:389
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:375
 #: src/view/screens/Profile.tsx:236
 msgid "Media"
 msgstr "Média"
@@ -7608,8 +7592,8 @@ msgid "mentioned users"
 msgstr "zmíněné uživatele"
 
 #: src/lib/hooks/useNotificationHandler.ts:179
-#: src/screens/Settings/NotificationSettings/index.tsx:181
-#: src/screens/Settings/NotificationSettings/index.tsx:328
+#: src/screens/Settings/NotificationSettings/index.tsx:193
+#: src/screens/Settings/NotificationSettings/index.tsx:340
 #: src/view/screens/Notifications.tsx:99
 msgid "Mentions"
 msgstr "Zmínky"
@@ -7971,9 +7955,9 @@ msgstr "Přejít na {0}"
 msgid "Navigate to starter pack"
 msgstr "Přejít na startovací balíček"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:150
-#: src/screens/Login/ForgotPasswordForm.tsx:175
-#: src/screens/Login/LoginForm.tsx:351
+#: src/screens/Login/ForgotPasswordForm.tsx:144
+#: src/screens/Login/ForgotPasswordForm.tsx:169
+#: src/screens/Login/LoginForm.tsx:555
 msgid "Navigates to the next screen"
 msgstr "Přejde na další obrazovku"
 
@@ -8016,11 +8000,11 @@ msgctxt "nux-description"
 msgid "New"
 msgstr "Nový"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:569
+#: src/view/com/notifications/NotificationFeedItem.tsx:563
 msgid "New {postsCount, plural, one {post} other {posts}} from {firstAuthorLink}"
 msgstr "N{postsCount, plural, one {ový příspěvek} few {ové příspěvky} many {ových příspěvků} other {ových příspěvků}} od {firstAuthorLink}"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:552
+#: src/view/com/notifications/NotificationFeedItem.tsx:546
 msgid "New {postsCount, plural, one {post} other {posts}} from {firstAuthorName}"
 msgstr "N{postsCount, plural, one {ový příspěvek} few {ové příspěvky} many {ových příspěvků} other {ových příspěvků}} od {firstAuthorName}"
 
@@ -8065,8 +8049,8 @@ msgid "New Feature"
 msgstr "Nová funkce"
 
 #: src/lib/hooks/useNotificationHandler.ts:193
-#: src/screens/Settings/NotificationSettings/index.tsx:159
-#: src/screens/Settings/NotificationSettings/index.tsx:312
+#: src/screens/Settings/NotificationSettings/index.tsx:171
+#: src/screens/Settings/NotificationSettings/index.tsx:324
 msgid "New followers"
 msgstr "Noví sledující"
 
@@ -8100,17 +8084,17 @@ msgstr "Nový seznam"
 
 #: src/screens/Messages/Settings.tsx:289
 #: src/screens/Settings/NotificationSettings/components/ChatNotificationDialogs.tsx:31
-#: src/screens/Settings/NotificationSettings/index.tsx:270
+#: src/screens/Settings/NotificationSettings/index.tsx:282
 msgid "New message requests"
 msgstr "Nové žádosti o zprávu"
 
 #: src/screens/Messages/Settings.tsx:268
 #: src/screens/Settings/NotificationSettings/components/ChatNotificationDialogs.tsx:21
-#: src/screens/Settings/NotificationSettings/index.tsx:253
+#: src/screens/Settings/NotificationSettings/index.tsx:265
 msgid "New messages"
 msgstr "Nové zprávy"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:143
+#: src/screens/Login/SetNewPasswordForm.tsx:130
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:204
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:208
 msgid "New password"
@@ -8133,17 +8117,21 @@ msgctxt "action"
 msgid "New post"
 msgstr "Nový příspěvek"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:558
+#: src/view/com/notifications/NotificationFeedItem.tsx:552
 msgid "New posts from {firstAuthorLink} and <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}</0> "
 msgstr "Nové příspěvky od {firstAuthorLink} a <0>{additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšího} few {{formattedAuthorsCount} dalších} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}}</0> "
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:543
+#: src/view/com/notifications/NotificationFeedItem.tsx:537
 msgid "New posts from {firstAuthorName} and {additionalAuthorsCount, plural, one {{formattedAuthorsCount} other} other {{formattedAuthorsCount} others}}"
 msgstr "Nové příspěvky od {firstAuthorName} a {additionalAuthorsCount, plural, one {{formattedAuthorsCount} dalšího} few {{formattedAuthorsCount} dalších} many {{formattedAuthorsCount} dalších} other {{formattedAuthorsCount} dalších}}"
 
 #: src/components/dialogs/StarterPackDialog.tsx:202
 msgid "New starter pack"
 msgstr "Nový startovací balíček"
+
+#: src/screens/Login/LoginForm.tsx:569
+msgid "New to Bluesky? <0>Sign up</0>"
+msgstr "Jste na Bluesky noví? <0>Zaregistrujte se</0>"
 
 #: src/components/NewskieDialog.tsx:122
 msgid "New user info dialog"
@@ -8165,10 +8153,10 @@ msgstr "Zprávy"
 #: src/components/contacts/screens/ViewMatches.tsx:410
 #: src/components/dms/AddMembersFlow.tsx:325
 #: src/components/dms/InitiateChatFlow.tsx:494
-#: src/screens/Login/ForgotPasswordForm.tsx:149
-#: src/screens/Login/ForgotPasswordForm.tsx:156
-#: src/screens/Login/SetNewPasswordForm.tsx:186
-#: src/screens/Login/SetNewPasswordForm.tsx:192
+#: src/screens/Login/ForgotPasswordForm.tsx:143
+#: src/screens/Login/ForgotPasswordForm.tsx:150
+#: src/screens/Login/SetNewPasswordForm.tsx:171
+#: src/screens/Login/SetNewPasswordForm.tsx:177
 #: src/screens/Onboarding/StepFinished/index.tsx:330
 #: src/screens/Onboarding/StepFinished/index.tsx:339
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:157
@@ -8218,7 +8206,7 @@ msgstr "Žádný panel DNS"
 msgid "No drafts yet"
 msgstr "Zatím žádné koncepty"
 
-#: src/features/liveNow/components/EditLiveDialog.tsx:141
+#: src/features/liveNow/components/EditLiveDialog.tsx:134
 msgid "No expiry set"
 msgstr "Není nastaveno vypršení platnosti"
 
@@ -8262,8 +8250,8 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:521
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:311
-#: src/view/com/notifications/NotificationFeedItem.tsx:823
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:273
+#: src/view/com/notifications/NotificationFeedItem.tsx:807
 msgid "No longer following {0}"
 msgstr "Již nesledujete {0}"
 
@@ -8434,8 +8422,8 @@ msgstr "Nekonsenzuální intimní snímky"
 msgid "Non-sexual Nudity"
 msgstr "Nesexuální nahota"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:293
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:296
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:263
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:266
 msgid "None of these words"
 msgstr "Žádné z těchto slov"
 
@@ -8473,12 +8461,7 @@ msgstr "Poznámka: Bluesky je otevřená a veřejná síť. Toto nastavení omez
 msgid "Note: This post is only visible to logged-in users."
 msgstr "Poznámka: Tento příspěvek je viditelný pouze pro přihlášené uživatele."
 
-#: src/screens/PlaceholderTimelines.tsx:48
-msgid "Nothing here"
-msgstr ""
-
-#: src/screens/Bookmarks/components/EmptyState.tsx:36
-#: src/screens/Bookmarks/index.tsx:299
+#: src/screens/Bookmarks.tsx:292
 msgid "Nothing saved yet"
 msgstr "Zatím nic uloženo"
 
@@ -8499,9 +8482,9 @@ msgstr "Zvuky oznámení"
 #: src/Navigation.tsx:803
 #: src/screens/Messages/Settings.tsx:255
 #: src/screens/Notifications/ActivityList.tsx:31
-#: src/screens/Settings/NotificationSettings/index.tsx:114
-#: src/screens/Settings/Settings.tsx:203
-#: src/screens/Settings/Settings.tsx:206
+#: src/screens/Settings/NotificationSettings/index.tsx:126
+#: src/screens/Settings/Settings.tsx:197
+#: src/screens/Settings/Settings.tsx:200
 #: src/view/screens/Notifications.tsx:128
 #: src/view/shell/Drawer.tsx:552
 msgid "Notifications"
@@ -8546,7 +8529,7 @@ msgstr "OK"
 #: src/components/BotAccountAlert.tsx:57
 #: src/components/dms/InitiateChatFlow.tsx:733
 #: src/components/dms/MessageItem.tsx:723
-#: src/screens/Login/PasswordUpdatedForm.tsx:37
+#: src/screens/Login/PasswordUpdatedForm.tsx:35
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:663
 msgid "Okay"
 msgstr "Dobře"
@@ -8578,11 +8561,11 @@ msgstr "Jeden z vybraných příjemců nepovoluje skupinové chaty."
 msgid "One of the selected recipients has blocked you and cannot be messaged."
 msgstr "Jeden z vybraných příjemců vás zablokoval a nelze mu zaslat zprávu."
 
-#: src/view/com/composer/Composer.tsx:938
+#: src/view/com/composer/Composer.tsx:933
 msgid "One or more GIFs is missing alt text."
 msgstr "U jednoho nebo více souborů GIF chybí alternativní text."
 
-#: src/view/com/composer/Composer.tsx:935
+#: src/view/com/composer/Composer.tsx:930
 msgid "One or more images is missing alt text."
 msgstr "U jednoho nebo více obrázků chybí alternativní text."
 
@@ -8594,11 +8577,11 @@ msgstr "Jeden nebo více vybraných souborů není podporován."
 msgid "One or more of your selected files are too large. Maximum size is {VIDEO_MAX_SIZE_MB} MB."
 msgstr "Jeden nebo více vybraných souborů je příliš velký. Maximální velikost je {VIDEO_MAX_SIZE_MB} MB."
 
-#: src/view/com/composer/Composer.tsx:733
+#: src/view/com/composer/Composer.tsx:736
 msgid "One or more posts are too long to save as a draft. {MAX_DRAFT_GRAPHEME_LENGTH, plural, one {The maximum number of characters is # character.} other {The maximum number of characters is # characters.}}"
 msgstr "Jeden nebo více příspěvků je příliš dlouhých na uložení jako koncept. {MAX_DRAFT_GRAPHEME_LENGTH, plural, one {Maximální počet znaků je # znak.} few {Maximální počet znaků jsou # znaky.} many {Maximální počet znaků je # znaků.} other {Maximální počet znaků je # znaků.}}"
 
-#: src/view/com/composer/Composer.tsx:945
+#: src/view/com/composer/Composer.tsx:940
 msgid "One or more videos is missing alt text."
 msgstr "U jednoho nebo více videí chybí alternativní text."
 
@@ -8611,7 +8594,7 @@ msgstr "Odpovídat mohou pouze {0}."
 #. placeholder {0}: result.accepted.length
 #. placeholder {1}: next.length
 #. placeholder {2}: next.length
-#: src/view/com/composer/Composer.tsx:236
+#: src/view/com/composer/Composer.tsx:234
 msgid "Only {0} of {1} {2, plural, one {image} other {images}} added; limit is {MAX_GALLERY_IMAGES}"
 msgstr "Přidáno pouze {0} z {1} {2, plural, one {obrázku} few {obrázků} many {obrázků} other {obrázků}}; limit je {MAX_GALLERY_IMAGES}"
 
@@ -8680,7 +8663,7 @@ msgstr "Jejda, tento profil neexistuje. Zkuste naskenovat jiný."
 msgid "Oops!"
 msgstr "Jejda!"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:64
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:66
 msgid "Open advanced search options"
 msgstr "Otevřít pokročilé možnosti vyhledávání"
 
@@ -8688,7 +8671,7 @@ msgstr "Otevřít pokročilé možnosti vyhledávání"
 msgid "Open avatar creator"
 msgstr "Otevřít editor avatara"
 
-#: src/view/com/feeds/ComposerPrompt.tsx:202
+#: src/view/com/feeds/ComposerPrompt.tsx:201
 msgid "Open camera"
 msgstr "Otevřít fotoaparát"
 
@@ -8715,7 +8698,7 @@ msgid "Open drawer menu"
 msgstr "Otevřít nabídku"
 
 #: src/screens/Messages/components/MessageComposer.tsx:213
-#: src/view/com/composer/Composer.tsx:2252
+#: src/view/com/composer/Composer.tsx:2244
 msgid "Open emoji picker"
 msgstr "Otevřít výběr emoji"
 
@@ -8842,6 +8825,10 @@ msgstr "Otevře kanál {0}"
 msgid "Opens a dialog to add a content warning to your post"
 msgstr "Otevře dialogové okno pro přidání varování o obsahu k vašemu příspěvku"
 
+#: src/screens/Login/LoginForm.tsx:645
+msgid "Opens a dialog to change the hosting provider you sign in to"
+msgstr "Otevře dialog pro změnu hostingového poskytovatele, ke kterému se přihlašujete"
+
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:154
 msgid "Opens a dialog to choose who can interact with this post"
 msgstr "Otevře dialogové okno pro výběr, kdo může reagovat na tento příspěvek"
@@ -8874,7 +8861,7 @@ msgstr "Otevře dialog pro změnu uživatelského jména"
 msgid "Opens composer"
 msgstr "Otevře editor příspěvku"
 
-#: src/view/com/feeds/ComposerPrompt.tsx:203
+#: src/view/com/feeds/ComposerPrompt.tsx:202
 msgid "Opens device camera"
 msgstr "Otevře fotoaparát zařízení"
 
@@ -8884,18 +8871,18 @@ msgid "Opens device gallery to select up to {MAX_GALLERY_IMAGES, plural, other {
 msgstr "Otevře galerii zařízení pro výběr až {MAX_GALLERY_IMAGES, plural, one {# obrázku} other {# obrázků}}, nebo jednoho videa či GIFu."
 
 #: src/screens/Messages/JoinRequest.tsx:305
-#: src/view/com/auth/SplashScreen.tsx:102
+#: src/view/com/auth/SplashScreen.tsx:91
 #: src/view/com/auth/SplashScreen.web.tsx:110
 msgid "Opens flow to create a new Bluesky account"
 msgstr "Otevře průvodce vytvořením nového účtu Bluesky"
 
 #: src/screens/Messages/JoinRequest.tsx:291
-#: src/view/com/auth/SplashScreen.tsx:120
+#: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.web.tsx:124
 msgid "Opens flow to sign in to your existing Bluesky account"
 msgstr "Otevře průvodce pro přihlášení do vašeho stávajícího účtu Bluesky"
 
-#: src/components/images/Gallery/index.tsx:455
+#: src/components/images/Gallery/index.tsx:458
 msgid "Opens full image"
 msgstr "Otevře obrázek v plné velikosti"
 
@@ -8903,7 +8890,7 @@ msgstr "Otevře obrázek v plné velikosti"
 msgid "Opens helpdesk in browser"
 msgstr "Otevře centrum nápovědy v prohlížeči"
 
-#: src/view/com/feeds/ComposerPrompt.tsx:225
+#: src/view/com/feeds/ComposerPrompt.tsx:224
 msgid "Opens image picker"
 msgstr "Otevře výběr obrázků"
 
@@ -8915,10 +8902,6 @@ msgstr "Otevře odkaz {0}"
 #: src/view/com/util/UserAvatar.tsx:610
 msgid "Opens live status dialog"
 msgstr "Otevře dialogové okno živého vysílání"
-
-#: src/screens/Login/LoginForm.tsx:259
-msgid "Opens password reset form"
-msgstr "Otevře formulář pro obnovení hesla"
 
 #: src/view/com/composer/select-language/PostLanguageSelect.tsx:200
 msgid "Opens post language settings"
@@ -8949,8 +8932,7 @@ msgstr "Otevře editor příspěvku"
 msgid "Opens this draft in the composer"
 msgstr "Otevře tento koncept v editoru příspěvků"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:1143
-#: src/view/com/util/UserAvatar.tsx:628
+#: src/view/com/util/UserAvatar.tsx:621
 msgid "Opens this profile"
 msgstr "Otevře tento profil"
 
@@ -9059,11 +9041,12 @@ msgstr "Stránka nenalezena"
 msgid "Party GIFs"
 msgstr "Party GIFy"
 
-#: src/screens/Login/LoginForm.tsx:228
+#: src/screens/Login/LoginForm.tsx:365
+#: src/screens/Login/LoginForm.tsx:372
 #: src/screens/Settings/AccountSettings.tsx:126
 #: src/screens/Settings/AccountSettings.tsx:130
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:284
-#: src/screens/Signup/StepInfo/index.tsx:255
+#: src/screens/Signup/StepInfo/index.tsx:258
 msgid "Password"
 msgstr "Heslo"
 
@@ -9075,11 +9058,11 @@ msgstr "Heslo bylo změněno"
 msgid "Password must be at least 8 characters long."
 msgstr "Heslo musí mít alespoň 8 znaků."
 
-#: src/screens/Login/index.tsx:202
+#: src/screens/Login/index.tsx:206
 msgid "Password updated"
 msgstr "Heslo aktualizováno"
 
-#: src/screens/Login/PasswordUpdatedForm.tsx:24
+#: src/screens/Login/PasswordUpdatedForm.tsx:22
 msgid "Password updated!"
 msgstr "Heslo bylo aktualizováno!"
 
@@ -9301,7 +9284,7 @@ msgid "Please choose your handle."
 msgstr "Vyberte si prosím své uživatelské jméno."
 
 #: src/screens/Signup/state.ts:286
-#: src/screens/Signup/StepInfo/index.tsx:150
+#: src/screens/Signup/StepInfo/index.tsx:149
 msgid "Please choose your password."
 msgstr "Zvolte si prosím heslo."
 
@@ -9313,16 +9296,16 @@ msgstr "Klikněte prosím na odkaz v e-mailu, který jsme vám právě poslali, 
 msgid "Please complete the verification captcha."
 msgstr "Dokončete prosím ověřovací captcha."
 
-#: src/view/com/composer/state/video.ts:470
+#: src/view/com/composer/state/video.ts:471
 msgid "Please confirm your email address to upload videos."
 msgstr "Pro nahrávání videí prosím potvrďte svou e-mailovou adresu."
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:102
-#: src/screens/Signup/StepInfo/index.tsx:140
+#: src/screens/Signup/StepInfo/index.tsx:139
 msgid "Please double-check that you have entered your email address correctly."
 msgstr "Zkontrolujte prosím, zda jste správně zadali svou e-mailovou adresu."
 
-#: src/screens/Login/SetNewPasswordForm.tsx:60
+#: src/screens/Login/SetNewPasswordForm.tsx:56
 msgid "Please enter a password."
 msgstr "Zadejte prosím heslo."
 
@@ -9367,11 +9350,11 @@ msgid "Please enter the security code we sent to your previous email address."
 msgstr "Zadejte prosím bezpečnostní kód, který jsme zaslali na vaši předchozí e-mailovou adresu."
 
 #: src/screens/Signup/state.ts:270
-#: src/screens/Signup/StepInfo/index.tsx:123
+#: src/screens/Signup/StepInfo/index.tsx:122
 msgid "Please enter your email."
 msgstr "Zadejte prosím svůj e-mail."
 
-#: src/screens/Signup/StepInfo/index.tsx:116
+#: src/screens/Signup/StepInfo/index.tsx:115
 msgid "Please enter your invite code."
 msgstr "Zadejte prosím svůj zvací kód."
 
@@ -9379,11 +9362,11 @@ msgstr "Zadejte prosím svůj zvací kód."
 msgid "Please enter your new email address."
 msgstr "Zadejte svou novou e-mailovou adresu."
 
-#: src/screens/Login/LoginForm.tsx:96
+#: src/screens/Login/LoginForm.tsx:196
 msgid "Please enter your password"
 msgstr "Zadejte prosím své heslo"
 
-#: src/screens/Login/LoginForm.tsx:90
+#: src/screens/Login/LoginForm.tsx:190
 msgid "Please enter your username"
 msgstr "Zadejte své uživatelské jméno"
 
@@ -9456,12 +9439,7 @@ msgstr "Politika"
 msgid "Porn"
 msgstr "Porno"
 
-#: src/lib/hooks/useUpdateWidgets.ts:69
-#: src/screens/Settings/AppearanceSettings.tsx:316
-msgid "Post"
-msgstr ""
-
-#: src/view/com/composer/Composer.tsx:1897
+#: src/view/com/composer/Composer.tsx:1889
 msgctxt "action"
 msgid "Post"
 msgstr "Příspěvek"
@@ -9481,12 +9459,12 @@ msgstr "Přidat fotku"
 msgid "Post a video"
 msgstr "Přidat video"
 
-#: src/view/com/composer/Composer.tsx:1893
+#: src/view/com/composer/Composer.tsx:1887
 msgctxt "action"
 msgid "Post All"
 msgstr "Zveřejnit vše"
 
-#: src/view/com/composer/Composer.tsx:1553
+#: src/view/com/composer/Composer.tsx:1548
 msgid "Post anyway"
 msgstr "Přesto odeslat"
 
@@ -9659,9 +9637,9 @@ msgstr "Nastavení soukromí a zabezpečení"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:36
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:103
-#: src/Navigation.tsx:349
-#: src/screens/Settings/AboutSettings.tsx:95
-#: src/screens/Settings/AboutSettings.tsx:98
+#: src/Navigation.tsx:336
+#: src/screens/Settings/AboutSettings.tsx:102
+#: src/screens/Settings/AboutSettings.tsx:105
 #: src/view/screens/PrivacyPolicy.tsx:25
 #: src/view/shell/Drawer.tsx:763
 #: src/view/shell/Drawer.tsx:764
@@ -9672,11 +9650,11 @@ msgstr "Zásady ochrany osobních údajů"
 msgid "Privacy violation of a minor"
 msgstr "Porušení soukromí nezletilé osoby"
 
-#: src/view/com/composer/Composer.tsx:2686
+#: src/view/com/composer/Composer.tsx:2685
 msgid "Processing GIF..."
 msgstr "Zpracovávání GIF..."
 
-#: src/view/com/composer/Composer.tsx:2688
+#: src/view/com/composer/Composer.tsx:2687
 msgid "Processing video..."
 msgstr "Zpracovávání videa..."
 
@@ -9725,22 +9703,22 @@ msgid "Public, sharable lists of users to mute or block in bulk."
 msgstr "Veřejné, sdílitelné seznamy uživatelů pro hromadné ztlumení nebo blokování."
 
 #. Accessibility label for button to publish a single post
-#: src/view/com/composer/Composer.tsx:1879
+#: src/view/com/composer/Composer.tsx:1873
 msgid "Publish post"
 msgstr "Publikovat příspěvek"
 
 #. Accessibility label for button to publish multiple posts in a thread
-#: src/view/com/composer/Composer.tsx:1874
+#: src/view/com/composer/Composer.tsx:1868
 msgid "Publish posts"
 msgstr "Publikovat příspěvky"
 
 #. Accessibility label for button to publish multiple replies in a thread
-#: src/view/com/composer/Composer.tsx:1863
+#: src/view/com/composer/Composer.tsx:1857
 msgid "Publish replies"
 msgstr "Publikovat odpovědi"
 
 #. Accessibility label for button to publish a single reply
-#: src/view/com/composer/Composer.tsx:1868
+#: src/view/com/composer/Composer.tsx:1862
 msgid "Publish reply"
 msgstr "Publikovat odpověď"
 
@@ -9798,8 +9776,8 @@ msgstr "Citování příspěvků zakázáno"
 
 #: src/lib/hooks/useNotificationHandler.ts:186
 #: src/screens/Post/PostQuotes.tsx:31
-#: src/screens/Settings/NotificationSettings/index.tsx:192
-#: src/screens/Settings/NotificationSettings/index.tsx:335
+#: src/screens/Settings/NotificationSettings/index.tsx:204
+#: src/screens/Settings/NotificationSettings/index.tsx:347
 msgid "Quotes"
 msgstr "Citace"
 
@@ -9970,7 +9948,7 @@ msgstr "Znovu načíst konverzace"
 #: src/components/FeedCard.tsx:376
 #: src/components/StarterPack/Wizard/WizardListCard.tsx:106
 #: src/components/StarterPack/Wizard/WizardListCard.tsx:113
-#: src/screens/Bookmarks/index.tsx:265
+#: src/screens/Bookmarks.tsx:258
 #: src/screens/Messages/ConversationSettings/Member.tsx:162
 #: src/screens/Messages/ConversationSettings/prompts.tsx:178
 #: src/screens/Moderation/index.tsx:477
@@ -9996,11 +9974,7 @@ msgstr "Odebrat uživatele {displayName} z této skupinové konverzace"
 msgid "Remove {displayName}?"
 msgstr "Odebrat uživatele {displayName}?"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:243
-msgid "Remove {label} from the bar"
-msgstr ""
-
-#: src/screens/Search/components/SearchHistory.tsx:161
+#: src/screens/Search/components/SearchHistory.tsx:182
 msgid "Remove {q}"
 msgstr "Odebrat {q}"
 
@@ -10075,7 +10049,7 @@ msgid "Remove from saved feeds"
 msgstr "Odebrat z uložených kanálů"
 
 #: src/components/PostControls/BookmarkButton.tsx:143
-#: src/screens/Bookmarks/index.tsx:259
+#: src/screens/Bookmarks.tsx:252
 msgid "Remove from saved posts"
 msgstr "Odebrat z uložených příspěvků"
 
@@ -10087,8 +10061,8 @@ msgstr "Odebrat z vašich kanálů?"
 msgid "Remove image"
 msgstr "Odstranit obrázek"
 
+#: src/features/liveNow/components/EditLiveDialog.tsx:221
 #: src/features/liveNow/components/EditLiveDialog.tsx:228
-#: src/features/liveNow/components/EditLiveDialog.tsx:235
 msgid "Remove live status"
 msgstr "Odebrat stav živého vysílání"
 
@@ -10101,7 +10075,7 @@ msgstr "Odebrat člena"
 msgid "Remove mute word from your list"
 msgstr "Odebrat ztlumené slovo ze seznamu"
 
-#: src/screens/Search/components/SearchHistory.tsx:221
+#: src/screens/Search/components/SearchHistory.tsx:243
 msgid "Remove profile"
 msgstr "Odebrat profil"
 
@@ -10156,7 +10130,7 @@ msgid "Removed from saved feeds"
 msgstr "Odebráno z uložených kanálů"
 
 #: src/components/PostControls/BookmarkButton.tsx:107
-#: src/screens/Bookmarks/index.tsx:217
+#: src/screens/Bookmarks.tsx:211
 msgid "Removed from saved posts"
 msgstr "Odebráno z uložených příspěvků"
 
@@ -10215,20 +10189,23 @@ msgctxt "description"
 msgid "Replied to you"
 msgstr "Odpovězeno vám"
 
-#: src/components/dms/MessageItem.tsx:878
+#: src/components/dms/MessageItem.tsx:906
 msgid "Replied-to message from {senderName}, tap to scroll to it"
 msgstr "Zpráva od {senderName}, na kterou bylo odpovězeno, klepnutím se na ni přesunete"
 
-#: src/components/dms/MessageItem.tsx:879
+#: src/components/dms/MessageItem.tsx:904
+msgid "Replied-to message was sent before you joined"
+msgstr "Zpráva, na kterou bylo odpovězeno, byla odeslána před tím, než jste se připojili"
+
+#: src/components/dms/MessageItem.tsx:907
 msgid "Replied-to message, tap to scroll to it"
 msgstr "Zpráva, na kterou bylo odpovězeno, klepnutím na ni přejdete"
 
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:274
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:286
 #: src/lib/hooks/useNotificationHandler.ts:172
-#: src/lib/hooks/useUpdateWidgets.ts:71
-#: src/screens/Settings/NotificationSettings/index.tsx:170
-#: src/screens/Settings/NotificationSettings/index.tsx:319
+#: src/screens/Settings/NotificationSettings/index.tsx:182
+#: src/screens/Settings/NotificationSettings/index.tsx:331
 #: src/view/screens/Profile.tsx:235
 msgid "Replies"
 msgstr "Odpovědi"
@@ -10246,7 +10223,7 @@ msgstr "Odpovědi na tento příspěvek jsou zakázány."
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: src/view/com/composer/Composer.tsx:1891
+#: src/view/com/composer/Composer.tsx:1885
 msgctxt "action"
 msgid "Reply"
 msgstr "Odpovědět"
@@ -10427,9 +10404,8 @@ msgid "Reposted by you"
 msgstr "Repostováno vámi"
 
 #: src/lib/hooks/useNotificationHandler.ts:165
-#: src/lib/hooks/useUpdateWidgets.ts:72
-#: src/screens/Settings/NotificationSettings/index.tsx:203
-#: src/screens/Settings/NotificationSettings/index.tsx:344
+#: src/screens/Settings/NotificationSettings/index.tsx:215
+#: src/screens/Settings/NotificationSettings/index.tsx:356
 msgid "Reposts"
 msgstr "Reposty"
 
@@ -10438,8 +10414,8 @@ msgid "Reposts of this post"
 msgstr "Reposty tohoto příspěvku"
 
 #: src/lib/hooks/useNotificationHandler.ts:207
-#: src/screens/Settings/NotificationSettings/index.tsx:240
-#: src/screens/Settings/NotificationSettings/index.tsx:375
+#: src/screens/Settings/NotificationSettings/index.tsx:252
+#: src/screens/Settings/NotificationSettings/index.tsx:387
 msgid "Reposts of your reposts"
 msgstr "Reposty vašich repostů"
 
@@ -10489,7 +10465,7 @@ msgstr "Před odesláním vyžadovat alternativní text"
 msgid "Require an email code to sign in to your account."
 msgstr "Vyžadovat e-mailový kód pro přihlášení k vašemu účtu."
 
-#: src/screens/Signup/StepInfo/index.tsx:204
+#: src/screens/Signup/StepInfo/index.tsx:207
 msgid "Required for this provider"
 msgstr "Vyžadováno pro tohoto poskytovatele"
 
@@ -10539,7 +10515,7 @@ msgstr "Znovu odeslat ověřovací e-mail"
 msgid "Reset activity subscription nudge"
 msgstr "Resetovat upozornění na odběr aktivity"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:118
+#: src/screens/Login/SetNewPasswordForm.tsx:108
 msgid "Reset code"
 msgstr "Resetovací kód"
 
@@ -10548,21 +10524,20 @@ msgstr "Resetovací kód"
 msgid "Reset onboarding state"
 msgstr "Resetovat stav onboardingu"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:82
+#: src/screens/Login/ForgotPasswordForm.tsx:77
 msgid "Reset password"
 msgstr "Obnovit heslo"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:172
-#: src/screens/Settings/NavigationBarSettings.tsx:176
-msgid "Reset to default"
-msgstr ""
+#: src/screens/Login/LoginForm.tsx:422
+msgid "Reset your password by sending a code to your email"
+msgstr "Obnovte své heslo odesláním kódu na váš e-mail"
 
 #: src/screens/Settings/FindContactsSettings.tsx:544
 #: src/screens/Settings/FindContactsSettings.tsx:560
 msgid "Resync contacts"
 msgstr "Znovu synchronizovat kontakty"
 
-#: src/screens/Login/LoginForm.tsx:330
+#: src/screens/Login/LoginForm.tsx:532
 msgid "Retries signing in"
 msgstr "Opakuje pokus o přihlášení"
 
@@ -10581,8 +10556,8 @@ msgstr "Zopakuje poslední akci, která skončila chybou"
 #: src/components/Post/Embed/VideoEmbed/VideoEmbedInner/VideoFallback.tsx:56
 #: src/components/Post/Embed/VideoEmbed/VideoEmbedInner/VideoFallback.tsx:59
 #: src/components/StarterPack/ProfileStarterPacks.tsx:377
-#: src/screens/Login/LoginForm.tsx:329
-#: src/screens/Login/LoginForm.tsx:335
+#: src/screens/Login/LoginForm.tsx:531
+#: src/screens/Login/LoginForm.tsx:537
 #: src/screens/Messages/ChatList.tsx:427
 #: src/screens/Messages/components/MessageListError.tsx:24
 #: src/screens/Messages/Inbox.tsx:211
@@ -10626,6 +10601,10 @@ msgstr "Vrátí se na předchozí stránku"
 msgid "Returns to the previous step"
 msgstr "Vrátí se na předchozí krok"
 
+#: src/screens/Login/LoginForm.tsx:613
+msgid "Reveal password"
+msgstr "Zobrazit heslo"
+
 #. Accessibility label for the icon-only pill that filters the GIF picker to sad/crying GIFs.
 #: src/features/gifPicker/components/GifCategoryPills.tsx:75
 msgid "Sad GIFs"
@@ -10637,8 +10616,8 @@ msgstr "Smutné GIFy"
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:668
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:673
 #: src/components/StarterPack/QrCodeDialog.tsx:210
+#: src/features/liveNow/components/EditLiveDialog.tsx:197
 #: src/features/liveNow/components/EditLiveDialog.tsx:204
-#: src/features/liveNow/components/EditLiveDialog.tsx:211
 #: src/screens/Messages/ConversationSettings/prompts.tsx:82
 #: src/screens/Profile/Header/EditProfileDialog.tsx:233
 #: src/screens/Profile/Header/EditProfileDialog.tsx:247
@@ -10664,22 +10643,22 @@ msgstr "Uložit datum narození"
 #: src/screens/SavedFeeds.tsx:124
 #: src/screens/SavedFeeds.tsx:311
 #: src/screens/SavedFeeds.tsx:315
-#: src/view/com/composer/Composer.tsx:1534
+#: src/view/com/composer/Composer.tsx:1529
 #: src/view/com/composer/drafts/DraftsButton.tsx:125
 msgid "Save changes"
 msgstr "Uložit změny"
 
-#: src/view/com/composer/Composer.tsx:1506
+#: src/view/com/composer/Composer.tsx:1501
 #: src/view/com/composer/drafts/DraftsButton.tsx:93
 msgid "Save changes?"
 msgstr "Uložit změny?"
 
-#: src/view/com/composer/Composer.tsx:1534
+#: src/view/com/composer/Composer.tsx:1529
 #: src/view/com/composer/drafts/DraftsButton.tsx:125
 msgid "Save draft"
 msgstr "Uložit koncept"
 
-#: src/view/com/composer/Composer.tsx:1508
+#: src/view/com/composer/Composer.tsx:1503
 #: src/view/com/composer/drafts/DraftsButton.tsx:95
 msgid "Save draft?"
 msgstr "Uložit koncept?"
@@ -10722,8 +10701,8 @@ msgid "Saved Feeds"
 msgstr "Uložené kanály"
 
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:145
-#: src/Navigation.tsx:608
-#: src/screens/Bookmarks/index.tsx:59
+#: src/Navigation.tsx:561
+#: src/screens/Bookmarks.tsx:59
 msgid "Saved Posts"
 msgstr "Uložené příspěvky"
 
@@ -10733,8 +10712,8 @@ msgid "Saved to your feeds"
 msgstr "Uloženo do vašich kanálů"
 
 #: src/components/NewskieDialog.tsx:141
-#: src/view/com/notifications/NotificationFeedItem.tsx:905
-#: src/view/com/notifications/NotificationFeedItem.tsx:930
+#: src/view/com/notifications/NotificationFeedItem.tsx:889
+#: src/view/com/notifications/NotificationFeedItem.tsx:914
 msgid "Say hello!"
 msgstr "Pozdravte!"
 
@@ -10770,7 +10749,7 @@ msgstr "Posunout doleva"
 msgid "Scroll right"
 msgstr "Posunout doprava"
 
-#: src/components/dms/MessageItem.tsx:775
+#: src/components/dms/MessageItem.tsx:800
 msgid "Scroll to the message this is replying to"
 msgstr "Přejít na zprávu, na kterou je tato odpověď"
 
@@ -10781,12 +10760,12 @@ msgstr "Přejít nahoru"
 #: src/components/dialogs/SearchablePeopleList.tsx:667
 #: src/components/forms/SearchInput.tsx:51
 #: src/components/forms/SearchInput.tsx:53
-#: src/features/customNav/catalog.tsx:122
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:232
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:238
-#: src/screens/Search/Shell.tsx:500
-#: src/screens/Search/Shell.tsx:552
-#: src/screens/Search/Shell.tsx:694
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:218
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:224
+#: src/screens/Search/Shell.tsx:560
+#: src/screens/Search/Shell.tsx:629
+#: src/screens/Search/Shell.tsx:779
+#: src/view/shell/bottom-bar/BottomBar.tsx:216
 msgid "Search"
 msgstr "Hledat"
 
@@ -10819,9 +10798,13 @@ msgstr "Hledat „{interestsDisplayName}“"
 msgid "Search for \"{interestsDisplayName}\" (active)"
 msgstr "Hledat „{interestsDisplayName}“ (aktivní)"
 
-#: src/screens/Search/components/AutocompleteResults.tsx:54
-msgid "Search for \"{searchText}\""
+#: src/screens/Search/components/AutocompleteResults.tsx:49
+msgid "Search for “{searchText}”"
 msgstr "Hledat „{searchText}“"
+
+#: src/screens/Search/components/SearchHistory.tsx:136
+msgid "Search for {q}"
+msgstr ""
 
 #: src/screens/StarterPack/Wizard/index.tsx:541
 msgid "Search for feeds that you want to suggest to others."
@@ -10874,7 +10857,7 @@ msgstr "Hledat příspěvky"
 msgid "Search profiles"
 msgstr "Hledat profily"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:262
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:248
 msgid "Search query"
 msgstr "Vyhledávací dotaz"
 
@@ -10955,8 +10938,11 @@ msgid "Select \"{interestsDisplayName}\" category"
 msgstr "Vybrat kategorii „{interestsDisplayName}“"
 
 #. Accessibility label for a username suggestion in the account creation flow
+#. Accessibility label for a username suggestion in the account creation flow
+#. placeholder {0}: item.handle
 #. placeholder {0}: suggestion.handle
-#: src/screens/Signup/StepHandle/HandleSuggestions.tsx:43
+#: src/screens/Signup/StepHandle/HandleSuggestions/index.native.tsx:40
+#: src/screens/Signup/StepHandle/HandleSuggestions/index.tsx:72
 msgid "Select {0}"
 msgstr "Vybrat {0}"
 
@@ -10972,7 +10958,7 @@ msgstr "Vyberte barvu"
 msgid "Select a reason"
 msgstr "Vyberte důvod"
 
-#: src/screens/Login/ChooseAccountForm.tsx:81
+#: src/screens/Login/ChooseAccountForm.tsx:79
 msgid "Select account"
 msgstr "Vybrat účet"
 
@@ -11010,7 +10996,7 @@ msgstr "Vybrat konverzaci „{name}“"
 msgid "Select content languages"
 msgstr "Vyberte jazyky obsahu"
 
-#: src/features/liveNow/components/GoLiveDialog.tsx:180
+#: src/features/liveNow/components/GoLiveDialog.tsx:186
 msgid "Select duration"
 msgstr "Vyberte dobu trvání"
 
@@ -11019,7 +11005,7 @@ msgstr "Vyberte dobu trvání"
 msgid "Select filter type (currently: {0})"
 msgstr "Vyberte typ filtru (aktuálně: {0})"
 
-#: src/screens/Login/index.tsx:162
+#: src/screens/Login/index.tsx:166
 msgid "Select from an existing account"
 msgstr "Vyberte ze stávajících účtů"
 
@@ -11105,7 +11091,7 @@ msgstr "Vyberte jazyk, který se má používat pro uživatelské rozhraní apli
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Vyberte, které jazyky mají být zahrnuty ve vašich odebíraných kanálech. Pokud nevyberete žádný, budou zobrazeny všechny jazyky."
 
-#: src/screens/Signup/StepInfo/index.tsx:297
+#: src/screens/Signup/StepInfo/index.tsx:300
 msgid "Select your date of birth"
 msgstr "Vyberte své datum narození"
 
@@ -11144,8 +11130,8 @@ msgstr "Odeslat e-mail"
 
 #: src/components/SendErrorReportDialog.tsx:60
 #: src/components/SendErrorReportDialog.tsx:64
-#: src/screens/Settings/AboutSettings.tsx:118
-#: src/screens/Settings/AboutSettings.tsx:121
+#: src/screens/Settings/AboutSettings.tsx:125
+#: src/screens/Settings/AboutSettings.tsx:128
 msgid "Send error report"
 msgstr "Odeslat hlášení o chybě"
 
@@ -11196,6 +11182,7 @@ msgid "Sent to our phone number verification provider Plivo"
 msgstr "Odesláno našemu poskytovateli ověřování telefonních čísel Plivo"
 
 #: src/components/dialogs/ServerInput.tsx:174
+#: src/screens/Login/components/HostingProviderDialog.tsx:200
 msgid "Server address"
 msgstr "Adresa serveru"
 
@@ -11204,7 +11191,7 @@ msgstr "Adresa serveru"
 msgid "Set app icon to {0}"
 msgstr "Nastavit ikonu aplikace na {0}"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:108
+#: src/screens/Login/SetNewPasswordForm.tsx:99
 msgid "Set new password"
 msgstr "Nastavit nové heslo"
 
@@ -11220,11 +11207,19 @@ msgstr "Nastavte si svůj účet"
 msgid "Set who can reply to your post"
 msgstr "Nastavte, kdo může odpovídat na váš příspěvek"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:223
+#: src/ageAssurance/components/NoAccessScreen.tsx:286
 msgid "Set your birthdate below and we'll get you back to posting and exploring in no time!"
 msgstr "Nastavte níže své datum narození a my vás v mžiku vrátíme k přidávání příspěvků a objevování!"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:109
+#: src/screens/Login/LoginForm.tsx:352
+msgid "set your hosting provider manually"
+msgstr "nastavit poskytovatele hostingu ručně"
+
+#: src/screens/Login/LoginForm.tsx:486
+msgid "Set your hosting provider manually"
+msgstr "Nastavit poskytovatele hostingu ručně"
+
+#: src/screens/Login/ForgotPasswordForm.tsx:104
 msgid "Sets email for password reset"
 msgstr "Nastaví e-mail pro obnovení hesla"
 
@@ -11235,7 +11230,7 @@ msgstr "Nastaví e-mail pro obnovení hesla"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:209
+#: src/screens/Settings/NotificationSettings/index.tsx:221
 msgid "Settings for activity from others"
 msgstr "Nastavení pro aktivitu od ostatních"
 
@@ -11243,49 +11238,49 @@ msgstr "Nastavení pro aktivitu od ostatních"
 msgid "Settings for allowing others to be notified of your posts"
 msgstr "Nastavení pro umožnění ostatním dostávat upozornění na vaše příspěvky"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:143
+#: src/screens/Settings/NotificationSettings/index.tsx:155
 msgid "Settings for like notifications"
 msgstr "Nastavení oznámení o lajcích"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:176
+#: src/screens/Settings/NotificationSettings/index.tsx:188
 msgid "Settings for mention notifications"
 msgstr "Nastavení oznámení o zmínkách"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:154
+#: src/screens/Settings/NotificationSettings/index.tsx:166
 msgid "Settings for new follower notifications"
 msgstr "Nastavení oznámení o nových sledujících"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:282
+#: src/screens/Settings/NotificationSettings/index.tsx:294
 msgid "Settings for notifications for everything else"
 msgstr "Nastavení oznámení pro vše ostatní"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:222
+#: src/screens/Settings/NotificationSettings/index.tsx:234
 msgid "Settings for notifications for likes of your reposts"
 msgstr "Nastavení oznámení o lajcích vašich repostů"
 
 #: src/screens/Messages/Settings.tsx:280
-#: src/screens/Settings/NotificationSettings/index.tsx:265
+#: src/screens/Settings/NotificationSettings/index.tsx:277
 msgid "Settings for notifications for new message requests"
 msgstr "Nastavení oznámení o nových žádostech o zprávu"
 
 #: src/screens/Messages/Settings.tsx:259
-#: src/screens/Settings/NotificationSettings/index.tsx:248
+#: src/screens/Settings/NotificationSettings/index.tsx:260
 msgid "Settings for notifications for new messages"
 msgstr "Nastavení oznámení pro nové zprávy"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:235
+#: src/screens/Settings/NotificationSettings/index.tsx:247
 msgid "Settings for notifications for reposts of your reposts"
 msgstr "Nastavení oznámení o repostech vašich repostů"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:187
+#: src/screens/Settings/NotificationSettings/index.tsx:199
 msgid "Settings for quote notifications"
 msgstr "Nastavení oznámení o citacích"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:165
+#: src/screens/Settings/NotificationSettings/index.tsx:177
 msgid "Settings for reply notifications"
 msgstr "Nastavení oznámení o odpovědích"
 
-#: src/screens/Settings/NotificationSettings/index.tsx:198
+#: src/screens/Settings/NotificationSettings/index.tsx:210
 msgid "Settings for repost notifications"
 msgstr "Nastavení oznámení o repostech"
 
@@ -11306,13 +11301,17 @@ msgstr "Sexuálně sugestivní"
 #: src/components/MediaPreview.tsx:237
 #: src/components/Post/Embed/ImageContextMenu.tsx:74
 #: src/components/StarterPack/QrCodeDialog.tsx:198
-#: src/screens/Hashtag.tsx:130
+#: src/screens/Hashtag.tsx:132
 #: src/screens/Messages/components/InviteLinkDialog.tsx:415
 #: src/screens/Messages/components/InviteLinkDialog.tsx:426
 #: src/screens/StarterPack/StarterPackScreen.tsx:447
 #: src/screens/Topic.tsx:90
 msgid "Share"
 msgstr "Sdílet"
+
+#: src/ageAssurance/useVerificationFlow.ts:62
+msgid "Share age range"
+msgstr ""
 
 #: src/view/com/profile/ProfileMenu.tsx:549
 msgid "Share anyway"
@@ -11370,6 +11369,7 @@ msgid "Share this feed"
 msgstr "Sdílet tento kanál"
 
 #: src/screens/Search/Shell.tsx:581
+#: src/screens/Search/Shell.tsx:651
 msgid "Share this search"
 msgstr "Sdílet toto hledání"
 
@@ -11399,6 +11399,16 @@ msgstr "Sdílejte své kontakty a najděte přátele"
 #: src/Navigation.tsx:334
 msgid "Shared Preferences Tester"
 msgstr "Tester sdílených předvoleb"
+
+#. Shown next to the 'Share age range' button when on-device age verification is available. KWS is the name of a third-party verification partner.
+#: src/ageAssurance/components/DeviceSignalsNotice.tsx:25
+msgid "Sharing your age range reveals only the range associated with your Apple Account – for example, that you’re at least 18. <0>Your exact age and birthday are never shared,</0> and this data never leaves this device. Therefore, it only enables access on this device. Alternatively, <1>you can use our trusted partner, KWS</1>, to complete your verification and enable access on all platforms."
+msgstr ""
+
+#. Shown next to the 'Share age range' button when on-device age verification is available. KWS is the name of a third-party verification partner.
+#: src/ageAssurance/components/DeviceSignalsNotice.tsx:43
+msgid "Sharing your age range reveals only the range associated with your Google Account – for example, that you’re at least 18. <0>Your exact age and birthday are never shared,</0> and this data never leaves this device. Therefore, it only enables access on this device. Alternatively, <1>you can use our trusted partner, KWS</1>, to complete your verification and enable access on all platforms."
+msgstr ""
 
 #: src/components/moderation/ContentHider.tsx:220
 #: src/components/moderation/LabelPreference.tsx:143
@@ -11487,11 +11497,6 @@ msgstr "Přesto zobrazit seznam"
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:534
 msgid "Show lists of users to select from"
 msgstr "Zobrazit seznamy uživatelů k výběru"
-
-#: src/features/liveEvents/components/LiveEventFeedsSettingsToggle.tsx:28
-#: src/features/liveEvents/components/LiveEventFeedsSettingsToggle.tsx:38
-msgid "Show live events in your Discover Feed"
-msgstr "Zobrazovat živé události ve vašem kanálu Objevit"
 
 #: src/components/Post/ShowMoreTextButton.tsx:52
 msgid "Show More"
@@ -11602,16 +11607,16 @@ msgstr ""
 #: src/components/WelcomeModal.tsx:197
 #: src/components/WelcomeModal.tsx:209
 #: src/screens/Hashtag.tsx:228
-#: src/screens/Login/index.tsx:140
-#: src/screens/Login/index.tsx:161
-#: src/screens/Login/LoginForm.tsx:179
-#: src/screens/Login/LoginForm.tsx:350
-#: src/screens/Login/LoginForm.tsx:356
+#: src/screens/Login/index.tsx:143
+#: src/screens/Login/index.tsx:165
+#: src/screens/Login/LoginForm.tsx:274
+#: src/screens/Login/LoginForm.tsx:554
+#: src/screens/Login/LoginForm.tsx:560
 #: src/screens/Messages/JoinRequest.tsx:290
 #: src/screens/Messages/JoinRequest.tsx:296
-#: src/screens/Search/SearchResults.tsx:434
-#: src/view/com/auth/SplashScreen.tsx:118
-#: src/view/com/auth/SplashScreen.tsx:124
+#: src/screens/Search/SearchResults.tsx:433
+#: src/view/com/auth/SplashScreen.tsx:116
+#: src/view/com/auth/SplashScreen.tsx:123
 #: src/view/com/auth/SplashScreen.web.tsx:122
 #: src/view/com/auth/SplashScreen.web.tsx:130
 #: src/view/shell/bottom-bar/BottomBar.tsx:305
@@ -11628,9 +11633,9 @@ msgstr "Přihlásit se"
 msgid "Sign in as {0}"
 msgstr "Přihlásit se jako {0}"
 
-#: src/screens/Login/ChooseAccountForm.tsx:86
-msgid "Sign in as..."
-msgstr "Přihlásit se jako..."
+#: src/screens/Login/ChooseAccountForm.tsx:84
+msgid "Sign in as…"
+msgstr "Přihlásit se jako…"
 
 #: src/screens/Deactivated.tsx:195
 #: src/screens/Deactivated.tsx:201
@@ -11683,6 +11688,10 @@ msgstr "Odhlásit se"
 msgid "Sign out?"
 msgstr "Odhlásit se?"
 
+#: src/screens/Login/LoginForm.tsx:572
+msgid "Sign up"
+msgstr "Zaregistrovat se"
+
 #: src/components/moderation/ScreenHider.tsx:98
 #: src/lib/moderation/useGlobalLabelStrings.ts:28
 msgid "Sign-in Required"
@@ -11690,12 +11699,12 @@ msgstr "Vyžadováno přihlášení"
 
 #. placeholder {0}: account.handle
 #: src/lib/hooks/useAccountSwitcher.ts:42
-#: src/screens/Login/ChooseAccountForm.tsx:56
+#: src/screens/Login/ChooseAccountForm.tsx:54
 msgid "Signed in as @{0}"
 msgstr "Přihlášen jako @{0}"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:313
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:316
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:299
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:302
 msgid "Since"
 msgstr "Od"
 
@@ -11716,7 +11725,7 @@ msgstr "Přeskočit"
 msgid "Skip contact sharing and continue to the app"
 msgstr "Přeskočit sdílení kontaktů a pokračovat do aplikace"
 
-#: src/view/com/composer/Composer.tsx:1551
+#: src/view/com/composer/Composer.tsx:1546
 msgid "Skip empty posts?"
 msgstr "Přeskočit prázdné příspěvky?"
 
@@ -11730,7 +11739,7 @@ msgstr "Přeskočit úvod a začít používat svůj účet"
 msgid "Skip to next step"
 msgstr "Přeskočit na další krok"
 
-#: src/components/images/Gallery/index.tsx:438
+#: src/components/images/Gallery/index.tsx:441
 msgid "slide"
 msgstr "snímek"
 
@@ -11796,6 +11805,10 @@ msgstr "Někdo zareagoval {0}"
 msgid "Someone reacted {0} to {target}"
 msgstr "Někdo reagoval {0} na {target}"
 
+#: src/components/dms/MessageItem.tsx:793
+msgid "Someone replied"
+msgstr "Někdo odpověděl"
+
 #: src/components/dms/getSystemMessageInfo.ts:60
 msgid "Someone was added"
 msgstr "Někdo byl přidán"
@@ -11859,7 +11872,7 @@ msgstr "Něco není v pořádku? Dejte nám vědět."
 msgid "Sorry, we're unable to load account suggestions at this time."
 msgstr "Omlouváme se, momentálně nemůžeme načíst návrhy účtů."
 
-#: src/App.native.tsx:152
+#: src/App.tsx:138
 #: src/App.web.tsx:117
 msgid "Sorry! Your session expired. Please sign in again."
 msgstr "Omlouváme se! Vaše relace vypršela. Přihlaste se prosím znovu."
@@ -11967,8 +11980,8 @@ msgstr "Startovací balíčky vám umožňují sdílet vaše oblíbené kanály 
 msgid "Starter Packs let you share your favorite feeds and people with your friends."
 msgstr "Startivacá balíčky vám umožňují sdílet vaše oblíbené kanály a lidi s vašimi přáteli."
 
-#: src/screens/Settings/AboutSettings.tsx:103
-#: src/screens/Settings/AboutSettings.tsx:106
+#: src/screens/Settings/AboutSettings.tsx:110
+#: src/screens/Settings/AboutSettings.tsx:113
 msgid "Status Page"
 msgstr "Stavová stránka"
 
@@ -11977,7 +11990,7 @@ msgstr "Stavová stránka"
 #. placeholder {1}: state.serviceDescription && !state.serviceDescription.phoneVerificationRequired ? '2' : '3'
 #. placeholder {1}: state.totalSteps
 #: src/screens/Onboarding/Layout.tsx:226
-#: src/screens/Signup/index.tsx:181
+#: src/screens/Signup/index.tsx:191
 msgid "Step {0} of {1}"
 msgstr "Krok {0} z {1}"
 
@@ -12162,9 +12175,9 @@ msgid "System"
 msgstr "Systémové"
 
 #: src/screens/Log.tsx:49
-#: src/screens/Settings/AboutSettings.tsx:110
-#: src/screens/Settings/AboutSettings.tsx:113
-#: src/screens/Settings/Settings.tsx:479
+#: src/screens/Settings/AboutSettings.tsx:117
+#: src/screens/Settings/AboutSettings.tsx:120
+#: src/screens/Settings/Settings.tsx:449
 msgid "System log"
 msgstr "Systémový protokol"
 
@@ -12192,7 +12205,8 @@ msgstr "Klepněte pro informace"
 msgid "Tap for more information"
 msgstr "Klepněte pro více informací"
 
-#: src/screens/Signup/StepInfo/index.tsx:323
+#: src/ageAssurance/components/NoAccessScreen.tsx:213
+#: src/screens/Signup/StepInfo/index.tsx:326
 msgid "Tap here to update your location with GPS."
 msgstr "Klepnutím sem aktualizujete svou polohu pomocí GPS."
 
@@ -12294,9 +12308,9 @@ msgstr "Podmínky"
 #: src/components/dialogs/BirthDateSettings.tsx:181
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:31
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:98
-#: src/Navigation.tsx:354
-#: src/screens/Settings/AboutSettings.tsx:87
-#: src/screens/Settings/AboutSettings.tsx:90
+#: src/Navigation.tsx:341
+#: src/screens/Settings/AboutSettings.tsx:94
+#: src/screens/Settings/AboutSettings.tsx:97
 #: src/view/screens/TermsOfService.tsx:25
 #: src/view/shell/Drawer.tsx:756
 #: src/view/shell/Drawer.tsx:758
@@ -12325,8 +12339,8 @@ msgstr "Děkujeme za vaši zpětnou vazbu! Byla odeslána provozovateli kanálu.
 msgid "Thanks, you have successfully verified your email address. You can close this dialog."
 msgstr "Děkujeme, vaše e-mailová adresa byla úspěšně ověřena. Toto dialogové okno můžete zavřít."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:423
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:247
+#: src/ageAssurance/components/NoAccessScreen.tsx:233
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:224
 msgid "Thanks! You're all set."
 msgstr "Děkujeme! Vše je nastaveno."
 
@@ -12343,7 +12357,7 @@ msgstr "Který obsahuje následující:"
 msgid "That starter pack could not be found."
 msgstr "Tento startovací balíček nebyl nalezen."
 
-#: src/screens/Signup/StepHandle/index.tsx:81
+#: src/screens/Signup/StepHandle/index.tsx:90
 msgid "That username is already taken"
 msgstr "Toto uživatelské jméno je již obsazeno"
 
@@ -12356,8 +12370,8 @@ msgid "That's everything!"
 msgstr "To je všechno!"
 
 #: src/components/moderation/BlockDialog.tsx:153
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:221
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:464
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:184
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:422
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Po odblokování s vámi účet bude moci interagovat."
 
@@ -12411,7 +12425,7 @@ msgstr "Na váš účet byly aplikovány následující štítky."
 msgid "The following labels were applied to your content."
 msgstr "Na váš obsah byly aplikovány následující štítky."
 
-#: src/features/liveNow/components/GoLiveDialog.tsx:162
+#: src/features/liveNow/components/GoLiveDialog.tsx:168
 msgid "The following services are enabled for your account: {allowedServices}"
 msgstr "Pro váš účet jsou povoleny následující služby: {allowedServices}"
 
@@ -12436,8 +12450,8 @@ msgstr "Příspěvek, na který odpovídáte, byl jeho autorem označen jako nap
 msgid "The Privacy Policy has been moved to <0/>"
 msgstr "Zásady ochrany osobních údajů byly přesunuty na <0/>"
 
-#: src/view/com/composer/state/video.ts:428
-#: src/view/com/composer/state/video.ts:467
+#: src/view/com/composer/state/video.ts:429
+#: src/view/com/composer/state/video.ts:468
 msgid "The selected video is larger than {VIDEO_MAX_SIZE_MB} MB. Please try again with a smaller file."
 msgstr "Vybrané video je větší než {VIDEO_MAX_SIZE_MB} MB. Zkuste to prosím znovu s menším souborem."
 
@@ -12558,10 +12572,10 @@ msgstr "Při aktualizaci vašich kanálů došlo k potížím, zkontrolujte pros
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:127
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:117
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:130
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:102
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:295
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:322
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:338
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:92
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:257
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:284
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:300
 #: src/view/com/profile/ProfileMenu.tsx:144
 #: src/view/com/profile/ProfileMenu.tsx:157
 #: src/view/com/profile/ProfileMenu.tsx:174
@@ -12745,8 +12759,8 @@ msgstr "Tento koncept bude trvale smazán."
 msgid "This email is already associated with your account."
 msgstr "Tento e-mail je již přiřazen k vašemu účtu."
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:277
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:280
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:283
 msgid "This exact phrase"
 msgstr "Tato přesná fráze"
 
@@ -12808,16 +12822,12 @@ msgstr "Tento zvací odkaz byl deaktivován."
 msgid "This invite link is invalid"
 msgstr "Tento zvací odkaz je neplatný"
 
-#: src/screens/PlaceholderTimelines.tsx:51
-msgid "This is a placeholder for testing only."
-msgstr ""
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:139
+msgid "This is just a one-time security check, since we haven't seen this account on this device before."
+msgstr "Toto je jen jednorázová bezpečnostní kontrola, protože jsme tento účet na tomto zařízení dosud neviděli."
 
-#: src/view/screens/Debug.tsx:327
-msgid "This is an empty state"
-msgstr "Toto je prázdný stav"
-
-#: src/features/liveNow/components/EditLiveDialog.tsx:178
-#: src/features/liveNow/components/GoLiveDialog.tsx:155
+#: src/features/liveNow/components/EditLiveDialog.tsx:171
+#: src/features/liveNow/components/GoLiveDialog.tsx:161
 msgid "This is not a valid link"
 msgstr "Toto není platný odkaz"
 
@@ -12894,7 +12904,7 @@ msgstr "Tento příspěvek má neznámý typ threadgate. Vaše aplikace může b
 msgid "This post is only visible to logged-in users."
 msgstr "Tento příspěvek je viditelný pouze pro přihlášené uživatele."
 
-#: src/screens/Bookmarks/index.tsx:255
+#: src/screens/Bookmarks.tsx:248
 msgid "This post was deleted by its author"
 msgstr "Tento příspěvek byl odstraněn jeho autorem"
 
@@ -12902,7 +12912,7 @@ msgstr "Tento příspěvek byl odstraněn jeho autorem"
 msgid "This post will be hidden from feeds and threads. This cannot be undone."
 msgstr "Tento příspěvek bude skryt z kanálů a vláken. Tuto akci nelze vrátit zpět."
 
-#: src/view/com/composer/Composer.tsx:1126
+#: src/view/com/composer/Composer.tsx:1121
 msgid "This post's author has disabled quote posts."
 msgstr "Autor tohoto příspěvku zakázal citování příspěvků."
 
@@ -12982,6 +12992,10 @@ msgstr "Tento uživatel nikoho nesleduje."
 msgid "This video can’t be played on your device. Your browser or system may be missing the required video codecs (H.264/AAC)."
 msgstr "Toto video nelze přehrát na vašem zařízení. Ve vašem prohlížeči nebo systému mohou chybět požadované video kodeky (H.264/AAC)."
 
+#: src/view/com/composer/videos/VideoPreview.web.tsx:65
+msgid "This video can’t be previewed in your browser. It will still be uploaded."
+msgstr "Toto video nelze ve vašem prohlížeči zobrazit v náhledu. I přesto bude nahráno."
+
 #: src/components/dialogs/lists/CreateListFromStarterPackDialog.tsx:157
 msgid "This will create a new list with the same name, description, and members as this starter pack."
 msgstr "Tímto se vytvoří nový seznam se stejným názvem, popisem a členy jako tento startovací balíček."
@@ -13054,7 +13068,7 @@ msgstr "Chcete-li deaktivovat metodu e-mailového 2FA, ověřte prosím svůj p�
 msgid "To disable your email 2FA method, please verify your access to <0>{0}</0>"
 msgstr "Chcete-li deaktivovat 2FA ověření e-mailem, ověřte prosím svůj přístup k <0>{0}</0>"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:251
+#: src/ageAssurance/components/NoAccessScreen.tsx:315
 msgid "To log out, <0>click here</0>. Or if you’d prefer, you can <1>delete your account</1>."
 msgstr "Pro odhlášení <0>klikněte zde</0>. Nebo pokud chcete, můžete <1>smazat svůj účet</1>."
 
@@ -13217,11 +13231,11 @@ msgstr "Nelze se připojit. Zkontrolujte prosím připojení k internetu a zkust
 msgid "Unable to contact your service. Please check your internet connection and try again."
 msgstr "Nepodařilo se kontaktovat vaši službu. Zkontrolujte prosím připojení k internetu a zkuste to znovu."
 
-#: src/screens/Login/ForgotPasswordForm.tsx:70
-#: src/screens/Login/index.tsx:96
-#: src/screens/Login/LoginForm.tsx:167
-#: src/screens/Login/SetNewPasswordForm.tsx:83
-#: src/screens/Signup/index.tsx:88
+#: src/screens/Login/ForgotPasswordForm.tsx:66
+#: src/screens/Login/index.tsx:100
+#: src/screens/Login/LoginForm.tsx:169
+#: src/screens/Login/SetNewPasswordForm.tsx:77
+#: src/screens/Signup/index.tsx:89
 msgid "Unable to contact your service. Please check your Internet connection."
 msgstr "Nepodařilo se kontaktovat vaši službu. Zkontrolujte prosím připojení k internetu."
 
@@ -13268,15 +13282,15 @@ msgstr "Informace o kanálu nejsou k dispozici"
 #: src/components/moderation/BlockDialog.tsx:190
 #: src/components/moderation/BlockDialog.tsx:211
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:227
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:227
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:403
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:469
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:190
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:365
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:427
 #: src/screens/ProfileList/components/Header.tsx:166
 #: src/screens/ProfileList/components/Header.tsx:173
 msgid "Unblock"
 msgstr "Odblokovat"
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:407
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:369
 msgctxt "action"
 msgid "Unblock"
 msgstr "Odblokovat"
@@ -13296,8 +13310,8 @@ msgstr "Odblokovat účet"
 msgid "Unblock account?"
 msgstr "Odblokovat účet?"
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:219
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:462
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:182
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:420
 msgid "Unblock Account?"
 msgstr "Odblokovat účet?"
 
@@ -13308,8 +13322,6 @@ msgstr "Odblokovat seznam"
 
 #: src/features/liveEvents/components/DiscoverFeedLiveEventFeedsAndTrendingBanner.tsx:58
 #: src/features/liveEvents/components/DiscoverFeedLiveEventFeedsAndTrendingBanner.tsx:64
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:73
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:79
 #: src/features/liveEvents/components/SidebarLiveEventFeedsBanner.tsx:40
 #: src/features/liveEvents/components/SidebarLiveEventFeedsBanner.tsx:46
 #: src/screens/Profile/components/GermButton.tsx:186
@@ -13334,7 +13346,7 @@ msgid "Undo repost ({0, plural, one {# repost} other {# reposts}})"
 msgstr "Zrušit repost ({0, plural, one {# repost} few {# reposty} many {# repostů} other {# repostů}})"
 
 #. placeholder {0}: profile.handle
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:434
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:396
 msgid "Unfollow {0}"
 msgstr "Přestat sledovat {0}"
 
@@ -13351,11 +13363,11 @@ msgstr "Přestane sledovat uživatele"
 msgid "Unfortunately, none of your subscribed labelers supports this report type."
 msgstr "Bohužel žádný z vašich odebíraných labelerů nepodporuje tento typ nahlášení."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:200
+#: src/ageAssurance/components/NoAccessScreen.tsx:263
 msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access Bluesky."
 msgstr "Datum narození uložené ve vašem profilu bohužel ukazuje, že jste příliš mladí na přístup k Bluesky."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:185
+#: src/ageAssurance/components/NoAccessScreen.tsx:247
 msgid "Unfortunately, your declared age indicates that you are not old enough to access Bluesky in your region."
 msgstr "Vámi uvedený věk bohužel naznačuje, že nejste dostatečně staří na přístup k Bluesky ve vašem regionu."
 
@@ -13501,12 +13513,12 @@ msgstr "Odhlášeno ze seznamu"
 msgid "Unsupported clipboard content"
 msgstr "Nepodporovaný obsah schránky"
 
-#: src/view/com/composer/Composer.tsx:1643
+#: src/view/com/composer/Composer.tsx:1638
 msgid "Unsupported video type: {mimeType}"
 msgstr "Nepodporovaný typ videa: {mimeType}"
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:337
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:340
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:323
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:326
 msgid "Until"
 msgstr "Do"
 
@@ -13562,8 +13574,8 @@ msgstr ""
 msgid "Update your email"
 msgstr "Aktualizovat e-mail"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:397
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:278
+#: src/ageAssurance/components/NoAccessScreen.tsx:208
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:252
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:41
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:106
 msgid "Update your location"
@@ -13606,7 +13618,7 @@ msgstr "Nahrát ze souboru"
 msgid "Upload from Library"
 msgstr "Nahrát z knihovny"
 
-#: src/view/com/composer/Composer.tsx:2679
+#: src/view/com/composer/Composer.tsx:2678
 msgid "Uploading GIF..."
 msgstr "Nahrávání GIF..."
 
@@ -13620,7 +13632,7 @@ msgstr "Nahrávání obrázků..."
 msgid "Uploading link thumbnail..."
 msgstr "Nahrávání náhledu odkazu..."
 
-#: src/view/com/composer/Composer.tsx:2681
+#: src/view/com/composer/Composer.tsx:2680
 msgid "Uploading video..."
 msgstr "Nahrávání videa..."
 
@@ -13752,19 +13764,23 @@ msgctxt "toast"
 msgid "User list updated"
 msgstr "Seznam uživatelů aktualizován"
 
-#: src/screens/Signup/StepHandle/index.tsx:231
+#: src/screens/Signup/StepHandle/index.tsx:257
 msgid "Username cannot be longer than {MAX_SERVICE_HANDLE_LENGTH, plural, other {# characters}}"
 msgstr "Uživatelské jméno nesmí být delší než {MAX_SERVICE_HANDLE_LENGTH, plural, one {# znak} few {# znaky} many {# znaků} other {# znaků}}"
 
-#: src/screens/Signup/StepHandle/index.tsx:215
+#: src/screens/Signup/StepHandle/index.tsx:241
 msgid "Username cannot begin or end with a hyphen"
 msgstr "Uživatelské jméno nesmí začínat ani končit pomlčkou"
 
-#: src/screens/Signup/StepHandle/index.tsx:219
+#: src/screens/Signup/StepHandle/index.tsx:245
 msgid "Username must only contain letters (a-z), numbers, and hyphens"
 msgstr "Uživatelské jméno smí obsahovat pouze písmena (a-z), číslice a pomlčky"
 
-#: src/screens/Login/LoginForm.tsx:200
+#: src/screens/Login/LoginForm.tsx:305
+msgid "Username or email"
+msgstr "Uživatelské jméno nebo e-mail"
+
+#: src/screens/Login/LoginForm.tsx:315
 msgid "Username or email address"
 msgstr "Uživatelské jméno nebo e-mailová adresa"
 
@@ -13810,8 +13826,7 @@ msgstr "Ověřeno uživatelem:"
 msgid "Verify account"
 msgstr "Ověřit účet"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:360
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:184
+#: src/ageAssurance/useVerificationFlow.ts:64
 msgid "Verify again"
 msgstr "Ověřit znovu"
 
@@ -13837,15 +13852,17 @@ msgstr "Ověřit e-mailový kód"
 msgid "Verify email dialog"
 msgstr "Dialogové okno pro ověření e-mailu"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:348
-#: src/ageAssurance/components/NoAccessScreen.tsx:362
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:172
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:186
+#: src/ageAssurance/useVerificationFlow.ts:65
 msgid "Verify now"
 msgstr "Ověřit nyní"
 
-#: src/components/contacts/screens/PhoneInput.tsx:187
-#: src/components/contacts/screens/VerifyNumber.tsx:227
+#: src/ageAssurance/components/DeviceSignalsNotice.tsx:34
+#: src/ageAssurance/components/DeviceSignalsNotice.tsx:52
+msgid "Verify now using KWS"
+msgstr "Ověřit nyní pomocí KWS"
+
+#: src/components/contacts/screens/PhoneInput.tsx:175
+#: src/components/contacts/screens/VerifyNumber.tsx:217
 msgid "Verify phone number"
 msgstr "Ověřit telefonní číslo"
 
@@ -13883,8 +13900,8 @@ msgid "Verifying..."
 msgstr "Ověřování..."
 
 #. placeholder {0}: env.APP_VERSION
-#: src/screens/Settings/AboutSettings.tsx:137
-#: src/screens/Settings/AboutSettings.tsx:166
+#: src/screens/Settings/AboutSettings.tsx:144
+#: src/screens/Settings/AboutSettings.tsx:173
 msgid "Version {0}"
 msgstr "Verze {0}"
 
@@ -13893,7 +13910,7 @@ msgstr "Verze {0}"
 msgid "Video"
 msgstr "Video"
 
-#: src/view/com/composer/state/video.ts:389
+#: src/view/com/composer/state/video.ts:390
 msgid "Video failed to process"
 msgstr "Zpracování videa se nezdařilo"
 
@@ -13936,7 +13953,7 @@ msgstr ""
 msgid "Video settings"
 msgstr "Nastavení videa"
 
-#: src/view/com/composer/Composer.tsx:2699
+#: src/view/com/composer/Composer.tsx:2698
 msgid "Video uploaded"
 msgstr "Video nahráno"
 
@@ -13949,17 +13966,13 @@ msgstr "Video: {0}"
 msgid "Videos"
 msgstr "Videa"
 
-#: src/lib/media/save-video.ts:122
-msgid "Videos cannot be saved unless permission is granted to access your media library."
-msgstr ""
-
-#: src/view/com/composer/Composer.tsx:442
-#: src/view/com/composer/Composer.tsx:574
+#: src/view/com/composer/Composer.tsx:445
+#: src/view/com/composer/Composer.tsx:577
 #: src/view/com/composer/SelectMediaButton.tsx:440
 msgid "Videos must be less than 3 minutes long."
 msgstr "Videa musí být kratší než 3 minuty."
 
-#: src/view/com/composer/Composer.tsx:1233
+#: src/view/com/composer/Composer.tsx:1228
 msgctxt "Action to view the post the user just created"
 msgid "View"
 msgstr "Zobrazit"
@@ -13979,9 +13992,9 @@ msgstr "Zobrazit profilový obrázek uživatele {0}"
 #. placeholder {0}: info.creatorHandle
 #. placeholder {0}: profile.handle
 #: src/screens/Profile/components/ProfileFeedHeader.tsx:454
-#: src/screens/Search/components/SearchProfileCard.tsx:36
+#: src/screens/Search/components/SearchProfileCard.tsx:37
 #: src/screens/VideoFeed/index.tsx:809
-#: src/view/com/notifications/NotificationFeedItem.tsx:619
+#: src/view/com/notifications/NotificationFeedItem.tsx:613
 msgid "View {0}'s profile"
 msgstr "Zobrazit profil uživatele {0}"
 
@@ -14048,7 +14061,7 @@ msgstr "Zobrazit více"
 msgid "View more trending videos"
 msgstr "Zobrazit další populární videa"
 
-#: src/view/com/composer/Composer.tsx:1228
+#: src/view/com/composer/Composer.tsx:1223
 msgid "View post"
 msgstr "Zobrazit příspěvek"
 
@@ -14183,6 +14196,10 @@ msgstr "Nepodařilo se nám připojit ke službě, která poskytuje tento vlastn
 msgid "We could not find this list. It was probably deleted."
 msgstr "Tento seznam se nám nepodařilo najít. Pravděpodobně byl smazán."
 
+#: src/screens/Login/LoginForm.tsx:348
+msgid "We couldn't find an account with that username. Please check that you've typed it correctly, or <0>set your hosting provider manually</0>."
+msgstr "Nepodařilo se nám najít účet s tímto uživatelským jménem. Zkontrolujte prosím, zda jste jej zadali správně, nebo <0>nastavte poskytovatele hostingu ručně</0>."
+
 #: src/screens/Hashtag.tsx:259
 msgid "We couldn't find any results for that tag."
 msgstr "Pro tento štítek se nám nepodařilo najít žádné výsledky."
@@ -14203,7 +14220,11 @@ msgstr "Žádosti o připojení k této konverzaci se nám nepodařilo načíst"
 msgid "We couldn’t load this conversation’s settings"
 msgstr "Nastavení této konverzace se nám nepodařilo načíst"
 
-#: src/components/contacts/screens/GetContacts.tsx:246
+#: src/screens/Login/LoginForm.tsx:482
+msgid "We couldn’t verify your hosting provider. Check your internet connection, or <0>set your hosting provider manually</0>."
+msgstr "Nepodařilo se nám ověřit vašeho poskytovatele hostingu. Zkontrolujte připojení k internetu nebo <0>nastavte poskytovatele hostingu ručně</0>."
+
+#: src/components/contacts/screens/GetContacts.tsx:244
 msgid "We delete hashes after matches are made"
 msgstr "Hashe odstraňujeme po nalezení shody"
 
@@ -14249,7 +14270,7 @@ msgstr "Doporučujeme vybrat alespoň dva zájmy."
 msgid "We sent an email to <0>{0}</0> containing a link. Please click on it to complete the email verification process."
 msgstr "Na adresu <0>{0}</0> jsme odeslali e-mail s odkazem. Pro dokončení ověření e-mailu na něj klikněte."
 
-#: src/view/com/composer/state/video.ts:450
+#: src/view/com/composer/state/video.ts:451
 msgid "We were unable to determine if you are allowed to upload videos. Please try again."
 msgstr "Nepodařilo se nám zjistit, zda máte oprávnění nahrávat videa. Zkuste to prosím znovu."
 
@@ -14318,12 +14339,16 @@ msgstr "Máme problémy se sítí, zkuste to znovu"
 msgid "We’re introducing a new layer of verification on Bluesky — an easy-to-see checkmark."
 msgstr "Představujeme novou vrstvu ověření na Bluesky – snadno viditelnou značku zaškrtnutí."
 
-#: src/screens/Signup/index.tsx:137
+#: src/screens/Signup/index.tsx:142
 msgid "We’re so excited to have you join us!"
 msgstr "Jsme moc rádi, že se k nám přidáváte!"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:416
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:241
+#: src/ageAssurance/useVerificationFlow.ts:117
+msgid "We're sorry, but based on the data shared by your device, you are not old enough to access Bluesky."
+msgstr "Je nám líto, ale na základě údajů sdílených vaším zařízením nejste dostatečně staří na to, abyste mohli používat Bluesky."
+
+#: src/ageAssurance/components/NoAccessScreen.tsx:227
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:218
 msgid "We're sorry, but based on your device's location, you are currently located in a region that requires age assurance."
 msgstr "Je nám líto, ale na základě polohy vašeho zařízení se aktuálně nacházíte v regionu, který vyžaduje ověření věku."
 
@@ -14344,7 +14369,7 @@ msgstr "Omlouváme se, ale vaše vyhledávání nemohlo být dokončeno. Zkuste 
 msgid "We're sorry, you cannot access this screen at this time."
 msgstr "Omlouváme se, k této obrazovce nyní nemáte přístup."
 
-#: src/view/com/composer/Composer.tsx:1124
+#: src/view/com/composer/Composer.tsx:1119
 msgid "We're sorry! The post you are replying to has been deleted."
 msgstr "Omlouváme se! Příspěvek, na který odpovídáte, byl smazán."
 
@@ -14395,14 +14420,14 @@ msgid "What do you want to call your starter pack?"
 msgstr "Jak chcete pojmenovat svůj startovací balíček?"
 
 #. Advanced search: Example of an “exact phrase” search
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:282
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:285
 msgid "what’s up"
 msgstr "co se děje"
 
 #: src/lib/hooks/useUpdateWidgets.ts:65
 #: src/view/com/auth/SplashScreen.web.tsx:98
-#: src/view/com/composer/Composer.tsx:1607
-#: src/view/com/feeds/ComposerPrompt.tsx:193
+#: src/view/com/composer/Composer.tsx:1602
+#: src/view/com/feeds/ComposerPrompt.tsx:192
 msgid "What's up?"
 msgstr "Co se děje?"
 
@@ -14491,7 +14516,7 @@ msgstr "Chcete tohoto uživatele zablokovat a/nebo opustit tuto konverzaci?"
 msgid "Would you like to save this as a draft before viewing your drafts?"
 msgstr "Chcete tento příspěvek uložit jako koncept před zobrazením vašich konceptů?"
 
-#: src/view/com/composer/Composer.tsx:1522
+#: src/view/com/composer/Composer.tsx:1517
 msgid "Would you like to save this as a draft to edit later?"
 msgstr "Chcete tento příspěvek uložit jako koncept a upravit ho později?"
 
@@ -14500,12 +14525,12 @@ msgstr "Chcete tento příspěvek uložit jako koncept a upravit ho později?"
 msgid "Write a post"
 msgstr "Napsat příspěvek"
 
-#: src/view/com/composer/Composer.tsx:1703
+#: src/view/com/composer/Composer.tsx:1698
 msgid "Write post"
 msgstr "Napsat příspěvek"
 
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:91
-#: src/view/com/composer/Composer.tsx:1605
+#: src/view/com/composer/Composer.tsx:1600
 msgid "Write your reply"
 msgstr "Napište svou odpověď"
 
@@ -14523,8 +14548,8 @@ msgstr "Server vrátil nesprávné DID. Přijato: {0}"
 msgid "Wrong kind of conversation"
 msgstr "Nesprávný typ konverzace"
 
-#: src/features/liveNow/components/EditLiveDialog.tsx:154
-#: src/features/liveNow/components/GoLiveDialog.tsx:136
+#: src/features/liveNow/components/EditLiveDialog.tsx:147
+#: src/features/liveNow/components/GoLiveDialog.tsx:142
 msgid "www.mylivestream.tv"
 msgstr "www.mylivestream.tv"
 
@@ -14566,7 +14591,7 @@ msgstr "Včera"
 msgid "You are a trusted verifier"
 msgstr "Jste důvěryhodný ověřovatel"
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:176
+#: src/ageAssurance/components/NoAccessScreen.tsx:174
 msgid "You are accessing Bluesky from a region that legally requires us to verify your age before allowing you to access the app."
 msgstr "Přistupujete k Bluesky z regionu, který nám zákonně ukládá ověřit váš věk, než vám umožníme aplikaci používat."
 
@@ -14591,8 +14616,8 @@ msgstr "Vytváříte účet na"
 msgid "You are currently blocked from using the Go Live feature. To appeal this moderation decision, please submit the form below."
 msgstr "V současné době máte zablokované používání funkce Vysílat živě. Pokud chcete proti tomuto moderátorskému rozhodnutí podat odvolání, vyplňte prosím níže uvedený formulář."
 
-#: src/ageAssurance/components/NoAccessScreen.tsx:330
-#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:142
+#: src/ageAssurance/components/NoAccessScreen.tsx:400
+#: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:124
 msgid "You are currently unable to access Bluesky's Age Assurance flow. Please <0>contact our moderation team</0> if you believe this is an error."
 msgstr "V současné době nemáte přístup k procesu ověření věku na Bluesky. Pokud se domníváte, že jde o chybu, <0>kontaktujte náš moderátorský tým</0>."
 
@@ -14600,8 +14625,8 @@ msgstr "V současné době nemáte přístup k procesu ověření věku na Blues
 msgid "You are in line."
 msgstr "Jste ve frontě."
 
-#: src/features/liveNow/components/EditLiveDialog.tsx:120
-#: src/features/liveNow/components/EditLiveDialog.tsx:125
+#: src/features/liveNow/components/EditLiveDialog.tsx:113
+#: src/features/liveNow/components/EditLiveDialog.tsx:118
 msgid "You are Live"
 msgstr "Vysíláte živě"
 
@@ -14609,7 +14634,7 @@ msgstr "Vysíláte živě"
 msgid "You are no longer live"
 msgstr "Již nevysíláte živě"
 
-#: src/view/com/composer/state/video.ts:443
+#: src/view/com/composer/state/video.ts:444
 msgid "You are not allowed to upload videos."
 msgstr "Nemáte oprávnění nahrávat videa."
 
@@ -14671,17 +14696,17 @@ msgstr "Nyní si můžete vybrat, kdy chcete být upozorněni na příspěvky ko
 msgid "You can now invite friends with a link or QR code. Share the link anywhere, or let them scan the code to join you on Bluesky."
 msgstr "Nyní můžete zvát přátele pomocí odkazu nebo QR kódu. Sdílejte odkaz kdekoli, nebo je nechte naskenovat kód a připojit se k vám na Bluesky."
 
-#: src/screens/Login/index.tsx:203
-#: src/screens/Login/PasswordUpdatedForm.tsx:27
+#: src/screens/Login/index.tsx:207
+#: src/screens/Login/PasswordUpdatedForm.tsx:25
 msgid "You can now sign in with your new password."
 msgstr "Nyní se můžete přihlásit pomocí svého nového hesla."
 
 #. Toast shown when the user tries to add more images but the post gallery is already at the cap
-#: src/view/com/composer/Composer.tsx:223
+#: src/view/com/composer/Composer.tsx:221
 msgid "You can only add up to {MAX_GALLERY_IMAGES, plural, other {# images}} per post"
 msgstr "K jednomu příspěvku můžete přidat maximálně {MAX_GALLERY_IMAGES, plural, one {# obrázek} few {# obrázky} many {# obrázků} other {# obrázků}}"
 
-#: src/view/com/composer/Composer.tsx:1527
+#: src/view/com/composer/Composer.tsx:1522
 msgid "You can only save drafts up to 1000 characters."
 msgstr "Koncepty můžete ukládat pouze do délky 1000 znaků."
 
@@ -14774,8 +14799,8 @@ msgstr "Dokončili jste proces ověření věku, ale na základě výsledků si 
 msgid "You have completely disabled reply, quote, and mention notifications, so this tab will no longer update. To adjust this, visit your <0>notification settings</0>."
 msgstr "Úplně jste vypnuli oznámení o odpovědích, citacích a zmínkách, takže tato karta se již nebude aktualizovat. Pro úpravu navštivte <0>nastavení oznámení</0>."
 
-#: src/screens/Login/SetNewPasswordForm.tsx:51
-#: src/screens/Login/SetNewPasswordForm.tsx:97
+#: src/screens/Login/SetNewPasswordForm.tsx:48
+#: src/screens/Login/SetNewPasswordForm.tsx:89
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:113
 msgid "You have entered an invalid code. It should look like XXXXX-XXXXX."
 msgstr "Zadali jste neplatný kód. Měl by mít tvar XXXXX-XXXXX."
@@ -14830,7 +14855,7 @@ msgstr "Vaše e-mailová adresa byla úspěšně ověřena. Toto dialogové okno
 msgid "You have temporarily reached the limit for video uploads. Please try again later."
 msgstr "Dočasně jste dosáhli limitu pro nahrávání videí. Zkuste to prosím později."
 
-#: src/view/com/composer/Composer.tsx:1517
+#: src/view/com/composer/Composer.tsx:1512
 msgid "You have unsaved changes to this draft, would you like to save them?"
 msgstr "V tomto konceptu máte neuložené změny, chcete je uložit?"
 
@@ -14941,15 +14966,15 @@ msgstr "Reagovali jste {0} na {target}"
 msgid "You recently changed your birthdate"
 msgstr "Nedávno jste změnili své datum narození"
 
-#: src/components/dms/MessageItem.tsx:805
+#: src/components/dms/MessageItem.tsx:786
 msgid "You replied"
 msgstr "Odpověděli jste"
 
-#: src/components/dms/MessageItem.tsx:803
+#: src/components/dms/MessageItem.tsx:785
 msgid "You replied to {originalName}"
 msgstr "Odpověděli jste uživateli {originalName}"
 
-#: src/components/dms/MessageItem.tsx:801
+#: src/components/dms/MessageItem.tsx:783
 msgid "You replied to yourself"
 msgstr "Odpověděli jste sami sobě"
 
@@ -14976,7 +15001,7 @@ msgstr "Pro toto vlákno již nebudete dostávat oznámení"
 msgid "You will now receive notifications for this thread"
 msgstr "Od této chvíle budete dostávat upozornění na toto vlákno"
 
-#: src/screens/Login/SetNewPasswordForm.tsx:110
+#: src/screens/Login/SetNewPasswordForm.tsx:101
 msgid "You will receive an email with a \"reset code.\" Enter that code here, then enter your new password."
 msgstr "Obdržíte e-mail s „resetovacím kódem“. Zadejte tento kód zde a poté zadejte své nové heslo."
 
@@ -14989,11 +15014,11 @@ msgstr "Nebudete se moci znovu připojit, pokud nebudete pozváni."
 msgid "You: {message}"
 msgstr "Vy: {message}"
 
-#: src/screens/Signup/index.tsx:153
+#: src/screens/Signup/index.tsx:160
 msgid "You'll follow the suggested users and feeds once you finish creating your account!"
 msgstr "Jakmile dokončíte vytváření účtu, začnete sledovat doporučené uživatele a kanály!"
 
-#: src/screens/Signup/index.tsx:158
+#: src/screens/Signup/index.tsx:165
 msgid "You'll follow the suggested users once you finish creating your account!"
 msgstr "Jakmile dokončíte vytváření účtu, začnete sledovat doporučené uživatele!"
 
@@ -15018,6 +15043,14 @@ msgstr "Začnete dostávat oznámení pro {0}!"
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:281
 msgid "You'll stay updated with these feeds"
 msgstr "Díky těmto kanálům budete v obraze"
+
+#: src/ageAssurance/useVerificationFlow.ts:133
+msgid "You're all set!"
+msgstr "Vše je nastaveno!"
+
+#: src/ageAssurance/useVerificationFlow.ts:127
+msgid "You're all set! However, certain features may still be restricted until you're able to verify you're an adult."
+msgstr "Vše je připraveno! Některé funkce však mohou být i nadále omezeny, dokud nebudete moci ověřit, že jste dospělí."
 
 #: src/components/dialogs/nuxs/GroupChatsAnnouncement.tsx:205
 msgid "You’re in control"
@@ -15057,7 +15090,7 @@ msgstr "Dosáhli jste konce aktivního obsahu."
 msgid "You've reached the end of your feed! Find some more accounts to follow."
 msgstr "Dostali jste se na konec svého kanálu! Najděte si další účty, které můžete sledovat."
 
-#: src/view/com/composer/Composer.tsx:720
+#: src/view/com/composer/Composer.tsx:723
 msgid "You've reached the maximum number of drafts"
 msgstr "Dosáhli jste maximálního počtu konceptů"
 
@@ -15065,7 +15098,7 @@ msgstr "Dosáhli jste maximálního počtu konceptů"
 msgid "You've reached the maximum number of requests allowed. Please try again later."
 msgstr "Dosáhli jste maximálního počtu povolených požadavků. Zkuste to prosím znovu později."
 
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:440
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:426
 msgid "You’ve reached the maximum of {MAX_FILTERS, plural, one {# filter} other {# filters}}. Add more values to an existing filter instead of creating new ones."
 msgstr "Dosáhli jste maximálního počtu {MAX_FILTERS, plural, one {# filtru} few {# filtrů} many {# filtrů} other {# filtrů}}. Místo vytváření nových přidejte další hodnoty do stávajícího filtru."
 
@@ -15073,11 +15106,11 @@ msgstr "Dosáhli jste maximálního počtu {MAX_FILTERS, plural, one {# filtru} 
 msgid "You've reached the start of the active content."
 msgstr "Dosáhli jste začátku aktivního obsahu."
 
-#: src/view/com/composer/state/video.ts:454
+#: src/view/com/composer/state/video.ts:455
 msgid "You've reached your daily limit for video uploads (too many bytes)"
 msgstr "Dosáhli jste svého denního limitu pro nahrávání videí (příliš mnoho bajtů)"
 
-#: src/view/com/composer/state/video.ts:458
+#: src/view/com/composer/state/video.ts:459
 msgid "You've reached your daily limit for video uploads (too many videos)"
 msgstr "Dosáhli jste denního limitu pro nahrávání videí (příliš mnoho videí)"
 
@@ -15085,7 +15118,7 @@ msgstr "Dosáhli jste denního limitu pro nahrávání videí (příliš mnoho v
 msgid "You've run out of videos to watch. Maybe it's a good time to take a break?"
 msgstr "Došla vám videa ke sledování. Možná je vhodný čas si dát pauzu?"
 
-#: src/screens/Signup/index.tsx:191
+#: src/screens/Signup/index.tsx:201
 msgid "Your account"
 msgstr "Váš účet"
 
@@ -15097,7 +15130,7 @@ msgstr "Váš účet byl smazán, mějte se! ✌️"
 msgid "Your account has been suspended"
 msgstr "Váš účet byl pozastaven"
 
-#: src/view/com/composer/state/video.ts:462
+#: src/view/com/composer/state/video.ts:463
 msgid "Your account is not yet old enough to upload videos. Please try again later."
 msgstr "Váš účet ještě není dostatečně starý na nahrávání videí. Zkuste to prosím později."
 
@@ -15121,7 +15154,7 @@ msgstr "Bylo zjištěno, že váš účet porušuje <0>Podmínky služby Bluesky
 msgid "Your appeal has been submitted. If your appeal succeeds, you will receive an email."
 msgstr "Vaše odvolání bylo odesláno. Pokud bude vašemu odvolání vyhověno, obdržíte e-mail."
 
-#: src/screens/Signup/StepInfo/index.tsx:284
+#: src/screens/Signup/StepInfo/index.tsx:287
 msgid "Your birth date"
 msgstr "Vaše datum narození"
 
@@ -15133,11 +15166,11 @@ msgstr "Vaše konverzace byly zakázány"
 msgid "Your choice will be remembered for future links. You can change it at any time in settings."
 msgstr "Vaše volba bude zapamatována pro budoucí odkazy. Kdykoli ji můžete změnit v nastavení."
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:380
+#: src/view/com/notifications/NotificationFeedItem.tsx:374
 msgid "Your contact {firstAuthorLink} is on Bluesky"
 msgstr "Váš kontakt {firstAuthorLink} je na Bluesky"
 
-#: src/view/com/notifications/NotificationFeedItem.tsx:378
+#: src/view/com/notifications/NotificationFeedItem.tsx:372
 msgid "Your contact {firstAuthorName} is on Bluesky"
 msgstr "Váš kontakt {firstAuthorName} je na Bluesky"
 
@@ -15160,10 +15193,10 @@ msgstr "Vámi uvedený věk je nižší než 18 let. Některá níže uvedená n
 msgid "Your email"
 msgstr "Váš e-mail"
 
-#: src/screens/Login/ForgotPasswordForm.tsx:53
+#: src/screens/Login/ForgotPasswordForm.tsx:51
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:82
 #: src/screens/Signup/state.ts:278
-#: src/screens/Signup/StepInfo/index.tsx:130
+#: src/screens/Signup/StepInfo/index.tsx:129
 msgid "Your email appears to be invalid."
 msgstr "Váš e-mail se zdá být neplatný."
 
@@ -15188,7 +15221,15 @@ msgstr "Váš sledovaný kanál je prázdný! Sledujte více uživatelů a uvid�
 msgid "Your full handle will be <0>@{0}</0>"
 msgstr "Vaše úplná adresa bude <0>@{0}</0>"
 
-#: src/Navigation.tsx:494
+#: src/screens/Login/components/HostingProviderDialog.tsx:182
+msgid "Your hosting provider can’t be detected from an email address, so the default Bluesky service will be used. Enter your username instead, or set your provider manually."
+msgstr "Vašeho poskytovatele hostingu nelze zjistit z e-mailové adresy, proto bude použita výchozí služba Bluesky. Zadejte místo toho své uživatelské jméno nebo nastavte poskytovatele ručně."
+
+#: src/screens/Login/components/HostingProviderDialog.tsx:188
+msgid "Your hosting provider is detected automatically from the username you enter."
+msgstr "Poskytovatel hostingu je automaticky rozpoznán z uživatelského jména, které zadáte."
+
+#: src/Navigation.tsx:457
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:68
 #: src/screens/Settings/ContentAndMediaSettings.tsx:103
 #: src/screens/Settings/ContentAndMediaSettings.tsx:106
@@ -15205,11 +15246,7 @@ msgstr "Vaše zájmy byly aktualizovány!"
 msgid "Your interests help us find what you like!"
 msgstr "Vaše zájmy nám pomáhají najít to, co se vám líbí!"
 
-#: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:69
-msgid "Your live event preferences have been updated."
-msgstr "Vaše předvolby živých událostí byly aktualizovány."
-
-#: src/screens/Signup/StepInfo/index.tsx:353
+#: src/screens/Signup/StepInfo/index.tsx:356
 msgid "Your location has been updated."
 msgstr "Vaše poloha byla aktualizována."
 
@@ -15225,19 +15262,15 @@ msgstr "Vaše jméno, avatar, název skupinového chatu a počet členů budou v
 msgid "Your password has been changed successfully! Please use your new password when you sign in to Bluesky from now on."
 msgstr "Vaše heslo bylo úspěšně změněno! Od této chvíle při přihlašování do Bluesky používejte své nové heslo."
 
-#: src/screens/Signup/StepInfo/index.tsx:157
+#: src/screens/Signup/StepInfo/index.tsx:156
 msgid "Your password must be at least 8 characters long."
 msgstr "Vaše heslo musí mít alespoň 8 znaků."
 
-#: src/view/com/composer/Composer.tsx:1224
+#: src/view/com/composer/Composer.tsx:1219
 msgid "Your post was sent"
 msgstr "Váš příspěvek byl odeslán"
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:982
-msgid "Your post will be deleted and its text reopened in the composer. Images and videos won't be re-attached."
-msgstr ""
-
-#: src/view/com/composer/Composer.tsx:1221
+#: src/view/com/composer/Composer.tsx:1216
 msgid "Your posts were sent"
 msgstr "Vaše příspěvky byly odeslány"
 
@@ -15258,7 +15291,7 @@ msgstr "Vaše profilová fotka obklopená soustřednými kruhy profilových fote
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 msgstr "Váš profil, příspěvky, kanály a seznamy už nebudou viditelné pro ostatní uživatele Bluesky. Účet můžete kdykoli znovu aktivovat přihlášením."
 
-#: src/view/com/composer/Composer.tsx:1223
+#: src/view/com/composer/Composer.tsx:1218
 msgid "Your reply was sent"
 msgstr "Vaše odpověď byla odeslána"
 
@@ -15271,9 +15304,13 @@ msgstr "Vaše hlášení bude odesláno na <0>{0}</0>."
 msgid "Your selected interests help us serve you content you care about."
 msgstr "Vámi vybrané zájmy nám pomáhají poskytovat vám obsah, který vás zajímá."
 
-#: src/view/com/composer/Composer.tsx:1552
+#: src/view/com/composer/Composer.tsx:1547
 msgid "Your thread has empty posts that will be skipped. The remaining posts will be published as a thread."
 msgstr "Vaše vlákno obsahuje prázdné příspěvky, které budou přeskočeny. Zbývající příspěvky budou zveřejněny jako vlákno."
+
+#: src/screens/Login/components/ConfirmHostingProviderDialog.tsx:80
+msgid "Your username and password will be shared with <0>{host}</0>. If you don’t recognize this provider, double-check your username."
+msgstr "Vaše uživatelské jméno a heslo budou sdíleny s <0>{host}</0>. Pokud tohoto poskytovatele neznáte, zkontrolujte si své uživatelské jméno."
 
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
