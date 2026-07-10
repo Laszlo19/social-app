@@ -26,7 +26,7 @@ const MAIN_VIEWS = ['Base', 'Controls', 'Error', 'Notifs']
 
 export const DebugScreen = ({}: NativeStackScreenProps<
   CommonNavigatorParams,
-  'Debug'
+  'StorybookOld'
 >) => {
   const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light')
   const onToggleColorScheme = () => {
