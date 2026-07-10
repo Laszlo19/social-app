@@ -38,10 +38,12 @@ Branch: `feat/whats-new` (off `main` @ 1.127.1).
         `bsky.app/whats-new` post link, external/cold-start deep links, and
         in-app links all open the flyout (no intent-handler change needed)
 - [x] **5. i18n / CI**
-  - [x] add changelog file set to `crowdin.yml`
+  - [x] changelog translated by hand (no Crowdin - personal fork). Add
+        `changelog/<locale>/<version>.md` to translate a version.
   - [x] `changelog:build` script + run it from `postinstall` (every CI install
         regenerates the committed generated file - no workflow edit needed)
-  - [x] UI chrome (title, Settings label, screen title) wrapped with Lingui
+  - [x] UI chrome (title, Settings label, screen title) wrapped with Lingui -
+        picked up by the extract-strings action after merge
 
 ## Status: feature built (pending CI verification)
 

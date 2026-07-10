@@ -13,9 +13,14 @@ changelog/<locale>/<version>.md   e.g. changelog/en/1.127.1.md
 ```
 
 English (`en/`) is the source of truth and defines which versions exist and
-their order (newest first). Translations come from Crowdin as separate MD files
-(see the changelog entry in `crowdin.yml`). At runtime the flyout picks the
-user's app language, falling back through the base language to English.
+their order (newest first). At runtime the flyout picks the user's app language,
+falling back through the base language to English.
+
+Translations are authored by hand (this fork does not run the changelog through
+Crowdin): to translate a version, create `changelog/<locale>/<version>.md` with
+the same filename, e.g. `changelog/ro/1.127.1.md`. Locale folder names match the
+app language codes (`ro`, `pt-BR`, `zh-CN`, ...). Any version without a file for
+the user's locale falls back to English automatically.
 
 To add a release: drop a new `changelog/en/<version>.md`. The generated module
 is rebuilt by `scripts/build-changelog.mjs` (wired into `postinstall`, so CI

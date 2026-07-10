@@ -36,10 +36,11 @@ changelog/
   headings, bold/italic, bullet lists, links, inline code.
 - Filenames are the version string (`<version>.md`). The set of versions is
   derived from the `en/` folder (source of truth for which versions exist).
-- **Crowdin**: add a second `files` entry in `crowdin.yml`:
-  `source: /changelog/en/**.md` -> `translation: /changelog/%two_letters_code%/**.md`.
-  Crowdin treats Markdown as its own file type, kept separate from the `.po`
-  catalogs.
+- **Translation**: this fork translates the changelog by hand (no Crowdin) -
+  create `changelog/<locale>/<version>.md` with the matching filename. (If a
+  Crowdin flow is ever wanted, add a `files` entry pointing at
+  `/changelog/en/**.md` -> `/changelog/%two_letters_code%/**.md`; Crowdin treats
+  Markdown as its own file type, separate from the `.po` catalogs.)
 
 ## Bundling - CI-generated TS module
 
