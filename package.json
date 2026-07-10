@@ -38,7 +38,7 @@
   },
   "scripts": {
     "prepare": "is-ci || husky",
-    "postinstall": "pnpm intl:compile-if-needed",
+    "postinstall": "pnpm intl:compile-if-needed && pnpm changelog:build",
     "prebuild": "EXPO_NO_GIT_STATUS=1 expo prebuild --clean",
     "android": "expo run:android",
     "android:prod": "expo run:android --variant release",
@@ -74,6 +74,7 @@
     "perf:test:results": "NODE_ENV=test flashlight report .perf/results.json",
     "perf:measure": "NODE_ENV=test flashlight measure",
     "intl:build": "pnpm intl:extract:all && pnpm intl:compile",
+    "changelog:build": "node scripts/build-changelog.mjs",
     "intl:extract": "lingui extract --clean --locale en",
     "intl:extract:all": "lingui extract --clean",
     "intl:compile": "lingui compile",

@@ -142,6 +142,7 @@ import {useAnalytics} from '#/analytics'
 import {setNavigationMetadata} from '#/analytics/metadata'
 import {IS_LIQUID_GLASS, IS_NATIVE, IS_WEB} from '#/env'
 import {InviteScannerScreen} from '#/features/inviteFriends'
+import {WhatsNewScreen} from '#/features/whatsNew/WhatsNewScreen'
 import {router} from '#/routes'
 import {Referrer} from '../modules/expo-bluesky-swiss-army'
 import {renderMessagesSplitViewLayout} from './screens/Messages/components/splitView/MessagesSplitViewLayout'
@@ -321,6 +322,11 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         name="InviteScanner"
         getComponent={() => InviteScannerScreen}
         options={{title: title(msg`Scan QR code`), requireAuth: true}}
+      />
+      <Stack.Screen
+        name="WhatsNew"
+        getComponent={() => WhatsNewScreen}
+        options={{title: title(msg`What's new`)}}
       />
       <Stack.Screen
         name="SharedPreferencesTester"

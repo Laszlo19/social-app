@@ -19,26 +19,34 @@ Branch: `feat/whats-new` (off `main` @ 1.127.1).
 
 ## Build order + status
 
-- [ ] **1. Scaffold + content**
-  - [ ] `changelog/en/1.127.1.md`, `changelog/en/1.126.0.md` (seed content)
-  - [ ] `scripts/build-changelog.mjs` (scan -> generate)
-  - [ ] `src/features/whatsNew/changelog.generated.ts` (initial, hand-seeded to
-        match the script output since we can't run it locally)
-  - [ ] `src/features/whatsNew/Markdown.tsx` (renderer)
-- [ ] **2. Flyout**
-  - [ ] `src/features/whatsNew/index.tsx` - `WhatsNewProvider`, `useWhatsNew()`,
-        `WhatsNewDialog` with InnerFlatList + scroll-driven title
-  - [ ] mount `<WhatsNewProvider>` in `App.native.tsx` + `App.web.tsx`
-- [ ] **3. Settings entry**
-  - [ ] "What's new" row in `AboutSettings.tsx` -> `open()`
-- [ ] **4. URL / deep link**
-  - [ ] register `/whats-new` in `src/routes.ts` (+ route types if needed)
-  - [ ] handle it in `src/lib/hooks/useIntentHandler.ts` -> `open()`
-  - [ ] verify a `bsky.app/whats-new` link in a post opens the flyout
-- [ ] **5. i18n / CI**
-  - [ ] add changelog file set to `crowdin.yml`
-  - [ ] add codegen step to a CI workflow (run `build-changelog.mjs`)
-  - [ ] wrap all UI chrome strings (title, Settings label, etc.) with Lingui
+- [x] **1. Scaffold + content**
+  - [x] `changelog/en/1.127.1.md`, `changelog/en/1.126.0.md` (seed content)
+  - [x] `scripts/build-changelog.mjs` (scan -> generate)
+  - [x] `src/features/whatsNew/changelog.generated.ts` (seeded via python to
+        match the script output since we can't run node locally)
+  - [x] `src/features/whatsNew/Markdown.tsx` (renderer)
+- [x] **2. Flyout**
+  - [x] `src/features/whatsNew/index.tsx` - `Provider`, `useWhatsNew()`,
+        `WhatsNewDialog` with InnerFlatList + sticky scroll-driven title
+        (onViewableItemsChanged; overrides List's internal handler via ...props)
+  - [x] mount `<WhatsNewProvider>` around the shell in `App.tsx` + `App.web.tsx`
+- [x] **3. Settings entry**
+  - [x] "What's new" row in `AboutSettings.tsx` -> `whatsNew.open()`
+- [x] **4. URL / deep link**
+  - [x] register `/whats-new` in `routes.ts` + route types
+  - [x] `WhatsNewScreen` transient route: opens the flyout + pops itself, so a
+        `bsky.app/whats-new` post link, external/cold-start deep links, and
+        in-app links all open the flyout (no intent-handler change needed)
+- [x] **5. i18n / CI**
+  - [x] add changelog file set to `crowdin.yml`
+  - [x] `changelog:build` script + run it from `postinstall` (every CI install
+        regenerates the committed generated file - no workflow edit needed)
+  - [x] UI chrome (title, Settings label, screen title) wrapped with Lingui
+
+## Status: feature built (pending CI verification)
+
+All stages implemented on `feat/whats-new`. Cannot build/typecheck/lint locally
+(no toolchain) - CI on the PR is the check.
 
 ## Verification (CI only - no local toolchain)
 
