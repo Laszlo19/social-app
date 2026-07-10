@@ -487,13 +487,6 @@ function DevOptions() {
         </SettingsList.ItemText>
       </SettingsList.PressableItem>
       <SettingsList.PressableItem
-        onPress={() => navigation.navigate('StorybookOld')}
-        label={l`Open legacy storybook page`}>
-        <SettingsList.ItemText>
-          <Trans>Storybook (old)</Trans>
-        </SettingsList.ItemText>
-      </SettingsList.PressableItem>
-      <SettingsList.PressableItem
         onPress={() => navigation.navigate('DebugMod')}
         label={l`Open moderation debug page`}>
         <SettingsList.ItemText>

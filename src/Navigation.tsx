@@ -55,7 +55,6 @@ import {
 import {useCloseAllActiveElements} from '#/state/util'
 import {CommunityGuidelinesScreen} from '#/view/screens/CommunityGuidelines'
 import {CopyrightPolicyScreen} from '#/view/screens/CopyrightPolicy'
-import {DebugScreen} from '#/view/screens/Debug'
 import {DebugModScreen} from '#/view/screens/DebugMod'
 import {FeedsScreen} from '#/view/screens/Feeds'
 import {
@@ -312,11 +311,6 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         name="Debug"
         getComponent={() => StorybookScreen}
         options={{title: title(msg`Storybook`), requireAuth: true}}
-      />
-      <Stack.Screen
-        name="StorybookOld"
-        getComponent={() => DebugScreen}
-        options={{title: title(msg`Storybook (old)`), requireAuth: true}}
       />
       <Stack.Screen
         name="DebugMod"

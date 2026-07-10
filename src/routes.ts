@@ -41,7 +41,6 @@ export const router = new Router<AllNavigatableRoutes>({
   ProfileLabelerLikedBy: '/profile/:name/labeler/liked-by',
   // debug
   Debug: '/sys/debug',
-  StorybookOld: '/sys/storybook-old',
   DebugMod: '/sys/debug-mod',
   Log: '/sys/log',
   // invite friends
