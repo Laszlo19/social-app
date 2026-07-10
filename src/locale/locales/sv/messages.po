@@ -974,8 +974,8 @@ msgstr "En skärmdump av inläggsverktyget. Bredvid publiceringsknappen syns den
 msgid "A selected recipient is not followed by the sender."
 msgstr "En vald mottagare följs inte av avsändaren."
 
-#: src/Navigation.tsx:496
-#: src/screens/Settings/AboutSettings.tsx:85
+#: src/Navigation.tsx:502
+#: src/screens/Settings/AboutSettings.tsx:88
 #: src/screens/Settings/Settings.tsx:281
 #: src/screens/Settings/Settings.tsx:284
 msgid "About"
@@ -1027,11 +1027,11 @@ msgstr "Förfrågan skickad! Gruppägaren kommer att granska din förfrågan."
 msgid "Accessibility"
 msgstr "Tillgänglighet"
 
-#: src/Navigation.tsx:395
+#: src/Navigation.tsx:401
 msgid "Accessibility Settings"
 msgstr "Tillgänglighetsinställningar"
 
-#: src/Navigation.tsx:435
+#: src/Navigation.tsx:441
 #: src/screens/Settings/AccountSettings.tsx:56
 #: src/screens/Settings/Settings.tsx:179
 #: src/screens/Settings/Settings.tsx:182
@@ -1765,7 +1765,7 @@ msgstr "Alla som följer mig"
 msgid "Anyone who has it will no longer be able to join or request to join. You can always create a new one."
 msgstr "De som har tillgång till den kommer inte längre kunna gå med eller begära att få gå med. Du kan alltid skapa en ny länk."
 
-#: src/Navigation.tsx:504
+#: src/Navigation.tsx:510
 #: src/screens/Settings/AppIconSettings/index.tsx:65
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:19
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:24
@@ -1803,7 +1803,7 @@ msgstr "Namn på applösenord måste vara minst 4 tecken långa"
 msgid "App passwords"
 msgstr "Applösenord"
 
-#: src/Navigation.tsx:363
+#: src/Navigation.tsx:369
 #: src/screens/Settings/AppPasswords.tsx:51
 msgid "App Passwords"
 msgstr "Applösenord"
@@ -1845,7 +1845,7 @@ msgstr "Begär omprövning av avstängning"
 msgid "Appeal this decision"
 msgstr "Begär omprövning av beslutet"
 
-#: src/Navigation.tsx:403
+#: src/Navigation.tsx:409
 #: src/screens/Settings/AppearanceSettings.tsx:91
 #: src/screens/Settings/Settings.tsx:241
 #: src/screens/Settings/Settings.tsx:244
@@ -1992,7 +1992,7 @@ msgstr "Automatiskt"
 msgid "Automation label"
 msgstr "Automatiseringsetikett"
 
-#: src/Navigation.tsx:443
+#: src/Navigation.tsx:449
 #: src/screens/Settings/AutomationLabelSettings.tsx:103
 msgid "Automation Label"
 msgstr "Automatiseringsetikett"
@@ -2212,7 +2212,7 @@ msgstr "Blockerat"
 msgid "Blocked accounts"
 msgstr "Blockerade konton"
 
-#: src/Navigation.tsx:199
+#: src/Navigation.tsx:200
 #: src/view/screens/ModerationBlockedAccounts.tsx:95
 msgid "Blocked Accounts"
 msgstr "Blockerade konton"
@@ -2649,7 +2649,7 @@ msgstr "Ändringar i startpaketet kommer inte att återspeglas i listan efter sk
 
 #: src/features/customNav/catalog.tsx:133
 #: src/lib/hooks/useNotificationHandler.ts:133
-#: src/Navigation.tsx:522
+#: src/Navigation.tsx:528
 #: src/view/shell/Drawer.tsx:525
 msgid "Chat"
 msgstr "Chatt"
@@ -2706,7 +2706,7 @@ msgstr "Chattägare kan inte lämna sina gruppchattar."
 msgid "Chat recipient is not followed by the sender."
 msgstr "Chattmottagare följs inte av avsändaren."
 
-#: src/Navigation.tsx:542
+#: src/Navigation.tsx:548
 msgid "Chat request inbox"
 msgstr "Inkorg för chattförfrågningar"
 
@@ -2716,7 +2716,7 @@ msgid "Chat requests"
 msgstr "Chattförfrågningar"
 
 #: src/components/dms/ConvoMenu.tsx:88
-#: src/Navigation.tsx:537
+#: src/Navigation.tsx:543
 #: src/screens/Messages/ChatList.tsx:95
 #: src/screens/Messages/ChatList.tsx:99
 #: src/screens/Messages/ChatList.tsx:652
@@ -2856,8 +2856,8 @@ msgstr "Rensa datum"
 msgid "Clear GIF search"
 msgstr "Rensa gif-sök"
 
-#: src/screens/Settings/AboutSettings.tsx:134
-#: src/screens/Settings/AboutSettings.tsx:138
+#: src/screens/Settings/AboutSettings.tsx:145
+#: src/screens/Settings/AboutSettings.tsx:149
 msgid "Clear image cache"
 msgstr "Rensa bild-cache"
 
@@ -2968,6 +2968,7 @@ msgstr "Klicka för att försöka på nytt med misslyckat meddelande"
 #: src/features/gifPicker/components/GifPickerErrorBoundary.tsx:45
 #: src/features/liveNow/components/EditLiveDialog.tsx:210
 #: src/features/liveNow/components/EditLiveDialog.tsx:216
+#: src/features/whatsNew/index.tsx:117
 #: src/screens/Messages/components/InviteLinkDialog.tsx:524
 #: src/screens/Messages/components/InviteLinkDialog.tsx:529
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:288
@@ -3082,7 +3083,7 @@ msgid "Comics"
 msgstr "Serier"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:46
-#: src/Navigation.tsx:353
+#: src/Navigation.tsx:359
 #: src/view/screens/CommunityGuidelines.tsx:28
 msgid "Community Guidelines"
 msgstr "Gemenskapens riktlinjer"
@@ -3203,7 +3204,7 @@ msgstr "Innehåll och media"
 msgid "Content and media"
 msgstr "Innehåll och media"
 
-#: src/Navigation.tsx:480
+#: src/Navigation.tsx:486
 msgid "Content and Media"
 msgstr "Innehåll och media"
 
@@ -3319,7 +3320,7 @@ msgstr "Du lämnade konversationen"
 msgid "Conversation not found."
 msgstr "Konversationen hittades inte."
 
-#: src/screens/Settings/AboutSettings.tsx:169
+#: src/screens/Settings/AboutSettings.tsx:180
 msgid "Copied build version to clipboard"
 msgstr "Byggversion kopierad till urklipp"
 
@@ -3344,7 +3345,7 @@ msgstr "Kopierat till urklipp"
 msgid "Copied!"
 msgstr "Kopierat!"
 
-#: src/screens/Settings/AboutSettings.tsx:145
+#: src/screens/Settings/AboutSettings.tsx:156
 msgid "Copies build version to clipboard"
 msgstr "Kopierar byggversion till urklipp"
 
@@ -3454,7 +3455,7 @@ msgstr "Kopiera värde för TXT-post"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:41
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:108
-#: src/Navigation.tsx:358
+#: src/Navigation.tsx:364
 #: src/view/screens/CopyrightPolicy.tsx:25
 msgid "Copyright Policy"
 msgstr "Upphovsrättspolicy"
@@ -3566,7 +3567,7 @@ msgstr ""
 msgid "Country code"
 msgstr "Landskod"
 
-#: src/Navigation.tsx:419
+#: src/Navigation.tsx:425
 #: src/screens/Settings/ContentAndMediaSettings.tsx:87
 #: src/screens/Settings/ContentAndMediaSettings.tsx:90
 #: src/screens/Settings/CountsMetricsSettings.tsx:45
@@ -3602,7 +3603,7 @@ msgstr "Skapa en QR-kod för ett startpaket"
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:207
 #: src/components/StarterPack/ProfileStarterPacks.tsx:316
-#: src/Navigation.tsx:583
+#: src/Navigation.tsx:589
 msgid "Create a starter pack"
 msgstr "Skapa ett startpaket"
 
@@ -3949,12 +3950,12 @@ msgstr "Avskilj citat"
 msgid "Detach quote post?"
 msgstr "Avskilj citatinlägg?"
 
-#: src/screens/Settings/AboutSettings.tsx:158
+#: src/screens/Settings/AboutSettings.tsx:169
 msgctxt "toast"
 msgid "Developer mode disabled"
 msgstr "Utvecklarläget inaktiverades"
 
-#: src/screens/Settings/AboutSettings.tsx:152
+#: src/screens/Settings/AboutSettings.tsx:163
 msgctxt "toast"
 msgid "Developer mode enabled"
 msgstr "Utvecklarläget aktiverades"
@@ -4390,7 +4391,7 @@ msgstr "Redigera livesändningsstatus"
 msgid "Edit moderation list"
 msgstr "Redigera modereringslista"
 
-#: src/Navigation.tsx:368
+#: src/Navigation.tsx:374
 #: src/view/screens/Feeds.tsx:511
 msgid "Edit My Feeds"
 msgstr "Redigera mina flöden"
@@ -4437,7 +4438,7 @@ msgstr "Redigera användarlista"
 msgid "Edit who can reply"
 msgstr "Redigera vem som får svara"
 
-#: src/Navigation.tsx:588
+#: src/Navigation.tsx:594
 msgid "Edit your starter pack"
 msgstr "Redigera ditt startpaket"
 
@@ -4772,7 +4773,7 @@ msgstr "Förväntade att URI:n skulle hänvisa till en datapost"
 msgid "Experimental"
 msgstr "Experimentellt"
 
-#: src/Navigation.tsx:427
+#: src/Navigation.tsx:433
 #: src/screens/Settings/ExperimentalFeaturesSettings.tsx:100
 #: src/screens/Settings/Settings.tsx:264
 #: src/screens/Settings/Settings.tsx:267
@@ -4811,7 +4812,7 @@ msgid "Explicit sexual images."
 msgstr "Explicit sexuella bilder."
 
 #: src/features/customNav/catalog.tsx:123
-#: src/Navigation.tsx:792
+#: src/Navigation.tsx:798
 #: src/screens/Search/Shell.tsx:565
 #: src/view/shell/Drawer.tsx:473
 msgid "Explore"
@@ -4852,7 +4853,7 @@ msgstr "Extern media"
 msgid "External media may allow websites to collect information about you and your device. No information is sent or requested until you press the \"play\" button."
 msgstr "Extern media kan göra det möjligt för webbplatser att samla in information om dig och din enhet. Ingen information skickas eller begärs förrän du trycker på spelaknappen."
 
-#: src/Navigation.tsx:387
+#: src/Navigation.tsx:393
 #: src/screens/Settings/ExternalMediaPreferences.tsx:35
 msgid "External Media Preferences"
 msgstr "Inställningar för extern media"
@@ -5223,12 +5224,12 @@ msgid "False information about elections"
 msgstr "Falsk information om val eller röstning"
 
 #: src/features/customNav/catalog.tsx:208
-#: src/Navigation.tsx:563
+#: src/Navigation.tsx:569
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
 msgstr ""
 
-#: src/Navigation.tsx:298
+#: src/Navigation.tsx:299
 msgid "Feed"
 msgstr "Flöde"
 
@@ -5278,7 +5279,7 @@ msgid "Feedback sent to feed operator"
 msgstr "Feedback skickad till flödesoperatör"
 
 #: src/features/customNav/catalog.tsx:166
-#: src/Navigation.tsx:558
+#: src/Navigation.tsx:564
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
 #: src/screens/Search/SearchResults.tsx:109
@@ -5393,8 +5394,8 @@ msgstr "Hitta konton att följa"
 msgid "Find and invite friends"
 msgstr "Hitta och bjud in vänner"
 
-#: src/Navigation.tsx:467
-#: src/Navigation.tsx:610
+#: src/Navigation.tsx:473
+#: src/Navigation.tsx:616
 msgid "Find Contacts"
 msgstr "Hitta kontakter"
 
@@ -5582,7 +5583,7 @@ msgid "Followers can join"
 msgstr "Följare kan gå med"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:252
+#: src/Navigation.tsx:253
 msgid "Followers of @{0} that you know"
 msgstr "Följare av @{0} som du känner"
 
@@ -5633,7 +5634,7 @@ msgstr "Följer {handle}"
 msgid "Following feed preferences"
 msgstr "Inställningar för Följer-flödet"
 
-#: src/Navigation.tsx:374
+#: src/Navigation.tsx:380
 #: src/screens/Settings/FollowingFeedPreferences.tsx:72
 msgid "Following Feed Preferences"
 msgstr "Inställningar för Följer-flödet"
@@ -6034,7 +6035,7 @@ msgctxt "toast"
 msgid "Group chat name updated"
 msgstr "Gruppchattens namn uppdaterades"
 
-#: src/Navigation.tsx:527
+#: src/Navigation.tsx:533
 #: src/screens/Messages/ConversationSettings/index.tsx:113
 msgid "Group chat settings"
 msgstr "Inställningar för gruppchatt"
@@ -6131,7 +6132,7 @@ msgstr "Skadliga eller riskfyllda aktiviteter"
 msgid "Harming or endangering minors"
 msgstr "Innehåll som kan skada eller utsätta minderåriga för fara"
 
-#: src/Navigation.tsx:511
+#: src/Navigation.tsx:517
 msgid "Hashtag"
 msgstr "Hashtagg"
 
@@ -6390,8 +6391,8 @@ msgid "Hold up! We’re gradually giving access to video, and you’re still wai
 msgstr "Vänta lite! Vi ger gradvis tillgång till videoklipp till fler användare, och du står fortfarande i kön. Försök igen senare!"
 
 #: src/features/customNav/catalog.tsx:112
-#: src/Navigation.tsx:787
-#: src/Navigation.tsx:808
+#: src/Navigation.tsx:793
+#: src/Navigation.tsx:814
 #: src/view/shell/Drawer.tsx:499
 msgid "Home"
 msgstr "Hem"
@@ -6536,13 +6537,13 @@ msgstr "Bild {0} av {1}"
 msgid "Image {0} of {imageCount}"
 msgstr "Bild {0} av {imageCount}"
 
-#: src/screens/Settings/AboutSettings.tsx:74
+#: src/screens/Settings/AboutSettings.tsx:77
 msgid "Image cache cleared"
 msgstr "Bild-cache rensad"
 
 #. Android-only toast message which includes amount of space freed using localized number formatting
 #. placeholder {0}: i18n.number( Math.abs(sizeDiffBytes / 1024 / 1024), { notation: 'compact', style: 'unit', unit: 'megabyte', }, )
-#: src/screens/Settings/AboutSettings.tsx:60
+#: src/screens/Settings/AboutSettings.tsx:63
 msgid "Image cache cleared, freed {0}"
 msgstr "Bild-cachen rensades, frigjorde {0}"
 
@@ -6971,7 +6972,7 @@ msgstr "Etiketter på ditt innehåll"
 msgid "Language"
 msgstr "Språk"
 
-#: src/Navigation.tsx:225
+#: src/Navigation.tsx:226
 msgid "Language Settings"
 msgstr "Språkinställningar"
 
@@ -7228,8 +7229,8 @@ msgstr "Gilla den här etikettsättaren"
 msgid "Liked as @{0}"
 msgstr ""
 
-#: src/Navigation.tsx:303
-#: src/Navigation.tsx:308
+#: src/Navigation.tsx:304
+#: src/Navigation.tsx:309
 msgid "Liked by"
 msgstr "Gillat av"
 
@@ -7279,7 +7280,7 @@ msgstr "Linjär vy"
 msgid "Link copied to clipboard"
 msgstr "Länk kopierad till urklipp"
 
-#: src/Navigation.tsx:258
+#: src/Navigation.tsx:259
 msgid "List"
 msgstr "Lista"
 
@@ -7367,7 +7368,7 @@ msgstr "Listan ignoreras inte längre"
 
 #: src/features/customNav/catalog.tsx:175
 #: src/lib/hooks/useUpdateWidgets.ts:77
-#: src/Navigation.tsx:179
+#: src/Navigation.tsx:180
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:233
 #: src/view/screens/Profile.tsx:241
@@ -7458,7 +7459,7 @@ msgid "Loading..."
 msgstr "Laddar…"
 
 #: src/features/customNav/catalog.tsx:215
-#: src/Navigation.tsx:568
+#: src/Navigation.tsx:574
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
 msgstr ""
@@ -7483,7 +7484,7 @@ msgstr "Lås den här gruppchatten"
 msgid "Locked"
 msgstr "Låst"
 
-#: src/Navigation.tsx:333
+#: src/Navigation.tsx:339
 msgid "Log"
 msgstr "Logg"
 
@@ -7707,7 +7708,7 @@ msgstr "Meddelandet är för långt ({graphemeCount}/{MAX_DM_GRAPHEME_LENGTH})"
 msgid "Message options"
 msgstr "Meddelandealternativ"
 
-#: src/Navigation.tsx:802
+#: src/Navigation.tsx:808
 msgid "Messages"
 msgstr "Meddelanden"
 
@@ -7736,7 +7737,7 @@ msgstr "Vilseledning"
 msgid "Missing media"
 msgstr "Media saknas"
 
-#: src/Navigation.tsx:184
+#: src/Navigation.tsx:185
 #: src/screens/Moderation/index.tsx:100
 msgid "Moderation"
 msgstr "Moderering"
@@ -7780,7 +7781,7 @@ msgstr "Modereringslistan uppdaterades"
 msgid "Moderation lists"
 msgstr "Modereringslistor"
 
-#: src/Navigation.tsx:189
+#: src/Navigation.tsx:190
 #: src/view/screens/ModerationModlists.tsx:60
 msgid "Moderation Lists"
 msgstr "Modereringslistor"
@@ -7789,7 +7790,7 @@ msgstr "Modereringslistor"
 msgid "moderation settings"
 msgstr "modereringsinställningar"
 
-#: src/Navigation.tsx:318
+#: src/Navigation.tsx:319
 msgid "Moderation states"
 msgstr "Modereringslägen"
 
@@ -7934,7 +7935,7 @@ msgstr "Ignoreras"
 msgid "Muted accounts"
 msgstr "Ignorerade konton"
 
-#: src/Navigation.tsx:194
+#: src/Navigation.tsx:195
 #: src/view/screens/ModerationMutedAccounts.tsx:107
 msgid "Muted Accounts"
 msgstr "Ignorerade konton"
@@ -8014,7 +8015,7 @@ msgstr "Navigerar till din profil"
 msgid "Navigation"
 msgstr ""
 
-#: src/Navigation.tsx:411
+#: src/Navigation.tsx:417
 #: src/screens/Settings/AppearanceSettings.tsx:249
 #: src/screens/Settings/AppearanceSettings.tsx:252
 msgid "Navigation bar"
@@ -8485,7 +8486,7 @@ msgstr "Ej tillgängligt på denna plattform."
 msgid "Not followed by anyone you’re following"
 msgstr "Följs inte av någon som du följer"
 
-#: src/Navigation.tsx:174
+#: src/Navigation.tsx:175
 #: src/view/screens/Profile.tsx:132
 msgid "Not Found"
 msgstr "Hittades inte"
@@ -8515,8 +8516,8 @@ msgid "Nothing saved yet"
 msgstr "Inget sparat ännu"
 
 #: src/components/dialogs/NotificationSettingsDialog.tsx:72
-#: src/Navigation.tsx:474
-#: src/Navigation.tsx:553
+#: src/Navigation.tsx:480
+#: src/Navigation.tsx:559
 #: src/view/screens/Notifications.tsx:134
 msgid "Notification settings"
 msgstr "Notisinställningar"
@@ -8527,8 +8528,8 @@ msgid "Notification sounds"
 msgstr "Notisljud"
 
 #: src/features/customNav/catalog.tsx:144
-#: src/Navigation.tsx:548
-#: src/Navigation.tsx:797
+#: src/Navigation.tsx:554
+#: src/Navigation.tsx:803
 #: src/screens/Messages/Settings.tsx:255
 #: src/screens/Notifications/ActivityList.tsx:31
 #: src/screens/Settings/NotificationSettings/index.tsx:126
@@ -9147,12 +9148,12 @@ msgid "People {ownerName} follows can request to join"
 msgstr "Personer som {ownerName} följer kan begära att få gå med"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:245
+#: src/Navigation.tsx:246
 msgid "People followed by @{0}"
 msgstr "Personer som följs av @{0}"
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:238
+#: src/Navigation.tsx:239
 msgid "People following @{0}"
 msgstr "Personer som följer @{0}"
 
@@ -9528,10 +9529,10 @@ msgid "Post button text"
 msgstr ""
 
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:271
-#: src/Navigation.tsx:278
-#: src/Navigation.tsx:285
-#: src/Navigation.tsx:292
+#: src/Navigation.tsx:272
+#: src/Navigation.tsx:279
+#: src/Navigation.tsx:286
+#: src/Navigation.tsx:293
 msgid "Post by @{0}"
 msgstr "Inlägg av @{0}"
 
@@ -9565,7 +9566,7 @@ msgstr "Inlägg dolt av dig"
 msgid "Post interaction settings"
 msgstr "Interaktionsinställningar för inlägg"
 
-#: src/Navigation.tsx:205
+#: src/Navigation.tsx:206
 #: src/screens/ModerationInteractionSettings/index.tsx:35
 msgid "Post Interaction Settings"
 msgstr "Interaktionsinställningar för inlägg"
@@ -9674,8 +9675,8 @@ msgstr "Integritet"
 msgid "Privacy and security"
 msgstr "Integritet och säkerhet"
 
-#: src/Navigation.tsx:451
-#: src/Navigation.tsx:459
+#: src/Navigation.tsx:457
+#: src/Navigation.tsx:465
 #: src/screens/Settings/ActivityPrivacySettings.tsx:41
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:45
 msgid "Privacy and Security"
@@ -9687,9 +9688,9 @@ msgstr "Integritets- och säkerhetsinställningar"
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:36
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:103
-#: src/Navigation.tsx:343
-#: src/screens/Settings/AboutSettings.tsx:102
-#: src/screens/Settings/AboutSettings.tsx:105
+#: src/Navigation.tsx:349
+#: src/screens/Settings/AboutSettings.tsx:113
+#: src/screens/Settings/AboutSettings.tsx:116
 #: src/view/screens/PrivacyPolicy.tsx:25
 #: src/view/shell/Drawer.tsx:763
 #: src/view/shell/Drawer.tsx:764
@@ -10506,7 +10507,7 @@ msgstr "Förfrågan skickad"
 msgid "Requests"
 msgstr "Förfrågningar"
 
-#: src/Navigation.tsx:532
+#: src/Navigation.tsx:538
 #: src/screens/Messages/JoinRequests.tsx:59
 #: src/screens/Messages/JoinRequests.tsx:425
 msgid "Requests to join"
@@ -10762,7 +10763,7 @@ msgid "Saved Feeds"
 msgstr "Sparade flöden"
 
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:145
-#: src/Navigation.tsx:602
+#: src/Navigation.tsx:608
 #: src/screens/Bookmarks.tsx:59
 msgid "Saved Posts"
 msgstr "Sparade inlägg"
@@ -10794,7 +10795,7 @@ msgstr "Skanna"
 
 #: src/features/inviteFriends/InviteScannerScreen.tsx:82
 #: src/features/inviteFriends/InviteScannerScreen.web.tsx:23
-#: src/Navigation.tsx:323
+#: src/Navigation.tsx:324
 msgid "Scan QR code"
 msgstr "Skanna QR-kod"
 
@@ -10832,7 +10833,7 @@ msgstr "Sök"
 
 #. placeholder {0}: profile.handle
 #. placeholder {0}: route.params.name
-#: src/Navigation.tsx:264
+#: src/Navigation.tsx:265
 #: src/screens/Profile/ProfileSearch.tsx:37
 msgid "Search @{0}'s posts"
 msgstr "Sök i @{0}s inlägg"
@@ -11191,8 +11192,8 @@ msgstr "Skicka e-postmeddelande"
 
 #: src/components/SendErrorReportDialog.tsx:60
 #: src/components/SendErrorReportDialog.tsx:64
-#: src/screens/Settings/AboutSettings.tsx:125
-#: src/screens/Settings/AboutSettings.tsx:128
+#: src/screens/Settings/AboutSettings.tsx:136
+#: src/screens/Settings/AboutSettings.tsx:139
 msgid "Send error report"
 msgstr "Rapportera fel"
 
@@ -11285,7 +11286,7 @@ msgid "Sets email for password reset"
 msgstr "Ställer in e-postadress för återställning av lösenord"
 
 #: src/features/customNav/catalog.tsx:192
-#: src/Navigation.tsx:220
+#: src/Navigation.tsx:221
 #: src/screens/Settings/Settings.tsx:104
 #: src/view/shell/Drawer.tsx:668
 msgid "Settings"
@@ -11457,7 +11458,7 @@ msgstr "Dela via…"
 msgid "Share your contacts to find friends"
 msgstr "Dela dina kontakter för att hitta vänner"
 
-#: src/Navigation.tsx:328
+#: src/Navigation.tsx:334
 msgid "Shared Preferences Tester"
 msgstr "Testare för delade inställningar"
 
@@ -11933,8 +11934,8 @@ msgstr "Är något på tok? Hör av dig till oss."
 msgid "Sorry, we're unable to load account suggestions at this time."
 msgstr "Tyvärr kan vi inte läsa in kontoförslag just nu."
 
-#: src/App.tsx:152
-#: src/App.web.tsx:117
+#: src/App.tsx:153
+#: src/App.web.tsx:118
 msgid "Sorry! Your session expired. Please sign in again."
 msgstr "Beklagar! Din session har löpt ut. Vänligen logga in igen."
 
@@ -12000,8 +12001,8 @@ msgstr "Starta chatt"
 msgid "Start chat with {displayName}"
 msgstr "Starta chatt med {displayName}"
 
-#: src/Navigation.tsx:573
-#: src/Navigation.tsx:578
+#: src/Navigation.tsx:579
+#: src/Navigation.tsx:584
 #: src/screens/StarterPack/Wizard/index.tsx:197
 msgid "Starter Pack"
 msgstr "Startpaket"
@@ -12041,8 +12042,8 @@ msgstr "Med startpaket kan du dela de flöden och konton du gillar med dina vän
 msgid "Starter Packs let you share your favorite feeds and people with your friends."
 msgstr "Med startpaket kan du dela de flöden och konton du gillar med dina vänner."
 
-#: src/screens/Settings/AboutSettings.tsx:110
-#: src/screens/Settings/AboutSettings.tsx:113
+#: src/screens/Settings/AboutSettings.tsx:121
+#: src/screens/Settings/AboutSettings.tsx:124
 msgid "Status Page"
 msgstr "Driftinformation"
 
@@ -12063,7 +12064,7 @@ msgstr "Datan har rensats. Starta om appen nu."
 msgid "Stored as part of a secure code for matching with others"
 msgstr "Lagras som en säker kod för att hitta matchningar med andra användare"
 
-#: src/Navigation.tsx:313
+#: src/Navigation.tsx:314
 #: src/screens/Settings/Settings.tsx:486
 msgid "Storybook"
 msgstr "Storybook"
@@ -12187,7 +12188,7 @@ msgctxt "Name of app icon variant"
 msgid "Sunset"
 msgstr "Solnedgång"
 
-#: src/Navigation.tsx:338
+#: src/Navigation.tsx:344
 #: src/view/screens/Support.tsx:25
 #: src/view/screens/Support.tsx:28
 msgid "Support"
@@ -12231,8 +12232,8 @@ msgid "System"
 msgstr "System"
 
 #: src/screens/Log.tsx:49
-#: src/screens/Settings/AboutSettings.tsx:117
-#: src/screens/Settings/AboutSettings.tsx:120
+#: src/screens/Settings/AboutSettings.tsx:128
+#: src/screens/Settings/AboutSettings.tsx:131
 #: src/screens/Settings/Settings.tsx:479
 msgid "System log"
 msgstr "Systemlogg"
@@ -12364,9 +12365,9 @@ msgstr "Villkor"
 #: src/components/dialogs/BirthDateSettings.tsx:181
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:31
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:98
-#: src/Navigation.tsx:348
-#: src/screens/Settings/AboutSettings.tsx:94
-#: src/screens/Settings/AboutSettings.tsx:97
+#: src/Navigation.tsx:354
+#: src/screens/Settings/AboutSettings.tsx:105
+#: src/screens/Settings/AboutSettings.tsx:108
 #: src/view/screens/TermsOfService.tsx:25
 #: src/view/shell/Drawer.tsx:756
 #: src/view/shell/Drawer.tsx:758
@@ -13097,7 +13098,7 @@ msgstr "Trådinställningar"
 msgid "Threaded"
 msgstr "Trädvy"
 
-#: src/Navigation.tsx:381
+#: src/Navigation.tsx:387
 msgid "Threads Preferences"
 msgstr "Trådinställningar"
 
@@ -13169,7 +13170,7 @@ msgstr "Topp"
 msgid "Top replies first"
 msgstr "Populära svar först"
 
-#: src/Navigation.tsx:516
+#: src/Navigation.tsx:522
 msgid "Topic"
 msgstr "Ämne"
 
@@ -13866,7 +13867,7 @@ msgstr "Verifiering misslyckades. Försök igen."
 msgid "Verification settings"
 msgstr "Verifieringsinställningar"
 
-#: src/Navigation.tsx:213
+#: src/Navigation.tsx:214
 #: src/screens/Moderation/VerificationSettings.tsx:34
 msgid "Verification Settings"
 msgstr "Verifieringsinställningar"
@@ -13960,8 +13961,8 @@ msgid "Verifying..."
 msgstr "Verifierar…"
 
 #. placeholder {0}: env.APP_VERSION
-#: src/screens/Settings/AboutSettings.tsx:144
-#: src/screens/Settings/AboutSettings.tsx:173
+#: src/screens/Settings/AboutSettings.tsx:155
+#: src/screens/Settings/AboutSettings.tsx:184
 msgid "Version {0}"
 msgstr "Version {0}"
 
@@ -13974,7 +13975,7 @@ msgstr "Videoklipp"
 msgid "Video failed to process"
 msgstr "Bearbetning av videoklipp misslyckades"
 
-#: src/Navigation.tsx:594
+#: src/Navigation.tsx:600
 msgid "Video Feed"
 msgstr "Videoflöde"
 
@@ -14482,6 +14483,16 @@ msgstr "Vad har du för intressen?"
 #: src/screens/StarterPack/Wizard/StepDetails.tsx:44
 msgid "What do you want to call your starter pack?"
 msgstr "Vad vill du att ditt startpaket ska heta?"
+
+#: src/Navigation.tsx:329
+#: src/screens/Settings/AboutSettings.tsx:96
+#: src/screens/Settings/AboutSettings.tsx:100
+msgid "What's new"
+msgstr ""
+
+#: src/features/whatsNew/index.tsx:113
+msgid "What's new in version {activeVersion}"
+msgstr ""
 
 #. Advanced search: Example of an “exact phrase” search
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:285
@@ -15293,7 +15304,7 @@ msgstr "Din kontoleverantör kan inte identifieras genom en e-postadress, så de
 msgid "Your hosting provider is detected automatically from the username you enter."
 msgstr "Din kontoleverantör identifieras automatiskt utifrån användarnamnet du anger."
 
-#: src/Navigation.tsx:488
+#: src/Navigation.tsx:494
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:68
 #: src/screens/Settings/ContentAndMediaSettings.tsx:103
 #: src/screens/Settings/ContentAndMediaSettings.tsx:106
