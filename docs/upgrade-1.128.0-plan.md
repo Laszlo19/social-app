@@ -187,7 +187,9 @@ uses `--no-frozen-lockfile`, so this is fine.
 8. [x] **DONE** (verify - auto-merged) - **package.json**: upstream oxlint lint
    script + Sentry 8.18 + pnpm bump present; fork `changelog:build` +
    `postinstall` edit survived. No markers.
-9. Push; watch CI - especially the new **oxlint** run.
+9. [x] **DONE** - final sweep clean (no markers, 0 unmerged, no dangling
+   imports); merge committed (234d6f8c7) and pushed. CI (esp. oxlint) is the
+   real check.
 
 ## Decisions (locked)
 - Master beta toggle **exists and controls all the other toggles** (nested).
