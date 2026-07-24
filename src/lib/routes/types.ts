@@ -63,8 +63,7 @@ export type CommonNavigatorParams = {
   PreferencesExternalEmbeds: undefined
   AccessibilitySettings: undefined
   AppearanceSettings: undefined
-  NavigationBarSettings: undefined
-  CountsMetricsSettings: undefined
+  BetaFeaturesSettings: undefined
   AccountSettings: undefined
   AutomationLabelSettings: undefined
   PrivacyAndSecuritySettings: undefined
@@ -74,7 +73,6 @@ export type CommonNavigatorParams = {
   InterestsSettings: undefined
   AboutSettings: undefined
   AppIconSettings: undefined
-  ExperimentalFeaturesSettings: undefined
   FindContactsSettings: undefined
   InviteScanner: undefined
   WhatsNew: undefined

@@ -156,21 +156,37 @@ uses `--no-frozen-lockfile`, so this is fine.
 
 ## Merge order
 
-1. Merge `feat/whats-new` -> `main`.
-2. Branch `chore/upgrade-1.128.0` off updated `main`; `git merge 1.128.0`.
-3. `.po` conflicts (~40): auto-resolve per-hunk theirs (awk script).
-4. **Search v2-only**: take upstream Shell/SearchResults/search-posts-v2;
-   re-apply advanced-search gating; drop the searchV2 toggle; check for dangling
-   v1 imports.
-5. **analytics/index.tsx + features/index.ts**: manual merge - keep the stub,
-   take the beta additions.
-6. **Beta page**: build the nested-master layout in `BetaFeaturesSettings.tsx`
-   (upstream master + fork sections, reformatted); delete
-   `ExperimentalFeaturesSettings` screen + route + link; keep the schema keys
-   (minus `experimentalSearchV2`).
-7. **CLAUDE.md, BottomBar**: keep ours.
-8. **package.json**: take upstream (oxlint + Sentry + pnpm), re-apply
-   `changelog:build` + `postinstall`.
+1. [x] **DONE** - Merge `feat/whats-new` -> `main` (PR #32).
+2. [x] **DONE** - Branch `chore/upgrade-1.128.0` off updated `main`;
+   `git merge 1.128.0`. Conflicts: 42 `.po` + Shell/SearchResults +
+   routes.ts/route types/Settings.tsx. analytics, CLAUDE.md, BottomBar,
+   package.json auto-merged (verify in their steps).
+3. [x] **DONE** - `.po` conflicts (42): auto-resolved per-hunk theirs.
+   Romanian intact (3216 msgstr).
+4. [x] **DONE** - **Search v2-only**: took upstream Shell/SearchResults
+   (v2-only); re-applied advanced-search gate at the 2 AdvancedSearchDialog
+   render sites in Shell; dropped useSearchV2Enabled + experimentalSearchV2
+   schema key; no dangling v1 imports. (Lingering searchV2 refs in
+   ExperimentalFeaturesSettings clear in Step 6.)
+5. [x] **DONE** (verify only - auto-merged cleanly) - **analytics**: our
+   always-on `enabled` stub survived AND upstream's beta additions (isBetaUser
+   caching, getTargetedFeatures) landed, in non-overlapping regions. Known-likers
+   `:enable` flags -> true via the stub. No hand-merge needed.
+6. [x] **DONE** - **Beta page**: rewrote `BetaFeaturesSettings.tsx` with the
+   nested-master layout (beta master gates all fork sections via `isBetaUser`;
+   Witchsky master nested; new `Toggle.Item`+`SettingsList.Item` format via a
+   `FeatureToggle` helper; kept upstream master/admonition/feedback/GrowthBook
+   list). Added BetaFeaturesSettings route + kept WhatsNew, removed
+   ExperimentalFeaturesSettings route/link/screen and deleted the file. Dropped
+   searchV2 toggle. 0 unmerged, no dangling refs.
+7. [x] **DONE** (verify) - **BottomBar**: custom nav intact
+   (`visible.map(renderItem)` preserved, upstream changes merged alongside).
+   **CLAUDE.md**: fork never customized it (git log confirms), so upstream's slim
+   version is correct - nothing fork-specific lost. ("keep ours" assumption was
+   wrong; take-upstream is right here.)
+8. [x] **DONE** (verify - auto-merged) - **package.json**: upstream oxlint lint
+   script + Sentry 8.18 + pnpm bump present; fork `changelog:build` +
+   `postinstall` edit survived. No markers.
 9. Push; watch CI - especially the new **oxlint** run.
 
 ## Decisions (locked)

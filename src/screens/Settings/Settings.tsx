@@ -258,16 +258,14 @@ export function SettingsScreen({}: Props) {
               <Trans>Languages</Trans>
             </SettingsList.ItemText>
           </SettingsList.LinkItem>
-          {IS_INTERNAL && (
-            <SettingsList.LinkItem
-              to="/settings/experimental"
-              label={l`Experimental features`}>
-              <SettingsList.ItemIcon icon={BeakerIcon} />
-              <SettingsList.ItemText>
-                <Trans>Experimental features</Trans>
-              </SettingsList.ItemText>
-            </SettingsList.LinkItem>
-          )}
+          <SettingsList.LinkItem
+            to="/settings/beta-features"
+            label={l`Beta features`}>
+            <SettingsList.ItemIcon icon={BeakerIcon} />
+            <SettingsList.ItemText>
+              <Trans>Beta features</Trans>
+            </SettingsList.ItemText>
+          </SettingsList.LinkItem>
           <SettingsList.PressableItem
             onPress={() => void Linking.openURL(HELP_DESK_URL)}
             label={l`Help`}
