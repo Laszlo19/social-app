@@ -93,6 +93,9 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [legacyContacts, setLegacyContacts] = useStorage(device, [
     'experimentalLegacyContacts',
   ])
+  const [publicLikes, setPublicLikes] = useStorage(device, [
+    'experimentalPublicLikes',
+  ])
   const [pdslsLinks, setPdslsLinks] = useStorage(device, [
     'experimentalPdslsLinks',
   ])
@@ -242,6 +245,21 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                 }
                 value={!!legacyContacts}
                 onChange={setLegacyContacts}
+              />
+
+              <FeatureToggle
+                name="public_likes"
+                label={l`Likes on other profiles`}
+                title={<Trans>Likes on other profiles</Trans>}
+                description={
+                  <Trans>
+                    Show a "Likes" tab on other users' profiles, read from their
+                    public like records. Bluesky hides these by default, so use
+                    respectfully.
+                  </Trans>
+                }
+                value={!!publicLikes}
+                onChange={setPublicLikes}
               />
 
               <FeatureToggle
