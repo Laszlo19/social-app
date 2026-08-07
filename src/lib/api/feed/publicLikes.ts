@@ -2,6 +2,7 @@ import AtpAgent, {
   type AppBskyFeedDefs,
   type AppBskyFeedLike,
 } from '@atproto/api'
+import {type DidDocument, getPdsEndpoint} from '@atproto/common-web'
 
 import {type FeedAPI, type FeedAPIResponse} from './types'
 
@@ -44,10 +45,9 @@ export class PublicActorLikesFeedAPI implements FeedAPI {
    */
   private getPdsAgent(): Promise<AtpAgent> {
     if (!this.pdsAgentPromise) {
-      this.pdsAgentPromise = resolvePdsServiceEndpoint(
-        this.agent,
-        this.actor,
-      ).then(service => new AtpAgent({service}))
+      this.pdsAgentPromise = resolvePdsServiceEndpoint(this.actor).then(
+        service => new AtpAgent({service}),
+      )
       this.pdsAgentPromise.catch(() => {
         this.pdsAgentPromise = undefined
       })
@@ -120,30 +120,42 @@ export class PublicActorLikesFeedAPI implements FeedAPI {
 
 /**
  * Resolve the full PDS service endpoint URL (e.g. "https://bsky.social") that
- * hosts a DID's repo. did:web hostnames are embedded in the DID; did:plc DIDs
- * require reading the DID document via describeRepo.
+ * hosts a DID's repo, by reading its DID document.
+ *
+ * com.atproto.repo endpoints are only served by the repo's own PDS, so the
+ * endpoint must come from the DID doc - not from the viewer's agent (which
+ * would call describeRepo against the viewer's PDS and 404 for anyone hosted
+ * elsewhere). This mirrors the login-time resolution in
+ * state/queries/pds-detection.ts.
  */
-async function resolvePdsServiceEndpoint(
-  agent: AtpAgent,
-  did: string,
-): Promise<string> {
+async function resolvePdsServiceEndpoint(did: string): Promise<string> {
+  const doc = await resolveDidDoc(did)
+  const pds = doc ? getPdsEndpoint(doc) : undefined
+  if (!pds) {
+    throw new Error(`Could not resolve hosting PDS for ${did}`)
+  }
+  return pds
+}
+
+/**
+ * Fetch a DID document without a session: did:plc via the PLC directory,
+ * did:web via its `.well-known/did.json`.
+ */
+async function resolveDidDoc(did: string): Promise<DidDocument | null> {
+  if (did.startsWith('did:plc:')) {
+    const res = await fetch(`https://plc.directory/${did}`)
+    if (!res.ok) return null
+    return (await res.json()) as DidDocument
+  }
   if (did.startsWith('did:web:')) {
-    const hostname = did.slice('did:web:'.length)
-    if (hostname && !hostname.includes(':')) {
-      return `https://${hostname}`
-    }
+    const domain = did.slice('did:web:'.length)
+    // A `:` denotes a path component, which the network does not support.
+    if (domain.includes(':')) return null
+    const res = await fetch(
+      `https://${decodeURIComponent(domain)}/.well-known/did.json`,
+    )
+    if (!res.ok) return null
+    return (await res.json()) as DidDocument
   }
-
-  const res = await agent.com.atproto.repo.describeRepo({repo: did})
-  const services = (res.data.didDoc as Record<string, unknown>)?.service
-  if (Array.isArray(services)) {
-    const pds = services.find((s: {id?: string}) => s.id === '#atproto_pds') as
-      | {serviceEndpoint?: string}
-      | undefined
-    if (pds?.serviceEndpoint) {
-      return pds.serviceEndpoint
-    }
-  }
-
-  throw new Error(`Could not resolve hosting PDS for ${did}`)
+  return null
 }
