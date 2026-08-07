@@ -33,6 +33,7 @@ import {resetProfilePostsQueries} from '#/state/queries/post-feed'
 import {useProfileQuery} from '#/state/queries/profile'
 import {useResolveDidQuery} from '#/state/queries/resolve-uri'
 import {useAgent, useSession} from '#/state/session'
+import {device, useStorage} from '#/storage'
 import {ProfileFeedgens} from '#/view/com/feeds/ProfileFeedgens'
 import {ProfileLists} from '#/view/com/lists/ProfileLists'
 import {PagerWithHeader} from '#/view/com/pager/PagerWithHeader'
@@ -175,6 +176,7 @@ function ProfileScreenLoaded({
   const t = useTheme()
   const profile = useProfileShadow(profileUnshadowed)
   const {hasSession, currentAccount} = useSession()
+  const [publicLikesEnabled] = useStorage(device, ['experimentalPublicLikes'])
   const {openComposer} = useOpenComposer()
   const navigation = useNavigation<NavigationProp>()
   const requireEmailVerification = useRequireEmailVerification()
@@ -219,7 +221,7 @@ function ProfileScreenLoaded({
   const showRepliesTab = hasSession
   const showMediaTab = !hasLabeler
   const showVideosTab = !hasLabeler
-  const showLikesTab = isMe
+  const showLikesTab = isMe || !!publicLikesEnabled
   const feedGenCount = profile.associated?.feedgens || 0
   const showFeedsTab = isMe || feedGenCount > 0
   const starterPackCount = profile.associated?.starterPacks || 0

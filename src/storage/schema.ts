@@ -119,6 +119,13 @@ export type Device = {
   experimentalTestLiveEvent?: boolean
 
   /**
+   * Experimental: show a "Likes" tab on other users' profiles, backed by their
+   * public app.bsky.feed.like records (the standard getActorLikes endpoint is
+   * gated to the authenticated user).
+   */
+  experimentalPublicLikes?: boolean
+
+  /**
    * OpenRouter API key used for AI alt-text generation in the image composer.
    */
   openRouterApiKey?: string

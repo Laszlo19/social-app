@@ -26,6 +26,7 @@ import {LikesFeedAPI} from '#/lib/api/feed/likes'
 import {ListFeedAPI} from '#/lib/api/feed/list'
 import {MergeFeedAPI} from '#/lib/api/feed/merge'
 import {PostListFeedAPI} from '#/lib/api/feed/posts'
+import {PublicActorLikesFeedAPI} from '#/lib/api/feed/publicLikes'
 import {type FeedAPI, type ReasonFeedSource} from '#/lib/api/feed/types'
 import {aggregateUserInterests} from '#/lib/api/feed/utils'
 import {FeedTuner, type FeedTunerFn} from '#/lib/api/feed-manip'
@@ -476,7 +477,14 @@ function createApi({
     return new AuthorFeedAPI({agent, feedParams: {actor, filter}})
   } else if (feedDesc.startsWith('likes')) {
     const [__, actor] = feedDesc.split('|')
-    return new LikesFeedAPI({agent, feedParams: {actor}})
+    /*
+     * getActorLikes is gated to the authenticated user, so only use it for
+     * self. For other actors, read their public like records directly.
+     */
+    if (actor && actor === agent.session?.did) {
+      return new LikesFeedAPI({agent, feedParams: {actor}})
+    }
+    return new PublicActorLikesFeedAPI({agent, actor})
   } else if (feedDesc.startsWith('feedgen')) {
     const [__, feed] = feedDesc.split('|')
     return new CustomFeedAPI({
