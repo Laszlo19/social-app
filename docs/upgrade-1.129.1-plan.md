@@ -104,9 +104,23 @@ Misc:
   find-friends/invite toggle, NUX tweaks, fork strings + Romanian, custom nav,
   public-likes tab.
 
-## Status
+## Status - COMPLETE
 
-- [ ] 1.129.0 merged
-- [ ] 1.129.1 merged
-- [ ] Dangling-import sweep clean
-- [ ] Pushed
+- [x] 1.129.0 merged (merge 9b0ea7ca8). Conflicts were far smaller than the
+      predicted ~36: **3 code + 42 .po**. Code: `.gitignore` (kept both),
+      `PostFeed.tsx` deps array (kept both `hideComposerPrompt` + `t`),
+      `AppearanceSettings.tsx` (kept HEAD - fork App Icon setting + Navigation
+      bar link; upstream had commented the App Icon block out behind
+      IS_INTERNAL). Everything else in the predicted set auto-merged.
+- [x] 1.129.1 merged (merge 82f3d6701). **1 code + 42 .po**. Code conflict was
+      `.github/workflows/pull-request-comment.yml.disabled` (UD - upstream
+      deleted the active workflow, fork keeps the `.disabled` copy; same as
+      claude.yml). Kept ours.
+- [x] Dangling-import sweep clean. The two flagged risks self-resolved:
+      `expo-scroll-forwarder` removal auto-merged into the fork Profile.tsx (no
+      manual unwrap needed); trending-query refactor left no old-path imports.
+- [x] Fork customizations verified: version 1.129.1, changelog:build script,
+      public-likes tab, advanced-search gate, analytics `enabled` stub, witchsky
+      settings, custom nav (BottomBar `visible.map` + features/customNav).
+      `nightly-build.yml` already `.disabled`.
+- [ ] Pushed / PR opened (user opens PR). CI is the real verification.
