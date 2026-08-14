@@ -67,9 +67,23 @@ Build:
       tab, advanced-search gate, analytics `enabled` stub, witchsky settings,
       custom nav (BottomBar + features/customNav), AI alt-text, square avatars.
 
-## Status
+## Status - COMPLETE
 
-- [ ] 1.130.0 merged
-- [ ] Route-rename dangling check clean
-- [ ] Fork customizations verified
-- [ ] Pushed / PR opened
+- [x] 1.130.0 merged (merge 5f48b2f5c). **3 code + 42 .po** (again far fewer
+      than the ~15 predicted). Code, all keep-both:
+      - `src/analytics/index.tsx` - kept fork `enabled` stub + upstream's new
+        `getValue: feats.getFeatureValue.bind(feats)` (`feats` still in scope).
+      - `src/view/com/util/ErrorBoundary.tsx` - kept fork
+        `setState({componentStack})` + upstream's `logger.error(error, {errorInfo,
+        ...getErrorMetadata?.(error)})`.
+      - `src/view/shell/index.tsx` - kept fork `useSyncAppShortcuts()` +
+        `useUpdateWidgets()` AND upstream's new `useOTAUpdateRecovery()` hook.
+- [x] Route-rename dangling check clean. `ProfileFeed`/`ProfileFeedLikedBy` route
+      keys became `CustomFeed*`; the 3 renamed files were untouched by the fork
+      so renames auto-applied. Remaining `'ProfileFeed'` hits are `logContext`
+      /analytics event-name strings (a different namespace upstream did NOT
+      rename) - not route refs, no action.
+- [x] Fork customizations verified: version 1.130.0, public-likes, AI alt-text,
+      analytics stub, square avatars, custom nav (shell hooks), CustomFeed rename
+      applied. EAS/nightly workflows remain `.disabled`.
+- [ ] Pushed / PR opened (user opens PR). CI is the real verification.
