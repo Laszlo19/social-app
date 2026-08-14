@@ -8,12 +8,22 @@ import {type Nux} from '#/state/queries/nuxs/definitions'
  * a NUX for testing.
  */
 
-let handler: ((id: Nux) => void) | null = null
+/**
+ * Optional dev-only preview payload passed alongside a manual trigger. NUXs
+ * whose rendered content depends on device state (e.g. the iOS-version sunset
+ * warning, which picks its copy from the running OS version) read this so every
+ * variant can be previewed on any platform. Ignored on the real auto-show path.
+ */
+export type NuxPreview = {variant?: string}
 
-export function setNuxTriggerHandler(fn: ((id: Nux) => void) | null) {
+let handler: ((id: Nux, preview?: NuxPreview) => void) | null = null
+
+export function setNuxTriggerHandler(
+  fn: ((id: Nux, preview?: NuxPreview) => void) | null,
+) {
   handler = fn
 }
 
-export function triggerNuxExternally(id: Nux) {
-  handler?.(id)
+export function triggerNuxExternally(id: Nux, preview?: NuxPreview) {
+  handler?.(id, preview)
 }

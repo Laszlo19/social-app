@@ -595,6 +595,34 @@ function DevOptions() {
       <SettingsList.Divider />
       <View style={[a.p_xl, a.gap_md]}>
         <Text style={[a.text_lg, a.font_semi_bold]}>NUX Triggers</Text>
+        {/*
+         * The iOS-version sunset NUX renders one of two variants based on the
+         * running OS version, which is unavailable off iOS. These force each
+         * variant so both can be previewed on any platform (e.g. Android).
+         */}
+        {(['ios16', 'ios15'] as const).map(variant => (
+          <View
+            key={`IosVersionSunset164-${variant}`}
+            style={[a.flex_row, a.align_center, a.justify_between, a.gap_sm]}>
+            <Text style={[a.text_sm, a.flex_1]} numberOfLines={1}>
+              {`IosVersionSunset164 (${
+                variant === 'ios16' ? 'iOS 16' : 'iOS 15'
+              })`}
+            </Text>
+            <Button
+              onPress={() => {
+                resetNuxs([Nux.IosVersionSunset164])
+                setTimeout(() => {
+                  triggerNuxExternally(Nux.IosVersionSunset164, {variant})
+                }, 1000)
+              }}
+              label={`Reset & trigger IosVersionSunset164 ${variant} variant`}
+              color="secondary"
+              size="tiny">
+              <ButtonText>Reset</ButtonText>
+            </Button>
+          </View>
+        ))}
         {Object.values(Nux).map(nuxId => (
           <View
             key={nuxId}
