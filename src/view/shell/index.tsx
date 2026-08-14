@@ -11,6 +11,7 @@ import {useSyncAppShortcuts} from '#/features/customNav'
 import {useIntentHandler} from '#/lib/hooks/useIntentHandler'
 import {useNotificationsHandler} from '#/lib/hooks/useNotificationHandler'
 import {useUpdateWidgets} from '#/lib/hooks/useUpdateWidgets'
+import {useOTAUpdateRecovery} from '#/lib/hooks/useOTAUpdates'
 import {useNotificationsRegistration} from '#/lib/notifications/notifications'
 import {isStateAtTabRoot} from '#/lib/routes/helpers'
 import {useDialogFullyExpandedCountContext} from '#/state/dialogs'
@@ -220,6 +221,7 @@ export function Shell() {
   useIntentHandler()
   useSyncAppShortcuts()
   useUpdateWidgets()
+  useOTAUpdateRecovery()
 
   useEffect(() => {
     setSystemUITheme('theme', t)

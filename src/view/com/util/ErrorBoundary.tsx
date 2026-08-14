@@ -4,12 +4,14 @@ import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 
 import {logger} from '#/logger'
+import {type Metadata} from '#/logger/types'
 import {ErrorScreen} from './error/ErrorScreen'
 import {CenteredView} from './Views'
 
 interface Props {
   children?: ReactNode
   renderError?: (error: any) => ReactNode
+  getErrorMetadata?: (error: Error) => Metadata
   style?: StyleProp<ViewStyle>
 }
 
@@ -34,7 +36,10 @@ export class ErrorBoundary extends Component<Props, State> {
     // Keep the React component stack around so the error screen can surface it
     // (and the user can copy it) - the message alone rarely pinpoints a crash.
     this.setState({componentStack: errorInfo.componentStack})
-    logger.error(error, {errorInfo})
+    logger.error(error, {
+      errorInfo,
+      ...this.props.getErrorMetadata?.(error),
+    })
   }
 
   public render() {
