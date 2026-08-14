@@ -21,7 +21,10 @@ import {useOnboardingState} from '#/state/shell'
 import {ActivitySubscriptionsNUX} from '#/components/dialogs/nuxs/ActivitySubscriptions'
 import {BookmarksAnnouncement} from '#/components/dialogs/nuxs/BookmarksAnnouncement'
 import {DraftsAnnouncement} from '#/components/dialogs/nuxs/DraftsAnnouncement'
-import {setNuxTriggerHandler} from '#/components/dialogs/nuxs/externalTrigger'
+import {
+  type NuxPreview,
+  setNuxTriggerHandler,
+} from '#/components/dialogs/nuxs/externalTrigger'
 import {FindContactsAnnouncement} from '#/components/dialogs/nuxs/FindContactsAnnouncement'
 import {
   enabled as isGroupChatsAnnouncementEnabled,
@@ -32,6 +35,10 @@ import {
   enabled as isInviteFriendsAnnouncementEnabled,
   InviteFriendsAnnouncement,
 } from '#/components/dialogs/nuxs/InviteFriendsAnnouncement'
+import {
+  enabled as isIosVersionSunsetAnnouncementEnabled,
+  IosVersionSunsetAnnouncement,
+} from '#/components/dialogs/nuxs/IosVersionSunsetAnnouncement'
 import {LiveNowBetaDialog} from '#/components/dialogs/nuxs/LiveNowBetaDialog'
 import {isSnoozed, snooze, unsnooze} from '#/components/dialogs/nuxs/snoozing'
 import {type EnabledCheckProps} from '#/components/dialogs/nuxs/utils'
@@ -40,14 +47,25 @@ import {useGeolocation} from '#/geolocation'
 
 type Context = {
   activeNux: Nux | undefined
+  /**
+   * Dev-only preview payload for the active NUX, set when a NUX is manually
+   * triggered from Developer Options. Lets platform-gated NUXs (e.g. the
+   * iOS-version sunset warning) preview every variant regardless of platform.
+   * Undefined on the normal auto-show path.
+   */
+  activePreview: NuxPreview | undefined
   dismissActiveNux: () => void
-  triggerNux: (id: Nux) => void
+  triggerNux: (id: Nux, preview?: NuxPreview) => void
 }
 
 const queuedNuxs: {
   id: Nux
   enabled?: (props: EnabledCheckProps) => boolean
 }[] = [
+  {
+    id: Nux.IosVersionSunset164,
+    enabled: isIosVersionSunsetAnnouncementEnabled,
+  },
   {
     id: Nux.GroupChatsAnnouncement,
     enabled: isGroupChatsAnnouncementEnabled,
@@ -60,6 +78,7 @@ const queuedNuxs: {
 
 const Context = createContext<Context>({
   activeNux: undefined,
+  activePreview: undefined,
   dismissActiveNux: () => {},
   triggerNux: () => {},
 })
@@ -89,7 +108,7 @@ export function NuxDialogs() {
 
   if (isLoading) {
     // Still render a provider so useNuxDialogContext works in child screens.
-    return <Context.Provider value={{activeNux: undefined, dismissActiveNux: () => {}, triggerNux: () => {}}} />
+    return <Context.Provider value={{activeNux: undefined, activePreview: undefined, dismissActiveNux: () => {}, triggerNux: () => {}}} />
   }
 
   return (
@@ -117,6 +136,7 @@ function Inner({
     return isSnoozed()
   })
   const [activeNux, setActiveNux] = useState<Nux | undefined>()
+  const [activePreview, setActivePreview] = useState<NuxPreview | undefined>()
   const {mutateAsync: saveNux} = useSaveNux()
   const {mutate: resetNuxs} = useResetNuxs()
 
@@ -128,14 +148,17 @@ function Inner({
   const dismissActiveNux = useCallback(() => {
     if (!activeNux) return
     setActiveNux(undefined)
+    setActivePreview(undefined)
   }, [activeNux, setActiveNux])
 
-  const triggerNux = useCallback((id: Nux) => {
+  const triggerNux = useCallback((id: Nux, preview?: NuxPreview) => {
     // Force-show the NUX regardless of snooze/gate checks. We intentionally do
     // not touch snooze state here: the render block keys off activeNux alone,
     // and unsnoozing would re-run the auto-activation effect and could override
     // the manually selected NUX.
     setActiveNux(id)
+    // Dev-only variant override from Developer Options; undefined otherwise.
+    setActivePreview(preview)
   }, [])
 
   // Bridge for screens outside the provider (e.g. Developer Options).
@@ -215,14 +238,16 @@ function Inner({
   const ctx = useMemo(() => {
     return {
       activeNux,
+      activePreview,
       dismissActiveNux,
       triggerNux,
     }
-  }, [activeNux, dismissActiveNux, triggerNux])
+  }, [activeNux, activePreview, dismissActiveNux, triggerNux])
 
   return (
     <Context.Provider value={ctx}>
       {/*For example, activeNux === Nux.NeueTypography && <NeueTypography />*/}
+      {activeNux === Nux.IosVersionSunset164 && <IosVersionSunsetAnnouncement />}
       {activeNux === Nux.DraftsAnnouncement && <DraftsAnnouncement />}
       {activeNux === Nux.BookmarksAnnouncement && <BookmarksAnnouncement />}
       {activeNux === Nux.FindContactsAnnouncement && <FindContactsAnnouncement />}
