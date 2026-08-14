@@ -5,7 +5,10 @@
 import {type Platform} from 'react-native'
 
 import {type NotificationReason} from '#/lib/hooks/useNotificationHandler'
-import {type VideoCompressSkipReason} from '#/lib/media/video/types'
+import {
+  type VideoCompressSkipReason,
+  type VideoUploadTransport,
+} from '#/lib/media/video/types'
 import {type NotificationType} from '#/state/queries/notifications/types'
 import {type FeedDescriptor} from '#/state/queries/post-feed'
 import {type LiveEventFeedMetricContext} from '#/features/liveEvents/types'
@@ -140,6 +143,7 @@ export type Events = {
     selectedInterests: string[]
     selectedInterestsLength: number
   }
+  'onboarding:interests:disabledNextPressed': {}
   'onboarding:suggestedAccounts:tabPressed': {
     tab: string
   }
@@ -506,6 +510,8 @@ export type Events = {
   }
   'profile:mute': {}
   'profile:unmute': {}
+  'profile:muteReposts': {}
+  'profile:unmuteReposts': {}
   'profile:block': {}
   'profile:unblock': {}
   'suggestedUser:follow': {
@@ -753,10 +759,14 @@ export type Events = {
   'trendingTopic:seen': {
     context: 'sidebar' | 'interstitial' | 'explore'
     recId?: string
+    rank: number
+    feedSliceIndex?: number
   }
   'trendingTopic:click': {
     context: 'sidebar' | 'interstitial' | 'explore'
     recId?: string
+    rank: number
+    feedSliceIndex?: number
   }
   'trendingVideos:show': {
     context: 'settings'
@@ -859,6 +869,7 @@ export type Events = {
     reason: string
     labeler: string
     details: boolean
+    videoTimestamp: boolean
   }
   'reportDialog:failure': {}
 
@@ -1392,7 +1403,7 @@ export type Events = {
   // === Video upload funnel (Frontend Spec section D) ===
   // Every event carries uploadId (client-generated UUID, ties one upload
   // session end-to-end) + engine (compression engine id, e.g.
-  // native:react-native-compressor@1.13.0). jobId is added once the server
+  // native:@bsky.app/video-compressor@0.2.0). jobId is added once the server
   // returns it. Sizes / codecs / dimensions / timings only - never content.
   'video:upload:picked': {
     uploadId: string
@@ -1411,7 +1422,7 @@ export type Events = {
   // Native-only. Raw container metadata returned by the new module's probe()
   // (bitrate, codec, HDR, frame rate, rotation, etc.). Fires once per upload
   // between compressStarted and the compressSkipped/compressCompleted decision.
-  // The web (mediabunny) and legacy rn-compressor engines do not surface this.
+  // The web mediabunny engine also emits this from its own probe.
   'video:upload:probed': {
     uploadId: string
     engine: string
@@ -1463,6 +1474,7 @@ export type Events = {
     bytes: number
     elapsedMs: number
     throughputBytesPerSec: number
+    transport: VideoUploadTransport
   }
   'video:upload:uploadFailed': {
     uploadId: string
@@ -1470,6 +1482,7 @@ export type Events = {
     bytes: number
     errorClass: string
     elapsedMs: number
+    transport: VideoUploadTransport
   }
   'video:upload:processingStarted': {
     uploadId: string

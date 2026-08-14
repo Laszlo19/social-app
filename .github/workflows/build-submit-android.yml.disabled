@@ -132,6 +132,16 @@ jobs:
           if-no-files-found: error
           path: build.aab
 
+      - name: 📝 Write build summary
+        env:
+          REMOTE_VERSION_CODE: ${{ steps.get-build-info.outputs.BSKY_ANDROID_VERSION_CODE }}
+        run: |
+          {
+            echo "### Android build number"
+            echo
+            echo "\`$REMOTE_VERSION_CODE\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
   submit:
     name: Submit to Google Play
     runs-on: ubuntu-latest
@@ -162,7 +172,7 @@ jobs:
 
       - name: 🔔 Notify Slack of Play Store Submission
         if: ${{ inputs.profile == 'production' }}
-        uses: slackapi/slack-github-action@0d95c9a7becc1e6e297d76df9bc735c44f4cbcbc # v3.0.5
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
         with:
           webhook: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           webhook-type: incoming-webhook
@@ -235,7 +245,7 @@ jobs:
           path: build.apk
 
       - name: 🔔 Notify Slack of APK Artifact
-        uses: slackapi/slack-github-action@0d95c9a7becc1e6e297d76df9bc735c44f4cbcbc # v3.0.5
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
         with:
           webhook: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           webhook-type: incoming-webhook
@@ -298,7 +308,7 @@ jobs:
 
       - name: 🔔 Notify Slack of Release Attachment
         if: ${{ steps.release-check.outputs.exists == 'true' }}
-        uses: slackapi/slack-github-action@0d95c9a7becc1e6e297d76df9bc735c44f4cbcbc # v3.0.5
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d # v4.0.0
         with:
           webhook: ${{ secrets.SLACK_CLIENT_ALERT_WEBHOOK }}
           webhook-type: incoming-webhook
