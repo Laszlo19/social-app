@@ -1,6 +1,6 @@
 {
   "name": "bsky.app",
-  "version": "1.129.0",
+  "version": "1.129.1",
   "private": true,
   "engines": {
     "node": ">=24.18.0"
@@ -83,8 +83,8 @@
     "intl:compile": "lingui compile",
     "intl:compile-if-needed": "is-ci || [ -f src/locale/locales/en/messages.ts ] || pnpm intl:compile",
     "intl:pull": "crowdin download translations --verbose -b main",
-    "intl:push": "crowdin push translations --verbose -b main",
     "intl:push-sources": "crowdin push sources --verbose -b main",
+    "intl:dangerously-push-translations": "crowdin push translations --verbose -b main",
     "intl:release": "pnpm intl:pull && pnpm intl:extract:all",
     "nuke": "rm -rf ./node_modules && rm -rf ./ios && rm -rf ./android",
     "update-extensions": "bash scripts/updateExtensions.sh",
@@ -109,7 +109,7 @@
     "@bsky.app/expo-scroll-edge-effect": "^0.1.9",
     "@bsky.app/expo-translate-text": "^0.2.9",
     "@bsky.app/peek-menu": "^0.3.1",
-    "@bsky.app/react-native-uitextview": "^2.4.1",
+    "@bsky.app/react-native-uitextview": "^2.5.0",
     "@bsky.app/sift": "^0.3.9",
     "@bsky.app/tapper": "^0.6.1",
     "@bsky.app/video": "0.3.6",
@@ -251,7 +251,7 @@
     "setimmediate": "^1.0.5",
     "slugify": "^1.6.9",
     "sonner": "^2.0.7",
-    "sonner-native": "0.21.0",
+    "sonner-native": "0.26.4",
     "tippy.js": "^6.3.7",
     "tlds": "^1.234.0",
     "tldts": "^6.1.46",

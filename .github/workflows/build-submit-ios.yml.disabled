@@ -81,7 +81,7 @@ jobs:
       build-number: ${{ steps.ipa-build-number.outputs.build-number }}
     steps:
       - name: ⬇️ Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 5
 
@@ -218,7 +218,7 @@ jobs:
     needs: [build]
     steps:
       - name: ⬇️ Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # eas submit reads the app config from the repo
           fetch-depth: 5
@@ -253,22 +253,6 @@ jobs:
           payload-templated: true
           payload: |
             {"text": "iOS production build for App Store submission is ready!\n```Artifact: Check TestFlight to know when it is available\nVersion Number: ${{ needs.build.outputs.package-version }}\nBuild Number: ${{ needs.build.outputs.build-number }}```"}
-
-      # Record the commit only after a successful submit, so a failed submit doesn't advance
-      # the baseline used for the next testflight build's changelog.
-      - name: ⬇️ Restore Cache
-        id: get-base-commit
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        if: ${{ inputs.profile == 'testflight' }}
-        with:
-          path: most-recent-testflight-commit.txt
-          key: most-recent-testflight-commit
-
-      - name: ✏️ Write commit hash to cache
-        env:
-          GITHUB_SHA: ${{ github.sha }}
-        if: ${{ inputs.profile == 'testflight' }}
-        run: echo $GITHUB_SHA > most-recent-testflight-commit.txt
 
   distribute:
     name: Assign build to TestFlight group

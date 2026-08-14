@@ -103,6 +103,10 @@ export type Events = {
   }
   'signup:captchaSuccess': {}
   'signup:captchaFailure': {}
+  'signup:captchaBackPress': {}
+  'signup:createAccountFailure': {
+    reason: string
+  }
   'signup:fieldError': {
     field: string
     errorCount: number
@@ -745,6 +749,10 @@ export type Events = {
   }
   'trendingTopics:hide': {
     context: 'settings' | 'sidebar' | 'interstitial' | 'explore:trending'
+  }
+  'trendingTopic:seen': {
+    context: 'sidebar' | 'interstitial' | 'explore'
+    recId?: string
   }
   'trendingTopic:click': {
     context: 'sidebar' | 'interstitial' | 'explore'

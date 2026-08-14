@@ -5,10 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: cy_GB\n"
+"Language: cy\n"
 "Project-Id-Version: 49a8cb746fbc2ae5707392ee41ddec4c\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-24 15:42\n"
+"PO-Revision-Date: 2026-07-28 06:05\n"
 "Last-Translator: \n"
 "Language-Team: Welsh\n"
 "Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n == 3) ? 3 : ((n == 6) ? 4 : 5))));\n"
@@ -651,8 +651,8 @@ msgstr "{following} yn dilyn"
 
 #. '{postCount} {posts}', e.g., '1.2K posts'
 #. '{postCount} {posts}', e.g., '1.2K posts'
-#: src/components/interstitials/FeedTrendingTopics.tsx:204
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:148
+#: src/components/interstitials/FeedTrendingTopics.tsx:231
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:177
 msgid "{formattedPostCount} {postCount, plural, one {post} other {posts}}"
 msgstr ""
 
@@ -753,8 +753,8 @@ msgstr "Ymunodd {profileName} â Bluesky gan ddefnyddio pecyn cychwyn {timeAgoSt
 
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
-#: src/components/interstitials/FeedTrendingTopics.tsx:189
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:123
+#: src/components/interstitials/FeedTrendingTopics.tsx:216
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:152
 msgid "{rank}."
 msgstr "{rank}."
 
@@ -1438,7 +1438,6 @@ msgstr "alice@example.com"
 #. the default tab in the interests tab bar
 #: src/components/dms/ReactionsDialog.tsx:292
 #: src/screens/Onboarding/StepSuggestedAccounts/index.tsx:201
-#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:26
 #: src/view/screens/Notifications.tsx:86
 msgid "All"
 msgstr "Y Cyfan"
@@ -1459,9 +1458,6 @@ msgid "All friends followed!"
 msgstr "Pob ffrind yn cael eu dilyn!"
 
 #: src/components/dialogs/LanguageSelectDialog.tsx:255
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:65
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:94
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:96
 msgid "All languages"
 msgstr "Pob iaith"
 
@@ -1472,11 +1468,6 @@ msgstr "Bydd yr holl ieithoedd yn cael eu dangos yn eich ffrydiau."
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:245
 msgid "All of these words"
 msgstr "Pob un o'r geiriau hyn"
-
-#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:22
-#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:27
-msgid "All posts"
-msgstr "Pob postiad"
 
 #: src/view/screens/Feeds.tsx:700
 msgid "All the feeds you've saved, right in one place."
@@ -1542,7 +1533,7 @@ msgstr "Yn caniatáu mynediad i negeseuon uniongyrchol"
 msgid "Already have a code?"
 msgstr "Oes gennych chi god yn barod?"
 
-#: src/components/WelcomeModal.tsx:189
+#: src/components/WelcomeModal.tsx:187
 msgid "Already have an account?"
 msgstr "Oes gennych chi gyfrif yn barod?"
 
@@ -1749,8 +1740,6 @@ msgid "Any date"
 msgstr "Unrhyw ddyddiad"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
-#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:22
-#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:26
 msgid "Anyone"
 msgstr "Unrhyw un"
 
@@ -2001,6 +1990,11 @@ msgstr "Cwestiynnau Cyffredin Protocol AT"
 msgctxt "Name of app icon variant"
 msgid "Aurora"
 msgstr "Aurora"
+
+#. Filter search results by a specific post author
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:408
+msgid "Author"
+msgstr ""
 
 #: src/components/BotAccountAlert.tsx:32
 #: src/components/BotBadge.tsx:65
@@ -2408,20 +2402,20 @@ msgstr "Dewch â hyd at 50 o ffrindiau ynghyd mewn un sgwrs."
 msgid "Browse custom feeds"
 msgstr "Pori'r ffrydiau cyfaddas"
 
-#: src/components/FeedInterstitials.tsx:535
+#: src/components/FeedInterstitials.tsx:540
 msgid "Browse more accounts"
 msgstr "Porwch ragor o gyfrifon"
 
-#: src/components/FeedInterstitials.tsx:665
+#: src/components/FeedInterstitials.tsx:670
 msgid "Browse more feeds on the Explore page"
 msgstr "Porwch ragor o ffrydiau ar y dudalen Archwilio"
 
-#: src/components/FeedInterstitials.tsx:646
-#: src/components/FeedInterstitials.tsx:649
+#: src/components/FeedInterstitials.tsx:651
+#: src/components/FeedInterstitials.tsx:654
 msgid "Browse more suggestions"
 msgstr "Pori ragor o awgrymiadau"
 
-#: src/components/FeedInterstitials.tsx:674
+#: src/components/FeedInterstitials.tsx:679
 msgid "Browse more suggestions on the Explore page"
 msgstr "Porwch ragor o awgrymiadau ar y dudalen Archwilio"
 
@@ -2430,25 +2424,25 @@ msgstr "Porwch ragor o awgrymiadau ar y dudalen Archwilio"
 msgid "Browse other feeds"
 msgstr "Porwch ffrydiau eraill"
 
-#: src/components/TrendingTopics.tsx:58
+#: src/components/TrendingTopics.tsx:78
 msgid "Browse posts about {displayName}"
 msgstr "Porwch bostiadau am {displayName}"
 
-#: src/components/TrendingTopics.tsx:66
+#: src/components/TrendingTopics.tsx:86
 msgid "Browse posts tagged with {displayName}"
 msgstr "Porwch bostiadau sydd wedi'u tagio â {displayName}"
 
-#: src/components/TrendingTopics.tsx:75
+#: src/components/TrendingTopics.tsx:95
 msgid "Browse starter pack {displayName}"
 msgstr "Porwch becyn cychwyn {displayName}"
 
 #. placeholder {0}: trend.displayName
-#: src/components/interstitials/FeedTrendingTopics.tsx:156
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:104
+#: src/components/interstitials/FeedTrendingTopics.tsx:188
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:133
 msgid "Browse topic {0}"
 msgstr "Porwi pwnc {0}"
 
-#: src/components/TrendingTopics.tsx:112
+#: src/components/TrendingTopics.tsx:132
 msgid "Browse topic {displayName}"
 msgstr "Porwch bwnc {displayName}"
 
@@ -3103,7 +3097,7 @@ msgstr "Cau'r faner ceisiadau sy'n dod i mewn"
 msgid "Close this dialog"
 msgstr "Cau'r ddeialog hon"
 
-#: src/components/WelcomeModal.tsx:214
+#: src/components/WelcomeModal.tsx:212
 msgid "Close welcome modal"
 msgstr "Cau'r modal croeso"
 
@@ -3674,8 +3668,8 @@ msgstr "Crëwch Becyn Cychwyn"
 msgid "Create a starter pack for me"
 msgstr "Creu pecyn cychwyn i mi"
 
-#: src/components/WelcomeModal.tsx:155
-#: src/components/WelcomeModal.tsx:163
+#: src/components/WelcomeModal.tsx:153
+#: src/components/WelcomeModal.tsx:161
 #: src/screens/Messages/JoinRequest.tsx:310
 #: src/screens/Signup/index.tsx:139
 #: src/view/com/auth/SplashScreen.tsx:108
@@ -4169,11 +4163,11 @@ msgstr "Diystyru diddordebau"
 msgid "Dismiss live event banner"
 msgstr "Cau baner digwyddiad byw"
 
-#: src/components/interstitials/TrendingVideos.tsx:90
+#: src/components/interstitials/TrendingVideos.tsx:89
 msgid "Dismiss this section"
 msgstr "Cau'r adran hon"
 
-#: src/components/FeedInterstitials.tsx:349
+#: src/components/FeedInterstitials.tsx:351
 msgid "Dismiss this suggestion"
 msgstr "Cau'r awgrym hwn"
 
@@ -4719,7 +4713,7 @@ msgstr "Rhowch eich enw defnyddiwr a chyfrinair"
 msgid "Enters full screen"
 msgstr "Yn mynd i'r sgrin lawn"
 
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:202
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:231
 msgid "Entertainment"
 msgstr "Adloniant"
 
@@ -4883,8 +4877,8 @@ msgstr "Delweddau di-noethol amlwg."
 msgid "Explore"
 msgstr "Darganfod"
 
-#: src/components/WelcomeModal.tsx:168
-#: src/components/WelcomeModal.tsx:177
+#: src/components/WelcomeModal.tsx:166
+#: src/components/WelcomeModal.tsx:175
 msgid "Explore the app"
 msgstr "Archwilio'r ap"
 
@@ -5367,33 +5361,21 @@ msgstr "Estyn diweddariad"
 msgid "File saved successfully!"
 msgstr "Ffeil wedi'i chadw'n llwyddiannus!"
 
-#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:49
-msgid "Filter by author"
-msgstr "Hidlo yn ôl awdur"
-
-#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:30
+#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:31
 msgid "Filter by author (currently: {currentLabel})"
 msgstr "Hidlo yn ôl awdur ({currentLabel} - ar hyn o bryd)"
-
-#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:50
-msgid "Filter by media"
-msgstr "Hidlo yn ôl cyfryngau"
-
-#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:31
-msgid "Filter by media (currently: {currentLabel})"
-msgstr "Hidlo yn ôl cyfryngau ({currentLabel} - ar hyn o bryd)"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:69
 msgid "Filter from feeds"
 msgstr "Hidlo o ffrydiau"
 
-#: src/screens/Search/components/SearchLanguageDropdown.tsx:92
-msgid "Filter search by language"
-msgstr "Hidlo'r chwiliad yn ôl iaith"
-
 #: src/screens/Search/components/SearchLanguageDropdown.tsx:70
 msgid "Filter search by language (currently: {currentLanguageLabel})"
 msgstr "Hidlo chwiliad yn ôl iaith ( {currentLanguageLabel} - ar hyn o bryd)"
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:32
+msgid "Filter search by media (currently: {currentLabel})"
+msgstr ""
 
 #. placeholder {0}: lang.name
 #: src/screens/Search/components/DetectedLanguagesAdmonition.tsx:88
@@ -5760,9 +5742,7 @@ msgstr "Pedwar swigen neges yn cynrychioli sgwrs grŵp. Neges gyntaf: \"Glywsoch
 msgid "Free your feed"
 msgstr "Ryddhewch eich ffrwd"
 
-#. Filter search results by a specific post author
 #. Filter who you receive notifications from
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:408
 #: src/screens/Settings/NotificationSettings/components/PreferenceControls.tsx:159
 msgid "From"
 msgstr "Oddi wrth"
@@ -6252,8 +6232,8 @@ msgstr "Helo 'na!"
 msgid "Hi there!"
 msgstr "Helo 'na!"
 
-#: src/components/VideoPostCard.tsx:178
-#: src/components/VideoPostCard.tsx:462
+#: src/components/VideoPostCard.tsx:176
+#: src/components/VideoPostCard.tsx:459
 msgid "Hidden"
 msgstr "Cuddiedig"
 
@@ -6265,8 +6245,9 @@ msgstr "Wedi'i guddio gan eich gosodiadau cymedroli."
 msgid "Hidden list"
 msgstr "Rhestr gudd"
 
-#: src/components/interstitials/Trending.tsx:143
-#: src/components/interstitials/TrendingVideos.tsx:139
+#: src/components/interstitials/FeedTrendingTopics.tsx:156
+#: src/components/interstitials/Trending.tsx:144
+#: src/components/interstitials/TrendingVideos.tsx:138
 #: src/components/moderation/ContentHider.tsx:217
 #: src/components/moderation/LabelPreference.tsx:141
 #: src/components/moderation/PostHider.tsx:140
@@ -6275,7 +6256,8 @@ msgstr "Rhestr gudd"
 #: src/lib/moderation/useLabelBehaviorDescription.ts:23
 #: src/lib/moderation/useLabelBehaviorDescription.ts:28
 #: src/lib/moderation/useLabelBehaviorDescription.ts:33
-#: src/view/shell/desktop/SidebarTrendingTopics.tsx:137
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:90
+#: src/view/shell/desktop/SidebarTrendingTopics.tsx:139
 msgid "Hide"
 msgstr "Cuddio"
 
@@ -6359,16 +6341,18 @@ msgstr "Cuddio'r ateb hwn?"
 msgid "Hide translation"
 msgstr "Cuddio'r cyfieithiad"
 
-#: src/components/interstitials/Trending.tsx:125
+#: src/components/interstitials/Trending.tsx:126
 msgid "Hide trending topics"
 msgstr "Cuddio pynciau sy'n trendio"
 
-#: src/components/interstitials/Trending.tsx:141
-#: src/view/shell/desktop/SidebarTrendingTopics.tsx:135
+#: src/components/interstitials/FeedTrendingTopics.tsx:154
+#: src/components/interstitials/Trending.tsx:142
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:88
+#: src/view/shell/desktop/SidebarTrendingTopics.tsx:137
 msgid "Hide trending topics?"
 msgstr "Cuddio pynciau sy'n trendio?"
 
-#: src/components/interstitials/TrendingVideos.tsx:137
+#: src/components/interstitials/TrendingVideos.tsx:136
 msgid "Hide trending videos?"
 msgstr "Cuddio fideos sy'n trendio?"
 
@@ -6698,12 +6682,10 @@ msgstr "Dim yn y blwch derbyn!"
 #. Advanced search filter
 #. Advanced search filter
 #. Advanced search filter
-#. Include search results with or without replies
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:47
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:58
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:75
 #: src/screens/Search/components/AdvancedSearchDialog/FilterBlock.tsx:81
-#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:392
 msgid "Include"
 msgstr "Cynnwys"
 
@@ -6712,7 +6694,7 @@ msgstr "Cynnwys"
 msgid "Include or exclude matching posts (currently: {0})"
 msgstr "Cynnwys neu beidio cynnwys postiadau tebyg: (cyfredol: {0})"
 
-#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:31
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:32
 msgid "Include posts and/or replies (currently: {currentLabel})"
 msgstr "Cynnwys postiadau a/neu atebion (cyfredol: {currentLabel})"
 
@@ -6725,10 +6707,6 @@ msgstr "Cynnwys postiadau ers y dyddiad yma"
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:329
 msgid "Include posts made until this date"
 msgstr "Cynnwys postiadau hyd y dyddiad yma"
-
-#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:50
-msgid "Include these results"
-msgstr "Cynnwys y canlyniadau yma"
 
 #: src/screens/Login/LoginForm.tsx:165
 msgid "Incorrect username or password"
@@ -6830,7 +6808,7 @@ msgstr "Gwahodd {name} i ymuno â Bluesky"
 msgid "Invite code"
 msgstr "Cod gwahodd"
 
-#: src/screens/Signup/state.ts:347
+#: src/screens/Signup/state.ts:363
 msgid "Invite code not accepted. Check that you input it correctly and try again."
 msgstr "Heb dderbyn y cod gwahoddiad. Gwiriwch eich bod yn ei fewnbynnu'n gywir a cheisiwch eto."
 
@@ -8235,7 +8213,7 @@ msgid "Newest replies first"
 msgstr "Atebion diweddaraf yn gyntaf"
 
 #: src/lib/interests.ts:67
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:204
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:233
 msgid "News"
 msgstr "Newyddion"
 
@@ -8274,6 +8252,11 @@ msgstr "Dim hysbysebion, dim tracio ymwthiol, dim maglau ymgysylltu. Mae Bluesky
 #: src/screens/Settings/AppPasswords.tsx:108
 msgid "No app passwords yet"
 msgstr "Dim cyfrineiriau apiau eto"
+
+#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/FromDropdown.tsx:27
+msgid "No author filter"
+msgstr ""
 
 #: src/screens/Settings/BetaFeaturesSettings.tsx:177
 msgid "No beta features at the moment."
@@ -8326,6 +8309,12 @@ msgstr "Dim GIF i'w ddangos ar hyn o bryd. Ceisiwch eto."
 msgid "No image"
 msgstr "Dim delwedd"
 
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:65
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:91
+#: src/screens/Search/components/SearchLanguageDropdown.tsx:93
+msgid "No language filter"
+msgstr ""
+
 #: src/components/LikedByList.tsx:84
 #: src/view/com/post-thread/PostLikedBy.tsx:84
 #: src/view/screens/Profile.tsx:539
@@ -8348,6 +8337,11 @@ msgstr ""
 #: src/view/com/notifications/NotificationFeedItem.tsx:813
 msgid "No longer following {0}"
 msgstr "Dim yn dilyn {0} bellach"
+
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:27
+msgid "No media filter"
+msgstr ""
 
 #: src/view/screens/Profile.tsx:485
 msgid "No media yet"
@@ -8394,8 +8388,9 @@ msgstr "Gall neb ond yr awdur ddyfynnu'r postiad hon."
 msgid "No one can send messages"
 msgstr "Gall neb anfon negeseuon"
 
-#: src/lib/hooks/useUpdateWidgets.ts:76
-msgid "No pinned feeds yet"
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:22
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:27
+msgid "No post filter"
 msgstr ""
 
 #: src/screens/Notifications/ActivityList.tsx:43
@@ -8415,10 +8410,6 @@ msgstr "Dim dyfyniadau eto"
 #: src/features/gifPicker/components/GifPickerPlaceholder.tsx:31
 msgid "No recent GIFs yet. Pick one to see it here."
 msgstr "Dim GIFau diweddar eto. Dewiswch un i'w weld yma."
-
-#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:23
-msgid "No replies"
-msgstr "Dim atebion"
 
 #: src/view/screens/Profile.tsx:470
 msgid "No replies yet"
@@ -8733,6 +8724,10 @@ msgstr "Dim ond pobl mae {0} yn eu dilyn sy'n gallu ymuno."
 #: src/components/intents/GroupChatJoinDialog.tsx:306
 msgid "Only people the chat owner follows can join"
 msgstr "Dim ond pobl mae perchennog y sgwrs yn eu dilyn all ymuno"
+
+#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:23
+msgid "Only posts"
+msgstr ""
 
 #: src/screens/Search/components/AdvancedSearchDialog/MediaDropdown.tsx:23
 msgid "Only posts with media"
@@ -9377,11 +9372,11 @@ msgstr "Ychwanegwch unrhyw labeli rhybudd cynnwys sy'n berthnasol i'r cyfryngau 
 msgid "Please check your email inbox for further instructions. It may take a minute or two to arrive."
 msgstr "Gwiriwch eich blwch derbyn e-byst am gyfarwyddiadau pellach. Gall gymryd munud neu ddwy i gyrraedd."
 
-#: src/screens/Signup/state.ts:294
+#: src/screens/Signup/state.ts:313
 msgid "Please choose your handle."
 msgstr "Dewiswch eich enw dangos."
 
-#: src/screens/Signup/state.ts:286
+#: src/screens/Signup/state.ts:305
 #: src/screens/Signup/StepInfo/index.tsx:149
 msgid "Please choose your password."
 msgstr "Dewiswch eich cyfrinair."
@@ -9390,7 +9385,7 @@ msgstr "Dewiswch eich cyfrinair."
 msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of Bluesky."
 msgstr "Cliciwch ar y ddolen yn yr e-bost a anfonwyd atoch i wirio'ch cyfeiriad e-bost newydd. Mae hwn yn gam pwysig i ganiatáu i chi barhau i fwynhau holl nodweddion Bluesky."
 
-#: src/screens/Signup/state.ts:309
+#: src/screens/Signup/state.ts:325
 msgid "Please complete the verification captcha."
 msgstr "Cwblhewch y captcha dilysu."
 
@@ -9447,7 +9442,7 @@ msgstr "Rhowch y cod rydych wedi'i dderbyn a'r cyfrinair hoffech chi ei ddefnydd
 msgid "Please enter the security code we sent to your previous email address."
 msgstr "Rhowch y cod diogelwch a anfonwyd gennym at eich cyfeiriad e-bost blaenorol."
 
-#: src/screens/Signup/state.ts:270
+#: src/screens/Signup/state.ts:289
 #: src/screens/Signup/StepInfo/index.tsx:122
 msgid "Please enter your email."
 msgstr "Rhowch eich e-bost."
@@ -9529,7 +9524,7 @@ msgid "Please write your message below:"
 msgstr "Ysgrifennwch eich neges isod:"
 
 #: src/lib/interests.ts:70
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:198
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:227
 msgid "Politics"
 msgstr "Gwleidyddiaeth"
 
@@ -9642,6 +9637,11 @@ msgctxt "toast"
 msgid "Post pinned"
 msgstr "Postiad wedi'i binio"
 
+#. Include search results with or without replies
+#: src/screens/Search/components/AdvancedSearchDialog/index.tsx:392
+msgid "Post type"
+msgstr ""
+
 #: src/state/queries/pinned-post.ts:61
 msgctxt "toast"
 msgid "Post unpinned"
@@ -9655,10 +9655,6 @@ msgstr "Postiad wedi ei ddadbinio"
 #: src/view/screens/Profile.tsx:236
 msgid "Posts"
 msgstr "Postiadau"
-
-#: src/screens/Search/components/AdvancedSearchDialog/RepliesDropdown.tsx:22
-msgid "Posts and replies"
-msgstr "Postiadau ac atebion"
 
 #: src/components/dialogs/MutedWords.tsx:123
 msgid "Posts can be muted based on their text, their tags, or both. We recommend avoiding common words that appear in many posts, since it can result in no posts being shown."
@@ -9965,11 +9961,11 @@ msgstr "Darllenwch Bolisi Preifatrwydd Bluesky"
 msgid "Read the Bluesky Terms of Service"
 msgstr "Darllenwch Delerau Gwasanaeth Bluesky"
 
-#: src/components/WelcomeModal.tsx:146
+#: src/components/WelcomeModal.tsx:144
 msgid "Real conversations."
 msgstr "Sgyrsiau go-iawn."
 
-#: src/components/WelcomeModal.tsx:144
+#: src/components/WelcomeModal.tsx:142
 msgid "Real people."
 msgstr "Pobl go-iawn."
 
@@ -11007,17 +11003,17 @@ msgstr "Gweld #{tag} postiad yn ôl defnyddiwr"
 msgid "See jobs at Bluesky"
 msgstr "Gweld swyddi yn Bluesky"
 
-#: src/components/FeedInterstitials.tsx:491
-#: src/components/FeedInterstitials.tsx:549
-#: src/components/interstitials/FeedTrendingTopics.tsx:96
+#: src/components/FeedInterstitials.tsx:495
+#: src/components/FeedInterstitials.tsx:554
+#: src/components/interstitials/FeedTrendingTopics.tsx:106
 msgid "See more"
 msgstr "Gweld rhagor"
 
-#: src/components/FeedInterstitials.tsx:472
+#: src/components/FeedInterstitials.tsx:475
 msgid "See more suggested profiles"
 msgstr "Gweld rhagor o broffiliau diddorol"
 
-#: src/components/interstitials/FeedTrendingTopics.tsx:82
+#: src/components/interstitials/FeedTrendingTopics.tsx:92
 msgid "See more trending topics"
 msgstr ""
 
@@ -11699,8 +11695,8 @@ msgstr ""
 
 #: src/components/dialogs/Signin.tsx:98
 #: src/components/dialogs/Signin.tsx:100
-#: src/components/WelcomeModal.tsx:194
-#: src/components/WelcomeModal.tsx:206
+#: src/components/WelcomeModal.tsx:193
+#: src/components/WelcomeModal.tsx:204
 #: src/screens/Hashtag.tsx:231
 #: src/screens/Login/index.tsx:143
 #: src/screens/Login/index.tsx:165
@@ -11850,7 +11846,7 @@ msgstr "Yn tewi'r nodyn atgoffa"
 msgid "So many thoughts, you should post one"
 msgstr "Gymaint o syniadau, dylech chi bostio un"
 
-#: src/components/WelcomeModal.tsx:148
+#: src/components/WelcomeModal.tsx:146
 msgid "Social media you control."
 msgstr "Y cyfrwng cymdeithasol rydych chi'n ei reoli."
 
@@ -11871,7 +11867,7 @@ msgstr "Dyw rhai gwasanaethau cymedroli sydd ar eich rhestr ddim ar gael bellach
 msgid "Some of your verifications are invalid."
 msgstr "Mae rhai o'ch dilysiadau'n annilys."
 
-#: src/components/FeedInterstitials.tsx:628
+#: src/components/FeedInterstitials.tsx:633
 msgid "Some other feeds you might like"
 msgstr "Rhai ffrydiau eraill efallai y byddwch yn eu hoffi"
 
@@ -12005,7 +12001,7 @@ msgid "Spam or other inauthentic behavior or deception"
 msgstr "Sbam neu ymddygiad annilys neu dwyllodrus"
 
 #: src/lib/interests.ts:72
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:196
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:225
 msgid "Sports"
 msgstr "Chwaraeon"
 
@@ -12218,7 +12214,7 @@ msgid "Suggested accounts"
 msgstr "Cyfrifon wedi'u hawgrymu"
 
 #. Accounts suggested to the user for them to follow
-#: src/components/FeedInterstitials.tsx:469
+#: src/components/FeedInterstitials.tsx:472
 #: src/screens/Onboarding/StepSuggestedAccounts/index.tsx:182
 msgid "Suggested for you"
 msgstr "Awgrymiadau i chi"
@@ -12650,7 +12646,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "Bu anhawster wrth geisio cael hysbysiadau. Tapiwch yma i geisio eto."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:822
+#: src/view/com/posts/PostFeed.tsx:826
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "Bu anhawster wrth nôl postiadau. Tapiwch yma i geisio eto."
 
@@ -13265,8 +13261,8 @@ msgstr "Dyw cyfieithu i'r un iaith ddim ar gael ar eich dyfais."
 msgid "Tree view"
 msgstr "Golwg coeden"
 
-#: src/components/interstitials/FeedTrendingTopics.tsx:79
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:50
+#: src/components/interstitials/FeedTrendingTopics.tsx:88
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:59
 #: src/view/shell/desktop/SidebarTrendingTopics.tsx:54
 msgid "Trending"
 msgstr "Yn Trendio"
@@ -13276,13 +13272,15 @@ msgstr "Yn Trendio"
 msgid "Trending GIFs"
 msgstr "GIFau sy'n trendio"
 
+#: src/components/interstitials/FeedTrendingTopics.tsx:115
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:62
 #: src/view/shell/desktop/SidebarTrendingTopics.tsx:61
 msgid "Trending options"
 msgstr "Dewisiadau sy'n trendio"
 
-#: src/components/interstitials/TrendingVideos.tsx:87
-msgid "Trending Videos"
-msgstr "Fideos yn Trendio"
+#: src/components/interstitials/TrendingVideos.tsx:86
+msgid "Trending videos"
+msgstr ""
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:103
 msgid "Trolling"
@@ -14031,7 +14029,7 @@ msgid "Video Feed"
 msgstr "Ffrwd Fideo"
 
 #. placeholder {0}: author.handle
-#: src/components/VideoPostCard.tsx:122
+#: src/components/VideoPostCard.tsx:121
 msgid "Video from {0}: {text}"
 msgstr "Fideo gan {0}: {text}"
 
@@ -14041,7 +14039,7 @@ msgid "Video from {0}. Tap to play or pause the video"
 msgstr "Fideo gan {0}. Tapio i chwarae neu oedi'r fideo"
 
 #: src/lib/interests.ts:62
-#: src/screens/Search/modules/ExploreTrendingTopics.tsx:200
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:229
 msgid "Video Games"
 msgstr "Gemau Fideo"
 
@@ -14162,14 +14160,14 @@ msgstr "Gweld ceisiadau sy'n dod i mewn i ymuno â'r sgwrs grŵp hon"
 msgid "View information about these labels"
 msgstr "Gweld gwybodaeth am y labeli hyn"
 
-#: src/components/interstitials/TrendingVideos.tsx:200
-#: src/components/interstitials/TrendingVideos.tsx:222
+#: src/components/interstitials/TrendingVideos.tsx:199
+#: src/components/interstitials/TrendingVideos.tsx:221
 #: src/screens/Search/modules/ExploreTrendingVideos.tsx:191
 #: src/screens/Search/modules/ExploreTrendingVideos.tsx:210
 msgid "View more"
 msgstr "Gweld mwy"
 
-#: src/components/interstitials/TrendingVideos.tsx:228
+#: src/components/interstitials/TrendingVideos.tsx:227
 msgid "View more trending videos"
 msgstr "Edrychwch ar ragor o fideos sy'n trendio"
 
@@ -14218,7 +14216,7 @@ msgstr "Gweld dilysiadau'r defnyddiwr hwn"
 msgid "View users who like this feed"
 msgstr "Gweld defnyddwyr sy'n hoffi'r ffrwd hon"
 
-#: src/components/VideoPostCard.tsx:401
+#: src/components/VideoPostCard.tsx:398
 msgid "View video"
 msgstr "Gweld fideo"
 
@@ -14252,7 +14250,7 @@ msgstr "Gweld eich dilysiadau"
 msgid "Views full image"
 msgstr "Yn gweld delwedd lawn"
 
-#: src/components/VideoPostCard.tsx:121
+#: src/components/VideoPostCard.tsx:120
 msgid "Views video in immersive mode"
 msgstr "Yn gweld fideo yn y modd trochi"
 
@@ -14868,9 +14866,11 @@ msgstr "Gallwch ddarllen hanes sgwrs ond ddim anfon negeseuon newydd."
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Gallwch ddewis hyd at {MAX_GALLERY_IMAGES, plural, zero {# delweddau} one {# ddelwedd} two {# ddelwedd} few {# delwedd} many {# delwedd} other {# delwedd}} i gyd."
 
-#: src/components/interstitials/Trending.tsx:142
-#: src/components/interstitials/TrendingVideos.tsx:138
-#: src/view/shell/desktop/SidebarTrendingTopics.tsx:136
+#: src/components/interstitials/FeedTrendingTopics.tsx:155
+#: src/components/interstitials/Trending.tsx:143
+#: src/components/interstitials/TrendingVideos.tsx:137
+#: src/screens/Search/modules/ExploreTrendingTopics.tsx:89
+#: src/view/shell/desktop/SidebarTrendingTopics.tsx:138
 msgid "You can update this later from your settings."
 msgstr "Gallwch ddiweddaru hwn yn ddiweddarach o'ch gosodiadau."
 
@@ -15326,7 +15326,7 @@ msgstr "Eich e-bost"
 
 #: src/screens/Login/ForgotPasswordForm.tsx:51
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:82
-#: src/screens/Signup/state.ts:278
+#: src/screens/Signup/state.ts:297
 #: src/screens/Signup/StepInfo/index.tsx:129
 msgid "Your email appears to be invalid."
 msgstr "Mae'n ymddangos bod eich e-bost yn annilys."
