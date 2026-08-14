@@ -1,4 +1,12 @@
-import {memo, useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {
   ActivityIndicator,
   AppState,
@@ -17,6 +25,7 @@ import {
   AppBskyEmbedImages,
   AppBskyEmbedVideo,
   type AppBskyFeedDefs,
+  type RichText as RichTextType,
 } from '@atproto/api'
 import {useLingui} from '@lingui/react/macro'
 import {useQueryClient} from '@tanstack/react-query'
@@ -51,7 +60,7 @@ import {List, type ListRef} from '#/view/com/util/List'
 import {PostFeedLoadingPlaceholder} from '#/view/com/util/LoadingPlaceholder'
 import {LoadMoreRetryBtn} from '#/view/com/util/LoadMoreRetryBtn'
 import {type VideoFeedSourceContext} from '#/screens/VideoFeed/types'
-import {useBreakpoints, useLayoutBreakpoints} from '#/alf'
+import {atoms as a, useBreakpoints, useLayoutBreakpoints, useTheme} from '#/alf'
 import {
   AgeAssuranceDismissibleFeedBanner,
   useInternalState as useAgeAssuranceBannerState,
@@ -61,9 +70,11 @@ import {
   PostFeedVideoGridRow,
   PostFeedVideoGridRowPlaceholder,
 } from '#/components/feeds/PostFeedVideoGridRow'
+import {FeedTrendingTopicsInterstitial} from '#/components/interstitials/FeedTrendingTopics'
 import {TrendingInterstitial} from '#/components/interstitials/Trending'
 import {TrendingVideos as TrendingVideosInterstitial} from '#/components/interstitials/TrendingVideos'
 import {isStandardSiteEmbed} from '#/components/Post/Embed/StandardSiteEmbed/utils'
+import {RichText} from '#/components/RichText'
 import {useAnalytics} from '#/analytics'
 import {IS_IOS, IS_NATIVE, IS_WEB} from '#/env'
 import {DiscoverFeedLiveEventFeedsAndTrendingBanner} from '#/features/liveEvents/components/DiscoverFeedLiveEventFeedsAndTrendingBanner'
@@ -106,6 +117,11 @@ type FeedRow =
       key: string
     }
   | {
+      type: 'description'
+      key: string
+      value: RichTextType
+    }
+  | {
       type: 'sliceItem'
       key: string
       slice: FeedPostSlice
@@ -139,6 +155,10 @@ type FeedRow =
     }
   | {
       type: 'interstitialTrending'
+      key: string
+    }
+  | {
+      type: 'interstitialFeedTrendingTopics'
       key: string
     }
   | {
@@ -184,12 +204,21 @@ export function getItemsForFeedback(feedRow: FeedRow): {
   }
 }
 
+export type PostFeedRef = {
+  refreshFeed: () => Promise<void>
+}
+
 // DISABLED need to check if this is causing random feed refreshes -prf
 // const REFRESH_AFTER = STALE.HOURS.ONE
 const CHECK_LATEST_AFTER = STALE.SECONDS.THIRTY
 
+const TRENDING_TOPICS_INDEX = 5
+const TRENDING_VIDEO_INDEX = 30
+const SUGGESTED_FOR_YOU_INDEX = 15
+
 let PostFeed = ({
   feed,
+  description,
   feedParams,
   ignoreFilterFor,
   style,
@@ -210,8 +239,10 @@ let PostFeed = ({
   savedFeedConfig,
   initialNumToRender: initialNumToRenderOverride,
   isVideoFeed = false,
+  ref,
 }: {
   feed: FeedDescriptor
+  description?: RichTextType
   feedParams?: FeedParams
   ignoreFilterFor?: string
   style?: StyleProp<ViewStyle>
@@ -228,13 +259,15 @@ let PostFeed = ({
   progressViewOffset?: number
   desktopFixedHeightOffset?: number
   ListHeaderComponent?: () => React.ReactElement
-  extraData?: any
+  extraData?: Record<string, unknown>
   savedFeedConfig?: AppBskyActorDefs.SavedFeed
   initialNumToRender?: number
   isVideoFeed?: boolean
   lastFetchDate?: () => number
+  ref?: React.Ref<PostFeedRef>
 }): React.ReactNode => {
   const ax = useAnalytics()
+  const t = useTheme()
   const {t: l} = useLingui()
   const queryClient = useQueryClient()
   const {currentAccount, hasSession} = useSession()
@@ -385,6 +418,7 @@ let PostFeed = ({
    * Cached value of whether the current feed was selected at startup. We don't
    * want this to update when user swipes.
    */
+  // oxlint-disable-next-line react/hook-use-state
   const [isCurrentFeedAtStartupSelected] = useState(selectedFeed === feed)
 
   const blockedOrMutedAuthors = usePostAuthorShadowFilter(
@@ -541,14 +575,19 @@ let PostFeed = ({
                         key: 'composerPrompt-' + sliceIndex,
                       })
                     }
-                  } else if (sliceIndex === 15) {
+                  } else if (sliceIndex === TRENDING_TOPICS_INDEX) {
+                    arr.push({
+                      type: 'interstitialFeedTrendingTopics',
+                      key: 'interstitialFeedTrendingTopics-' + sliceIndex,
+                    })
+                  } else if (sliceIndex === TRENDING_VIDEO_INDEX) {
                     if (areVideoFeedsEnabled && !trendingVideoDisabled) {
                       arr.push({
                         type: 'interstitialTrendingVideos',
                         key: 'interstitial-' + sliceIndex + '-' + lastFetchedAt,
                       })
                     }
-                  } else if (sliceIndex === 30) {
+                  } else if (sliceIndex === SUGGESTED_FOR_YOU_INDEX) {
                     arr.push({
                       type: 'interstitialFollows',
                       key: 'interstitial-' + sliceIndex + '-' + lastFetchedAt,
@@ -671,8 +710,17 @@ let PostFeed = ({
       }
     }
 
+    if (description?.text) {
+      arr.unshift({
+        key: 'description',
+        type: 'description',
+        value: description,
+      })
+    }
+
     return arr
   }, [
+    description,
     isFetched,
     isError,
     isEmpty,
@@ -696,8 +744,9 @@ let PostFeed = ({
 
   // events
   // =
+  //
 
-  const onRefresh = useCallback(async () => {
+  const refreshFeed = async () => {
     if (!enabled) return
 
     ax.metric('feed:refresh', {
@@ -705,24 +754,23 @@ let PostFeed = ({
       feedUrl: feed,
       reason: 'pull-to-refresh',
     })
-    setIsPTRing(true)
     try {
       await truncateAndInvalidate(queryClient, RQKEY(feed, feedParams))
       onHasNew?.(false)
     } catch (err) {
       logger.error('Failed to refresh posts feed', {message: err})
     }
+  }
+
+  const onRefresh = async () => {
+    setIsPTRing(true)
+    await refreshFeed()
     setIsPTRing(false)
-  }, [
-    ax,
-    queryClient,
-    setIsPTRing,
-    onHasNew,
-    feed,
-    feedParams,
-    feedType,
-    enabled,
-  ])
+  }
+
+  useImperativeHandle(ref, () => ({
+    refreshFeed,
+  }))
 
   const onEndReached = useCallback(async () => {
     if (isFetching || !hasNextPage || isError) return
@@ -786,6 +834,18 @@ let PostFeed = ({
         return <PostFeedLoadingPlaceholder />
       } else if (row.type === 'feedShutdownMsg') {
         return <FeedShutdownMsg feedUri={feedUriOrActorDid} />
+      } else if (row.type === 'description') {
+        return (
+          <RichText
+            value={row.value}
+            style={[
+              a.m_md,
+              a.text_md,
+              a.leading_snug,
+              t.atoms.text_contrast_high,
+            ]}
+          />
+        )
       } else if (row.type === 'interstitialFollows') {
         return <SuggestedFollows feed={feed} />
       } else if (row.type === 'interstitialProgressGuide') {
@@ -794,6 +854,8 @@ let PostFeed = ({
         return <AgeAssuranceDismissibleFeedBanner />
       } else if (row.type === 'interstitialTrending') {
         return <TrendingInterstitial />
+      } else if (row.type === 'interstitialFeedTrendingTopics') {
+        return <FeedTrendingTopicsInterstitial />
       } else if (row.type === 'liveEventFeedsAndTrendingBanner') {
         return <DiscoverFeedLiveEventFeedsAndTrendingBanner />
       } else if (row.type === 'composerPrompt') {
@@ -885,6 +947,7 @@ let PostFeed = ({
       feedCacheKey,
       onPressShowLess,
       hideComposerPrompt,
+      t,
     ],
   )
 
