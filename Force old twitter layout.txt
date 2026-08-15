@@ -1,0 +1,1 @@
+javascript:(function(){var k='stf_changes',o={};try{o=JSON.parse(localStorage.getItem(k))||{}}catch(e){}o.responsive_web_profile_redesign_enabled={value:false};o.rweb_media_carousel_enabled={value:false};localStorage.setItem(k,JSON.stringify(o));location.reload();})()
