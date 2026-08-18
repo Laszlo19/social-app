@@ -124,6 +124,19 @@ export function LINK_META_PROXY(_serviceUrl: string) {
 
 export const STATUS_PAGE_URL = 'https://status.bsky.app/'
 
+/*
+ * Fork localization project. The translation project is hosted on Crowdin
+ * Enterprise (contributors need a Crowdin account and to be granted access),
+ * with coordination in a community-run (unofficial) Discord.
+ *
+ * TODO: replace these placeholders with the real URLs before release. Set
+ * LOCALIZATION_GUIDE_URL to '' to hide the optional "how it works" link.
+ */
+export const LOCALIZATION_CROWDIN_URL =
+  'https://example.crowdin.com/your-project'
+export const LOCALIZATION_DISCORD_URL = 'https://discord.gg/your-invite'
+export const LOCALIZATION_GUIDE_URL = ''
+
 // Hitslop constants
 export const createHitslop = (size: number): Insets => ({
   top: size,
