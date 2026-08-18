@@ -65,6 +65,10 @@ import {
   AgeAssuranceDismissibleFeedBanner,
   useInternalState as useAgeAssuranceBannerState,
 } from '#/components/ageAssurance/AgeAssuranceDismissibleFeedBanner'
+import {
+  LocalizationHelpBanner,
+  useInternalState as useLocalizationBannerState,
+} from '#/components/localization/LocalizationHelpBanner'
 import {ProgressGuide, SuggestedFollows} from '#/components/FeedInterstitials'
 import {
   PostFeedVideoGridRow,
@@ -175,6 +179,10 @@ type FeedRow =
     }
   | {
       type: 'composerPrompt'
+      key: string
+    }
+  | {
+      type: 'localizationBanner'
       key: string
     }
   | {
@@ -413,6 +421,7 @@ let PostFeed = ({
   const {trendingVideoDisabled} = useTrendingSettings()
 
   const ageAssuranceBannerState = useAgeAssuranceBannerState()
+  const localizationBannerState = useLocalizationBannerState()
   const selectedFeed = useSelectedFeed()
   /**
    * Cached value of whether the current feed was selected at startup. We don't
@@ -575,6 +584,12 @@ let PostFeed = ({
                         key: 'composerPrompt-' + sliceIndex,
                       })
                     }
+                    if (localizationBannerState.visible) {
+                      arr.push({
+                        type: 'localizationBanner',
+                        key: 'localizationBanner-' + sliceIndex,
+                      })
+                    }
                   } else if (sliceIndex === TRENDING_TOPICS_INDEX) {
                     arr.push({
                       type: 'interstitialFeedTrendingTopics',
@@ -600,6 +615,12 @@ let PostFeed = ({
                       arr.push({
                         type: 'composerPrompt',
                         key: 'composerPrompt-' + sliceIndex,
+                      })
+                    }
+                    if (localizationBannerState.visible) {
+                      arr.push({
+                        type: 'localizationBanner',
+                        key: 'localizationBanner-' + sliceIndex,
                       })
                     }
                   }
@@ -738,6 +759,7 @@ let PostFeed = ({
     areVideoFeedsEnabled,
     hasPressedShowLessUris,
     ageAssuranceBannerState,
+    localizationBannerState,
     isCurrentFeedAtStartupSelected,
     blockedOrMutedAuthors,
   ])
@@ -852,6 +874,8 @@ let PostFeed = ({
         return <ProgressGuide />
       } else if (row.type === 'ageAssuranceBanner') {
         return <AgeAssuranceDismissibleFeedBanner />
+      } else if (row.type === 'localizationBanner') {
+        return <LocalizationHelpBanner />
       } else if (row.type === 'interstitialTrending') {
         return <TrendingInterstitial />
       } else if (row.type === 'interstitialFeedTrendingTopics') {

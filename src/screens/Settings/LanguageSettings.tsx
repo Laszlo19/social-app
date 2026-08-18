@@ -17,7 +17,9 @@ import {Button} from '#/components/Button'
 import {useDialogControl} from '#/components/Dialog'
 import {LanguageSelectDialog} from '#/components/dialogs/LanguageSelectDialog'
 import * as Toggle from '#/components/forms/Toggle'
+import {Earth_Stroke2_Corner2_Rounded as GlobeIcon} from '#/components/icons/Globe'
 import {PlusLarge_Stroke2_Corner0_Rounded as PlusIcon} from '#/components/icons/Plus'
+import {LocalizationHelpDialog} from '#/components/localization/LocalizationHelpDialog'
 import * as Layout from '#/components/Layout'
 import * as Select from '#/components/Select'
 import {Text} from '#/components/Typography'
@@ -52,6 +54,7 @@ export function LanguageSettingsScreen({}: Props) {
   )
 
   const contentLanguagePrefsControl = useDialogControl()
+  const localizationHelpControl = useDialogControl()
 
   const onChangePrimaryLanguage = useCallback(
     (value: string) => {
@@ -247,8 +250,21 @@ export function LanguageSettingsScreen({}: Props) {
               />
             </View>
           </SettingsList.Group>
+
+          <SettingsList.Divider />
+
+          <SettingsList.PressableItem
+            label={_(msg`Help translate the app`)}
+            onPress={() => localizationHelpControl.open()}>
+            <SettingsList.ItemIcon icon={GlobeIcon} />
+            <SettingsList.ItemText>
+              <Trans>Help translate the app</Trans>
+            </SettingsList.ItemText>
+          </SettingsList.PressableItem>
         </SettingsList.Container>
       </Layout.Content>
+
+      <LocalizationHelpDialog control={localizationHelpControl} />
     </Layout.Screen>
   )
 }
