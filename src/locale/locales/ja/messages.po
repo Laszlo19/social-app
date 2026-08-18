@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, other {#リクエスト}}"
 msgid "{requestCount}+ requests"
 msgstr "{requestCount}件以上のリクエスト"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "{userName} は信頼された認証者です"
@@ -1276,8 +1280,8 @@ msgstr "メンバーを追加"
 msgid "Add more details (optional)"
 msgstr "詳細を追加（オプション）"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "さらに言語を追加…"
 
@@ -1479,7 +1483,7 @@ msgstr "すべての友達をフォローしました！"
 msgid "All languages"
 msgstr "すべての言語"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "すべての言語がフィードに表示されます。"
 
@@ -1796,8 +1800,8 @@ msgstr "それを持っている人はもう参加できなくなり、また、
 msgid "App Icon"
 msgstr "アプリアイコン"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "アプリの言語"
 
@@ -3054,6 +3058,7 @@ msgstr "送信失敗したメッセージを再送信"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "ブロックされたコンテンツ"
 msgid "Content filters"
 msgstr "コンテンツのフィルター"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "コンテンツの言語"
 
@@ -4265,6 +4270,7 @@ msgstr "メールが届いていませんか？<0>ここをクリックすれば
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "今後表示しない"
 
@@ -6281,6 +6287,17 @@ msgstr "ヘルプ"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "画像をアップロードするかアバターを作ってあなたがbotではないことをみんなに知らせましょう。"
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "アプリパスワードをお知らせします！"
@@ -6534,6 +6551,10 @@ msgstr "ホスティングプロバイダー：{0}"
 msgid "Hosting provider: Bluesky"
 msgstr "ホスティングプロバイダー：Bluesky"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "仕組み："
@@ -6578,7 +6599,7 @@ msgstr "私は {0} としてBlueskyにいます。私を見つけて！ https://
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "ALTテキストが長い場合、ALTテキストの展開状態を切り替える"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "何も選択されていない場合、すべての言語がフィードに表示されます。"
 
@@ -7035,6 +7056,10 @@ msgstr "参加リクエストが取り消されました。"
 msgid "Join the conversation"
 msgstr "会話に参加"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "報道"
@@ -7091,7 +7116,7 @@ msgstr "言語"
 msgid "Language Settings"
 msgstr "言語の設定"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "{displayName}のチャットメンバーオプションを開く"
 msgid "Open conversation options"
 msgstr "会話のオプションを開く"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "下書きを開く"
@@ -9084,6 +9113,10 @@ msgstr "ハンドル変更ダイアログを開く"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "編集画面を開く"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "プレビュー"
 msgid "Previous image"
 msgstr "前の画像"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "第一言語"
 
@@ -9952,6 +9985,10 @@ msgstr ""
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
 msgstr "禁止品目・サービスの宣伝または販売"
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
+msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:161
@@ -11271,7 +11308,7 @@ msgstr "絵文字を選択"
 msgid "Select an option"
 msgstr "オプションを選択"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "アプリの言語を選択"
 
@@ -11285,8 +11322,8 @@ msgstr "キャプションファイルを選択（.vtt）"
 msgid "Select chat \"{name}\""
 msgstr "チャット\"{name}\"を選択"
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "コンテンツの言語を選択"
 
@@ -11352,7 +11389,7 @@ msgstr "モデレーションサービスを選択"
 msgid "Select post language"
 msgstr "投稿言語を選択"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "第一言語を選択"
 
@@ -11377,11 +11414,11 @@ msgstr "この投稿で使用される言語を最大3つ選択"
 msgid "Select what content this mute word should apply to."
 msgstr "このミュートワードをどのコンテンツに適用するのかを選択。"
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "アプリのユーザーインターフェースに使用する言語を選択します。"
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "登録されたフィードに含める言語を選択します。選択されていない場合は、すべての言語が表示されます。"
 
@@ -11394,7 +11431,7 @@ msgstr "生年月日を選択"
 msgid "Select your interests from the options below"
 msgstr "次のオプションから興味のあるものを選択してください"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "フィード内の翻訳に使用する言語を選択します。"
 
@@ -12687,6 +12724,10 @@ msgstr "これで全部です！"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "このアカウントは、ブロック解除後にあなたとやり取りすることができます。"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "通知の取得中に問題が発生しました。もう一度試すにはこちらをタップしてください。"
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "投稿の取得中に問題が発生しました。もう一度試すにはこちらをタップしてください。"
 
@@ -13500,6 +13541,18 @@ msgstr "翻訳中…"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "お使いのデバイスでは同じ言語への翻訳ができません。"
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

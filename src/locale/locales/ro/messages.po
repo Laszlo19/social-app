@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, one {o cerere} few {# cereri} other {# de cereri}
 msgid "{requestCount}+ requests"
 msgstr "Încă {requestCount} de cereri"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "{userName} este un verificator de încredere"
@@ -1276,8 +1280,8 @@ msgstr "Adăugare membri"
 msgid "Add more details (optional)"
 msgstr "Adăugați mai multe detalii (opțional)"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "Adăugați mai multe limbi…"
 
@@ -1479,7 +1483,7 @@ msgstr "Toți prietenii au fost urmăriți!"
 msgid "All languages"
 msgstr "Toate limbile"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "Toate limbile vor fi afișate în fluxurile dvs."
 
@@ -1796,8 +1800,8 @@ msgstr "Oricine îl are nu va mai putea să se alăture sau să solicite să se 
 msgid "App Icon"
 msgstr "Pictogramă aplicație"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "Limba aplicației"
 
@@ -3054,6 +3058,7 @@ msgstr "Faceți clic pentru a reîncerca mesajul eșuat"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "Conținut blocat"
 msgid "Content filters"
 msgstr "Filtre de conținut"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "Limbi pentru conținut"
 
@@ -4265,6 +4270,7 @@ msgstr "Nu vezi un e-mail? <0>Faceți clic aici pentru a-l retrimite.</0>"
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "Nu mai afișa"
 
@@ -6281,6 +6287,17 @@ msgstr "Ajutor"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "Ajutați oamenii să știe că nu sunteți un robot încărcând o imagine sau creând un avatar."
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "Iată parola dvs. de aplicație!"
@@ -6534,6 +6551,10 @@ msgstr "Furnizor de găzduire: {0}"
 msgid "Hosting provider: Bluesky"
 msgstr "Furnizor de găzduire: Bluesky"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "Cum funcționează:"
@@ -6578,7 +6599,7 @@ msgstr "Sunt pe Bluesky ca {0} - vino și găsește-mă! https://bsky.app/downlo
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "Dacă textul alternativ este lung, comutați starea extinsă a textului alternativ"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "Dacă nu selectați una, toate limbile vor fi afișate în fluxurile dvs."
 
@@ -7035,6 +7056,10 @@ msgstr "Cererea de alăturare a fost anulată."
 msgid "Join the conversation"
 msgstr "Alăturați-vă conversației"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "Jurnalism"
@@ -7091,7 +7116,7 @@ msgstr "Limbă"
 msgid "Language Settings"
 msgstr "Setări limbă"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "Deschideți opțiunile pentru membrii conversației pentru {displayName}
 msgid "Open conversation options"
 msgstr "Deschideți opțiunile conversației"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "Deschideți schița"
@@ -9084,6 +9113,10 @@ msgstr "Deschideți dialogul de modificare a identificatorului"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "Deschide compozitorul"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "Previzualizare"
 msgid "Previous image"
 msgstr "Imaginea anterioară"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "Limba principală"
 
@@ -9952,6 +9985,10 @@ msgstr "Profiluri"
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
 msgstr "Promovarea sau vânzarea de articole sau servicii interzise"
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
+msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:161
@@ -11271,7 +11308,7 @@ msgstr "Selectați un emoji"
 msgid "Select an option"
 msgstr "Selectați o opțiune"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "Selectați limba aplicației"
 
@@ -11285,8 +11322,8 @@ msgstr "Selectați fișierul subtitrare (.vtt)"
 msgid "Select chat \"{name}\""
 msgstr "Selectați conversația „{name}”"
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "Selectați limbile conținutului"
 
@@ -11352,7 +11389,7 @@ msgstr "Selectați serviciul de moderare"
 msgid "Select post language"
 msgstr "Selectați limba postării"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "Selectați limba principală"
 
@@ -11377,11 +11414,11 @@ msgstr "Selectați până la 3 limbi utilizate în această postare"
 msgid "Select what content this mute word should apply to."
 msgstr "Selectați la ce conținut ar trebui să se aplice acest cuvânt amuțit."
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "Selectați ce limbă să utilizați pentru interfața de utilizator a aplicației."
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Selectați limbile pe care doriți ca fluxurile la care sunteți abonat să le includă. Dacă nu selectați nimic, toate limbile vor fi afișate."
 
@@ -11394,7 +11431,7 @@ msgstr "Selectați-vă data de naștere"
 msgid "Select your interests from the options below"
 msgstr "Selectați interesele dvs. din opțiunile de mai jos"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "Selectați limba preferată pentru traduceri în flux."
 
@@ -12687,6 +12724,10 @@ msgstr "Asta e tot!"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Contul va putea interacționa cu dvs. după deblocare."
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "A apărut o problemă la preluarea notificărilor. Atingeți aici pentru a încerca din nou."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "A apărut o problemă la preluarea postărilor. Atingeți aici pentru a încerca din nou."
 
@@ -13500,6 +13541,18 @@ msgstr "Se traduce…"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "Traducerea în aceeaşi limbă nu este disponibilă pe dispozitivul dvs."
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

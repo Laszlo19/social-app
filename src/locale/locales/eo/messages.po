@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, one {# peto} other {# petoj}}"
 msgid "{requestCount}+ requests"
 msgstr "{requestCount}+ petoj"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "{userName} estas fidata konfirmanto"
@@ -1276,8 +1280,8 @@ msgstr "Aldoni anojn"
 msgid "Add more details (optional)"
 msgstr "Aldoni pliaj detaloj (nedeviga)"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "Aldoni pliajn lingvojn…"
 
@@ -1479,7 +1483,7 @@ msgstr "Ĉiuj amikoj sekvataj!"
 msgid "All languages"
 msgstr "Ĉiuj lingvoj"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "Ĉiuj lingvoj estos montrotaj en viaj fluoj."
 
@@ -1796,8 +1800,8 @@ msgstr "Ĉiu kiu havas ĝin ne plu eblos aliĝi aŭ peti aliĝi. Vi ĉiam povas 
 msgid "App Icon"
 msgstr "Apa piktogramo"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "Apa lingvo"
 
@@ -3054,6 +3058,7 @@ msgstr "Alklaku por reprovi sendi mesaĝon"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "Enhavo blokita"
 msgid "Content filters"
 msgstr "Filtriloj por la enhavo"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "Lingvoj de enhavo"
 
@@ -4265,6 +4270,7 @@ msgstr "Ĉu vi ne vidas retmesaĝon? <0>Klaku ĉi tie por resendi.</0>"
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "Ne montri denove"
 
@@ -6281,6 +6287,17 @@ msgstr "Helpo"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "Afiŝu foton aŭ kreu profilbildon por ke homoj sciu, ke vi ne estas roboto."
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "Jen via apa pasvorto!"
@@ -6534,6 +6551,10 @@ msgstr ""
 msgid "Hosting provider: Bluesky"
 msgstr ""
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "Tiel ĝi funkcias:"
@@ -6578,7 +6599,7 @@ msgstr "Mi estas ĉe Bluesky kiel {0} - venu trovi min! https://bsky.app/downloa
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "Se alternativa teksto estas longa, baskulas ĝian malvolvon"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "Se neniu elektita, ĉiuj lingvoj estos montrotaj en viaj fluoj."
 
@@ -7035,6 +7056,10 @@ msgstr "Aliĝpeto nuligita."
 msgid "Join the conversation"
 msgstr "Aliĝi al konversacio"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "Ĵurnalismo"
@@ -7091,7 +7116,7 @@ msgstr ""
 msgid "Language Settings"
 msgstr "Lingvaj agordoj"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "Malfermi opciojn de babilejano por {displayName}"
 msgid "Open conversation options"
 msgstr "Malfermi la opciojn pri konversacio"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "Malfermi malneton"
@@ -9084,6 +9113,10 @@ msgstr "Malfermas dialogujon por ŝanĝi la identigilon"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "Malfermas redaktilon"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "Antaŭmontro"
 msgid "Previous image"
 msgstr "Antaŭa bildo"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "Ĉefa lingvo"
 
@@ -9951,6 +9984,10 @@ msgstr ""
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
 msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
@@ -11271,7 +11308,7 @@ msgstr "Elekti emoĝion"
 msgid "Select an option"
 msgstr "Elektu opcion"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "Elektu apan lingvon"
 
@@ -11285,8 +11322,8 @@ msgstr "Elektu subtekstan dosieron (.vtt)"
 msgid "Select chat \"{name}\""
 msgstr "Elekti babilejon \"{name}\""
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "Elektu lingvojn de enhavo"
 
@@ -11352,7 +11389,7 @@ msgstr "Elektu kontrol-servon"
 msgid "Select post language"
 msgstr "Elektu afiŝan lingvon"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "Elektu ĉefan lingvon"
 
@@ -11377,11 +11414,11 @@ msgstr "Elektu ĝis 3 lingvojn uzitajn en ĉi tiu afiŝo"
 msgid "Select what content this mute word should apply to."
 msgstr "Elektu, al kia enhavo apliku silentigon de ĉi tiu vorto."
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "Elektu kiun lingvon uzi por la apa uzantinterfaco."
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Elektu kiujn lingvojn vi volas en viaj abonitaj fluoj. Se neniu elektita, ĉiuj lingvoj estos montrotaj."
 
@@ -11394,7 +11431,7 @@ msgstr "Elektu la daton de via naskiĝo"
 msgid "Select your interests from the options below"
 msgstr "Elektu viajn interesojn el la opcioj sube"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "Elektu vian preferatan lingvon por tradukoj en via fluo."
 
@@ -12687,6 +12724,10 @@ msgstr "Tio estas ĉio!"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Post malbloki, la konto povos interagi kun vi."
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "Estis problemo ŝargante sciigojn. Tuŝetu ĉi tie por reprovi."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "Estis problemo ŝargante afiŝojn. Tuŝeti ĉi tie por reprovi."
 
@@ -13500,6 +13541,18 @@ msgstr "Tradukado…"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "Tradukado al la sama lingvo estas nedisponebla sur via aparato."
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, zero {}one {# cais} two {# gais} few {# cais} man
 msgid "{requestCount}+ requests"
 msgstr "{requestCount}+ cais"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "Mae {userName} yn ddilysydd dibynadwy"
@@ -1276,8 +1280,8 @@ msgstr "Ychwanegu aelodau"
 msgid "Add more details (optional)"
 msgstr "Ychwanegu rhagor o fanylion (dewisol)"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "Ychwanegu rhagor o ieithoedd…"
 
@@ -1479,7 +1483,7 @@ msgstr "Pob ffrind yn cael eu dilyn!"
 msgid "All languages"
 msgstr "Pob iaith"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "Bydd yr holl ieithoedd yn cael eu dangos yn eich ffrydiau."
 
@@ -1796,8 +1800,8 @@ msgstr "Fydd neb sydd ganddo'n barod ddim yn gallu ymuno neu ofyn i ymuno. Gallw
 msgid "App Icon"
 msgstr "Eicon Ap"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "Iaith Ap"
 
@@ -3054,6 +3058,7 @@ msgstr "Cliciwch i roi cynnig arall ar y neges a fethwyd"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "Cynnwys wedi'i Rhwystro"
 msgid "Content filters"
 msgstr "Hidlo cynnwys"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "Ieithoedd cynnwys"
 
@@ -4265,6 +4270,7 @@ msgstr "Ddim yn gweld e-bost? <0>Cliciwch yma i'w ail-anfon.</0>"
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "Peidio dangos hwn eto"
 
@@ -6281,6 +6287,17 @@ msgstr "Cymorth"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "Helpwch bobl i wybod nad ydych chi'n bot trwy lwytho llun neu greu afatar."
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "Dyma gyfrinair eich ap!"
@@ -6534,6 +6551,10 @@ msgstr "Darparwr gwesteio: {0}"
 msgid "Hosting provider: Bluesky"
 msgstr "Darparwr gwesteio: Bluesky"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "Sut mae'n gweithio:"
@@ -6578,7 +6599,7 @@ msgstr "Rwy ar Bluesky fel {0} - dewch i chwilio amdana i! https://bsky.app/down
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "Os yw'r testun amgen yn hir, bydd y testun amgen yn toglo'r cyflwr estynedig"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "Os nad oes dim wedi'u dewis, bydd yr holl ieithoedd yn cael eu dangos yn eich ffrydiau."
 
@@ -7035,6 +7056,10 @@ msgstr "Cais ymuno wedi'i dynnu'n ôl."
 msgid "Join the conversation"
 msgstr "Ymunwch â'r sgwrs"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "Newyddiaduraeth"
@@ -7091,7 +7116,7 @@ msgstr "Iaith"
 msgid "Language Settings"
 msgstr "Gosodiadau Iaith"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "Dewisiadau aelodau sgwrsio agored ar gyfer {displayName}"
 msgid "Open conversation options"
 msgstr "Agor dewisiadau sgyrsiau"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "Agor drafft"
@@ -9084,6 +9113,10 @@ msgstr "Yn agor deialog newid enw dangos"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "Yn agor y cyfansoddwr"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "Rhagolwg"
 msgid "Previous image"
 msgstr "Delwedd flaenorol"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "Prif iaith"
 
@@ -9952,6 +9985,10 @@ msgstr ""
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
 msgstr "Hyrwyddo neu werthu eitemau neu wasanaethau wedi'u gwahardd"
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
+msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:161
@@ -11271,7 +11308,7 @@ msgstr "Dewiswch emoji"
 msgid "Select an option"
 msgstr "Dewis opsiwn"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "Dewis iaith yr ap"
 
@@ -11285,8 +11322,8 @@ msgstr "Dewis ffeil capsiynau (.vtt)"
 msgid "Select chat \"{name}\""
 msgstr "Dewis sgwrs \"{name}\""
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "Dewiswch ieithoedd cynnwys"
 
@@ -11352,7 +11389,7 @@ msgstr "Dewis gwasanaeth cymedroli"
 msgid "Select post language"
 msgstr "Dewis iaith postiad"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "Dewis prif iaith"
 
@@ -11377,11 +11414,11 @@ msgstr "Dewiswch hyd at 3 iaith sy'n cael eu defnyddio yn y postiad hwn"
 msgid "Select what content this mute word should apply to."
 msgstr "Dewiswch i ba gynnwys y dylai'r gair wedi'i dewi hwn fod yn berthnasol."
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "Dewiswch pa iaith i'w defnyddio ar gyfer rhyngwyneb defnyddiwr yr ap."
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Dewiswch pa ieithoedd rydych chi am i'ch ffrydiau tanysgrifio eu cynnwys. Os fyddwch chi ddim yn dewis un, bydd pob iaith yn cael ei dangos."
 
@@ -11394,7 +11431,7 @@ msgstr "Dewiswch eich dyddiad geni"
 msgid "Select your interests from the options below"
 msgstr "Dewiswch eich diddordebau o'r dewisiadau isod"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "Dewiswch eich dewis iaith cyfieithu'ch ffrydiau."
 
@@ -12687,6 +12724,10 @@ msgstr "Dyna bopeth!"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Bydd y cyfrif yn gallu rhyngweithio â chi ar ôl ei ddadrwystro."
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "Bu anhawster wrth geisio cael hysbysiadau. Tapiwch yma i geisio eto."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "Bu anhawster wrth nôl postiadau. Tapiwch yma i geisio eto."
 
@@ -13500,6 +13541,18 @@ msgstr "Yn cyfieithu…"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "Dyw cyfieithu i'r un iaith ddim ar gael ar eich dyfais."
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

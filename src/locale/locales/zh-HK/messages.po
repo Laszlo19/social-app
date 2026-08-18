@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, other {# 個邀請}}"
 msgid "{requestCount}+ requests"
 msgstr "{requestCount}+ 個邀請"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "{userName} 係受信任嘅驗證者"
@@ -1276,8 +1280,8 @@ msgstr "加入成員"
 msgid "Add more details (optional)"
 msgstr "補充更多資料（可選）"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "新增更多語言……"
 
@@ -1479,7 +1483,7 @@ msgstr "成功跟晒所有朋友！"
 msgid "All languages"
 msgstr "所有語言"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "你嘅動態源將顯示所有語言嘅內容。"
 
@@ -1796,8 +1800,8 @@ msgstr "任何人都唔得再透過此連結夾入羣組，但你可以隨時建
 msgid "App Icon"
 msgstr "應用程式圖標"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "應用程式語言"
 
@@ -3054,6 +3058,7 @@ msgstr "撳低去試多次傳送訊息"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "已封鎖內容"
 msgid "Content filters"
 msgstr "內容篩選器"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "內容語言"
 
@@ -4265,6 +4270,7 @@ msgstr "未有見到電郵？<0>撳呢度重新傳送。</0>"
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "唔再顯示"
 
@@ -6281,6 +6287,17 @@ msgstr "協助"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "上載一張相或整張頭像，等大家知道你唔係機械人。"
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "呢個係你嘅應用程式專用密碼！"
@@ -6534,6 +6551,10 @@ msgstr "託管服務提供者：{0}"
 msgid "Hosting provider: Bluesky"
 msgstr "託管服務提供者：Bluesky"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "功能說明："
@@ -6578,7 +6599,7 @@ msgstr "我喺 Bluesky 嘅帳號係 {0} - 快啲陪我一齊玩啦！https://bsk
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "若然替代文字太長，就會切換替代文字展開狀態"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "若然未指定語言，你嘅動態源就會顯示所有語言嘅內容。"
 
@@ -7035,6 +7056,10 @@ msgstr "已撤回加入申請。"
 msgid "Join the conversation"
 msgstr "加入對話"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "記者"
@@ -7091,7 +7116,7 @@ msgstr "語言"
 msgid "Language Settings"
 msgstr "語言設定"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "打開 {displayName} 嘅傾偈成員選項"
 msgid "Open conversation options"
 msgstr "打開對話選項"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "打開草稿"
@@ -9084,6 +9113,10 @@ msgstr "打開變更帳號代碼對話框"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "打開帖文編輯器"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "預覽"
 msgid "Previous image"
 msgstr "上一張圖片"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "慣用語言"
 
@@ -9952,6 +9985,10 @@ msgstr ""
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
 msgstr "宣傳或售賣違禁物品或服務"
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
+msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:161
@@ -11271,7 +11308,7 @@ msgstr "揀個 Emoji"
 msgid "Select an option"
 msgstr "揀選一個選項"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "揀選應用程式語言"
 
@@ -11285,8 +11322,8 @@ msgstr "揀選字幕檔案（.vtt）"
 msgid "Select chat \"{name}\""
 msgstr "揀選傾偈「{name}」"
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "揀選內容語言"
 
@@ -11352,7 +11389,7 @@ msgstr "揀選內容審覈服務"
 msgid "Select post language"
 msgstr "揀選帖文語言"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "揀選慣用語言"
 
@@ -11377,11 +11414,11 @@ msgstr "揀選最多 3 種用於呢條帖文嘅語言"
 msgid "Select what content this mute word should apply to."
 msgstr "揀選呢個靜音字詞要套用到邊啲內容。"
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "揀選應用程式介面要用返乜語言。"
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "揀選邊啲語言你想喺你訂閱嘅動態源度出現。唔揀嘅話，就會顯示所有語言。"
 
@@ -11394,7 +11431,7 @@ msgstr "揀選你個出世日期"
 msgid "Select your interests from the options below"
 msgstr "喺下低揀選啱你心水嘅選項"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "揀選你喺訂閱嘅動態源度要翻譯嘅目標語言"
 
@@ -12687,6 +12724,10 @@ msgstr "就係咁多喇！"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "解除封鎖之後，呢個帳號就可以同你互動。"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "攞緊通知嗰陣出咗問題，撳呢度試多次。"
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "攞緊帖文嗰陣出咗問題，撳呢度試多次。"
 
@@ -13500,6 +13541,18 @@ msgstr "翻譯緊……"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "你嘅裝置唔支援將原文翻譯成目標語言。"
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

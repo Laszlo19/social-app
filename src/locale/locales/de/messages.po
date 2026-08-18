@@ -802,6 +802,10 @@ msgstr "{requestCount, plural, one {# Anfrage} other {# Anfragen}}"
 msgid "{requestCount}+ requests"
 msgstr "{requestCount}+ Anfragen"
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr "{userName} ist ein vertrauenswürdiger Verifizierer"
@@ -1276,8 +1280,8 @@ msgstr "Mitglieder hinzufügen"
 msgid "Add more details (optional)"
 msgstr "Weitere Details hinzufügen (optional)"
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr "Weitere Sprachen hinzufügen…"
 
@@ -1479,7 +1483,7 @@ msgstr "Allen Freunden gefolgt!"
 msgid "All languages"
 msgstr "Alle Sprachen"
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr "Alle Sprachen werden in deinen Feeds angezeigt."
 
@@ -1796,8 +1800,8 @@ msgstr "Jeder, der ihn hat, kann damit nicht mehr beitreten oder eine Beitrittsa
 msgid "App Icon"
 msgstr "App-Symbol"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr "App-Sprache"
 
@@ -3054,6 +3058,7 @@ msgstr "Klicke hier, um die fehlgeschlagene Nachricht erneut zu senden"
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "Inhalt blockiert"
 msgid "Content filters"
 msgstr "Inhaltsfilterung"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr "Inhaltssprachen"
 
@@ -4265,6 +4270,7 @@ msgstr "Du hast keine E-Mail erhalten? <0>Hier klicken, um sie erneut zu senden.
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr "Nicht mehr anzeigen"
 
@@ -6281,6 +6287,17 @@ msgstr "Hilfe"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "Hilf anderen zu erkennen, dass du kein Bot bist, indem du ein Bild hochlädst oder ein Profilbild erstellst."
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "Hier ist dein App-Passwort!"
@@ -6534,6 +6551,10 @@ msgstr "Hosting-Anbieter: {0}"
 msgid "Hosting provider: Bluesky"
 msgstr "Hosting-Anbieter: Bluesky"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr "So funktioniert es:"
@@ -6578,7 +6599,7 @@ msgstr "Ich bin auf Bluesky als {0} - komm und finde mich! https://bsky.app/down
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "Schaltet den erweiterten Status des Alt-Textes um, wenn dieser lang ist"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr "Wenn keine ausgewählt sind, werden in deinen Feeds alle Sprachen angezeigt."
 
@@ -7035,6 +7056,10 @@ msgstr "Beitrittsanfrage zurückgezogen."
 msgid "Join the conversation"
 msgstr "An der Konversation teilnehmen"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "Journalismus"
@@ -7091,7 +7116,7 @@ msgstr "Sprache"
 msgid "Language Settings"
 msgstr "Spracheinstellungen"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr "Chat-Mitglieds-Optionen für {displayName} öffnen"
 msgid "Open conversation options"
 msgstr "Konversationsoptionen öffnen"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr "Entwurf öffnen"
@@ -9084,6 +9113,10 @@ msgstr "Öffnet den Dialog zum Ändern des Handles"
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "Öffnet den Post-Editor"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr "Vorschau"
 msgid "Previous image"
 msgstr "Vorheriges Bild"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr "Primäre Sprache"
 
@@ -9952,6 +9985,10 @@ msgstr ""
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
 msgstr "Werbung oder Verkauf verbotener Gegenstände oder Dienstleistungen"
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
+msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:161
@@ -11271,7 +11308,7 @@ msgstr "Ein Emoji auswählen"
 msgid "Select an option"
 msgstr "Wähle eine Option aus"
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr "App-Sprache auswählen"
 
@@ -11285,8 +11322,8 @@ msgstr "Untertiteldatei auswählen (.vtt)"
 msgid "Select chat \"{name}\""
 msgstr "Chat „{name}“ auswählen"
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "Inhaltssprachen auswählen"
 
@@ -11352,7 +11389,7 @@ msgstr "Moderationsdienst auswählen"
 msgid "Select post language"
 msgstr "Post-Sprache auswählen"
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr "Primäre Sprache auswählen"
 
@@ -11377,11 +11414,11 @@ msgstr "Wähle bis zu 3 Sprachen aus, die in diesem Post verwendet werden"
 msgid "Select what content this mute word should apply to."
 msgstr "Wähle aus, auf welche Inhalte dieses Stummschaltungswort angewendet werden soll."
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr "Wähle aus, welche Sprache für die Nutzeroberfläche der App verwendet werden soll."
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Wähle aus, welche Sprachen deine abonnierten Feeds enthalten sollen. Wenn keine ausgewählt sind, werden alle Sprachen angezeigt."
 
@@ -11394,7 +11431,7 @@ msgstr "Wähle dein Geburtsdatum"
 msgid "Select your interests from the options below"
 msgstr "Wähle deine Interessen aus den folgenden Optionen aus"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "Wähle deine bevorzugte Sprache für Übersetzungen in deinem Feed aus."
 
@@ -12687,6 +12724,10 @@ msgstr "Das ist alles!"
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Nach dem Entblocken kann der Account wieder mit dir interagieren."
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "Beim Abrufen von Mitteilung ist ein Problem aufgetreten. Tippe hier, um es erneut zu versuchen."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "Beim Abrufen von Posts ist ein Problem aufgetreten. Tippe hier, um es erneut zu versuchen."
 
@@ -13500,6 +13541,18 @@ msgstr "Wird übersetzt…"
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
 msgstr "Die Übersetzung in dieselbe Sprache ist auf deinem Gerät nicht verfügbar."
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
+msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
 #: src/screens/Settings/ThreadPreferences.tsx:92

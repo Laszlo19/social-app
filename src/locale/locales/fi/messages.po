@@ -802,6 +802,10 @@ msgstr ""
 msgid "{requestCount}+ requests"
 msgstr ""
 
+#: src/components/TranslatorBadge.tsx:50
+msgid "{rolePhrase} for {name}"
+msgstr ""
+
 #: src/components/verification/VerifierDialog.tsx:62
 msgid "{userName} is a trusted verifier"
 msgstr ""
@@ -1276,8 +1280,8 @@ msgstr ""
 msgid "Add more details (optional)"
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:218
-#: src/screens/Settings/LanguageSettings.tsx:223
+#: src/screens/Settings/LanguageSettings.tsx:221
+#: src/screens/Settings/LanguageSettings.tsx:226
 msgid "Add more languages…"
 msgstr ""
 
@@ -1479,7 +1483,7 @@ msgstr ""
 msgid "All languages"
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:189
+#: src/screens/Settings/LanguageSettings.tsx:192
 msgid "All languages will be shown in your feeds."
 msgstr ""
 
@@ -1796,8 +1800,8 @@ msgstr ""
 msgid "App Icon"
 msgstr "Sovelluskuvake"
 
-#: src/screens/Settings/LanguageSettings.tsx:107
-#: src/screens/Settings/LanguageSettings.tsx:123
+#: src/screens/Settings/LanguageSettings.tsx:110
+#: src/screens/Settings/LanguageSettings.tsx:126
 msgid "App language"
 msgstr ""
 
@@ -3054,6 +3058,7 @@ msgstr "Napsauta tästä yrittääksesi uudelleen epäonnistunutta viestin lähe
 #: src/components/dms/InitiateChatFlow.tsx:670
 #: src/components/intents/GroupChatJoinDialog.tsx:246
 #: src/components/intents/GroupChatJoinDialog.tsx:281
+#: src/components/localization/LocalizationHelpDialog.tsx:71
 #: src/components/NewskieDialog.tsx:169
 #: src/components/NewskieDialog.tsx:175
 #: src/components/ProgressGuide/FollowDialog.tsx:462
@@ -3314,7 +3319,7 @@ msgstr "Sisältö estetty"
 msgid "Content filters"
 msgstr "Sisällönsuodattimet"
 
-#: src/screens/Settings/LanguageSettings.tsx:177
+#: src/screens/Settings/LanguageSettings.tsx:180
 msgid "Content languages"
 msgstr ""
 
@@ -4265,6 +4270,7 @@ msgstr ""
 
 #: src/components/ageAssurance/AgeAssuranceDismissibleFeedBanner.tsx:105
 #: src/components/ageAssurance/AgeAssuranceDismissibleNotice.tsx:38
+#: src/components/localization/LocalizationHelpBanner.tsx:101
 msgid "Don't show again"
 msgstr ""
 
@@ -6281,6 +6287,17 @@ msgstr "Ohje"
 msgid "Help people know you're not a bot by uploading a picture or creating an avatar."
 msgstr "Auta ihmisiä tietämään, ettet ole botti, lataamalla palveluun kuva tai luomalla profiilikuva."
 
+#: src/components/localization/LocalizationHelpBanner.tsx:66
+#: src/components/localization/LocalizationHelpDialog.tsx:34
+#: src/screens/Settings/LanguageSettings.tsx:257
+#: src/screens/Settings/LanguageSettings.tsx:261
+msgid "Help translate the app"
+msgstr ""
+
+#: src/components/localization/LocalizationHelpBanner.tsx:91
+msgid "Help translate the app into your language – tap to learn how."
+msgstr ""
+
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:187
 msgid "Here is your app password!"
 msgstr "Tässä on sovellussalasanasi!"
@@ -6534,6 +6551,10 @@ msgstr ""
 msgid "Hosting provider: Bluesky"
 msgstr ""
 
+#: src/components/localization/LocalizationHelpDialog.tsx:66
+msgid "How it works"
+msgstr ""
+
 #: src/components/contacts/components/InviteInfo.tsx:54
 msgid "How it works:"
 msgstr ""
@@ -6578,7 +6599,7 @@ msgstr ""
 msgid "If alt text is long, toggles alt text expanded state"
 msgstr "Jos tekstivastine on pitkä, laajentaa tai pienentää sen"
 
-#: src/screens/Settings/LanguageSettings.tsx:235
+#: src/screens/Settings/LanguageSettings.tsx:238
 msgid "If none are selected, all languages will be shown in your feeds."
 msgstr ""
 
@@ -7035,6 +7056,10 @@ msgstr ""
 msgid "Join the conversation"
 msgstr "Liity keskusteluun"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:60
+msgid "Join the Discord"
+msgstr ""
+
 #: src/lib/interests.ts:63
 msgid "Journalism"
 msgstr "Journalismi"
@@ -7091,7 +7116,7 @@ msgstr ""
 msgid "Language Settings"
 msgstr "Kieliasetukset"
 
-#: src/screens/Settings/LanguageSettings.tsx:98
+#: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:256
 #: src/screens/Settings/Settings.tsx:259
 msgid "Languages"
@@ -8917,6 +8942,10 @@ msgstr ""
 msgid "Open conversation options"
 msgstr "Avaa keskustelun valinnat"
 
+#: src/components/localization/LocalizationHelpDialog.tsx:55
+msgid "Open Crowdin project"
+msgstr ""
+
 #: src/view/com/composer/drafts/DraftItem.tsx:69
 msgid "Open draft"
 msgstr ""
@@ -9084,6 +9113,10 @@ msgstr ""
 #: src/screens/PostThread/components/ThreadComposePrompt.tsx:64
 msgid "Opens composer"
 msgstr "Avaa editorin"
+
+#: src/components/localization/LocalizationHelpBanner.tsx:67
+msgid "Opens details about joining the localization project"
+msgstr ""
 
 #: src/view/com/feeds/ComposerPrompt.tsx:205
 msgid "Opens device camera"
@@ -9867,8 +9900,8 @@ msgstr ""
 msgid "Previous image"
 msgstr "Edellinen kuva"
 
-#: src/screens/Settings/LanguageSettings.tsx:141
-#: src/screens/Settings/LanguageSettings.tsx:157
+#: src/screens/Settings/LanguageSettings.tsx:144
+#: src/screens/Settings/LanguageSettings.tsx:160
 msgid "Primary language"
 msgstr ""
 
@@ -9951,6 +9984,10 @@ msgstr ""
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:223
 msgid "Promoting or selling prohibited items or services"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:48
+msgid "Proofreader"
 msgstr ""
 
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:160
@@ -11271,7 +11308,7 @@ msgstr "Valitse emoji"
 msgid "Select an option"
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:118
+#: src/screens/Settings/LanguageSettings.tsx:121
 msgid "Select app language"
 msgstr ""
 
@@ -11285,8 +11322,8 @@ msgstr ""
 msgid "Select chat \"{name}\""
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:195
-#: src/screens/Settings/LanguageSettings.tsx:233
+#: src/screens/Settings/LanguageSettings.tsx:198
+#: src/screens/Settings/LanguageSettings.tsx:236
 msgid "Select content languages"
 msgstr "Valitse sisällön kielet"
 
@@ -11352,7 +11389,7 @@ msgstr ""
 msgid "Select post language"
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:152
+#: src/screens/Settings/LanguageSettings.tsx:155
 msgid "Select primary language"
 msgstr ""
 
@@ -11377,11 +11414,11 @@ msgstr ""
 msgid "Select what content this mute word should apply to."
 msgstr "Valitse, mitä sisältöä tämä mykistyssana koskee."
 
-#: src/screens/Settings/LanguageSettings.tsx:111
+#: src/screens/Settings/LanguageSettings.tsx:114
 msgid "Select which language to use for the app's user interface."
 msgstr ""
 
-#: src/screens/Settings/LanguageSettings.tsx:181
+#: src/screens/Settings/LanguageSettings.tsx:184
 msgid "Select which languages you want your subscribed feeds to include. If none are selected, all languages will be shown."
 msgstr "Valitse, mitä kieliä haluat tilaamiesi syötteiden sisältävän. Jos et valitse mitään, kaikki kielet näytetään."
 
@@ -11394,7 +11431,7 @@ msgstr "Aseta syntymäaikasi"
 msgid "Select your interests from the options below"
 msgstr "Valitse kiinnostuksen kohteesi alla olevista vaihtoehdoista"
 
-#: src/screens/Settings/LanguageSettings.tsx:145
+#: src/screens/Settings/LanguageSettings.tsx:148
 msgid "Select your preferred language for translations in your feed."
 msgstr "Valitse käännösten kieli syötteessäsi."
 
@@ -12687,6 +12724,10 @@ msgstr ""
 msgid "The account will be able to interact with you after unblocking."
 msgstr "Tili voi olla vuorovaikutuksessa kanssasi, kun poistat eston."
 
+#: src/components/localization/LocalizationHelpDialog.tsx:37
+msgid "The app is translated by volunteers. If you'd like to help bring it to your language – or improve an existing translation – you can join the localization project."
+msgstr ""
+
 #: src/screens/Settings/AppIconSettings/index.tsx:39
 #: src/screens/Settings/AppIconSettings/index.tsx:225
 msgid "The app will be restarted"
@@ -12876,7 +12917,7 @@ msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr "Ilmoitusten hakemisessa ilmeni ongelma. Napauta tästä yrittääksesi uudelleen."
 
 #: src/screens/Search/Explore.tsx:1015
-#: src/view/com/posts/PostFeed.tsx:837
+#: src/view/com/posts/PostFeed.tsx:859
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr "Julkaisujen hakemisessa ilmeni ongelma. Napauta tästä yrittääksesi uudelleen."
 
@@ -13499,6 +13540,18 @@ msgstr ""
 
 #: src/lib/translation/index.tsx:305
 msgid "Translation to the same language is unavailable on your device."
+msgstr ""
+
+#: src/components/localization/LocalizationHelpDialog.tsx:46
+msgid "Translations are hosted on Crowdin Enterprise, so you will need a free Crowdin account and to be granted access to the project. Ask in the community Discord (unofficial) to get set up."
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:49
+msgid "Translator"
+msgstr ""
+
+#: src/components/TranslatorBadge.tsx:46
+msgid "Translator and proofreader"
 msgstr ""
 
 #: src/screens/Settings/ThreadPreferences.tsx:87
