@@ -27,6 +27,7 @@ import {useOnboardingDispatch} from '#/state/shell'
 import {useLoggedOutViewControls} from '#/state/shell/logged-out'
 import {useCloseAllActiveElements} from '#/state/util'
 import {UserAvatar} from '#/view/com/util/UserAvatar'
+import {GrowthbookDialog} from '#/screens/Settings/components/GrowthbookDialog'
 import * as SettingsList from '#/screens/Settings/components/SettingsList'
 import {atoms as a, platform, tokens, useBreakpoints, useTheme} from '#/alf'
 import {AgeAssuranceDismissibleNotice} from '#/components/ageAssurance/AgeAssuranceDismissibleNotice'
@@ -412,11 +413,12 @@ function DevOptions() {
   const {mutate: resetNuxs} = useResetNuxs()
   const {
     tryApplyUpdate,
-    revertToEmbedded,
+    restoreDefaultChannel,
     isCurrentlyRunningPullRequestDeployment,
     currentChannel,
   } = useApplyPullRequestOTAUpdate()
   const [actyNotifNudged, setActyNotifNudged] = useActivitySubscriptionsNudged()
+  const growthbookControl = useDialogControl()
 
   const resetOnboarding = () => {
     navigation.navigate('Home')
@@ -478,6 +480,14 @@ function DevOptions() {
         </SettingsList.ItemText>
       </SettingsList.PressableItem>
       <SettingsList.PressableItem
+        onPress={() => growthbookControl.open()}
+        label={l`View GrowthBook information`}>
+        <SettingsList.ItemText>
+          <Trans>GrowthBook</Trans>
+        </SettingsList.ItemText>
+      </SettingsList.PressableItem>
+      <GrowthbookDialog control={growthbookControl} />
+      <SettingsList.PressableItem
         onPress={() => navigation.navigate('Debug')}
         label={l`Open storybook page`}>
         <SettingsList.ItemText>
@@ -493,7 +503,7 @@ function DevOptions() {
       </SettingsList.PressableItem>
       <SettingsList.PressableItem
         onPress={() => deleteChatDeclarationRecord()}
-        label={l`Open storybook page`}>
+        label={l`Delete chat declaration record`}>
         <SettingsList.ItemText>
           <Trans>Delete chat declaration record</Trans>
         </SettingsList.ItemText>
@@ -539,7 +549,7 @@ function DevOptions() {
       ) : null}
       {IS_NATIVE && isCurrentlyRunningPullRequestDeployment ? (
         <SettingsList.PressableItem
-          onPress={() => void revertToEmbedded()}
+          onPress={() => void restoreDefaultChannel()}
           label={l`Unapply Pull Request`}>
           <SettingsList.ItemText>
             <Trans>Unapply Pull Request {currentChannel}</Trans>
@@ -585,6 +595,34 @@ function DevOptions() {
       <SettingsList.Divider />
       <View style={[a.p_xl, a.gap_md]}>
         <Text style={[a.text_lg, a.font_semi_bold]}>NUX Triggers</Text>
+        {/*
+         * The iOS-version sunset NUX renders one of two variants based on the
+         * running OS version, which is unavailable off iOS. These force each
+         * variant so both can be previewed on any platform (e.g. Android).
+         */}
+        {(['ios16', 'ios15'] as const).map(variant => (
+          <View
+            key={`IosVersionSunset164-${variant}`}
+            style={[a.flex_row, a.align_center, a.justify_between, a.gap_sm]}>
+            <Text style={[a.text_sm, a.flex_1]} numberOfLines={1}>
+              {`IosVersionSunset164 (${
+                variant === 'ios16' ? 'iOS 16' : 'iOS 15'
+              })`}
+            </Text>
+            <Button
+              onPress={() => {
+                resetNuxs([Nux.IosVersionSunset164])
+                setTimeout(() => {
+                  triggerNuxExternally(Nux.IosVersionSunset164, {variant})
+                }, 1000)
+              }}
+              label={`Reset & trigger IosVersionSunset164 ${variant} variant`}
+              color="secondary"
+              size="tiny">
+              <ButtonText>Reset</ButtonText>
+            </Button>
+          </View>
+        ))}
         {Object.values(Nux).map(nuxId => (
           <View
             key={nuxId}
