@@ -23,7 +23,7 @@ import {usePdsFromProfileQuery} from '#/state/queries/pds'
 import {useRequireAuth, useSession} from '#/state/session'
 import {device, useStorage} from '#/storage'
 import {ProfileMenu} from '#/view/com/profile/ProfileMenu'
-import {atoms as a, platform} from '#/alf'
+import {atoms as a, platform, useTheme} from '#/alf'
 import {SubscribeProfileButton} from '#/components/activity-notifications/SubscribeProfileButton'
 import {Button, ButtonIcon, ButtonText} from '#/components/Button'
 import {DebugFieldDisplay} from '#/components/DebugFieldDisplay'
@@ -67,6 +67,7 @@ let ProfileHeaderStandard = ({
 }: Props): React.ReactNode => {
   const profile =
     useProfileShadow<AppBskyActorDefs.ProfileViewDetailed>(profileUnshadowed)
+  const t = useTheme()
   const {currentAccount} = useSession()
   const {_} = useLingui()
   const moderation = useMemo(

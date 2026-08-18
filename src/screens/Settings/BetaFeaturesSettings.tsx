@@ -36,7 +36,6 @@ const WITCHSKY_BOOL_KEYS = [
   'experimentalBridgedFedi',
   'experimentalPdsBadge',
   'experimentalMultiAccount',
-  'experimentalAdvancedSearch',
   'experimentalTestLiveEvent',
   'squareAvatars',
   'squareButtons',
@@ -105,9 +104,6 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [pdsBadge, setPdsBadge] = useStorage(device, ['experimentalPdsBadge'])
   const [multiAccount, setMultiAccount] = useStorage(device, [
     'experimentalMultiAccount',
-  ])
-  const [advancedSearch, setAdvancedSearch] = useStorage(device, [
-    'experimentalAdvancedSearch',
   ])
   const [testLiveEvent, setTestLiveEvent] = useStorage(device, [
     'experimentalTestLiveEvent',
@@ -330,20 +326,6 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                     }
                     value={!!multiAccount}
                     onChange={setMultiAccount}
-                  />
-                  <FeatureToggle
-                    name="advanced_search"
-                    label={l`Advanced search filters`}
-                    title={<Trans>Advanced search filters</Trans>}
-                    description={
-                      <Trans>
-                        Show the advanced search dialog (authors, mentions,
-                        domains, hashtags, dates, media, replies, language) in
-                        the search screen.
-                      </Trans>
-                    }
-                    value={!!advancedSearch}
-                    onChange={setAdvancedSearch}
                   />
                   <FeatureToggle
                     name="test_live_event"

@@ -50,12 +50,14 @@ const betaBadgePadding: Record<Size, number> = {
   xl: 5,
 } as const
 
+// Match the beta badge's footprint (icon-in-a-pill), which is smaller than the
+// verification check.
 const translatorIconSizes: Record<Size, number> = {
-  xs: 10,
-  sm: 12,
-  md: 14,
-  lg: 18,
-  xl: 22,
+  xs: 8,
+  sm: 8,
+  md: 8,
+  lg: 10,
+  xl: 12,
 } as const
 
 const translatorBadgePadding: Record<Size, number> = {

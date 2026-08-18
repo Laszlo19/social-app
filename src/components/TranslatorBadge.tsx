@@ -68,8 +68,13 @@ export function TranslatorBadge({
 
   return (
     <View
-      style={[a.rounded_full, {backgroundColor: t.palette.primary_50, padding}]}>
-      <LanguageIcon width={width} fill={t.palette.primary_500} />
+      style={[
+        a.rounded_full,
+        a.align_center,
+        a.justify_center,
+        {backgroundColor: t.palette.primary_50, padding},
+      ]}>
+      <LanguageIcon width={width} height={width} fill={t.palette.primary_500} />
     </View>
   )
 }
@@ -105,6 +110,8 @@ export function TranslatorBadgeButton({
           hitSlop={hitSlop}
           style={({hovered}) => [
             a.rounded_full,
+            a.align_center,
+            a.justify_center,
             a.transition_transform,
             {
               backgroundColor: t.palette.primary_50,
@@ -113,7 +120,7 @@ export function TranslatorBadgeButton({
             },
           ]}
           onPress={() => setTooltipVisible(v => !v)}>
-          <LanguageIcon width={width} fill={t.palette.primary_500} />
+          <LanguageIcon width={width} height={width} fill={t.palette.primary_500} />
         </Pressable>
       </Tooltip.Target>
       <Tooltip.BubbleText label={label}>{label}</Tooltip.BubbleText>
