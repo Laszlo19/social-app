@@ -8,6 +8,11 @@ import {BotBadge, BotBadgeButton, isBotAccount} from '#/components/BotBadge'
 import {useSimpleVerificationState} from '#/components/verification'
 import {VerificationCheck} from '#/components/verification/VerificationCheck'
 import {VerificationCheckButton} from '#/components/verification/VerificationCheckButton'
+import {
+  TranslatorBadge,
+  TranslatorBadgeButton,
+  useTranslatorInfo,
+} from '#/components/TranslatorBadge'
 import type * as bsky from '#/types/bsky'
 import {BetaBadge, BetaBadgeButton, useIsBetaBadgeVisible} from './BetaBadge'
 
@@ -45,6 +50,22 @@ const betaBadgePadding: Record<Size, number> = {
   xl: 5,
 } as const
 
+const translatorIconSizes: Record<Size, number> = {
+  xs: 10,
+  sm: 12,
+  md: 14,
+  lg: 18,
+  xl: 22,
+} as const
+
+const translatorBadgePadding: Record<Size, number> = {
+  xs: 1,
+  sm: 2,
+  md: 3,
+  lg: 4,
+  xl: 5,
+} as const
+
 export function ProfileBadges({
   profile,
   interactive = false,
@@ -59,10 +80,12 @@ export function ProfileBadges({
 }) {
   const shadowed = useProfileShadow(profile)
   const verification = useSimpleVerificationState({profile})
+  const translatorEntry = useTranslatorInfo(profile)
   const badgeVisibility = [
     verification.showBadge,
     useIsBetaBadgeVisible(profile),
     isBotAccount(shadowed),
+    !!translatorEntry,
   ]
   const badgeCount = badgeVisibility.filter(Boolean).length
   const nativeScaleMultiplier = useNativeFontScale()
@@ -83,6 +106,9 @@ export function ProfileBadges({
   const botIconWidth = botIconSizes[size] * scaleMultiplier
   const betaIconWidth = betaIconSizes[size] * scaleMultiplier
   const betaBadgeScaledPadding = betaBadgePadding[size] * scaleMultiplier
+  const translatorIconWidth = translatorIconSizes[size] * scaleMultiplier
+  const translatorBadgeScaledPadding =
+    translatorBadgePadding[size] * scaleMultiplier
 
   const gap = isOnTheSmallSide ? a.gap_2xs : a.gap_xs
   const padding = gap.gap / 2
@@ -118,6 +144,12 @@ export function ProfileBadges({
             width={botIconWidth}
             hitSlop={hitSlops[2]}
           />
+          <TranslatorBadgeButton
+            profile={shadowed}
+            width={translatorIconWidth}
+            padding={translatorBadgeScaledPadding}
+            hitSlop={hitSlops[3]}
+          />
         </>
       ) : (
         <>
@@ -133,6 +165,11 @@ export function ProfileBadges({
             padding={betaBadgeScaledPadding}
           />
           <BotBadge profile={shadowed} width={botIconWidth} />
+          <TranslatorBadge
+            profile={shadowed}
+            width={translatorIconWidth}
+            padding={translatorBadgeScaledPadding}
+          />
         </>
       )}
     </View>
