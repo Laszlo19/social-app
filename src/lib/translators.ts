@@ -28,7 +28,9 @@ export type TranslatorEntry = {
 }
 
 export const TRANSLATORS: Record<string, TranslatorEntry> = {
-  // TODO: add real contributor DIDs here.
+  'did:plc:eqwo3fvlzdordtlut4nbaqfr': {
+    languages: [{lang: 'ro', roles: ['translator', 'proofreader']}],
+  },
 }
 
 /**
