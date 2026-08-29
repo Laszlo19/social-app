@@ -1,9 +1,7 @@
-import AtpAgent, {
-  type AppBskyFeedDefs,
-  type AppBskyFeedLike,
-} from '@atproto/api'
+import {type Client} from '@atproto/lex'
 import {type DidDocument, getPdsEndpoint} from '@atproto/common-web'
 
+import {app} from '#/lexicons'
 import {type FeedAPI, type FeedAPIResponse} from './types'
 
 /**
@@ -29,33 +27,31 @@ const HYDRATE_CHUNK_SIZE = 25
  * viewer; those are simply omitted.
  */
 export class PublicActorLikesFeedAPI implements FeedAPI {
-  agent: AtpAgent
+  client: Client
   actor: string
-  private pdsAgentPromise: Promise<AtpAgent> | undefined
+  private pdsUrlPromise: Promise<string> | undefined
 
-  constructor({agent, actor}: {agent: AtpAgent; actor: string}) {
-    this.agent = agent
+  constructor({client, actor}: {client: Client; actor: string}) {
+    this.client = client
     this.actor = actor
   }
 
   /**
-   * Resolve the actor's PDS once and reuse an unauthenticated agent for it
-   * across pages. On failure we clear the cache so a later page can retry
-   * rather than being stuck with a rejected promise.
+   * Resolve the actor's PDS URL once and reuse it across pages. On failure we
+   * clear the cache so a later page can retry rather than being stuck with a
+   * rejected promise.
    */
-  private getPdsAgent(): Promise<AtpAgent> {
-    if (!this.pdsAgentPromise) {
-      this.pdsAgentPromise = resolvePdsServiceEndpoint(this.actor).then(
-        service => new AtpAgent({service}),
-      )
-      this.pdsAgentPromise.catch(() => {
-        this.pdsAgentPromise = undefined
+  private getPdsUrl(): Promise<string> {
+    if (!this.pdsUrlPromise) {
+      this.pdsUrlPromise = resolvePdsServiceEndpoint(this.actor)
+      this.pdsUrlPromise.catch(() => {
+        this.pdsUrlPromise = undefined
       })
     }
-    return this.pdsAgentPromise
+    return this.pdsUrlPromise
   }
 
-  async peekLatest(): Promise<AppBskyFeedDefs.FeedViewPost> {
+  async peekLatest(): Promise<app.bsky.feed.defs.FeedViewPost> {
     const res = await this.fetch({cursor: undefined, limit: 1})
     return res.feed[0]
   }
@@ -67,25 +63,19 @@ export class PublicActorLikesFeedAPI implements FeedAPI {
     cursor: string | undefined
     limit: number
   }): Promise<FeedAPIResponse> {
-    const pdsAgent = await this.getPdsAgent()
-    const res = await pdsAgent.com.atproto.repo.listRecords({
-      repo: this.actor,
-      collection: 'app.bsky.feed.like',
-      limit,
-      cursor,
-    })
+    const pdsUrl = await this.getPdsUrl()
+    const res = await listLikeRecords(pdsUrl, this.actor, limit, cursor)
 
-    const records = res.data.records
     const uris: string[] = []
-    for (const record of records) {
-      const value = record.value as AppBskyFeedLike.Record
+    for (const record of res.records) {
+      const value = record.value as {subject?: {uri?: string}}
       const uri = value?.subject?.uri
       if (uri) uris.push(uri)
     }
 
     const postsByUri = await this.hydratePosts(uris)
 
-    const feed: AppBskyFeedDefs.FeedViewPost[] = []
+    const feed: app.bsky.feed.defs.FeedViewPost[] = []
     for (const uri of uris) {
       const post = postsByUri.get(uri)
       // Skip likes whose subject is deleted or unavailable to this viewer.
@@ -97,20 +87,24 @@ export class PublicActorLikesFeedAPI implements FeedAPI {
        * Mirror LikesFeedAPI: the API can return a cursor even when a page is
        * empty, so drop it to avoid paginating forever.
        */
-      cursor: records.length === 0 ? undefined : res.data.cursor,
+      cursor: res.records.length === 0 ? undefined : res.cursor,
       feed,
     }
   }
 
+  /**
+   * getPosts is capped at 25 URIs per call and runs through the viewer's
+   * AppView, so the returned PostViews carry the viewer's moderation state.
+   */
   private async hydratePosts(
     uris: string[],
-  ): Promise<Map<string, AppBskyFeedDefs.PostView>> {
-    const byUri = new Map<string, AppBskyFeedDefs.PostView>()
+  ): Promise<Map<string, app.bsky.feed.defs.PostView>> {
+    const byUri = new Map<string, app.bsky.feed.defs.PostView>()
     for (let i = 0; i < uris.length; i += HYDRATE_CHUNK_SIZE) {
       const chunk = uris.slice(i, i + HYDRATE_CHUNK_SIZE)
       if (chunk.length === 0) continue
-      const res = await this.agent.app.bsky.feed.getPosts({uris: chunk})
-      for (const post of res.data.posts) {
+      const data = await this.client.call(app.bsky.feed.getPosts, {uris: chunk})
+      for (const post of data.posts) {
         byUri.set(post.uri, post)
       }
     }
@@ -119,14 +113,38 @@ export class PublicActorLikesFeedAPI implements FeedAPI {
 }
 
 /**
+ * Unauthenticated `com.atproto.repo.listRecords` against the actor's own PDS.
+ * The lex client is bound to the viewer's AppView, and repo endpoints are only
+ * served by the repo's hosting PDS, so this hits the resolved PDS directly.
+ */
+async function listLikeRecords(
+  pdsUrl: string,
+  repo: string,
+  limit: number,
+  cursor: string | undefined,
+): Promise<{records: {uri: string; value: unknown}[]; cursor?: string}> {
+  const url = new URL('/xrpc/com.atproto.repo.listRecords', pdsUrl)
+  url.searchParams.set('repo', repo)
+  url.searchParams.set('collection', 'app.bsky.feed.like')
+  url.searchParams.set('limit', String(limit))
+  if (cursor) url.searchParams.set('cursor', cursor)
+  const res = await fetch(url.toString(), {
+    headers: {accept: 'application/json'},
+  })
+  if (!res.ok) {
+    throw new Error(`listRecords failed for ${repo}: ${res.status}`)
+  }
+  return (await res.json()) as {
+    records: {uri: string; value: unknown}[]
+    cursor?: string
+  }
+}
+
+/**
  * Resolve the full PDS service endpoint URL (e.g. "https://bsky.social") that
- * hosts a DID's repo, by reading its DID document.
- *
- * com.atproto.repo endpoints are only served by the repo's own PDS, so the
- * endpoint must come from the DID doc - not from the viewer's agent (which
- * would call describeRepo against the viewer's PDS and 404 for anyone hosted
- * elsewhere). This mirrors the login-time resolution in
- * state/queries/pds-detection.ts.
+ * hosts a DID's repo, by reading its DID document: did:plc via the PLC
+ * directory, did:web via its `.well-known/did.json`. Mirrors the login-time
+ * resolution in state/queries/pds-detection.ts.
  */
 async function resolvePdsServiceEndpoint(did: string): Promise<string> {
   const doc = await resolveDidDoc(did)
@@ -137,10 +155,6 @@ async function resolvePdsServiceEndpoint(did: string): Promise<string> {
   return pds
 }
 
-/**
- * Fetch a DID document without a session: did:plc via the PLC directory,
- * did:web via its `.well-known/did.json`.
- */
 async function resolveDidDoc(did: string): Promise<DidDocument | null> {
   if (did.startsWith('did:plc:')) {
     const res = await fetch(`https://plc.directory/${did}`)

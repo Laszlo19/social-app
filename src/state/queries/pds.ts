@@ -1,7 +1,8 @@
 import {useQuery} from '@tanstack/react-query'
 
+import {com} from '#/lexicons'
 import {createQueryKey} from '#/state/queries/util'
-import {useAgent} from '#/state/session'
+import {useAppviewClient} from '#/state/session'
 import {STALE} from '.'
 
 const pdsFromProfileQueryKeyRoot = 'pdsFromProfile'
@@ -19,7 +20,7 @@ const createPdsFromProfileQueryKey = (did: string) =>
  * Returns only the hostname (e.g. "bsky.social") suitable for display.
  */
 export function usePdsFromProfileQuery(did: string | undefined) {
-  const agent = useAgent()
+  const client = useAppviewClient()
 
   return useQuery({
     queryKey: createPdsFromProfileQueryKey(did ?? ''),
@@ -34,8 +35,8 @@ export function usePdsFromProfileQuery(did: string | undefined) {
         return hostname || null
       }
 
-      const res = await agent.api.com.atproto.repo.describeRepo({repo: did})
-      const services = (res.data.didDoc as Record<string, unknown>)?.service
+      const res = await client.call(com.atproto.repo.describeRepo, {repo: did})
+      const services = (res.didDoc as Record<string, unknown>)?.service
       if (!Array.isArray(services)) return null
 
       const pdsSvc = services.find(
