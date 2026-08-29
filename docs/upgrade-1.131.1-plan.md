@@ -54,8 +54,34 @@ Other structural changes:
 6. Verify fork customizations intact; version → 1.131.1.
 7. Commit, push. User opens PR.
 
-## Status
-- [ ] 1.131.1 merged
-- [ ] agent.ts/agent-config migration done, no dangling imports
-- [ ] Fork customizations verified
-- [ ] Pushed
+## Status - COMPLETE
+
+- [x] 1.131.1 merged (merge bbc05c1fb). **44 .po + 10 code conflicts** - smaller
+      than feared given the 1029-file diff (most of the SDK migration auto-merged).
+- [x] **agent -> lex client migration done.** `@atproto/api` is fully removed;
+      the `Agent` class became per-service lex clients (`useAppviewClient`,
+      `usePdsClient`, `createLexClient`). Migrated every fork file that used the
+      old API:
+      - `post-feed.ts` createApi: `agent` -> `client`, threaded `currentDid` for
+        the self-vs-public likes split (public likes uses `client`).
+      - `lib/api/feed/publicLikes.ts`: rewritten onto `client.call(app.bsky.feed.
+        getPosts,...)` + a raw `fetch` for the cross-PDS `listRecords` (no more
+        `new AtpAgent`).
+      - `session/util.ts`: `createEphemeralAgent` -> `createEphemeralClient`
+        (`createLexClient(PasswordSession.resume(...))`).
+      - `PostMenuItems.tsx` multi-account: `epClient.call(com.atproto.repo.
+        createRecord, {collection:'app.bsky.feed.like'|'repost', ...})`; video
+        check `AppBskyEmbedVideo.isView` -> `bsky.isType(app.bsky.embed.video.view,...)`.
+      - `useUpdateWidgets.ts`, `pds.ts`, `Profile.tsx`: `useAgent` ->
+        `useAppviewClient`/`client.call`, `.data.X` -> `.X`, types -> `app.bsky.*`.
+      - `ImageEmbed.tsx`, `ProfileHeaderStandard.tsx`, `Settings.tsx`: old
+        `@atproto/api` types -> `app.bsky.*` lexicon types.
+      - `package.json` postinstall: added upstream's `lexicons:generate` before
+        the fork's `changelog:build`.
+      - SplashScreen: kept fork splash assets; BetaFeaturesSettings: kept fork
+        WITCHSKY_BOOL_KEYS.
+- [x] No dangling imports (deleted-file sweep clean); custom AppView DID
+      (BLUESKY_PROXY_HEADER) survived; version 1.131.1.
+- [ ] Pushed / PR opened. **HIGH-RISK merge, no local typecheck - CI is critical.**
+      Watch especially: publicLikes (raw listRecords), multi-account createRecord
+      (record shape), and the `bsky.isType(app.bsky.embed.video.view)` guard.
