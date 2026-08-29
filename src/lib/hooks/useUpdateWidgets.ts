@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react'
-import {type AppBskyFeedPost, type AppBskyNotificationListNotifications} from '@atproto/api'
+import {app} from '#/lexicons'
 import {
   documentDirectory,
   downloadAsync,
@@ -11,7 +11,7 @@ import {usePinnedFeedsInfos} from '#/state/queries/feed'
 import {useListConvosQuery} from '#/state/queries/messages/list-conversations'
 import {useMyListsQuery} from '#/state/queries/my-lists'
 import {useProfileQuery} from '#/state/queries/profile'
-import {useAgent, useSession} from '#/state/session'
+import {useAppviewClient, useSession} from '#/state/session'
 import {IS_ANDROID} from '#/env'
 import * as AppShortcuts from '../../../modules/expo-app-shortcuts'
 
@@ -37,7 +37,7 @@ const INTERACTIONS_THROTTLE_MS = 30 * 60 * 1000
 export function useUpdateWidgets() {
   const {t: l} = useLingui()
   const {currentAccount} = useSession()
-  const agent = useAgent()
+  const client = useAppviewClient()
   const {data: profile} = useProfileQuery({did: currentAccount?.did})
   const {data: pinnedFeeds} = usePinnedFeedsInfos()
   const {data: lists} = useMyListsQuery('all')
@@ -193,27 +193,27 @@ export function useUpdateWidgets() {
 
     void (async () => {
       try {
-        const res = await agent.app.bsky.notification.listNotifications({
+        const res = await client.call(app.bsky.notification.listNotifications, {
           limit: 50,
         })
         const cutoff = now - SEVEN_DAYS_MS
-        const recent = res.data.notifications.filter(
-          (n: AppBskyNotificationListNotifications.Notification) =>
+        const recent = res.notifications.filter(
+          (n: app.bsky.notification.listNotifications.Notification) =>
             new Date(n.indexedAt).getTime() > cutoff,
         )
         const replies = recent.filter(
-          (n: AppBskyNotificationListNotifications.Notification) =>
+          (n: app.bsky.notification.listNotifications.Notification) =>
             n.reason === 'reply' || n.reason === 'mention',
         ).length
         const reposts = recent.filter(
-          (n: AppBskyNotificationListNotifications.Notification) =>
+          (n: app.bsky.notification.listNotifications.Notification) =>
             n.reason === 'repost',
         ).length
         const firstReply = recent.find(
-          (n: AppBskyNotificationListNotifications.Notification) =>
+          (n: app.bsky.notification.listNotifications.Notification) =>
             n.reason === 'reply' || n.reason === 'mention',
         )
-        const record = firstReply?.record as AppBskyFeedPost.Record | undefined
+        const record = firstReply?.record as app.bsky.feed.post.Main | undefined
         await writeAsStringAsync(
           documentDirectory + 'widget_interactions.json',
           JSON.stringify({
@@ -228,5 +228,5 @@ export function useUpdateWidgets() {
         // best-effort
       }
     })()
-  }, [agent, currentAccount])
+  }, [client, currentAccount])
 }

@@ -6,7 +6,6 @@ import {
   useMemo,
   useState,
 } from 'react'
-import {type AppBskyActorDefs} from '@atproto/api'
 
 import {logger} from '#/logger'
 import {STALE} from '#/state/queries'
@@ -44,6 +43,7 @@ import {isSnoozed, snooze, unsnooze} from '#/components/dialogs/nuxs/snoozing'
 import {type EnabledCheckProps} from '#/components/dialogs/nuxs/utils'
 import {useAnalytics} from '#/analytics'
 import {useGeolocation} from '#/geolocation'
+import {type app} from '#/lexicons'
 
 type Context = {
   activeNux: Nux | undefined
@@ -126,7 +126,7 @@ function Inner({
   preferences,
 }: {
   currentAccount: SessionAccount
-  currentProfile: AppBskyActorDefs.ProfileViewDetailed
+  currentProfile: app.bsky.actor.defs.ProfileViewDetailed
   preferences: UsePreferencesQueryResponse
 }) {
   const ax = useAnalytics()

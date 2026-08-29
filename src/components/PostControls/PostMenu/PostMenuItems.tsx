@@ -6,14 +6,8 @@ import {
   type ViewStyle,
 } from 'react-native'
 import * as Clipboard from 'expo-clipboard'
-import {
-  AppBskyEmbedVideo,
-  type AppBskyFeedDefs,
-  type AppBskyFeedPost,
-  type AppBskyFeedThreadgate,
-  AtUri,
-  type RichText as RichTextAPI,
-} from '@atproto/api'
+import {AtUri} from '@atproto/syntax'
+import {type RichText as RichTextAPI} from '@bsky/sdk/richtext'
 import {plural} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react/macro'
 import {useNavigation} from '@react-navigation/native'
@@ -58,7 +52,7 @@ import {
   MaxHiddenRepliesError,
   useToggleReplyVisibilityMutation,
 } from '#/state/queries/threadgate'
-import {createEphemeralAgent, isSessionExpired} from '#/state/session/util'
+import {createEphemeralClient, isSessionExpired} from '#/state/session/util'
 import {useRequireAuth, useSession} from '#/state/session'
 import {useMergedThreadgateHiddenReplies} from '#/state/threadgate-hidden-replies'
 import {useDialogControl} from '#/components/Dialog'
@@ -105,7 +99,9 @@ import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
 import {IS_INTERNAL, IS_NATIVE} from '#/env'
+import {app, com} from '#/lexicons'
 import {device, useStorage} from '#/storage'
+import * as bsky from '#/types/bsky'
 
 let PostMenuItems = ({
   post,
@@ -119,17 +115,17 @@ let PostMenuItems = ({
   forceGoogleTranslate,
 }: {
   testID: string
-  post: Shadow<AppBskyFeedDefs.PostView>
+  post: Shadow<app.bsky.feed.defs.PostView>
   postFeedContext: string | undefined
   postReqId: string | undefined
-  record: AppBskyFeedPost.Record
+  record: app.bsky.feed.post.Main
   richText: RichTextAPI
   style?: StyleProp<ViewStyle>
   hitSlop?: PressableProps['hitSlop']
   size?: 'lg' | 'md' | 'sm'
   timestamp: string
-  threadgateRecord?: AppBskyFeedThreadgate.Record
-  onShowLess?: (interaction: AppBskyFeedDefs.Interaction) => void
+  threadgateRecord?: app.bsky.feed.threadgate.Main
+  onShowLess?: (interaction: app.bsky.feed.defs.Interaction) => void
   logContext: 'FeedItem' | 'PostThreadItem' | 'Post' | 'ImmersiveVideo'
   forceGoogleTranslate: boolean
 }): React.ReactNode => {
@@ -506,11 +502,20 @@ let PostMenuItems = ({
     void openLink(url)
   }
 
+  const onLabelReply = () => {
+    const url = `https://docs.google.com/forms/d/e/1FAIpQLScWa03XbS_knVbSjnc4DENACN5A2YvBZjtjrpI1XdDbK7d3Ow/viewform?entry.1843100496=${toShareUrl(
+      href,
+    )}`
+    void openLink(url)
+  }
+
   const onSignIn = () => requireSignIn(() => {})
 
   const onPressHideTranslation = () => clearTranslation()
 
-  const videoEmbed = AppBskyEmbedVideo.isView(post.embed) ? post.embed : null
+  const videoEmbed = bsky.isType(app.bsky.embed.video.view, post.embed)
+    ? post.embed
+    : null
 
   const onDeleteAndRedraft = () => {
     deletePostMutate({uri: postUri}).then(
@@ -545,8 +550,16 @@ let PostMenuItems = ({
     const account = accounts.find(a => a.did === accountDid)
     if (!account) return
     try {
-      const epAgent = await createEphemeralAgent(account)
-      await epAgent.like(postUri, postCid)
+      const epClient = await createEphemeralClient(account)
+      await epClient.call(com.atproto.repo.createRecord, {
+        repo: account.did,
+        collection: 'app.bsky.feed.like',
+        record: {
+          $type: 'app.bsky.feed.like',
+          subject: {uri: postUri, cid: postCid},
+          createdAt: new Date().toISOString(),
+        },
+      })
       Toast.show(l`Liked as @${account.handle}`, {type: 'success'})
     } catch (err) {
       const e = err as Error
@@ -559,8 +572,16 @@ let PostMenuItems = ({
     const account = accounts.find(a => a.did === accountDid)
     if (!account) return
     try {
-      const epAgent = await createEphemeralAgent(account)
-      await epAgent.repost(postUri, postCid)
+      const epClient = await createEphemeralClient(account)
+      await epClient.call(com.atproto.repo.createRecord, {
+        repo: account.did,
+        collection: 'app.bsky.feed.repost',
+        record: {
+          $type: 'app.bsky.feed.repost',
+          subject: {uri: postUri, cid: postCid},
+          createdAt: new Date().toISOString(),
+        },
+      })
       Toast.show(l`Reposted as @${account.handle}`, {type: 'success'})
     } catch (err) {
       const e = err as Error
@@ -775,6 +796,15 @@ let PostMenuItems = ({
               <Menu.ItemText>{l`Assign topic for algo`}</Menu.ItemText>
               <Menu.ItemIcon icon={AtomIcon} position="right" />
             </Menu.Item>
+            {isReply && (
+              <Menu.Item
+                testID="postDropdownLabelReplyBtn"
+                label={l`Label reply for algo`}
+                onPress={onLabelReply}>
+                <Menu.ItemText>{l`Label reply for algo`}</Menu.ItemText>
+                <Menu.ItemIcon icon={AtomIcon} position="right" />
+              </Menu.Item>
+            )}
           </>
         )}
 

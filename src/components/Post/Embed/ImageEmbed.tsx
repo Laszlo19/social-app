@@ -2,7 +2,6 @@ import {useRef} from 'react'
 import {InteractionManager, View} from 'react-native'
 import {type AnimatedRef} from 'react-native-reanimated'
 import {Image} from 'expo-image'
-import {AppBskyEmbedGallery, type AppBskyEmbedImages} from '@atproto/api'
 
 import {atoms as a, tokens} from '#/alf'
 import {AutoSizedImage} from '#/components/images/AutoSizedImage'
@@ -17,7 +16,9 @@ import {GalleryFallbackEmbed} from '#/components/Post/Embed/GalleryFallbackEmbed
 import {ImageContextMenu} from '#/components/Post/Embed/ImageContextMenu'
 import {PostEmbedViewContext} from '#/components/Post/Embed/types'
 import {useAnalytics} from '#/analytics'
+import {app} from '#/lexicons'
 import {device, useStorage} from '#/storage'
+import * as bsky from '#/types/bsky'
 import {type EmbedType} from '#/types/bsky/post'
 import {type CommonProps} from './types'
 
@@ -32,14 +33,16 @@ export function ImageEmbed({
   const ax = useAnalytics()
   const {openLightbox} = useLightboxControls()
   const [galleryFallback] = useStorage(device, ['experimentalGalleryFallback'])
-  const images: AppBskyEmbedImages.ViewImage[] =
+  const images: app.bsky.embed.images.ViewImage[] =
     embed.type === 'gallery'
-      ? embed.view.items.filter(AppBskyEmbedGallery.isViewImage).map(item => ({
-          thumb: item.thumbnail,
-          fullsize: item.fullsize,
-          alt: item.alt,
-          aspectRatio: item.aspectRatio,
-        }))
+      ? embed.view.items
+          .filter(item => bsky.isType(app.bsky.embed.gallery.viewImage, item))
+          .map(item => ({
+            thumb: item.thumbnail,
+            fullsize: item.fullsize,
+            alt: item.alt,
+            aspectRatio: item.aspectRatio,
+          }))
       : embed.view.images
   const useExpandedLayout =
     embed.type === 'gallery'
