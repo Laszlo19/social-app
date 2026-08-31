@@ -1593,6 +1593,14 @@ msgstr ""
 msgid "Alt text will be truncated. {MAX_ALT_TEXT, plural, other {Limit: {0} characters.}}"
 msgstr ""
 
+#: src/screens/Settings/BetaFeaturesSettings.tsx:281
+msgid "Always use the Japan custom logo, regardless of your location. Takes precedence over the kawaii logo."
+msgstr ""
+
+#: src/screens/Settings/BetaFeaturesSettings.tsx:295
+msgid "Always use the kawaii logo, regardless of kawaii mode."
+msgstr ""
+
 #. placeholder {0}: currentAccount?.email || '(no email)'
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:102
 msgid "An email has been sent to {0}. It includes a confirmation code which you can enter below."
@@ -1894,7 +1902,7 @@ msgstr ""
 msgid "Apply Pull Request"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:385
+#: src/screens/Settings/BetaFeaturesSettings.tsx:418
 msgid "AppView DID override"
 msgstr ""
 
@@ -2175,7 +2183,7 @@ msgid "Beta Feature"
 msgstr ""
 
 #: src/Navigation.tsx:442
-#: src/screens/Settings/BetaFeaturesSettings.tsx:175
+#: src/screens/Settings/BetaFeaturesSettings.tsx:181
 #: src/screens/Settings/Settings.tsx:266
 #: src/screens/Settings/Settings.tsx:269
 msgid "Beta features"
@@ -2187,12 +2195,12 @@ msgstr ""
 msgid "Beta features enabled"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:212
+#: src/screens/Settings/BetaFeaturesSettings.tsx:218
 msgctxt "web"
 msgid "Beta features may be unstable. Some changes may require reloading the app."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:217
+#: src/screens/Settings/BetaFeaturesSettings.tsx:223
 msgctxt "native"
 msgid "Beta features may be unstable. Some changes may require restarting the app."
 msgstr ""
@@ -2428,8 +2436,8 @@ msgstr ""
 msgid "Breaking site rules"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:302
-#: src/screens/Settings/BetaFeaturesSettings.tsx:303
+#: src/screens/Settings/BetaFeaturesSettings.tsx:335
+#: src/screens/Settings/BetaFeaturesSettings.tsx:336
 msgid "Bridged fediverse links"
 msgstr ""
 
@@ -3824,7 +3832,7 @@ msgstr ""
 msgid "Culture"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:429
+#: src/screens/Settings/BetaFeaturesSettings.tsx:462
 msgid "Current beta features"
 msgstr ""
 
@@ -3837,7 +3845,7 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:381
+#: src/screens/Settings/BetaFeaturesSettings.tsx:414
 msgid "Custom AppView DID"
 msgstr ""
 
@@ -4642,16 +4650,16 @@ msgstr ""
 msgid "Enable adult content"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:275
+#: src/screens/Settings/BetaFeaturesSettings.tsx:308
 msgid "Enable all Witchsky features - accent colors, square avatars, counts controls, PDSls links, and more. Disabling turns everything off and hides the controls."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:272
+#: src/screens/Settings/BetaFeaturesSettings.tsx:305
 msgid "Enable all Witchsky fork features"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:184
-#: src/screens/Settings/BetaFeaturesSettings.tsx:191
+#: src/screens/Settings/BetaFeaturesSettings.tsx:190
+#: src/screens/Settings/BetaFeaturesSettings.tsx:197
 msgid "Enable beta features"
 msgstr ""
 
@@ -5508,8 +5516,8 @@ msgstr ""
 msgid "Find Contacts"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:243
-#: src/screens/Settings/BetaFeaturesSettings.tsx:244
+#: src/screens/Settings/BetaFeaturesSettings.tsx:249
+#: src/screens/Settings/BetaFeaturesSettings.tsx:250
 msgid "Find friends experience"
 msgstr ""
 
@@ -5788,6 +5796,16 @@ msgstr ""
 msgid "For You"
 msgstr ""
 
+#: src/screens/Settings/BetaFeaturesSettings.tsx:278
+#: src/screens/Settings/BetaFeaturesSettings.tsx:279
+msgid "Force the Japan logo"
+msgstr ""
+
+#: src/screens/Settings/BetaFeaturesSettings.tsx:292
+#: src/screens/Settings/BetaFeaturesSettings.tsx:293
+msgid "Force the kawaii logo"
+msgstr ""
+
 #: src/components/dialogs/MutedWords.tsx:189
 #: src/components/dialogs/MutedWords.tsx:574
 #: src/components/dialogs/MutedWords.tsx:577
@@ -5840,8 +5858,8 @@ msgstr ""
 msgid "From these people"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:230
-#: src/screens/Settings/BetaFeaturesSettings.tsx:231
+#: src/screens/Settings/BetaFeaturesSettings.tsx:236
+#: src/screens/Settings/BetaFeaturesSettings.tsx:237
 msgid "Gallery fallback"
 msgstr ""
 
@@ -5885,7 +5903,7 @@ msgstr ""
 msgid "Germ DM reconnected"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:199
+#: src/screens/Settings/BetaFeaturesSettings.tsx:205
 msgid "Get early access to experimental features we're testing. Controls the fork toggles below."
 msgstr ""
 
@@ -6839,7 +6857,7 @@ msgstr ""
 msgid "Incorrect username or password"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:344
+#: src/screens/Settings/BetaFeaturesSettings.tsx:377
 msgid "Inject a fake \"live event\" banner into the Explore screen so the live-events UI can be demoed without a real event."
 msgstr ""
 
@@ -7438,8 +7456,8 @@ msgstr ""
 msgid "Likes of your reposts"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:257
-#: src/screens/Settings/BetaFeaturesSettings.tsx:258
+#: src/screens/Settings/BetaFeaturesSettings.tsx:263
+#: src/screens/Settings/BetaFeaturesSettings.tsx:264
 msgid "Likes on other profiles"
 msgstr ""
 
@@ -8016,8 +8034,8 @@ msgstr ""
 msgid "Movies"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:328
-#: src/screens/Settings/BetaFeaturesSettings.tsx:329
+#: src/screens/Settings/BetaFeaturesSettings.tsx:361
+#: src/screens/Settings/BetaFeaturesSettings.tsx:362
 msgid "Multi-account actions"
 msgstr ""
 
@@ -9083,8 +9101,8 @@ msgstr ""
 msgid "Open this group chat"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:355
-#: src/screens/Settings/BetaFeaturesSettings.tsx:359
+#: src/screens/Settings/BetaFeaturesSettings.tsx:388
+#: src/screens/Settings/BetaFeaturesSettings.tsx:392
 msgid "OpenRouter API key"
 msgstr ""
 
@@ -9303,7 +9321,7 @@ msgstr ""
 msgid "Our next app update will require iOS 16.4 or later. Your device supports it, so please open iOS Settings and update iOS to keep receiving new features and fixes."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:401
+#: src/screens/Settings/BetaFeaturesSettings.tsx:434
 msgid "Override the AppView DID used for AT Protocol proxying. Takes full effect after signing out and back in."
 msgstr ""
 
@@ -9365,13 +9383,13 @@ msgstr ""
 msgid "Pause video"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:315
-#: src/screens/Settings/BetaFeaturesSettings.tsx:316
+#: src/screens/Settings/BetaFeaturesSettings.tsx:348
+#: src/screens/Settings/BetaFeaturesSettings.tsx:349
 msgid "PDS badge on profiles"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:289
-#: src/screens/Settings/BetaFeaturesSettings.tsx:290
+#: src/screens/Settings/BetaFeaturesSettings.tsx:322
+#: src/screens/Settings/BetaFeaturesSettings.tsx:323
 msgid "PDSls links in post menu"
 msgstr ""
 
@@ -11673,8 +11691,8 @@ msgstr ""
 msgid "Share author DID"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:415
-#: src/screens/Settings/BetaFeaturesSettings.tsx:422
+#: src/screens/Settings/BetaFeaturesSettings.tsx:448
+#: src/screens/Settings/BetaFeaturesSettings.tsx:455
 #: src/screens/Settings/components/BetaFeaturesFeedbackDialog.tsx:93
 #: src/screens/Settings/components/BetaFeaturesFeedbackDialog.tsx:98
 msgid "Share feedback"
@@ -11778,7 +11796,7 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:331
+#: src/screens/Settings/BetaFeaturesSettings.tsx:364
 msgid "Show \"Like as…\" and \"Repost as…\" in the post menu for other signed-in accounts."
 msgstr ""
 
@@ -11790,15 +11808,15 @@ msgstr ""
 msgid "Show \"Mutuals\" instead of \"Following\" on profiles you mutually follow"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:292
+#: src/screens/Settings/BetaFeaturesSettings.tsx:325
 msgid "Show \"Open in PDSls\" in the post menu (developer tool for inspecting raw AT Protocol records)."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:305
+#: src/screens/Settings/BetaFeaturesSettings.tsx:338
 msgid "Show \"Open on [instance]\" in the post menu when the author is a bridged fediverse account."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:260
+#: src/screens/Settings/BetaFeaturesSettings.tsx:266
 msgid "Show a \"Likes\" tab on other users' profiles, read from their public like records. Bluesky hides these by default, so use respectfully."
 msgstr ""
 
@@ -11906,11 +11924,11 @@ msgstr ""
 msgid "Show samples of your saved feeds in your Following feed"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:318
+#: src/screens/Settings/BetaFeaturesSettings.tsx:351
 msgid "Show the hosting PDS server as a small badge on profile headers."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:233
+#: src/screens/Settings/BetaFeaturesSettings.tsx:239
 msgid "Show the update-your-app fallback for galleries with 5+ photos instead of the carousel."
 msgstr ""
 
@@ -12195,7 +12213,7 @@ msgstr ""
 
 #: src/screens/Moderation/index.tsx:112
 #: src/screens/Profile/Sections/Labels.tsx:185
-#: src/screens/Settings/BetaFeaturesSettings.tsx:133
+#: src/screens/Settings/BetaFeaturesSettings.tsx:139
 #: src/screens/Settings/components/BetaFeaturesFeedbackDialog.tsx:84
 msgid "Something went wrong, please try again."
 msgstr ""
@@ -12676,8 +12694,8 @@ msgstr ""
 msgid "Terms of Service"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:341
-#: src/screens/Settings/BetaFeaturesSettings.tsx:342
+#: src/screens/Settings/BetaFeaturesSettings.tsx:374
+#: src/screens/Settings/BetaFeaturesSettings.tsx:375
 msgid "Test live event banner"
 msgstr ""
 
@@ -14115,7 +14133,7 @@ msgstr ""
 msgid "Use square buttons"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:246
+#: src/screens/Settings/BetaFeaturesSettings.tsx:252
 msgid "Use the legacy \"Find friends from contacts\" instead of \"Find and invite friends\"."
 msgstr ""
 
@@ -14127,7 +14145,7 @@ msgstr ""
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:372
+#: src/screens/Settings/BetaFeaturesSettings.tsx:405
 msgid "Used to generate alt text for images in the composer via OpenRouter's vision API. Get a key at openrouter.ai."
 msgstr ""
 
@@ -14967,7 +14985,7 @@ msgstr ""
 msgid "Why should this user be reviewed?"
 msgstr ""
 
-#: src/screens/Settings/BetaFeaturesSettings.tsx:273
+#: src/screens/Settings/BetaFeaturesSettings.tsx:306
 msgid "Witchsky"
 msgstr ""
 
