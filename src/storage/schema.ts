@@ -228,6 +228,18 @@ export type Device = {
   accentHue?: number
 
   /**
+   * Beta override: force the Japan custom logo everywhere, regardless of
+   * geolocation. Settings > Beta features. Takes precedence over forceKawaiiLogo.
+   */
+  forceJapanLogo?: boolean
+
+  /**
+   * Beta override: force the kawaii logo everywhere, regardless of kawaii mode.
+   * Settings > Beta features.
+   */
+  forceKawaiiLogo?: boolean
+
+  /**
    * Master toggle for all Witchsky fork features. When false (or absent),
    * every Witchsky-specific UI section is hidden and the corresponding prefs
    * are treated as off. Toggling on enables all boolean features at once.

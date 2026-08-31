@@ -97,6 +97,12 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [publicLikes, setPublicLikes] = useStorage(device, [
     'experimentalPublicLikes',
   ])
+  const [forceJapanLogo, setForceJapanLogo] = useStorage(device, [
+    'forceJapanLogo',
+  ])
+  const [forceKawaiiLogo, setForceKawaiiLogo] = useStorage(device, [
+    'forceKawaiiLogo',
+  ])
   const [pdslsLinks, setPdslsLinks] = useStorage(device, [
     'experimentalPdslsLinks',
   ])
@@ -265,6 +271,33 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                 }
                 value={!!publicLikes}
                 onChange={setPublicLikes}
+              />
+
+              <FeatureToggle
+                name="force_japan_logo"
+                label={l`Force the Japan logo`}
+                title={<Trans>Force the Japan logo</Trans>}
+                description={
+                  <Trans>
+                    Always use the Japan custom logo, regardless of your
+                    location. Takes precedence over the kawaii logo.
+                  </Trans>
+                }
+                value={!!forceJapanLogo}
+                onChange={setForceJapanLogo}
+              />
+
+              <FeatureToggle
+                name="force_kawaii_logo"
+                label={l`Force the kawaii logo`}
+                title={<Trans>Force the kawaii logo</Trans>}
+                description={
+                  <Trans>
+                    Always use the kawaii logo, regardless of kawaii mode.
+                  </Trans>
+                }
+                value={!!forceKawaiiLogo}
+                onChange={setForceKawaiiLogo}
               />
 
               <FeatureToggle
