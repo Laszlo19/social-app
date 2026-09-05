@@ -1,10 +1,14 @@
 import {useEffect, useState} from 'react'
 import {View} from 'react-native'
 import {Trans, useLingui} from '@lingui/react/macro'
+import {useNavigation} from '@react-navigation/native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
-import {type CommonNavigatorParams} from '#/lib/routes/types'
+import {
+  type CommonNavigatorParams,
+  type NavigationProp,
+} from '#/lib/routes/types'
 import {logger} from '#/logger'
 import {
   usePreferencesQuery,
@@ -27,7 +31,6 @@ import {Text} from '#/components/Typography'
 import {features, useAnalytics} from '#/analytics'
 import {getTargetedFeatures} from '#/analytics/features'
 import {IS_WEB} from '#/env'
-import {account} from '#/storage'
 
 /**
  * Fork device-storage keys turned on/off together by the Witchsky master toggle.
@@ -57,6 +60,7 @@ type Props = NativeStackScreenProps<
 export function BetaFeaturesSettingsScreen({}: Props) {
   const t = useTheme()
   const ax = useAnalytics()
+  const navigation = useNavigation<NavigationProp>()
   const {t: l, i18n} = useLingui()
   const {data: preferences} = usePreferencesQuery()
   const {currentAccount} = useSession()
@@ -102,6 +106,9 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   ])
   const [forceKawaiiLogo, setForceKawaiiLogo] = useStorage(device, [
     'forceKawaiiLogo',
+  ])
+  const [modInboxStatus, setModInboxStatus] = useStorage(device, [
+    'modInboxTestAccountStatus',
   ])
   const [pdslsLinks, setPdslsLinks] = useStorage(device, [
     'experimentalPdslsLinks',
@@ -304,6 +311,55 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                 value={!!forceKawaiiLogo}
                 onChange={setForceKawaiiLogo}
               />
+
+              <View style={[a.px_xl, a.py_md, a.gap_sm]}>
+                <Text style={[a.text_md, a.font_semi_bold]}>
+                  <Trans>Moderation inbox</Trans>
+                </Text>
+                <Text
+                  style={[
+                    a.text_sm,
+                    a.leading_snug,
+                    t.atoms.text_contrast_medium,
+                  ]}>
+                  <Trans>
+                    Preview the (in-development) moderation inbox. Choose which
+                    account-status banner shows on the "Your account" tab, then
+                    open the inbox to test it.
+                  </Trans>
+                </Text>
+                <View style={[a.flex_row, a.gap_sm, a.flex_wrap]}>
+                  {(
+                    [
+                      ['good', l`No banner`],
+                      ['warning', l`Strikes banner`],
+                      ['atRisk', l`At-risk banner`],
+                    ] as const
+                  ).map(([status, label]) => {
+                    const active = (modInboxStatus ?? 'warning') === status
+                    return (
+                      <Button
+                        key={status}
+                        label={label}
+                        size="small"
+                        color={active ? 'primary' : 'secondary'}
+                        onPress={() => setModInboxStatus(status)}>
+                        <ButtonText>{label}</ButtonText>
+                      </Button>
+                    )
+                  })}
+                </View>
+                <Button
+                  label={l`Open moderation inbox`}
+                  size="small"
+                  color="secondary_inverted"
+                  onPress={() => navigation.navigate('ModerationInbox')}
+                  style={[a.self_start]}>
+                  <ButtonText>
+                    <Trans>Open moderation inbox</Trans>
+                  </ButtonText>
+                </Button>
+              </View>
 
               <FeatureToggle
                 name="witchsky_enabled"

@@ -6,6 +6,7 @@ import {Trans, useLingui} from '@lingui/react/macro'
 import {Pager} from '#/view/com/pager/Pager'
 import {TabBar} from '#/view/com/pager/TabBar'
 import {NotFoundScreen} from '#/view/screens/NotFound'
+import {device, useStorage} from '#/storage'
 import {atoms as a, useTheme} from '#/alf'
 import * as Layout from '#/components/Layout'
 import {createStaticClick, SimpleInlineLinkText} from '#/components/Link'
@@ -128,6 +129,10 @@ function YourAccount() {
   const t = useTheme()
   const {t: l} = useLingui()
 
+  // Fork beta testing override (Settings > Beta features). Absent = placeholder
+  // default ('warning').
+  const [testStatus] = useStorage(device, ['modInboxTestAccountStatus'])
+
   const [filter, setFilter] = useState<ReportFilter>('all')
 
   const hasUnread = true // TODO This is hard-coded atm. -dsb
@@ -172,7 +177,7 @@ function YourAccount() {
           </SimpleInlineLinkText>
         ) : undefined}
       </View>
-      <AccountStatus status="warning" />
+      <AccountStatus status={testStatus ?? 'warning'} />
       <ReportRow
         subject={l({
           context: 'moderation-report-action',

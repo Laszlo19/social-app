@@ -240,6 +240,13 @@ export type Device = {
   forceKawaiiLogo?: boolean
 
   /**
+   * Beta testing override for the (in-development) moderation inbox: which
+   * account-status banner to show on the "Your account" tab. Absent uses the
+   * placeholder default ('warning'). Settings > Beta features.
+   */
+  modInboxTestAccountStatus?: 'good' | 'warning' | 'atRisk'
+
+  /**
    * Master toggle for all Witchsky fork features. When false (or absent),
    * every Witchsky-specific UI section is hidden and the corresponding prefs
    * are treated as off. Toggling on enables all boolean features at once.
