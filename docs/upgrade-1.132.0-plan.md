@@ -38,8 +38,15 @@ the PR. No local typecheck - CI is the gate.
 3. Dangling sweep (`git diff --diff-filter=D`), esp. video-compress.
 4. Verify fork customizations; version -> 1.132.0.
 
-## Status
-- [ ] 1.132.0 merged
-- [ ] Dangling sweep clean
-- [ ] Fork customizations verified
-- [ ] Pushed
+## Status - COMPLETE
+- [x] 1.132.0 merged (merge c8667d94f). **44 .po + 4 code conflicts** - normal
+      (no SDK churn). Code: nuxs/index.tsx (kept fork triggerNux/NuxPreview +
+      adopted upstream's dev-block useEffect refactor); BetaFeaturesSettings
+      (took upstream's setIsPending(false) placement); PostFeed (kept fork
+      localizationBanner, dropped upstream-removed interstitialTrending case);
+      SplashScreen (kept fork splash assets).
+- [x] Dangling sweep clean (video-compress local module deleted -> replaced by
+      npm @bsky.app/video-compressor, no fork import). No @atproto/api.
+- [x] Fork features intact: public likes, localization banner, translator badge,
+      force-logo toggles, ephemeral-client multi-account. Version 1.132.0.
+- [ ] Pushed / PR opened. moderation_inbox gate still forced-on by our stub.
