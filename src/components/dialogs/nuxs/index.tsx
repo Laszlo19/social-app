@@ -167,14 +167,15 @@ function Inner({
     return () => setNuxTriggerHandler(null)
   }, [triggerNux])
 
-  if (__DEV__ && typeof window !== 'undefined') {
-    // @ts-ignore
+  useEffect(() => {
+    if (!__DEV__ || typeof window === 'undefined') return
+    // @ts-expect-error debug only
     window.clearNuxDialog = (id: Nux) => {
-      if (!__DEV__ || !id) return
+      if (!id) return
       resetNuxs([id])
       unsnooze()
     }
-  }
+  }, [resetNuxs])
 
   useEffect(() => {
     if (snoozed) return // comment this out to test

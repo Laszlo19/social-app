@@ -6,7 +6,6 @@ import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {logger} from '#/logger'
-import {setCachedIsBetaUser} from '#/state/preferences/beta-user-cache'
 import {
   usePreferencesQuery,
   useSetIsBetaUserMutation,
@@ -28,6 +27,7 @@ import {Text} from '#/components/Typography'
 import {features, useAnalytics} from '#/analytics'
 import {getTargetedFeatures} from '#/analytics/features'
 import {IS_WEB} from '#/env'
+import {account} from '#/storage'
 
 /**
  * Fork device-storage keys turned on/off together by the Witchsky master toggle.
@@ -128,7 +128,7 @@ export function BetaFeaturesSettingsScreen({}: Props) {
       setIsPending(true)
       await setIsBetaUser(next)
       if (currentAccount) {
-        setCachedIsBetaUser(currentAccount.did, next)
+        account.set([currentAccount.did, 'isBetaUser'], next)
       }
       ax.metric('betaFeatures:toggle', {
         enabled: next,
@@ -137,10 +137,15 @@ export function BetaFeaturesSettingsScreen({}: Props) {
     } catch (e) {
       logger.error('Failed to toggle beta features', {safeMessage: e})
       Toast.show(l`Something went wrong, please try again.`, {type: 'error'})
-      return
-    } finally {
       setIsPending(false)
+      return
     }
+    setIsPending(false)
+    /*
+     * The toggle already succeeded; re-evaluate feature gates against the new
+     * attribute in-session as a best-effort follow-up. A failure here should
+     * not surface as a toggle error.
+     */
     try {
       await features.refresh({strategy: 'prefer-fresh-gates'})
       setBetaFeatures(getTargetedFeatures(i18n))
