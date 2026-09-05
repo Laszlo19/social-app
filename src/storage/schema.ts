@@ -240,6 +240,13 @@ export type Device = {
   forceKawaiiLogo?: boolean
 
   /**
+   * Beta testing override for the (in-development) moderation inbox: which
+   * account-status banner to show on the "Your account" tab. Absent uses the
+   * placeholder default ('warning'). Settings > Beta features.
+   */
+  modInboxTestAccountStatus?: 'good' | 'warning' | 'atRisk'
+
+  /**
    * Master toggle for all Witchsky fork features. When false (or absent),
    * every Witchsky-specific UI section is hidden and the corresponding prefs
    * are treated as off. Toggling on enables all boolean features at once.
@@ -272,9 +279,10 @@ export type Account = {
   recentGifs?: Gif[]
 
   /**
-   * Persistent cold-start snapshot of `bskyAppState.isBetaUser`. Hydrates the
-   * runtime cache so the GrowthBook attribute and request header are available
-   * synchronously before preferences load. Written back when preferences load.
+   * Cached from preferences (`bskyAppState.isBetaUser`) so the GrowthBook
+   * `isBetaUser` attribute can be set synchronously at analytics init, before
+   * beta-gated features (e.g. SearchV2Enable) are first evaluated. Written back
+   * when preferences load.
    *
    * Scoped per account, since `isBetaUser` is account-specific preference data.
    * Reading it globally would let a beta account's value leak into a non-beta

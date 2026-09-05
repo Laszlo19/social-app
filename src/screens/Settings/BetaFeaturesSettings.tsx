@@ -1,12 +1,15 @@
 import {useEffect, useState} from 'react'
 import {View} from 'react-native'
 import {Trans, useLingui} from '@lingui/react/macro'
+import {useNavigation} from '@react-navigation/native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {BLUESKY_PROXY_HEADER} from '#/lib/constants'
-import {type CommonNavigatorParams} from '#/lib/routes/types'
+import {
+  type CommonNavigatorParams,
+  type NavigationProp,
+} from '#/lib/routes/types'
 import {logger} from '#/logger'
-import {setCachedIsBetaUser} from '#/state/preferences/beta-user-cache'
 import {
   usePreferencesQuery,
   useSetIsBetaUserMutation,
@@ -57,6 +60,7 @@ type Props = NativeStackScreenProps<
 export function BetaFeaturesSettingsScreen({}: Props) {
   const t = useTheme()
   const ax = useAnalytics()
+  const navigation = useNavigation<NavigationProp>()
   const {t: l, i18n} = useLingui()
   const {data: preferences} = usePreferencesQuery()
   const {currentAccount} = useSession()
@@ -103,6 +107,9 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [forceKawaiiLogo, setForceKawaiiLogo] = useStorage(device, [
     'forceKawaiiLogo',
   ])
+  const [modInboxStatus, setModInboxStatus] = useStorage(device, [
+    'modInboxTestAccountStatus',
+  ])
   const [pdslsLinks, setPdslsLinks] = useStorage(device, [
     'experimentalPdslsLinks',
   ])
@@ -128,7 +135,7 @@ export function BetaFeaturesSettingsScreen({}: Props) {
       setIsPending(true)
       await setIsBetaUser(next)
       if (currentAccount) {
-        setCachedIsBetaUser(currentAccount.did, next)
+        account.set([currentAccount.did, 'isBetaUser'], next)
       }
       ax.metric('betaFeatures:toggle', {
         enabled: next,
@@ -137,10 +144,15 @@ export function BetaFeaturesSettingsScreen({}: Props) {
     } catch (e) {
       logger.error('Failed to toggle beta features', {safeMessage: e})
       Toast.show(l`Something went wrong, please try again.`, {type: 'error'})
-      return
-    } finally {
       setIsPending(false)
+      return
     }
+    setIsPending(false)
+    /*
+     * The toggle already succeeded; re-evaluate feature gates against the new
+     * attribute in-session as a best-effort follow-up. A failure here should
+     * not surface as a toggle error.
+     */
     try {
       await features.refresh({strategy: 'prefer-fresh-gates'})
       setBetaFeatures(getTargetedFeatures(i18n))
@@ -299,6 +311,55 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                 value={!!forceKawaiiLogo}
                 onChange={setForceKawaiiLogo}
               />
+
+              <View style={[a.px_xl, a.py_md, a.gap_sm]}>
+                <Text style={[a.text_md, a.font_semi_bold]}>
+                  <Trans>Moderation inbox</Trans>
+                </Text>
+                <Text
+                  style={[
+                    a.text_sm,
+                    a.leading_snug,
+                    t.atoms.text_contrast_medium,
+                  ]}>
+                  <Trans>
+                    Preview the (in-development) moderation inbox. Choose which
+                    account-status banner shows on the "Your account" tab, then
+                    open the inbox to test it.
+                  </Trans>
+                </Text>
+                <View style={[a.flex_row, a.gap_sm, a.flex_wrap]}>
+                  {(
+                    [
+                      ['good', l`No banner`],
+                      ['warning', l`Strikes banner`],
+                      ['atRisk', l`At-risk banner`],
+                    ] as const
+                  ).map(([status, label]) => {
+                    const active = (modInboxStatus ?? 'warning') === status
+                    return (
+                      <Button
+                        key={status}
+                        label={label}
+                        size="small"
+                        color={active ? 'primary' : 'secondary'}
+                        onPress={() => setModInboxStatus(status)}>
+                        <ButtonText>{label}</ButtonText>
+                      </Button>
+                    )
+                  })}
+                </View>
+                <Button
+                  label={l`Open moderation inbox`}
+                  size="small"
+                  color="secondary_inverted"
+                  onPress={() => navigation.navigate('ModerationInbox')}
+                  style={[a.self_start]}>
+                  <ButtonText>
+                    <Trans>Open moderation inbox</Trans>
+                  </ButtonText>
+                </Button>
+              </View>
 
               <FeatureToggle
                 name="witchsky_enabled"

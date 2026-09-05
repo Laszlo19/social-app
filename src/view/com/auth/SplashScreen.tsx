@@ -11,14 +11,14 @@ import {Logo} from '#/view/icons/Logo'
 import {Logotype} from '#/view/icons/Logotype'
 import {atoms as a, useTheme} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
-// @ts-ignore
+// @ts-expect-error untyped png import
 import splashImagePointer from '../../../../assets/splash/splash-mobile.png'
-// @ts-ignore
+// @ts-expect-error untyped png import
 import darkSplashImagePointer from '../../../../assets/splash/splash-mobile-dark.png'
-const splashImageUri = RNImage.resolveAssetSource(splashImagePointer).uri
+const splashImageUri = RNImage.resolveAssetSource(splashImagePointer)!.uri
 const darkSplashImageUri = RNImage.resolveAssetSource(
   darkSplashImagePointer,
-).uri
+)!.uri
 
 export const SplashScreen = ({
   onPressSignin,
