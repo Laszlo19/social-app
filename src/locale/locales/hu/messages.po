@@ -920,7 +920,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr "<0>{displayName}</0><1/><2> vett fel Téged</2>"
 
 #: src/screens/Hashtag.tsx:232
-#: src/screens/Search/SearchResults.tsx:412
+#: src/screens/Search/SearchResults.tsx:483
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr "<0>Jelentkezz be</0><1> vagy </1><2>regisztrálj</2><3>, </3><4>ha szeretnél a Blueskyon híreket, sport- és politikai bejegyzéseket, vagy bármi mást keresni!</4>"
 
@@ -3783,7 +3783,7 @@ msgstr "Regisztráció"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:238
-#: src/screens/Search/SearchResults.tsx:418
+#: src/screens/Search/SearchResults.tsx:489
 msgid "Create an account"
 msgstr "Regisztráció"
 
@@ -4854,7 +4854,7 @@ msgstr "A fájl mentése meghiúsult"
 msgid "Error receiving captcha response."
 msgstr "A captcha válaszának fogadása meghiúsult."
 
-#: src/screens/Search/SearchResults.tsx:206
+#: src/screens/Search/SearchResults.tsx:224
 msgid "Error: {error}"
 msgstr "Hiba: {error}"
 
@@ -5452,7 +5452,7 @@ msgstr "Visszajelzés elküldve az üzemeltetőnek"
 #: src/Navigation.tsx:579
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:113
+#: src/screens/Search/SearchResults.tsx:131
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:242
@@ -7249,7 +7249,7 @@ msgstr "További információ"
 msgid "Learn More"
 msgstr "További információ"
 
-#: src/screens/Search/SearchResults.tsx:273
+#: src/screens/Search/SearchResults.tsx:291
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use advanced search</0>."
 msgstr "<0>További információ a részletes keresőről.</0>"
@@ -7859,6 +7859,7 @@ msgid "Me"
 msgstr "Saját bejegyzések"
 
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:375
+#: src/screens/Search/SearchResults.tsx:112
 #: src/view/screens/Profile.tsx:239
 msgid "Media"
 msgstr "Mellékletek"
@@ -8698,15 +8699,15 @@ msgstr "Nincsenek találatok"
 msgid "No results found for \"{query}\""
 msgstr "A(z) „{query}” kifejezésre nincsenek találatok"
 
-#: src/screens/Search/SearchResults.tsx:233
+#: src/screens/Search/SearchResults.tsx:251
 msgid "No results found for “<0>{query}</0>” with advanced search filters applied."
 msgstr "A jelenlegi szűrőkkel nincsenek találatok a(z) „<0>{query}</0>” kifejezésre."
 
-#: src/screens/Search/SearchResults.tsx:245
+#: src/screens/Search/SearchResults.tsx:263
 msgid "No results found for “<0>{query}</0>”."
 msgstr "A(z) „<0>{query}</0>” kifejezésre nincsenek találatok."
 
-#: src/screens/Search/SearchResults.tsx:239
+#: src/screens/Search/SearchResults.tsx:257
 msgid "No results found for your query with advanced search filters applied."
 msgstr "A jelenlegi szűrőkkel nincsenek találatok a keresett kifejezésre."
 
@@ -9509,7 +9510,7 @@ msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:164
-#: src/screens/Search/SearchResults.tsx:107
+#: src/screens/Search/SearchResults.tsx:125
 #: src/screens/StarterPack/StarterPackScreen.tsx:194
 msgid "People"
 msgstr "Személyek"
@@ -10282,7 +10283,7 @@ msgstr "Fiók újraaktiválása"
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr "{0, plural, other {# további válasz}} megjelenítése"
 
-#: src/screens/Search/SearchResults.tsx:276
+#: src/screens/Search/SearchResults.tsx:294
 msgctxt "english-only-resource"
 msgid "Read about how to use advanced search filters"
 msgstr "További információ a részletes keresésről (angol nyelven)"
@@ -11322,7 +11323,7 @@ msgid "Search GIFs"
 msgstr "GIF-ek keresése"
 
 #: src/screens/Hashtag.tsx:230
-#: src/screens/Search/SearchResults.tsx:410
+#: src/screens/Search/SearchResults.tsx:481
 msgid "Search is currently unavailable when logged out"
 msgstr "A kereséshez jelenleg bejelentkezés szükséges"
 
@@ -12112,7 +12113,7 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:561
 #: src/screens/Messages/JoinRequest.tsx:298
 #: src/screens/Messages/JoinRequest.tsx:304
-#: src/screens/Search/SearchResults.tsx:413
+#: src/screens/Search/SearchResults.tsx:484
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:125
 #: src/view/com/auth/SplashScreen.web.tsx:123
@@ -12474,7 +12475,7 @@ msgstr "Kezdőcsomag – Saját"
 msgid "Starter pack is invalid"
 msgstr "Ez a kezdőcsomag érvénytelen"
 
-#: src/screens/Search/SearchResults.tsx:120
+#: src/screens/Search/SearchResults.tsx:138
 msgid "Starter packs"
 msgstr "Kezdőcsomagok"
 
@@ -13775,11 +13776,11 @@ msgstr "Provokálás („trollkodás”)"
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr "A bizalom kapcsolatok, közösségek és egy megosztott környezet útján alakul ki, ezért bevezetjük a <0>megbízható hitelesítők</0> rendszerét is – ezek olyan egyesületek, amelyek közvetlenül is képesek hitelesíteni másokat."
 
-#: src/screens/Search/SearchResults.tsx:260
+#: src/screens/Search/SearchResults.tsx:278
 msgid "Try a different search term or remove some filters."
 msgstr "Próbálkozz másmilyen kifejezéssel vagy kevesebb szűrővel."
 
-#: src/screens/Search/SearchResults.tsx:262
+#: src/screens/Search/SearchResults.tsx:280
 msgid "Try a different search term."
 msgstr "Próbálkozz másmilyen kifejezéssel."
 
@@ -15020,15 +15021,15 @@ msgstr "Sajnáljuk, de a lista lekérése meghiúsult. Ha a probléma fennáll, 
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "Sajnáljuk, de az elnémított szavak listájának betöltése meghiúsult. Próbáld újra."
 
-#: src/screens/Search/SearchResults.tsx:439
-#: src/screens/Search/SearchResults.tsx:580
-#: src/screens/Search/SearchResults.tsx:798
+#: src/screens/Search/SearchResults.tsx:510
+#: src/screens/Search/SearchResults.tsx:651
+#: src/screens/Search/SearchResults.tsx:869
 msgid "We’re sorry, but your search could not be completed."
 msgstr "Sajnáljuk, de a keresés meghiúsult."
 
-#: src/screens/Search/SearchResults.tsx:438
-#: src/screens/Search/SearchResults.tsx:579
-#: src/screens/Search/SearchResults.tsx:797
+#: src/screens/Search/SearchResults.tsx:509
+#: src/screens/Search/SearchResults.tsx:650
+#: src/screens/Search/SearchResults.tsx:868
 msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
 msgstr ""
 

@@ -920,7 +920,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr "<0>{displayName}</0><1/><2> 님이 나를 추가함</2>"
 
 #: src/screens/Hashtag.tsx:232
-#: src/screens/Search/SearchResults.tsx:412
+#: src/screens/Search/SearchResults.tsx:483
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr "<0>로그인</0><1>하거나 </1><2>계정을 만들고</2><3> </3><4>뉴스, 스포츠, 정치 등 Bluesky의 다양한 소식을 검색하세요.</4>"
 
@@ -3783,7 +3783,7 @@ msgstr "가입하기"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:238
-#: src/screens/Search/SearchResults.tsx:418
+#: src/screens/Search/SearchResults.tsx:489
 msgid "Create an account"
 msgstr "계정 만들기"
 
@@ -4854,7 +4854,7 @@ msgstr "파일을 저장하는 동안 오류가 발생했습니다"
 msgid "Error receiving captcha response."
 msgstr "캡차 응답을 수신하는 동안 오류가 발생했습니다."
 
-#: src/screens/Search/SearchResults.tsx:206
+#: src/screens/Search/SearchResults.tsx:224
 msgid "Error: {error}"
 msgstr "오류: {error}"
 
@@ -5452,7 +5452,7 @@ msgstr "피드 운영자에게 피드백을 전송했습니다"
 #: src/Navigation.tsx:579
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:113
+#: src/screens/Search/SearchResults.tsx:131
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:242
@@ -7249,7 +7249,7 @@ msgstr "자세히 알아보기 (영어)"
 msgid "Learn More"
 msgstr "자세히 알아보기"
 
-#: src/screens/Search/SearchResults.tsx:273
+#: src/screens/Search/SearchResults.tsx:291
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use advanced search</0>."
 msgstr ""
@@ -7859,6 +7859,7 @@ msgid "Me"
 msgstr "나"
 
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:375
+#: src/screens/Search/SearchResults.tsx:112
 #: src/view/screens/Profile.tsx:239
 msgid "Media"
 msgstr "미디어"
@@ -8698,15 +8699,15 @@ msgstr "결과를 찾을 수 없습니다"
 msgid "No results found for \"{query}\""
 msgstr "‘{query}’에 대한 결과를 찾을 수 없습니다"
 
-#: src/screens/Search/SearchResults.tsx:233
+#: src/screens/Search/SearchResults.tsx:251
 msgid "No results found for “<0>{query}</0>” with advanced search filters applied."
 msgstr "고급 검색 필터가 적용된 상태에서 ‘<0>{query}</0>’에 대한 검색 결과를 찾을 수 없습니다."
 
-#: src/screens/Search/SearchResults.tsx:245
+#: src/screens/Search/SearchResults.tsx:263
 msgid "No results found for “<0>{query}</0>”."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:239
+#: src/screens/Search/SearchResults.tsx:257
 msgid "No results found for your query with advanced search filters applied."
 msgstr "고급 검색 필터가 적용된 검색어에 대한 결과를 찾을 수 없습니다."
 
@@ -9509,7 +9510,7 @@ msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:164
-#: src/screens/Search/SearchResults.tsx:107
+#: src/screens/Search/SearchResults.tsx:125
 #: src/screens/StarterPack/StarterPackScreen.tsx:194
 msgid "People"
 msgstr "사용자"
@@ -10282,7 +10283,7 @@ msgstr "계정 재활성화"
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr "{0, plural, other {답글 #개}} 더 보기"
 
-#: src/screens/Search/SearchResults.tsx:276
+#: src/screens/Search/SearchResults.tsx:294
 msgctxt "english-only-resource"
 msgid "Read about how to use advanced search filters"
 msgstr "고급 검색 필터 사용 방법에 대해 읽어보기 (영어)"
@@ -11322,7 +11323,7 @@ msgid "Search GIFs"
 msgstr "GIF 검색하기"
 
 #: src/screens/Hashtag.tsx:230
-#: src/screens/Search/SearchResults.tsx:410
+#: src/screens/Search/SearchResults.tsx:481
 msgid "Search is currently unavailable when logged out"
 msgstr "현재 로그아웃 상태에서는 검색 기능을 사용할 수 없습니다"
 
@@ -12112,7 +12113,7 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:561
 #: src/screens/Messages/JoinRequest.tsx:298
 #: src/screens/Messages/JoinRequest.tsx:304
-#: src/screens/Search/SearchResults.tsx:413
+#: src/screens/Search/SearchResults.tsx:484
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:125
 #: src/view/com/auth/SplashScreen.web.tsx:123
@@ -12474,7 +12475,7 @@ msgstr "내 스타터 팩"
 msgid "Starter pack is invalid"
 msgstr "스타터 팩이 유효하지 않음"
 
-#: src/screens/Search/SearchResults.tsx:120
+#: src/screens/Search/SearchResults.tsx:138
 msgid "Starter packs"
 msgstr "스타터 팩"
 
@@ -13773,11 +13774,11 @@ msgstr "분쟁 유발"
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr "신뢰는 관계, 커뮤니티, 공유된 맥락에서 비롯되므로 직접 인증을 발행할 수 있는 조직인 <0>신뢰할 수 있는 인증자</0> 또한 지원합니다."
 
-#: src/screens/Search/SearchResults.tsx:260
+#: src/screens/Search/SearchResults.tsx:278
 msgid "Try a different search term or remove some filters."
 msgstr "다른 검색어를 사용하거나 일부 필터를 제거해 보세요."
 
-#: src/screens/Search/SearchResults.tsx:262
+#: src/screens/Search/SearchResults.tsx:280
 msgid "Try a different search term."
 msgstr "다른 검색어를 사용해 보세요."
 
@@ -15018,15 +15019,15 @@ msgstr "죄송하지만 이 리스트를 불러올 수 없습니다. 이 문제�
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "죄송하지만 현재 뮤트한 단어를 불러올 수 없습니다. 다시 시도해 주세요."
 
-#: src/screens/Search/SearchResults.tsx:439
-#: src/screens/Search/SearchResults.tsx:580
-#: src/screens/Search/SearchResults.tsx:798
+#: src/screens/Search/SearchResults.tsx:510
+#: src/screens/Search/SearchResults.tsx:651
+#: src/screens/Search/SearchResults.tsx:869
 msgid "We’re sorry, but your search could not be completed."
 msgstr "죄송합니다. 검색을 완료할 수 없습니다."
 
-#: src/screens/Search/SearchResults.tsx:438
-#: src/screens/Search/SearchResults.tsx:579
-#: src/screens/Search/SearchResults.tsx:797
+#: src/screens/Search/SearchResults.tsx:509
+#: src/screens/Search/SearchResults.tsx:650
+#: src/screens/Search/SearchResults.tsx:868
 msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
 msgstr ""
 

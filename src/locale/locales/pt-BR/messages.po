@@ -920,7 +920,7 @@ msgid "<0>{displayName}</0><1/><2> added you</2>"
 msgstr "<0>{displayName}</0><1/><2> adicionou você</2>"
 
 #: src/screens/Hashtag.tsx:232
-#: src/screens/Search/SearchResults.tsx:412
+#: src/screens/Search/SearchResults.tsx:483
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
 msgstr "<0>Entre</0><1> ou </1><2>crie uma conta</2><3> </3><4>para procurar notícias, esportes, política e tudo o mais que acontece no Bluesky.</4>"
 
@@ -3783,7 +3783,7 @@ msgstr "Criar conta"
 #: src/components/dialogs/Signin.tsx:87
 #: src/components/dialogs/Signin.tsx:89
 #: src/screens/Hashtag.tsx:238
-#: src/screens/Search/SearchResults.tsx:418
+#: src/screens/Search/SearchResults.tsx:489
 msgid "Create an account"
 msgstr "Criar uma conta"
 
@@ -4854,7 +4854,7 @@ msgstr "Não foi possível salvar o arquivo"
 msgid "Error receiving captcha response."
 msgstr "Não foi possível processar o captcha."
 
-#: src/screens/Search/SearchResults.tsx:206
+#: src/screens/Search/SearchResults.tsx:224
 msgid "Error: {error}"
 msgstr "Erro: {error}"
 
@@ -5452,7 +5452,7 @@ msgstr "Comentários enviados para o operador do feed"
 #: src/Navigation.tsx:579
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
-#: src/screens/Search/SearchResults.tsx:113
+#: src/screens/Search/SearchResults.tsx:131
 #: src/screens/StarterPack/StarterPackScreen.tsx:195
 #: src/view/screens/Feeds.tsx:504
 #: src/view/screens/Profile.tsx:242
@@ -7249,7 +7249,7 @@ msgstr "Saiba mais (em inglês)"
 msgid "Learn More"
 msgstr "Saiba Mais"
 
-#: src/screens/Search/SearchResults.tsx:273
+#: src/screens/Search/SearchResults.tsx:291
 msgctxt "english-only-resource"
 msgid "Learn more about <0>how to use advanced search</0>."
 msgstr "Saiba mais sobre <0>como usar a busca avançada</0>."
@@ -7859,6 +7859,7 @@ msgid "Me"
 msgstr "Eu"
 
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:375
+#: src/screens/Search/SearchResults.tsx:112
 #: src/view/screens/Profile.tsx:239
 msgid "Media"
 msgstr "Mídia"
@@ -8698,15 +8699,15 @@ msgstr "Nenhum resultado encontrado"
 msgid "No results found for \"{query}\""
 msgstr "Nenhum resultado encontrado para \"{query}\""
 
-#: src/screens/Search/SearchResults.tsx:233
+#: src/screens/Search/SearchResults.tsx:251
 msgid "No results found for “<0>{query}</0>” with advanced search filters applied."
 msgstr "Nenhum resultado encontrado para “<0>{query}</0>” com os filtros de busca avançada."
 
-#: src/screens/Search/SearchResults.tsx:245
+#: src/screens/Search/SearchResults.tsx:263
 msgid "No results found for “<0>{query}</0>”."
 msgstr ""
 
-#: src/screens/Search/SearchResults.tsx:239
+#: src/screens/Search/SearchResults.tsx:257
 msgid "No results found for your query with advanced search filters applied."
 msgstr "Nenhum resultado encontrado para sua busca com filtros de busca avançada."
 
@@ -9509,7 +9510,7 @@ msgid "PDSls links in post menu"
 msgstr ""
 
 #: src/screens/ProfileList/index.tsx:164
-#: src/screens/Search/SearchResults.tsx:107
+#: src/screens/Search/SearchResults.tsx:125
 #: src/screens/StarterPack/StarterPackScreen.tsx:194
 msgid "People"
 msgstr "Pessoas"
@@ -10282,7 +10283,7 @@ msgstr "Reative sua conta"
 msgid "Read {0, plural, one {# more reply} other {# more replies}}"
 msgstr "Ler {0, plural, one {mais # resposta} other {mais # respostas}}"
 
-#: src/screens/Search/SearchResults.tsx:276
+#: src/screens/Search/SearchResults.tsx:294
 msgctxt "english-only-resource"
 msgid "Read about how to use advanced search filters"
 msgstr "Leia sobre como usar filtros de busca avançada"
@@ -11322,7 +11323,7 @@ msgid "Search GIFs"
 msgstr "Pesquisar por GIFs"
 
 #: src/screens/Hashtag.tsx:230
-#: src/screens/Search/SearchResults.tsx:410
+#: src/screens/Search/SearchResults.tsx:481
 msgid "Search is currently unavailable when logged out"
 msgstr "A pesquisa está indisponível quando desconectado"
 
@@ -12112,7 +12113,7 @@ msgstr ""
 #: src/screens/Login/LoginForm.tsx:561
 #: src/screens/Messages/JoinRequest.tsx:298
 #: src/screens/Messages/JoinRequest.tsx:304
-#: src/screens/Search/SearchResults.tsx:413
+#: src/screens/Search/SearchResults.tsx:484
 #: src/view/com/auth/SplashScreen.tsx:118
 #: src/view/com/auth/SplashScreen.tsx:125
 #: src/view/com/auth/SplashScreen.web.tsx:123
@@ -12474,7 +12475,7 @@ msgstr "Seu pacote inicial"
 msgid "Starter pack is invalid"
 msgstr "Pacote inicial é inválido"
 
-#: src/screens/Search/SearchResults.tsx:120
+#: src/screens/Search/SearchResults.tsx:138
 msgid "Starter packs"
 msgstr "Pacotes iniciais"
 
@@ -13773,11 +13774,11 @@ msgstr "Trollagem"
 msgid "Trust emerges from relationships, communities, and shared context, so we’re also enabling <0>trusted verifiers</0>: organizations that can directly issue verification."
 msgstr "A confiança emerge de relacionamentos, comunidades e contexto compartilhado, por isso também estamos permitindo <0>verificadores confiáveis</0>: organizações que podem conceder verificação diretamente."
 
-#: src/screens/Search/SearchResults.tsx:260
+#: src/screens/Search/SearchResults.tsx:278
 msgid "Try a different search term or remove some filters."
 msgstr "Tente um termo de busca diferente ou remova alguns filtros."
 
-#: src/screens/Search/SearchResults.tsx:262
+#: src/screens/Search/SearchResults.tsx:280
 msgid "Try a different search term."
 msgstr "Tente um termo de busca diferente."
 
@@ -15018,15 +15019,15 @@ msgstr "Tivemos um problema ao exibir esta lista. Se continuar acontecendo, cont
 msgid "We're sorry, but we weren't able to load your muted words at this time. Please try again."
 msgstr "Não foi possível carregar sua lista de palavras silenciadas. Por favor, tente novamente."
 
-#: src/screens/Search/SearchResults.tsx:439
-#: src/screens/Search/SearchResults.tsx:580
-#: src/screens/Search/SearchResults.tsx:798
+#: src/screens/Search/SearchResults.tsx:510
+#: src/screens/Search/SearchResults.tsx:651
+#: src/screens/Search/SearchResults.tsx:869
 msgid "We’re sorry, but your search could not be completed."
 msgstr "Desculpe, mas sua busca não pôde ser concluída."
 
-#: src/screens/Search/SearchResults.tsx:438
-#: src/screens/Search/SearchResults.tsx:579
-#: src/screens/Search/SearchResults.tsx:797
+#: src/screens/Search/SearchResults.tsx:509
+#: src/screens/Search/SearchResults.tsx:650
+#: src/screens/Search/SearchResults.tsx:868
 msgid "We’re sorry, but your search could not be completed. Please try again in a few minutes."
 msgstr ""
 
