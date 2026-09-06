@@ -1,4 +1,4 @@
-import {memo, useCallback, useMemo, useState} from 'react'
+import {memo, useCallback, useEffect, useMemo, useState} from 'react'
 import {ActivityIndicator, View} from 'react-native'
 import {Trans, useLingui} from '@lingui/react/macro'
 
@@ -36,8 +36,8 @@ import {ListFooter} from '#/components/Lists'
 import {SearchError} from '#/components/SearchError'
 import {Text} from '#/components/Typography'
 import {type Metrics, useAnalytics} from '#/analytics'
-import {type app} from '#/lexicons'
-import type * as bsky from '#/types/bsky'
+import {app} from '#/lexicons'
+import * as bsky from '#/types/bsky'
 
 let SearchResults = ({
   query,
@@ -103,16 +103,34 @@ let SearchResults = ({
           />
         ),
       },
+      {
+        /*
+         * Fork: media-only results. There is no server-side media filter, so
+         * this searches Latest (newest first) and filters client-side to posts
+         * carrying an image/video embed.
+         */
+        title: l`Media`,
+        component: (
+          <SearchScreenPostResults
+            hasFilters={hasFilters}
+            query={query}
+            filters={filters}
+            sort="latest"
+            mediaOnly
+            active={activePage === 2}
+          />
+        ),
+      },
       noFilters && {
         title: l`People`,
         component: (
-          <SearchScreenUserResults query={query} active={activePage === 2} />
+          <SearchScreenUserResults query={query} active={activePage === 3} />
         ),
       },
       noFilters && {
         title: l`Feeds`,
         component: (
-          <SearchScreenFeedsResults query={query} active={activePage === 3} />
+          <SearchScreenFeedsResults query={query} active={activePage === 4} />
         ),
       },
       noFilters &&
@@ -121,7 +139,7 @@ let SearchResults = ({
           component: (
             <SearchScreenStarterPackResults
               query={query}
-              active={activePage === 4}
+              active={activePage === 5}
             />
           ),
         },
@@ -299,18 +317,45 @@ type SearchResultSlice =
       key: string
     }
 
+/**
+ * Whether a post's embed carries an image or video - directly, or as the media
+ * half of a record-with-media quote. Used by the Media search tab.
+ */
+function hasMediaEmbed(embed: app.bsky.feed.defs.PostView['embed']): boolean {
+  if (!embed) return false
+  if (
+    bsky.isType(app.bsky.embed.images.view, embed) ||
+    bsky.isType(app.bsky.embed.video.view, embed)
+  ) {
+    return true
+  }
+  if (bsky.isType(app.bsky.embed.recordWithMedia.view, embed)) {
+    return (
+      bsky.isType(app.bsky.embed.images.view, embed.media) ||
+      bsky.isType(app.bsky.embed.video.view, embed.media)
+    )
+  }
+  return false
+}
+
 let SearchScreenPostResults = ({
   hasFilters = false,
   query,
   filters,
   sort,
   active,
+  mediaOnly = false,
 }: {
   hasFilters: boolean
   query: string
   filters?: SearchFilters
   sort?: 'top' | 'latest'
   active: boolean
+  /**
+   * Fork: keep only posts that carry an image or video embed (used by the
+   * Media tab). Filtered client-side since search has no media filter.
+   */
+  mediaOnly?: boolean
 }): React.ReactNode => {
   const ax = useAnalytics()
   const {t: l} = useLingui()
@@ -361,6 +406,9 @@ let SearchScreenPostResults = ({
       if (seenUris.has(post.uri)) {
         continue
       }
+      if (mediaOnly && !hasMediaEmbed(post.embed)) {
+        continue
+      }
       temp.push({
         type: 'post',
         key: post.uri,
@@ -377,7 +425,30 @@ let SearchScreenPostResults = ({
     }
 
     return temp
-  }, [posts, isFetchingNextPage])
+  }, [posts, isFetchingNextPage, mediaOnly])
+
+  /*
+   * Media tab only: search has no server-side media filter, so a fetched page
+   * may contain few or no media posts after client-side filtering. Keep pulling
+   * pages until we have a screenful (or run out) so the tab doesn't look empty
+   * prematurely.
+   */
+  useEffect(() => {
+    if (!mediaOnly || !active) return
+    if (isFetching || isFetchingNextPage || !hasNextPage || error) return
+    if (items.length < 15) {
+      void fetchNextPage()
+    }
+  }, [
+    mediaOnly,
+    active,
+    isFetching,
+    isFetchingNextPage,
+    hasNextPage,
+    error,
+    items.length,
+    fetchNextPage,
+  ])
 
   const closeAllActiveElements = useCloseAllActiveElements()
   const {requestSwitchToAccount} = useLoggedOutViewControls()
