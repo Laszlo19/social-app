@@ -71,6 +71,8 @@ You may refer to Bluesky by name to describe interoperability or origin — for 
 - `assets/logo.png`
 - `assets/default-avatar.png`
 - `assets/icon-android-foreground.png`
+- `assets/icon-android-foreground-legacy.png`
+- `assets/icon-android-background-legacy.png`
 - `assets/icon-android-monochrome.png`
 - `assets/icon-android-notification.png`
 - `assets/splash/splash.png`

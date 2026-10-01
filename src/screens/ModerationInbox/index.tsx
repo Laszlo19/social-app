@@ -8,8 +8,10 @@ import {TabBar} from '#/view/com/pager/TabBar'
 import {NotFoundScreen} from '#/view/screens/NotFound'
 import {device, useStorage} from '#/storage'
 import {atoms as a, useTheme} from '#/alf'
+import {ButtonIcon} from '#/components/Button'
+import {SettingsGear2_Stroke2_Corner0_Rounded as SettingsIcon} from '#/components/icons/SettingsGear2'
 import * as Layout from '#/components/Layout'
-import {createStaticClick, SimpleInlineLinkText} from '#/components/Link'
+import {createStaticClick, Link, SimpleInlineLinkText} from '#/components/Link'
 import {useAnalytics} from '#/analytics'
 import {AccountStatus} from './components/AccountStatus'
 import {FilterMenu} from './components/FilterMenu'
@@ -40,7 +42,19 @@ export function ModerationInboxScreen() {
                   <Trans>Moderation inbox</Trans>
                 </Layout.Header.TitleText>
               </Layout.Header.Content>
-              <Layout.Header.Slot />
+              <Layout.Header.Slot>
+                <Link
+                  testID="moderationInboxSettingsBtn"
+                  to={{screen: 'ModerationInboxSettings'}}
+                  label={l`Moderation inbox settings`}
+                  size="small"
+                  variant="ghost"
+                  color="secondary"
+                  shape="round"
+                  style={[a.justify_center]}>
+                  <ButtonIcon icon={SettingsIcon} size="lg" />
+                </Link>
+              </Layout.Header.Slot>
             </Layout.Header.Outer>
             <TabBar
               testID="moderationInboxTabs"
@@ -102,6 +116,7 @@ function YourReports() {
         })}
         action={l`Awaiting review`}
         date={new Date()}
+        to="/moderation/inbox/report/details"
         unread
       />
       <ReportRow
@@ -111,6 +126,7 @@ function YourReports() {
         })}
         action={l`No action taken`}
         date={new Date()}
+        to="/moderation/inbox/report/details"
         unread
       />
       <ReportRow
@@ -120,6 +136,7 @@ function YourReports() {
         })}
         action={l`Message deleted`}
         date={new Date()}
+        to="/moderation/inbox/report/details"
       />
     </Layout.Center>
   )
@@ -185,6 +202,7 @@ function YourAccount() {
         })}
         action={l`Violates community guideline: ${guideline}`}
         date={new Date()}
+        to="/moderation/inbox/subject/details"
         unread
       />
       <ReportRow
@@ -194,14 +212,16 @@ function YourAccount() {
         })}
         action={l`“${label}” – shown behind a warning`}
         date={new Date()}
+        to="/moderation/inbox/subject/details"
       />
       <ReportRow
         subject={l({
           context: 'moderation-report-action',
-          message: `A label was added to your post`,
+          message: `Your account was suspended`,
         })}
         action={l`Ban evasion – ${duration}, now expired`}
         date={new Date()}
+        to="/moderation/inbox/subject/details"
       />
     </Layout.Center>
   )

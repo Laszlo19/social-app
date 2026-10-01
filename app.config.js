@@ -47,12 +47,14 @@ module.exports = function (_config) {
 
   const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN)
 
-  const IOS_ICON_FILE =
-    PLATFORM === 'web' // web build doesn't like .icon files
-      ? './assets/app-icons/ios_icon_default_next.png'
-      : IS_TESTFLIGHT
-        ? './assets/app-icons/ios_icon_testflight.icon'
-        : './assets/app-icons/ios_icon_default.icon'
+  /*
+   * Fork: the default app icon is the legacy flat butterfly on the blue
+   * gradient (what the App Icon picker calls "Light"), not upstream's newer
+   * 3D "next" icon.
+   */
+  const IOS_ICON_FILE = IS_TESTFLIGHT
+    ? './assets/app-icons/ios_icon_testflight.icon'
+    : './assets/app-icons/ios_icon_legacy_light.png'
 
   return {
     expo: {
@@ -64,7 +66,7 @@ module.exports = function (_config) {
       runtimeVersion: {
         policy: 'appVersion',
       },
-      icon: './assets/app-icons/ios_icon_default_next.png',
+      icon: './assets/app-icons/ios_icon_legacy_light.png',
       userInterfaceStyle: 'automatic',
       primaryColor: '#006AFF',
       ios: {
@@ -197,11 +199,12 @@ module.exports = function (_config) {
         barStyle: 'light-content',
       },
       android: {
-        icon: './assets/app-icons/android_icon_default_next.png',
+        icon: './assets/app-icons/android_icon_legacy_light.png',
         adaptiveIcon: {
-          foregroundImage: './assets/icon-android-foreground.png',
+          foregroundImage: './assets/icon-android-foreground-legacy.png',
           monochromeImage: './assets/icon-android-monochrome.png',
-          backgroundColor: '#006AFF',
+          backgroundImage: './assets/icon-android-background-legacy.png',
+          backgroundColor: '#1185FE',
         },
         googleServicesFile: './google-services.json',
         package: ANDROID_PACKAGE,
@@ -228,6 +231,7 @@ module.exports = function (_config) {
         ],
       },
       web: {
+        bundler: 'metro',
         favicon: './assets/favicon.png',
       },
       updates: {
@@ -265,6 +269,8 @@ module.exports = function (_config) {
               : {}),
           },
         ],
+        'expo-asset',
+        'expo-sharing',
         'expo-video',
         'expo-localization',
         'expo-web-browser',
@@ -280,6 +286,9 @@ module.exports = function (_config) {
                   organization: 'blueskyweb',
                   project: 'app',
                   url: 'https://sentry.io',
+                  experimental_android: {
+                    enableAndroidGradlePlugin: true,
+                  },
                 },
               ]),
             ]
@@ -305,6 +314,7 @@ module.exports = function (_config) {
               targetSdkVersion: 36,
               buildToolsVersion: '36.0.0',
               buildReactNativeFromSource: IS_PRODUCTION,
+              enableMinifyInReleaseBuilds: true,
             },
           },
         ],
@@ -509,6 +519,9 @@ module.exports = function (_config) {
           },
           projectId: '55bd077a-d905-4184-9c7f-94789ba0f302',
         },
+      },
+      experiments: {
+        baseUrl: '/static',
       },
     },
   }
