@@ -38,6 +38,11 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          # The action's default list includes the legacy `tools` package,
+          # which current sdkmanager releases no longer ship ("Failed to find
+          # package 'tools'"), failing the step.
+          packages: platform-tools
 
       - name: Install Android NDK
         # react-native-mmkv (and other native modules on RN 0.81) require this
