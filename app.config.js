@@ -228,6 +228,7 @@ module.exports = function (_config) {
         ],
       },
       web: {
+        bundler: 'metro',
         favicon: './assets/favicon.png',
       },
       updates: {
@@ -265,6 +266,8 @@ module.exports = function (_config) {
               : {}),
           },
         ],
+        'expo-asset',
+        'expo-sharing',
         'expo-video',
         'expo-localization',
         'expo-web-browser',
@@ -280,6 +283,9 @@ module.exports = function (_config) {
                   organization: 'blueskyweb',
                   project: 'app',
                   url: 'https://sentry.io',
+                  experimental_android: {
+                    enableAndroidGradlePlugin: true,
+                  },
                 },
               ]),
             ]
@@ -305,6 +311,7 @@ module.exports = function (_config) {
               targetSdkVersion: 36,
               buildToolsVersion: '36.0.0',
               buildReactNativeFromSource: IS_PRODUCTION,
+              enableMinifyInReleaseBuilds: true,
             },
           },
         ],
@@ -509,6 +516,9 @@ module.exports = function (_config) {
           },
           projectId: '55bd077a-d905-4184-9c7f-94789ba0f302',
         },
+      },
+      experiments: {
+        baseUrl: '/static',
       },
     },
   }

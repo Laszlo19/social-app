@@ -91,6 +91,7 @@ interface PreviewableUserAvatarProps extends BaseUserAvatarProps {
   profile: bsky.profile.AnyProfileView
   disableHoverCard?: boolean
   disableNavigation?: boolean
+  disableLink?: boolean
   onBeforePress?: () => void
 }
 
@@ -558,6 +559,7 @@ let PreviewableUserAvatar = ({
   profile,
   disableHoverCard,
   disableNavigation,
+  disableLink,
   onBeforePress,
   live,
   ...props
@@ -618,6 +620,8 @@ let PreviewableUserAvatar = ({
             embed={status.embed}
           />
         </>
+      ) : disableLink ? (
+        avatarEl
       ) : (
         <Link
           label={_(
