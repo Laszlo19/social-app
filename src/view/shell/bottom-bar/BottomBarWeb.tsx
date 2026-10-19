@@ -12,6 +12,7 @@ import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {getCurrentRoute, isTab} from '#/lib/routes/helpers'
 import {makeProfileLink} from '#/lib/routes/links'
 import {type CommonNavigatorParams} from '#/lib/routes/types'
+import {useHomeBadge} from '#/state/home-badge'
 import {useUnreadMessageCount} from '#/state/queries/messages/list-conversations'
 import {useUnreadNotifications} from '#/state/queries/notifications/unread'
 import {useProfileQuery} from '#/state/queries/profile'
@@ -65,6 +66,8 @@ export function BottomBarWeb() {
 
   const unreadMessageCount = useUnreadMessageCount()
   const notificationCountStr = useUnreadNotifications()
+  const hasHomeBadge = useHomeBadge()
+  const ax = useAnalytics()
   const aa = useAgeAssurance()
   const isLabeler = profile?.associated?.labeler
   const {visible} = useBottomBarItems()
@@ -122,6 +125,10 @@ export function BottomBarWeb() {
     } else if (item.badge === 'messages' && !aa.flags.chatDisabled) {
       notificationCount = unreadMessageCount.numUnread
       hasNew = unreadMessageCount.hasNew
+    }
+    if (item.id === 'home') {
+      hasNew =
+        hasHomeBadge && ax.features.enabled(ax.features.FollowingV2Enable)
     }
 
     return (

@@ -164,13 +164,15 @@ export function FeedPage({
           />
         </FeedFeedbackProvider>
       </MainScrollProvider>
-      {!hideLoadLatestButton && (isScrolledDown || hasNew) && (
-        <LoadLatestBtn
-          onPress={onPressLoadLatest}
-          label={_(msg`Load new posts`)}
-          showIndicator={hasNew}
-        />
-      )}
+      {!hideLoadLatestButton &&
+        (isScrolledDown || hasNew) &&
+        !ax.features.enabled(ax.features.FollowingV2Enable) && (
+          <LoadLatestBtn
+            onPress={onPressLoadLatest}
+            label={_(msg`Load new posts`)}
+            showIndicator={hasNew}
+          />
+        )}
 
       {hasSession && (
         <FAB
