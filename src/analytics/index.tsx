@@ -33,7 +33,7 @@ import {type Metrics, metrics} from '#/analytics/metrics'
 import * as refParams from '#/analytics/misc/refParams'
 import * as env from '#/env'
 import {useGeolocationServiceResponse} from '#/geolocation/service'
-import {account, device} from '#/storage'
+import {account, device, useStorage} from '#/storage'
 
 export * as utils from '#/analytics/utils'
 export const features = {init, refresh}
@@ -334,11 +334,16 @@ export function AnalyticsFeaturesContext({
   })
   setAttributes(parentContext.metadata)
 
+  const [upstreamPreviews] = useStorage(device, ['upstreamPreviewFeatures'])
+
   const childContext = useMemo<AnalyticsContextType>(() => {
     return {
       ...parentContext,
       features: {
         enabled: (feature: Features) => {
+          if (UPSTREAM_PREVIEW_FEATURES.includes(feature)) {
+            return !!upstreamPreviews?.[feature]
+          }
           // Disable all feature gates: *:disable flags are always off (feature enabled),
           // all other flags (e.g. *:enable) are always on (feature enabled).
           if ((feature as string).endsWith(':disable')) return false
@@ -348,10 +353,23 @@ export function AnalyticsFeaturesContext({
         ...Features,
       },
     }
-  }, [parentContext])
+  }, [parentContext, upstreamPreviews])
 
   return <Context.Provider value={childContext}>{children}</Context.Provider>
 }
+
+/**
+ * Fork: upstream feature flags that are exempt from the always-on gate stub in
+ * `AnalyticsFeaturesContext`. They're in-development upstream, so each stays
+ * off until turned on in Settings > Beta features (device storage
+ * `upstreamPreviewFeatures`).
+ */
+export const UPSTREAM_PREVIEW_FEATURES: readonly Features[] = [
+  Features.FollowingV2Enable,
+  Features.NotificationsV2Enable,
+  Features.AtmosphereExploreEnable,
+  Features.ProfileLinksEnable,
+]
 
 /**
  * Basic analytics context without feature gates. Should really only be used

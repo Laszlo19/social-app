@@ -238,6 +238,13 @@ export type Device = {
   forceKawaiiLogo?: boolean
 
   /**
+   * Fork: in-development upstream features that stay off unless turned on in
+   * Settings > Beta features, keyed by feature flag. See
+   * `UPSTREAM_PREVIEW_FEATURES` in `#/analytics`.
+   */
+  upstreamPreviewFeatures?: Partial<Record<string, boolean>>
+
+  /**
    * Beta testing override for the (in-development) moderation inbox: which
    * account-status banner to show on the "Your account" tab. Absent uses the
    * placeholder default ('warning'). Settings > Beta features.

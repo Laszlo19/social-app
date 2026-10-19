@@ -28,7 +28,12 @@ import {BubbleInfo_Stroke2_Corner2_Rounded as BubbleInfoIcon} from '#/components
 import * as Layout from '#/components/Layout'
 import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
-import {features, useAnalytics} from '#/analytics'
+import {
+  features,
+  Features,
+  UPSTREAM_PREVIEW_FEATURES,
+  useAnalytics,
+} from '#/analytics'
 import {getTargetedFeatures} from '#/analytics/features'
 import {IS_WEB} from '#/env'
 
@@ -110,6 +115,9 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [modInboxStatus, setModInboxStatus] = useStorage(device, [
     'modInboxTestAccountStatus',
   ])
+  const [upstreamPreviews, setUpstreamPreviews] = useStorage(device, [
+    'upstreamPreviewFeatures',
+  ])
   const [pdslsLinks, setPdslsLinks] = useStorage(device, [
     'experimentalPdslsLinks',
   ])
@@ -159,6 +167,10 @@ export function BetaFeaturesSettingsScreen({}: Props) {
     } catch {}
   }
 
+  const setUpstreamPreview = (feature: Features, value: boolean) => {
+    setUpstreamPreviews({...upstreamPreviews, [feature]: value})
+  }
+
   const onToggleWitchsky = (value: boolean) => {
     setWitchskyEnabled(value)
     if (value) {
@@ -183,6 +195,36 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   }
 
   const canSubmitFeedback = !isPending && isBetaUser && betaFeatures.length > 0
+
+  function getUpstreamPreviewCopy(feature: Features): {
+    label: string
+    description: string
+  } {
+    switch (feature) {
+      case Features.FollowingV2Enable:
+        return {
+          label: l`Keep your place in Following`,
+          description: l`Replaces Home with Bluesky’s in-development version. Your place in the Following feed is saved between sessions, and new posts wait above you until you’re ready. Android and iOS only.`,
+        }
+      case Features.NotificationsV2Enable:
+        return {
+          label: l`New Notifications screen`,
+          description: l`Bluesky’s redesigned Notifications screen, with tabs and grouped notifications.`,
+        }
+      case Features.AtmosphereExploreEnable:
+        return {
+          label: l`Atmosphere tab`,
+          description: l`Adds the Atmosphere tab to the side menu and the desktop sidebar.`,
+        }
+      case Features.ProfileLinksEnable:
+        return {
+          label: l`Profile links`,
+          description: l`Groundwork for links on profiles. Bluesky hasn’t built the visible part yet, so this currently changes nothing.`,
+        }
+      default:
+        return {label: feature, description: ''}
+    }
+  }
 
   return (
     <Layout.Screen>
@@ -360,6 +402,37 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                   </ButtonText>
                 </Button>
               </View>
+
+              <View style={[a.px_xl, a.pt_md, a.gap_xs]}>
+                <Text style={[a.text_md, a.font_semi_bold]}>
+                  <Trans>Upstream previews</Trans>
+                </Text>
+                <Text
+                  style={[
+                    a.text_sm,
+                    a.leading_snug,
+                    t.atoms.text_contrast_medium,
+                  ]}>
+                  <Trans>
+                    Features Bluesky is still building. They may be unfinished
+                    or change between updates.
+                  </Trans>
+                </Text>
+              </View>
+              {UPSTREAM_PREVIEW_FEATURES.map(feature => {
+                const copy = getUpstreamPreviewCopy(feature)
+                return (
+                  <FeatureToggle
+                    key={feature}
+                    name={feature}
+                    label={copy.label}
+                    title={copy.label}
+                    description={copy.description}
+                    value={!!upstreamPreviews?.[feature]}
+                    onChange={value => setUpstreamPreview(feature, value)}
+                  />
+                )
+              })}
 
               <FeatureToggle
                 name="witchsky_enabled"
