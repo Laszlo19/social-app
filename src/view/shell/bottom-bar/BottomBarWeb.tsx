@@ -33,6 +33,7 @@ import {useAgeAssurance} from '#/ageAssurance'
 import {useAnalytics} from '#/analytics'
 import {type Events} from '#/analytics/metrics/types'
 import {type NavCatalogItem, useBottomBarItems} from '#/features/customNav'
+import {isFollowingV2HomeDotEnabled} from '#/features/followingV2/eligibility'
 import {styles} from './BottomBarStyles'
 
 type NavItemValue = Events['nav:click']['item']
@@ -127,8 +128,7 @@ export function BottomBarWeb() {
       hasNew = unreadMessageCount.hasNew
     }
     if (item.id === 'home') {
-      hasNew =
-        hasHomeBadge && ax.features.enabled(ax.features.FollowingV2Enable)
+      hasNew = hasHomeBadge && isFollowingV2HomeDotEnabled(ax)
     }
 
     return (

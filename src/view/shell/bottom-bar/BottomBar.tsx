@@ -43,6 +43,7 @@ import {Text} from '#/components/Typography'
 import {useAgeAssurance} from '#/ageAssurance'
 import {useAnalytics} from '#/analytics'
 import {type NavCatalogItem, useBottomBarItems} from '#/features/customNav'
+import {isFollowingV2HomeDotEnabled} from '#/features/followingV2/eligibility'
 import {useActorStatus} from '#/features/liveNow'
 import {navigate} from '#/Navigation'
 import {useDemoMode} from '#/storage/hooks/demo-mode'
@@ -86,7 +87,7 @@ export function BottomBar({navigation}: BottomTabBarProps) {
   const dedupe = useDedupe()
   const accountSwitchControl = useDialogControl()
   const messagesMenuControl = Menu.useMenuControl()
-  const playHaptic = useHaptics()
+  const haptics = useHaptics()
   const hideBorder = useHideBottomBarBorder()
   const iconWidth = 28
 
@@ -138,15 +139,15 @@ export function BottomBar({navigation}: BottomTabBarProps) {
   )
 
   const onLongPressProfile = useCallback(() => {
-    playHaptic()
+    haptics.longPress()
     accountSwitchControl.open()
-  }, [accountSwitchControl, playHaptic])
+  }, [accountSwitchControl, haptics])
 
   const onLongPressMessages = useCallback(() => {
     if (aa.flags.chatDisabled) return
-    playHaptic()
+    haptics.longPress()
     messagesMenuControl.open()
-  }, [aa.flags.chatDisabled, messagesMenuControl, playHaptic])
+  }, [aa.flags.chatDisabled, messagesMenuControl, haptics])
 
   const [demoMode] = useDemoMode()
   const {isActive: live} = useActorStatus(profile)
@@ -225,8 +226,7 @@ export function BottomBar({navigation}: BottomTabBarProps) {
       hasNew = numUnreadMessages.hasNew
     }
     if (item.id === 'home') {
-      hasNew =
-        hasHomeBadge && ax.features.enabled(ax.features.FollowingV2Enable)
+      hasNew = hasHomeBadge && isFollowingV2HomeDotEnabled(ax)
     }
 
     const unreadHint = notificationCount

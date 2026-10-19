@@ -43,7 +43,13 @@ module.exports = function (_config) {
     ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
   ]
 
-  const UPDATES_ENABLED = IS_TESTFLIGHT || IS_PRODUCTION
+  /*
+   * EXPO_PUBLIC_ENV is also an EAS environment secret, which wins over a build
+   * profile's env, so profiles opt out of OTA updates with their own flag. A
+   * dev client with updates on rejects unsigned manifests from a local Metro.
+   */
+  const UPDATES_ENABLED =
+    (IS_TESTFLIGHT || IS_PRODUCTION) && !process.env.DISABLE_UPDATES
 
   const USE_SENTRY = Boolean(process.env.SENTRY_AUTH_TOKEN)
 
@@ -271,6 +277,20 @@ module.exports = function (_config) {
         'expo-video',
         'expo-localization',
         'expo-web-browser',
+        [
+          'react-native-nano-icons',
+          {
+            /*
+             * One font per codegen directory under `assets/icons/`, see
+             * `scripts/icons/README.md`.
+             */
+            iconSets: ['ui', 'brands', 'community'].map(lane => ({
+              inputDir: `./assets/icons/${lane}`,
+              outputDir: './assets/nano-icons/nanoicons',
+              fontFamily: `icons-${lane}`,
+            })),
+          },
+        ],
         [
           'react-native-edge-to-edge',
           {android: {enforceNavigationBarContrast: false}},
@@ -515,6 +535,17 @@ module.exports = function (_config) {
                   {
                     targetName: 'BlueskyClip',
                     bundleIdentifier: 'xyz.blueskyweb.app.AppClip',
+                    parentBundleIdentifier: 'xyz.blueskyweb.app',
+                    entitlements: {
+                      'com.apple.security.application-groups': [
+                        'group.app.bsky',
+                      ],
+                      'com.apple.developer.parent-application-identifiers': [
+                        '$(AppIdentifierPrefix)xyz.blueskyweb.app',
+                      ],
+                      'com.apple.developer.associated-domains':
+                        ASSOCIATED_DOMAINS,
+                    },
                   },
                 ],
               },
@@ -525,6 +556,7 @@ module.exports = function (_config) {
       },
       experiments: {
         baseUrl: '/static',
+        buildCacheProvider: 'eas',
       },
     },
   }
