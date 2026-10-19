@@ -20,7 +20,10 @@ import {
   Bell_Filled_Corner0_Rounded as BellFilled,
   Bell_Stroke2_Corner0_Rounded as Bell,
 } from '#/components/icons/Bell'
-import {Bookmark, BookmarkFilled} from '#/components/icons/Bookmark'
+import {
+  Bookmark_Filled_Corner0_Rounded as BookmarkFilled,
+  Bookmark_Stroke2_Corner0_Rounded as Bookmark,
+} from '#/components/icons/Bookmark'
 import {
   BulletList_Filled_Corner0_Rounded as ListFilled,
   BulletList_Stroke2_Corner0_Rounded as List,
@@ -47,7 +50,7 @@ import {
 import {
   SettingsGear2_Filled_Corner0_Rounded as SettingsFilled,
   SettingsGear2_Stroke2_Corner0_Rounded as Settings,
-} from '#/components/icons/SettingsGear2'
+} from '#/components/icons/Settings'
 import {
   UserCircle_Filled_Corner0_Rounded as UserCircleFilled,
   UserCircle_Stroke2_Corner0_Rounded as UserCircle,

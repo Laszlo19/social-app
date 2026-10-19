@@ -1,6 +1,6 @@
 {
   "name": "bsky.app",
-  "version": "1.133.0",
+  "version": "1.135.0",
   "private": true,
   "sideEffects": [
     "*.css",
@@ -16,7 +16,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.23.0",
+      "version": "11.28.5",
       "onFail": "warn"
     },
     "runtime": {
@@ -30,7 +30,6 @@
       "android": {
         "buildFromSource": [
           "expo-notifications",
-          "expo-haptics",
           "expo-media-library",
           "expo-image-picker"
         ]
@@ -98,6 +97,7 @@
     "intl:extract": "lingui extract --clean --locale en",
     "intl:extract:all": "lingui extract --clean",
     "intl:compile": "lingui compile",
+    "intl:lint": "eloqnt lint",
     "intl:compile-if-needed": "is-ci || [ -f src/locale/locales/en/messages.ts ] || pnpm intl:compile",
     "intl:pull": "crowdin download translations --verbose -b main",
     "intl:push-sources": "crowdin push sources --verbose -b main",
@@ -105,11 +105,13 @@
     "intl:release": "pnpm intl:pull && pnpm intl:extract:all",
     "nuke": "rm -rf ./node_modules && rm -rf ./ios && rm -rf ./android",
     "update-extensions": "bash scripts/updateExtensions.sh",
-    "export": "expo export --dump-sourcemap && pnpm upload-native-sourcemaps",
+    "export": "expo export --platform ios --platform android --dump-sourcemap && pnpm upload-native-sourcemaps",
     "upload-native-sourcemaps": "pnpm exec sentry-expo-upload-sourcemaps dist",
     "generate-web-stats": "EXPO_ATLAS=1 pnpm build-web",
     "open-analyzer": "npx expo-atlas .expo/atlas.jsonl",
-    "icons:optimize": "svgo -f ./assets/icons",
+    "icons:generate": "node ./scripts/icons/generate.mts",
+    "icons:check": "node ./scripts/icons/generate.mts --check",
+    "icons:test": "node --test ./scripts/icons/lib.test.mts",
     "prettier": "prettier --check ."
   },
   "dependencies": {
@@ -120,22 +122,29 @@
     "@bitdrift/react-native": "^0.6.8",
     "@braintree/sanitize-url": "^6.0.2",
     "@bsky.app/alf": "^0.1.15",
+    "@bsky.app/bottom-sheet": "link:./modules/bottom-sheet",
+    "@bsky.app/expo-background-notification-handler": "link:./modules/expo-background-notification-handler",
+    "@bsky.app/expo-bluesky-gif-view": "link:./modules/expo-bluesky-gif-view",
+    "@bsky.app/expo-bluesky-swiss-army": "link:./modules/expo-bluesky-swiss-army",
     "@bsky.app/expo-dynamic-app-icon": "^1.8.5",
+    "@bsky.app/expo-emoji-picker": "link:./modules/expo-emoji-picker",
     "@bsky.app/expo-guess-language": "^0.2.8",
     "@bsky.app/expo-image-crop-tool": "^0.5.1",
-    "@bsky.app/expo-scroll-edge-effect": "^0.1.9",
+    "@bsky.app/expo-scroll-edge-effect": "^0.1.10",
     "@bsky.app/expo-translate-text": "^0.2.9",
     "@bsky.app/peek-menu": "^0.3.2",
+    "@bsky.app/react-native-scroll-forwarder": "link:./modules/react-native-scroll-forwarder",
     "@bsky.app/react-native-uitextview": "^2.7.1",
     "@bsky.app/sift": "^0.3.9",
     "@bsky.app/tapper": "^0.6.1",
-    "@bsky.app/video": "0.3.6",
+    "@bsky.app/video": "0.4.0",
     "@bsky.app/video-compressor": "0.2.0",
-    "@bsky/sdk": "1.1.2",
+    "@bsky/sdk": "1.1.5",
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
     "@expo/html-elements": "^0.12.5",
     "@expo/metro-runtime": "~57.0.8",
+    "@expo/ui": "57.0.20",
     "@floating-ui/dom": "^1.6.3",
     "@floating-ui/react-dom": "^2.0.8",
     "@formatjs/intl-displaynames": "^7.3.9",
@@ -247,27 +256,26 @@
     "react-is": "19",
     "react-keyed-flatten-children": "^5.0.0",
     "react-native": "0.86.3",
-    "react-native-date-picker": "^5.0.13",
     "react-native-device-attest": "^0.1.6",
-    "react-native-drawer-layout": "^4.2.3",
+    "react-native-drawer-layout": "5.0.0-alpha.19",
     "react-native-edge-to-edge": "^1.8.1",
-    "react-native-gesture-handler": "~2.32.0",
-    "react-native-keyboard-controller": "1.21.9",
+    "react-native-gesture-handler": "~3.3.0",
+    "react-native-keyboard-controller": "1.22.7",
     "react-native-mmkv": "^3.3.3",
+    "react-native-nano-icons": "1.0.1",
     "react-native-pager-view": "6.8.0",
     "react-native-progress": "^5.0.1",
     "react-native-qrcode-styled": "^0.3.3",
-    "react-native-reanimated": "~4.6.0",
+    "react-native-reanimated": "4.7.1",
     "react-native-safe-area-context": "~5.7.0",
-    "react-native-screens": "4.26.2",
-    "react-native-scroll-forwarder": "link:./modules/react-native-scroll-forwarder",
+    "react-native-screens": "4.30.0",
     "react-native-svg": "15.15.4",
     "react-native-uuid": "^2.0.3",
     "react-native-view-shot": "^5.1.0",
     "react-native-web": "^0.21.0",
     "react-native-web-webview": "^1.0.2",
     "react-native-webview": "^13.16.1",
-    "react-native-worklets": "0.12.2",
+    "react-native-worklets": "0.13.0",
     "react-remove-scroll-bar": "^2.3.8",
     "react-responsive": "^10.0.1",
     "react-textarea-autosize": "^8.5.3",
@@ -286,6 +294,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/runtime": "^7.26.0",
     "@crowdin/cli": "^4.14.1",
+    "@eloqnt/cli": "0.6.26",
     "@lingui/babel-plugin-lingui-macro": "^5.9.2",
     "@lingui/cli": "^5.9.2",
     "@react-native/babel-preset": "0.86.3",
@@ -304,6 +313,7 @@
     "babel-plugin-module-resolver": "^5.0.2",
     "babel-plugin-react-compiler": "1.0.0",
     "babel-preset-expo": "~57.0.12",
+    "eas-build-cache-provider": "24.8.0",
     "es-check": "9.8.1",
     "eslint-plugin-bsky-internal": "link:lint-rules",
     "eslint-plugin-react-native-a11y": "^3.5.1",
@@ -398,7 +408,7 @@
     "*{.js,.jsx,.ts,.tsx,.css}": [
       "prettier --cache --write --ignore-unknown"
     ],
-    "assets/icons/*.svg": [
+    "assets/icons/{ui,brands,community,custom}/*.svg": [
       "svgo"
     ]
   }

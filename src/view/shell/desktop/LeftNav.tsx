@@ -1,5 +1,6 @@
 import {useCallback, useMemo, useState} from 'react'
 import {StyleSheet, View} from 'react-native'
+import {PlatformInfo} from '@bsky.app/expo-bluesky-swiss-army'
 import {plural} from '@lingui/core/macro'
 import {Trans, useLingui} from '@lingui/react/macro'
 import {useNavigation, useNavigationState} from '@react-navigation/native'
@@ -15,6 +16,7 @@ import {
 import {sanitizeDisplayName} from '#/lib/strings/display-names'
 import {isInvalidHandle, sanitizeHandle} from '#/lib/strings/handles'
 import {emitSoftReset} from '#/state/events'
+import {useHomeBadge} from '#/state/home-badge'
 import {useFetchHandle} from '#/state/queries/handle'
 import {useUnreadMessageCount} from '#/state/queries/messages/list-conversations'
 import {useUnreadNotifications} from '#/state/queries/notifications/unread'
@@ -34,11 +36,13 @@ import {
   useTheme,
   web,
 } from '#/alf'
+import {BetaTag} from '#/components/BetaTag'
 import {Button, ButtonIcon, ButtonText} from '#/components/Button'
 import {type DialogControlProps} from '#/components/Dialog'
-import {ArrowBoxLeft_Stroke2_Corner0_Rounded as LeaveIcon} from '#/components/icons/ArrowBoxLeft'
+import {ArrowBoxLeft_Stroke2_Corner0_Rounded as LeaveIcon} from '#/components/icons/Arrow'
 import {type Props as SVGIconProps} from '#/components/icons/common'
 import {DotGrid3x1_Stroke2_Corner0_Rounded as EllipsisIcon} from '#/components/icons/DotGrid'
+import {Earth_Stroke2_Corner0_Rounded as EarthIcon} from '#/components/icons/Earth'
 import {EditBig_Stroke2_Corner2_Rounded as EditBigIcon} from '#/components/icons/EditBig'
 import {PlusLarge_Stroke2_Corner0_Rounded as PlusIcon} from '#/components/icons/Plus'
 import {UserCircle_Stroke2_Corner0_Rounded as UserCircleIcon} from '#/components/icons/UserCircle'
@@ -50,10 +54,10 @@ import {useAgeAssurance} from '#/ageAssurance'
 import {useAnalytics} from '#/analytics'
 import {type Events} from '#/analytics/metrics/types'
 import {type NavCatalogItem, useLeftNavItems} from '#/features/customNav'
+import {isFollowingV2HomeDotEnabled} from '#/features/followingV2/eligibility'
 import {useActorStatus} from '#/features/liveNow'
 import {type app} from '#/lexicons'
 import {router} from '#/routes'
-import {PlatformInfo} from '../../../../modules/expo-bluesky-swiss-army'
 
 const LARGE_ELEMENT_SIZE = 48
 const NAV_ICON_WIDTH = 28
@@ -349,6 +353,7 @@ function SwitchMenuItem({
 }
 
 interface NavItemProps {
+  beta?: boolean
   count?: string
   hasNew?: boolean
   href: string
@@ -361,6 +366,7 @@ interface NavItemProps {
   navItem?: Events['nav:click']['item']
 }
 function NavItem({
+  beta,
   count,
   hasNew,
   href,
@@ -371,6 +377,7 @@ function NavItem({
 }: NavItemProps) {
   const t = useTheme()
   const {t: l} = useLingui()
+  const accessibilityLabel = beta ? l`${label}, Beta` : label
   const ax = useAnalytics()
   const {currentAccount} = useSession()
 
@@ -428,7 +435,7 @@ function NavItem({
       href={href}
       dataSet={{noUnderline: 1}}
       role="link"
-      accessibilityLabel={label}
+      accessibilityLabel={accessibilityLabel}
       accessibilityHint="">
       <View
         style={[
@@ -496,9 +503,12 @@ function NavItem({
         ) : null}
       </View>
       {!minimal && (
-        <Text style={[a.text_xl, isCurrent ? a.font_bold : a.font_normal]}>
-          {label}
-        </Text>
+        <View style={[a.flex_row, a.align_center, a.gap_sm]}>
+          <Text style={[a.text_xl, isCurrent ? a.font_bold : a.font_normal]}>
+            {label}
+          </Text>
+          {beta && <BetaTag />}
+        </View>
       )}
     </PressableWithHover>
   )
@@ -572,7 +582,8 @@ function ComposeBtn({minimal}: {minimal: boolean}) {
 
 export function DesktopLeftNav({routeName}: {routeName: string}) {
   const {hasSession, currentAccount} = useSession()
-  const {i18n} = useLingui()
+  const {t: l, i18n} = useLingui()
+  const ax = useAnalytics()
   const {gtMobile} = useBreakpoints()
   const {visible} = useLeftNavItems()
 
@@ -585,6 +596,10 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
     useLayoutBreakpoints()
   const numUnreadNotifications = useUnreadNotifications()
   const numUnreadMessages = useUnreadMessageCount()
+  const hasHomeBadge = useHomeBadge()
+  const isAtmosphereExploreEnabled = ax.features.enabled(
+    ax.features.AtmosphereExploreEnable,
+  )
 
   const leftNavMinimal = isMessagesRelatedScreen || leftNavMinimalBreakpoint
 
@@ -600,6 +615,9 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
     } else if (item.badge === 'messages' && !aa.flags.chatDisabled) {
       count = numUnreadMessages.numUnread
       hasNew = numUnreadMessages.hasNew
+    }
+    if (item.id === 'home') {
+      hasNew = hasHomeBadge && isFollowingV2HomeDotEnabled(ax)
     }
     return (
       <NavItem
@@ -659,6 +677,19 @@ export function DesktopLeftNav({routeName}: {routeName: string}) {
       {hasSession && (
         <>
           {visible.map(renderNavItem)}
+          {isAtmosphereExploreEnabled && (
+            <NavItem
+              label={l`Atmosphere`}
+              href="/atmosphere"
+              navItem="atmosphere"
+              minimal={leftNavMinimal}
+              beta
+              icons={{
+                inactive: EarthIcon,
+                active: EarthIcon,
+              }}
+            />
+          )}
 
           <ComposeBtn minimal={leftNavMinimal} />
         </>

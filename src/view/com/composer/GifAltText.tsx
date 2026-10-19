@@ -161,7 +161,7 @@ function AltTextInner({
                   label={_(msg`Alt text`)}
                   placeholder={vendorAltText}
                   onChangeText={onChange}
-                  defaultValue={altText}
+                  value={altText}
                   multiline
                   autoFocus
                   scrollEnabled={false}
@@ -223,6 +223,7 @@ function AltTextInner({
             isPreferredAltText={true}
             params={params}
             hideAlt
+            minMobileAspectRatio={1}
           />
         </View>
       </View>

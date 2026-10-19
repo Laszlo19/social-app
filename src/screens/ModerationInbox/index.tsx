@@ -202,7 +202,7 @@ function YourAccount() {
         })}
         action={l`Violates community guideline: ${guideline}`}
         date={new Date()}
-        to="/moderation/inbox/subject/details"
+        to="/moderation/inbox/notice/details"
         unread
       />
       <ReportRow
@@ -212,7 +212,7 @@ function YourAccount() {
         })}
         action={l`“${label}” – shown behind a warning`}
         date={new Date()}
-        to="/moderation/inbox/subject/details"
+        to="/moderation/inbox/notice/details"
       />
       <ReportRow
         subject={l({
@@ -221,7 +221,7 @@ function YourAccount() {
         })}
         action={l`Ban evasion – ${duration}, now expired`}
         date={new Date()}
-        to="/moderation/inbox/subject/details"
+        to="/moderation/inbox/notice/details"
       />
     </Layout.Center>
   )
