@@ -57,7 +57,7 @@ import {Link} from '#/components/Link'
 import {Loader} from '#/components/Loader'
 import {type Metrics, useAnalytics} from '#/analytics'
 import {Features, isOnForBetaUser} from '#/analytics/features'
-import {IS_INTERNAL, IS_LIQUID_GLASS, IS_WEB} from '#/env'
+import {IS_LIQUID_GLASS, IS_WEB} from '#/env'
 
 type Props = NativeStackScreenProps<
   NotificationsTabNavigatorParams,
@@ -68,9 +68,14 @@ type RefreshReason = Metrics['notifications:refresh']['reason']
 
 export function NotificationsScreen(props: Props) {
   const ax = useAnalytics()
-  // Dev and TestFlight builds always get it, so it's dogfooded before rollout
-  const isNewNotificationsEnabled =
-    IS_INTERNAL || ax.features.enabled(ax.features.NotificationsV2Enable)
+  /*
+   * Fork: upstream also turns this on for every IS_INTERNAL build, but the
+   * fork forces IS_INTERNAL on, which made the Beta features toggle a no-op.
+   * Only the toggle decides here.
+   */
+  const isNewNotificationsEnabled = ax.features.enabled(
+    ax.features.NotificationsV2Enable,
+  )
 
   if (isNewNotificationsEnabled) {
     return <NewNotificationsScreen {...props} />
