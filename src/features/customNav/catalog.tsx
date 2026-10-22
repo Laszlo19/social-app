@@ -29,6 +29,7 @@ import {
   BulletList_Stroke2_Corner0_Rounded as List,
 } from '#/components/icons/BulletList'
 import {Earth_Stroke2_Corner0_Rounded as Earth} from '#/components/icons/Earth'
+import {Globe_Stroke2_Corner0_Rounded as Globe} from '#/components/icons/Globe'
 import {EditBig_Stroke2_Corner2_Rounded as EditBig} from '#/components/icons/EditBig'
 import {GroupTwo_Stroke2_Corner0_Rounded as GroupTwo} from '#/components/icons/GroupTwo'
 import {
@@ -66,6 +67,7 @@ export type TabStateKey =
   | 'isAtMyProfile'
   | 'isAtFeeds'
   | 'isAtBookmarks'
+  | 'isAtAtmosphere'
 
 export type NavCatalogItem = {
   id: NavItemId
@@ -102,6 +104,13 @@ export type NavCatalogItem = {
    * - `compose`: open the composer instead of navigating
    */
   special?: 'profileAvatar' | 'compose'
+  /**
+   * Feature gate the destination needs. While it's off the item isn't offered
+   * anywhere, and is skipped where it was already placed.
+   */
+  requiresFeature?: 'AtmosphereExploreEnable'
+  /** Shows a "Beta" tag next to the label in the desktop sidebar. */
+  beta?: boolean
 }
 
 /**
@@ -207,9 +216,20 @@ export const NAV_ITEM_CATALOG: NavCatalogItem[] = [
     special: 'compose',
   },
   {
+    id: 'atmosphere',
+    label: msg`Atmosphere`,
+    icons: {active: Earth, inactive: Earth},
+    routeName: 'Atmosphere',
+    href: '/atmosphere',
+    navMetric: 'atmosphere',
+    tabStateKey: 'isAtAtmosphere',
+    requiresFeature: 'AtmosphereExploreEnable',
+    beta: true,
+  },
+  {
     id: 'federated',
     label: msg`Federated`,
-    icons: {active: Earth, inactive: Earth},
+    icons: {active: Globe, inactive: Globe},
     routeName: 'Federated',
     href: '/federated',
   },

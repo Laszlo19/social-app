@@ -1,4 +1,5 @@
 import {device, useStorage} from '#/storage'
+import {useAnalytics} from '#/analytics'
 import {
   NAV_ITEM_BY_ID,
   NAV_ITEM_CATALOG,
@@ -36,12 +37,20 @@ const MAXES: Record<NavSurface, number> = {
 
 /**
  * The catalog items offered for a surface. The left nav keeps its own
- * dedicated compose button, so `compose` is not offered there.
+ * dedicated compose button, so `compose` is not offered there. Items whose
+ * feature gate is off aren't offered anywhere.
  */
-function poolForSurface(surface: NavSurface): NavCatalogItem[] {
-  return surface === 'leftNav'
-    ? NAV_ITEM_CATALOG.filter(item => item.id !== 'compose')
-    : NAV_ITEM_CATALOG
+function poolForSurface(
+  surface: NavSurface,
+  isFeatureEnabled: (
+    feature: NonNullable<NavCatalogItem['requiresFeature']>,
+  ) => boolean,
+): NavCatalogItem[] {
+  return NAV_ITEM_CATALOG.filter(
+    item =>
+      !(surface === 'leftNav' && item.id === 'compose') &&
+      (!item.requiresFeature || isFeatureEnabled(item.requiresFeature)),
+  )
 }
 
 /**
@@ -76,7 +85,10 @@ export function useNavItems(surface: NavSurface) {
         ? setLeftNavStored
         : setQuickActionsStored
 
-  const pool = poolForSurface(surface)
+  const ax = useAnalytics()
+  const pool = poolForSurface(surface, feature =>
+    ax.features.enabled(ax.features[feature]),
+  )
   const allowed = new Set(pool.map(item => item.id))
 
   const filtered = (stored ?? DEFAULTS[surface]).filter(

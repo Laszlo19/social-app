@@ -1010,6 +1010,11 @@ export type Events = {
     position: number
   }
 
+  'search:recent:clearAll': {
+    termCount: number
+    profileCount: number
+  }
+
   'search:autocomplete:press': {
     profileDid: string
     position: number
@@ -1043,11 +1048,34 @@ export type Events = {
     listType: 'mute' | 'block'
   }
 
+  'moderation:inbox:view': {
+    tab: 'reports' | 'account'
+  }
+  'moderation:inbox:filter': {
+    tab: 'reports' | 'account'
+    filter: 'all' | 'pending' | 'resolved' | 'unread'
+  }
+  'moderation:inbox:markAllAsRead': {
+    tab: 'reports' | 'account'
+  }
+  'moderation:inbox:viewAccountStatus': {
+    status: 'warning' | 'atRisk'
+  }
+  'moderation:inbox:viewReport': {}
+  'moderation:inbox:viewNotice': {}
+  'moderation:inbox:startAppeal': {
+    type?: string
+  }
+  'moderation:inbox:submitAppeal': {
+    type?: string
+  }
+
   'reportDialog:open': {
     subjectType: string
   }
   'reportDialog:close': {}
   'reportDialog:success': {
+    subjectType: string
     reason: string
     labeler: string
     details: boolean
@@ -1524,6 +1552,10 @@ export type Events = {
     isOwnProfile: boolean
   }
   /**
+   * Edit Profile was opened, from any profile header.
+   */
+  'profile:edit:open': {}
+  /**
    * Edit Profile was opened with the Links section available.
    */
   'profile:links:editorOpen': {
@@ -1541,9 +1573,9 @@ export type Events = {
     supportProvider: string | undefined
   }
   /**
-   * A visitor continued past the leaving-Bluesky notice.
+   * A visitor opened a link's details, e.g. by long-pressing it.
    */
-  'profile:links:continue': {
+  'profile:links:preview': {
     domain: string
     supportProvider: string | undefined
   }
@@ -1551,8 +1583,12 @@ export type Events = {
    * A link couldn't be added, e.g. because its site is blocked.
    */
   'profile:links:rejected': {
-    reason: 'blocked'
-    domain: string
+    reason: 'blocked' | 'safelink' | 'shortener' | 'insecure'
+    /**
+     * Left out for Safelink blocks, which can be sensitive sites. The other
+     * reasons come from public lists in the app.
+     */
+    domain?: string
   }
 
   // Post photo embed events
@@ -1666,6 +1702,28 @@ export type Events = {
     context: 'embed' | 'immersiveFeed'
     presentation: 'video' | 'gif'
     autoplay: boolean
+  }
+  /**
+   * Incremental, non-overlapping wall-clock watch time. Segments are uniquely
+   * identified by playbackSessionId + segmentIndex for downstream deduping.
+   */
+  'video:playback:duration': {
+    playbackSessionId: string
+    segmentIndex: number
+    durationMs: number
+    postUri?: string
+    postAuthorDid?: string
+    context: 'embed' | 'immersiveFeed'
+    presentation: 'video' | 'gif'
+    endReason:
+      | 'paused'
+      | 'deactivated'
+      | 'backgrounded'
+      | 'buffering'
+      | 'checkpoint'
+      | 'ended'
+      | 'error'
+      | 'unmounted'
   }
   /**
    * The user activated a third-party media player. Cross-origin players do

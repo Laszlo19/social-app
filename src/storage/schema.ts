@@ -129,11 +129,6 @@ export type Device = {
   experimentalPublicLikes?: boolean
 
   /**
-   * OpenRouter API key used for AI alt-text generation in the image composer.
-   */
-  openRouterApiKey?: string
-
-  /**
    * Override the AT Protocol AppView DID used as the bsky_appview proxy.
    * Leave empty to use the default (did:web:api.bsky.app). Takes effect
    * after signing out and back in.
@@ -245,9 +240,16 @@ export type Device = {
   upstreamPreviewFeatures?: Partial<Record<string, boolean>>
 
   /**
-   * Beta testing override for the (in-development) moderation inbox: which
-   * account-status banner to show on the "Your account" tab. Absent uses the
-   * placeholder default ('warning'). Settings > Beta features.
+   * Fork: the moderation inbox reads built-in sample data instead of the
+   * moderation service, for testing its banners and rows. Settings > Beta
+   * features. See `#/state/queries/moderation-inbox-test-data`.
+   */
+  modInboxTestData?: boolean
+
+  /**
+   * Fork: the account standing (and so the banner on the "Your account" tab)
+   * that the moderation inbox sample data reports. Absent means 'warning'.
+   * Only used while `modInboxTestData` is on.
    */
   modInboxTestAccountStatus?: 'good' | 'warning' | 'atRisk'
 

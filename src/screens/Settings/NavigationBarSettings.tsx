@@ -66,7 +66,7 @@ export function NavigationBarSettingsScreen({}: Props) {
         <NavEditor
           surface="bottomBar"
           max={MAX_VISIBLE}
-          title={<Trans>Bottom bar (mobile)</Trans>}
+          title={<Trans>Bottom bar (phones)</Trans>}
           scrollRef={scrollRef}
           scrollOffset={scrollOffset}
           setIsDragging={setIsDragging}
@@ -74,7 +74,7 @@ export function NavigationBarSettingsScreen({}: Props) {
         <NavEditor
           surface="leftNav"
           max={MAX_LEFT_NAV}
-          title={<Trans>Sidebar (desktop)</Trans>}
+          title={<Trans>Sidebar (tablets and desktop)</Trans>}
           scrollRef={scrollRef}
           scrollOffset={scrollOffset}
           setIsDragging={setIsDragging}

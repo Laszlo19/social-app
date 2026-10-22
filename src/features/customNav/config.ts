@@ -21,6 +21,7 @@ export type NavItemId =
   | 'compose'
   | 'federated'
   | 'local'
+  | 'atmosphere'
 
 /** The navigation surfaces that can be customized. */
 export type NavSurface = 'bottomBar' | 'leftNav' | 'quickActions'
