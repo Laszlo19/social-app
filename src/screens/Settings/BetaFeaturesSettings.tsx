@@ -10,6 +10,7 @@ import {
   type NavigationProp,
 } from '#/lib/routes/types'
 import {logger} from '#/logger'
+import {useResetTestModerationInbox} from '#/state/queries/moderation-inbox'
 import {
   usePreferencesQuery,
   useSetIsBetaUserMutation,
@@ -35,7 +36,7 @@ import {
   useAnalytics,
 } from '#/analytics'
 import {getTargetedFeatures} from '#/analytics/features'
-import {IS_WEB} from '#/env'
+import {IS_IPAD, IS_WEB} from '#/env'
 
 /**
  * Fork device-storage keys turned on/off together by the Witchsky master toggle.
@@ -112,9 +113,13 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [forceKawaiiLogo, setForceKawaiiLogo] = useStorage(device, [
     'forceKawaiiLogo',
   ])
+  const [modInboxTestData, setModInboxTestData] = useStorage(device, [
+    'modInboxTestData',
+  ])
   const [modInboxStatus, setModInboxStatus] = useStorage(device, [
     'modInboxTestAccountStatus',
   ])
+  const resetModInboxTestData = useResetTestModerationInbox()
   const [upstreamPreviews, setUpstreamPreviews] = useStorage(device, [
     'upstreamPreviewFeatures',
   ])
@@ -131,12 +136,34 @@ export function BetaFeaturesSettingsScreen({}: Props) {
   const [testLiveEvent, setTestLiveEvent] = useStorage(device, [
     'experimentalTestLiveEvent',
   ])
-  const [openRouterApiKey, setOpenRouterApiKey] = useStorage(device, [
-    'openRouterApiKey',
-  ])
   const [infraAppviewDid, setInfraAppviewDid] = useStorage(device, [
     'infraAppviewDid',
   ])
+
+  /*
+   * iPad support isn't a GrowthBook gate and can't be switched off in the app,
+   * so on iPad it's listed whether or not beta features are enabled.
+   */
+  const listedFeatures = [
+    ...(IS_IPAD
+      ? [
+          {
+            key: 'ipad_support',
+            name: l({
+              message: 'iPad support',
+              comment: 'Name for a beta feature',
+            }),
+            description: l({
+              message:
+                'Bluesky adapts to your iPad’s screen in any orientation or window size.',
+              comment: 'Description of a beta feature (iPad support)',
+            }),
+          },
+        ]
+      : []),
+    ...betaFeatures,
+  ]
+  const feedbackFeatureKeys = listedFeatures.map(feature => feature.key)
 
   const onChange = async (next: boolean) => {
     try {
@@ -189,12 +216,13 @@ export function BetaFeaturesSettingsScreen({}: Props) {
 
   const onPressShareFeedback = () => {
     ax.metric('betaFeatures:feedback:open', {
-      betaFeatureKeys: betaFeatures.map(feature => feature.key),
+      betaFeatureKeys: feedbackFeatureKeys,
     })
     feedbackControl.open()
   }
 
-  const canSubmitFeedback = !isPending && isBetaUser && betaFeatures.length > 0
+  const canSubmitFeedback =
+    !isPending && (isBetaUser || IS_IPAD) && listedFeatures.length > 0
 
   function getUpstreamPreviewCopy(feature: Features): {
     label: string
@@ -214,12 +242,12 @@ export function BetaFeaturesSettingsScreen({}: Props) {
       case Features.AtmosphereExploreEnable:
         return {
           label: l`Atmosphere tab`,
-          description: l`Adds the Atmosphere tab to the side menu and the desktop sidebar.`,
+          description: l`Adds Atmosphere to the side menu, and lets you add it to your bottom bar and sidebar in Settings → Appearance → Navigation.`,
         }
       case Features.ProfileLinksEnable:
         return {
           label: l`Profile links`,
-          description: l`Groundwork for links on profiles. Bluesky hasn’t built the visible part yet, so this currently changes nothing.`,
+          description: l`Add links under your bio, and see other people’s. Links to support sites like Ko-fi or Patreon show as a Support button.`,
         }
       default:
         return {label: feature, description: ''}
@@ -365,42 +393,84 @@ export function BetaFeaturesSettingsScreen({}: Props) {
                     t.atoms.text_contrast_medium,
                   ]}>
                   <Trans>
-                    Preview the (in-development) moderation inbox. Choose which
-                    account-status banner shows on the "Your account" tab, then
-                    open the inbox to test it.
+                    Test the moderation inbox with sample reports and notices
+                    instead of your real ones. Nothing is sent to Bluesky while
+                    this is on.
                   </Trans>
                 </Text>
+              </View>
+              <FeatureToggle
+                name="mod_inbox_test_data"
+                label={l`Use sample data`}
+                title={<Trans>Use sample data</Trans>}
+                description={
+                  <Trans>
+                    Fills the inbox with dozens of reports and notices, covering
+                    every status, action and appeal state.
+                  </Trans>
+                }
+                value={!!modInboxTestData}
+                onChange={setModInboxTestData}
+              />
+              <View style={[a.px_xl, a.pb_md, a.gap_sm]}>
+                {!!modInboxTestData && (
+                  <>
+                    <Text
+                      style={[
+                        a.text_sm,
+                        a.leading_snug,
+                        t.atoms.text_contrast_medium,
+                      ]}>
+                      <Trans>Account standing banner</Trans>
+                    </Text>
+                    <View style={[a.flex_row, a.gap_sm, a.flex_wrap]}>
+                      {(
+                        [
+                          ['good', l`No banner`],
+                          ['warning', l`Strikes banner`],
+                          ['atRisk', l`At-risk banner`],
+                        ] as const
+                      ).map(([status, label]) => {
+                        const active = (modInboxStatus ?? 'warning') === status
+                        return (
+                          <Button
+                            key={status}
+                            label={label}
+                            size="small"
+                            color={active ? 'primary' : 'secondary'}
+                            onPress={() => setModInboxStatus(status)}>
+                            <ButtonText>{label}</ButtonText>
+                          </Button>
+                        )
+                      })}
+                    </View>
+                  </>
+                )}
                 <View style={[a.flex_row, a.gap_sm, a.flex_wrap]}>
-                  {(
-                    [
-                      ['good', l`No banner`],
-                      ['warning', l`Strikes banner`],
-                      ['atRisk', l`At-risk banner`],
-                    ] as const
-                  ).map(([status, label]) => {
-                    const active = (modInboxStatus ?? 'warning') === status
-                    return (
-                      <Button
-                        key={status}
-                        label={label}
-                        size="small"
-                        color={active ? 'primary' : 'secondary'}
-                        onPress={() => setModInboxStatus(status)}>
-                        <ButtonText>{label}</ButtonText>
-                      </Button>
-                    )
-                  })}
+                  <Button
+                    label={l`Open moderation inbox`}
+                    size="small"
+                    color="secondary_inverted"
+                    onPress={() => navigation.navigate('ModerationInbox')}>
+                    <ButtonText>
+                      <Trans>Open moderation inbox</Trans>
+                    </ButtonText>
+                  </Button>
+                  {!!modInboxTestData && (
+                    <Button
+                      label={l`Reset sample data`}
+                      size="small"
+                      color="secondary"
+                      onPress={() => {
+                        void resetModInboxTestData()
+                        Toast.show(l`Sample data reset`)
+                      }}>
+                      <ButtonText>
+                        <Trans>Reset sample data</Trans>
+                      </ButtonText>
+                    </Button>
+                  )}
                 </View>
-                <Button
-                  label={l`Open moderation inbox`}
-                  size="small"
-                  color="secondary_inverted"
-                  onPress={() => navigation.navigate('ModerationInbox')}
-                  style={[a.self_start]}>
-                  <ButtonText>
-                    <Trans>Open moderation inbox</Trans>
-                  </ButtonText>
-                </Button>
               </View>
 
               <View style={[a.px_xl, a.pt_md, a.gap_xs]}>
@@ -519,32 +589,6 @@ export function BetaFeaturesSettingsScreen({}: Props) {
 
                   <View style={[a.px_xl, a.py_md, a.gap_xs]}>
                     <TextField.LabelText>
-                      <Trans>OpenRouter API key</Trans>
-                    </TextField.LabelText>
-                    <TextField.Root>
-                      <TextField.Input
-                        label={l`OpenRouter API key`}
-                        placeholder="sk-or-v1-..."
-                        defaultValue={openRouterApiKey ?? ''}
-                        onChangeText={text =>
-                          setOpenRouterApiKey(text.trim() || undefined)
-                        }
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        secureTextEntry
-                      />
-                    </TextField.Root>
-                    <Text
-                      style={[a.text_sm, t.atoms.text_contrast_medium]}>
-                      <Trans>
-                        Used to generate alt text for images in the composer via
-                        OpenRouter's vision API. Get a key at openrouter.ai.
-                      </Trans>
-                    </Text>
-                  </View>
-
-                  <View style={[a.px_xl, a.py_md, a.gap_xs]}>
-                    <TextField.LabelText>
                       <Trans>Custom AppView DID</Trans>
                     </TextField.LabelText>
                     <TextField.Root>
@@ -590,13 +634,13 @@ export function BetaFeaturesSettingsScreen({}: Props) {
               </ButtonText>
             </Button>
 
-            {betaFeatures.length > 0 && (
+            {listedFeatures.length > 0 && (
               <>
                 <Text style={[a.text_md, a.font_semi_bold]}>
                   <Trans>Current beta features</Trans>
                 </Text>
                 <View style={[a.gap_sm]}>
-                  {betaFeatures.map(feature => (
+                  {listedFeatures.map(feature => (
                     <View
                       key={feature.key}
                       style={[
@@ -633,7 +677,7 @@ export function BetaFeaturesSettingsScreen({}: Props) {
 
       <BetaFeaturesFeedbackDialog
         control={feedbackControl}
-        betaFeatureKeys={betaFeatures.map(feature => feature.key)}
+        betaFeatureKeys={feedbackFeatureKeys}
       />
     </Layout.Screen>
   )

@@ -18,6 +18,7 @@ export enum Nux {
   InviteFriendsAnnouncement = 'InviteFriendsAnnouncement',
   LocalizationHelpBanner = 'LocalizationHelpBanner',
   IosVersionSunset164 = 'IosVersionSunset164',
+  IPadBetaAnnouncement = 'IPadBetaAnnouncement',
 
   /*
    * Blocking announcements. New IDs are required for each new announcement.
@@ -92,6 +93,10 @@ export type AppNux = BaseNux<
       id: Nux.IosVersionSunset164
       data: undefined
     }
+  | {
+      id: Nux.IPadBetaAnnouncement
+      data: undefined
+    }
 >
 
 export const NuxSchemas: Record<Nux, zod.ZodObject<any> | undefined> = {
@@ -111,4 +116,5 @@ export const NuxSchemas: Record<Nux, zod.ZodObject<any> | undefined> = {
   [Nux.InviteFriendsAnnouncement]: undefined,
   [Nux.LocalizationHelpBanner]: undefined,
   [Nux.IosVersionSunset164]: undefined,
+  [Nux.IPadBetaAnnouncement]: undefined,
 }
