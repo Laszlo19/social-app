@@ -56,7 +56,8 @@ import {
   UserCircle_Filled_Corner0_Rounded as UserCircleFilled,
   UserCircle_Stroke2_Corner0_Rounded as UserCircle,
 } from '#/components/icons/UserCircle'
-import {type NavItemId} from './config'
+import {type NavItemId, type NavSurface} from './config'
+import {SETTINGS_NAV_ITEMS} from './settingsCatalog'
 
 /** Keys of the `useNavigationTabState()` result used for native highlighting. */
 export type TabStateKey =
@@ -111,6 +112,15 @@ export type NavCatalogItem = {
   requiresFeature?: 'AtmosphereExploreEnable'
   /** Shows a "Beta" tag next to the label in the desktop sidebar. */
   beta?: boolean
+  /**
+   * The surfaces that offer this item. Omitted means every surface (the left
+   * nav still never offers `compose`).
+   */
+  surfaces?: NavSurface[]
+  /** Groups the item under its own heading in the nav editor. */
+  group?: 'settings'
+  /** For a settings sub-page, the page it lives under in Settings. */
+  settingsParent?: NavItemId
 }
 
 /**
@@ -240,6 +250,7 @@ export const NAV_ITEM_CATALOG: NavCatalogItem[] = [
     routeName: 'Local',
     href: '/local',
   },
+  ...SETTINGS_NAV_ITEMS,
 ]
 
 export const NAV_ITEM_BY_ID: Record<NavItemId, NavCatalogItem> =
