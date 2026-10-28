@@ -37,8 +37,9 @@ const MAXES: Record<NavSurface, number> = {
 
 /**
  * The catalog items offered for a surface. The left nav keeps its own
- * dedicated compose button, so `compose` is not offered there. Items whose
- * feature gate is off aren't offered anywhere.
+ * dedicated compose button, so `compose` is not offered there. Items limited
+ * to other surfaces (e.g. settings pages, launcher shortcuts only) and items
+ * whose feature gate is off aren't offered.
  */
 function poolForSurface(
   surface: NavSurface,
@@ -49,6 +50,7 @@ function poolForSurface(
   return NAV_ITEM_CATALOG.filter(
     item =>
       !(surface === 'leftNav' && item.id === 'compose') &&
+      (!item.surfaces || item.surfaces.includes(surface)) &&
       (!item.requiresFeature || isFeatureEnabled(item.requiresFeature)),
   )
 }

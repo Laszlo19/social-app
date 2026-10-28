@@ -90,14 +90,6 @@ const ICONS = {
       "M3 16.8V7.2c0-.544-.001-1.011.03-1.395.033-.395.104-.789.297-1.167a3 3 0 0 1 1.31-1.31c.379-.193.772-.265 1.168-.297C6.188 2.999 6.657 3 7.2 3H11a1 1 0 1 1 0 2H7.2c-.576 0-.949 0-1.232.023-.272.022-.373.06-.422.085a1 1 0 0 0-.437.437c-.025.05-.062.15-.085.422C5.001 6.251 5 6.623 5 7.2v9.6c0 .577.001.95.024 1.232.023.272.06.373.085.422a1 1 0 0 0 .437.437c.05.025.15.063.422.085.283.023.656.024 1.232.024h9.6c.576 0 .949-.001 1.232-.024.272-.022.373-.06.422-.085a1 1 0 0 0 .437-.437c.025-.049.062-.15.085-.422.023-.283.024-.655.024-1.232V13a1 1 0 1 1 2 0v3.8c0 .543.001 1.011-.03 1.395-.033.395-.104.788-.297 1.167a3 3 0 0 1-1.31 1.311c-.379.193-.772.264-1.168.296-.383.031-.852.031-1.395.031H7.2c-.543 0-1.012 0-1.395-.031-.396-.032-.789-.103-1.167-.296a3 3 0 0 1-1.31-1.311c-.194-.379-.265-.772-.298-1.167C3 17.81 3 17.343 3 16.8M16.629 2.957a3 3 0 0 1 4.242 0l.172.171a3 3 0 0 1 0 4.243L13 15.414a2 2 0 0 1-1.414.586H9a1 1 0 0 1-1-1v-2.586A2 2 0 0 1 8.586 11zM10 14h1.586l8.043-8.043a1 1 0 0 0 0-1.414l-.172-.172a1 1 0 0 0-1.414 0L10 12.414z"
     ]
   },
-  "federated": {
-    "vw": "24",
-    "vh": "24",
-    "fillRule": "evenOdd",
-    "paths": [
-      "M4.4 9.493C4.14 10.28 4 11.124 4 12a8 8 0 1 0 10.899-7.459l-.953 3.81a1 1 0 0 1-.726.727l-3.444.866-.772 1.533a1 1 0 0 1-1.493.35L4.4 9.493Zm.883-1.84L7.756 9.51l.44-.874a1 1 0 0 1 .649-.52l3.306-.832.807-3.227a7.99 7.99 0 0 0-7.676 3.597ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm8.43.162a1 1 0 0 1 .77-.29l1.89.121a1 1 0 0 1 .494.168l2.869 1.928a1 1 0 0 1 .336 1.277l-.973 1.946a1 1 0 0 1-.894.553h-2.92a1 1 0 0 1-.831-.445L9.225 14.5a1 1 0 0 1 .126-1.262l1.08-1.076Zm.915 1.913.177-.177 1.171.074 1.914 1.286-.303.607h-1.766l-1.194-1.79Z"
-    ]
-  },
   "local": {
     "vw": "24",
     "vh": "24",
@@ -105,6 +97,70 @@ const ICONS = {
     "paths": [
       "M8 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM4 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm13-1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm-3.5 1.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm5.826 7.376c-.919-.779-2.052-1.03-3.1-.787a1 1 0 0 1-.451-1.949c1.671-.386 3.45.028 4.844 1.211 1.397 1.185 2.348 3.084 2.524 5.579a1 1 0 0 1-.997 1.07H18a1 1 0 1 1 0-2h3.007c-.29-1.47-.935-2.49-1.681-3.124ZM3.126 19h9.747c-.61-3.495-2.867-5-4.873-5s-4.263 1.505-4.873 5ZM8 12c3.47 0 6.64 2.857 6.998 7.93A1 1 0 0 1 14 21H2a1 1 0 0 1-.998-1.07C1.36 14.857 4.53 12 8 12Z"
     ]
+  }
+}
+
+/*
+ * Icons read from the app's own SVG sources (assets/icons/ui) at prebuild.
+ * Settings pages use the same icon as their row in Settings - keep in sync
+ * with src/features/customNav/settingsCatalog.tsx.
+ */
+const SVG_ICONS = {
+  federated: 'Globe_Stroke2_Corner0_Rounded',
+  atmosphere: 'Earth_Stroke2_Corner0_Rounded',
+  settings_account: 'Person_Stroke2_Corner2_Rounded',
+  settings_automation_label: 'Bot_Stroke2_Corner0_Rounded',
+  settings_privacy: 'Lock_Stroke2_Corner2_Rounded',
+  settings_app_passwords: 'Key_Stroke2_Corner2_Rounded',
+  settings_activity_privacy: 'BellRinging_Stroke2_Corner0_Rounded',
+  settings_moderation: 'RaisingHand4Finger_Stroke2_Corner2_Rounded',
+  settings_moderation_inbox: 'Inbox_Stroke2_Corner2_Rounded',
+  settings_moderation_inbox_settings: 'SettingsGear2_Stroke2_Corner0_Rounded',
+  settings_interaction: 'EditBig_Stroke2_Corner2_Rounded',
+  settings_modlists: 'Group3_Stroke2_Corner0_Rounded',
+  settings_muted: 'Person_Stroke2_Corner0_Rounded',
+  settings_blocked: 'CircleBanSign_Stroke2_Corner0_Rounded',
+  settings_verification: 'CircleCheck_Stroke2_Corner0_Rounded',
+  settings_notifications: 'Bell_Stroke2_Corner0_Rounded',
+  settings_activity_notifications: 'BellRinging_Stroke2_Corner0_Rounded',
+  settings_content_media: 'Window_Stroke2_Corner2_Rounded',
+  settings_saved_feeds: 'Hashtag_Stroke2_Corner0_Rounded',
+  settings_threads: 'Bubbles_Stroke2_Corner2_Rounded',
+  settings_following_feed: 'Home_Stroke2_Corner2_Rounded',
+  settings_counts_metrics: 'EyeSlash_Stroke2_Corner0_Rounded',
+  settings_external_media: 'Macintosh_Stroke2_Corner2_Rounded',
+  settings_interests: 'CircleInfo_Stroke2_Corner0_Rounded',
+  settings_find_contacts: 'Contacts_Stroke2_Corner2_Rounded',
+  settings_appearance: 'PaintRoller_Stroke2_Corner2_Rounded',
+  settings_app_icon: 'Shapes_Stroke2_Corner0_Rounded',
+  settings_navigation: 'Bars3_Stroke2_Corner0_Rounded',
+  settings_accessibility: 'Accessibility_Stroke2_Corner2_Rounded',
+  settings_languages: 'Earth_Stroke2_Corner2_Rounded',
+  settings_beta_features: 'Beaker_Stroke2_Corner2_Rounded',
+  settings_about: 'BubbleInfo_Stroke2_Corner2_Rounded',
+  settings_system_log: 'CodeLines_Stroke2_Corner2_Rounded',
+  settings_storybook: 'CodeBrackets_Stroke2_Corner0_Rounded',
+  settings_debug_moderation: 'Shield_Stroke2_Corner0_Rounded',
+}
+
+/**
+ * Reads an icon SVG into the shape `vectorXml` takes. The sources are simple
+ * single-colour SVGs: one viewBox and one or more <path d="..."> elements.
+ */
+function iconFromSvg(projectRoot, name) {
+  const svg = fs.readFileSync(
+    path.join(projectRoot, 'assets', 'icons', 'ui', `${name}.svg`),
+    'utf8',
+  )
+  const viewBox = /viewBox="([^"]+)"/.exec(svg)
+  const [, , vw, vh] = viewBox ? viewBox[1].split(/\s+/) : [0, 0, '24', '24']
+  const paths = [...svg.matchAll(/<path\b[^>]*\sd="([^"]+)"/g)].map(m => m[1])
+  if (paths.length === 0) throw new Error(`No paths in icon ${name}.svg`)
+  return {
+    vw,
+    vh,
+    fillRule: /fill-rule="evenodd"/.test(svg) ? 'evenOdd' : 'nonZero',
+    paths,
   }
 }
 
@@ -143,6 +199,12 @@ module.exports = function withAndroidShortcutIcons(config) {
         fs.writeFileSync(
           path.join(drawableDir, `shortcut_${id}.xml`),
           vectorXml(icon),
+        )
+      }
+      for (const [id, name] of Object.entries(SVG_ICONS)) {
+        fs.writeFileSync(
+          path.join(drawableDir, `shortcut_${id}.xml`),
+          vectorXml(iconFromSvg(config.modRequest.projectRoot, name)),
         )
       }
       return config

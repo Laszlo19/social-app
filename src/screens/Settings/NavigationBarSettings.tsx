@@ -115,6 +115,17 @@ function NavEditor({
 
   const labelOf = (item: NavCatalogItem) =>
     _(surface === 'leftNav' ? (item.leftNavLabel ?? item.label) : item.label)
+  const availableNav = available.filter(item => item.group !== 'settings')
+  const availableSettings = available.filter(item => item.group === 'settings')
+  const renderAvailable = (item: NavCatalogItem) => (
+    <AvailableRow
+      key={item.id}
+      item={item}
+      label={labelOf(item)}
+      canAdd={canAdd}
+      onAdd={() => show(item.id)}
+    />
+  )
 
   return (
     <SettingsList.Container>
@@ -155,15 +166,15 @@ function NavEditor({
               </Trans>
             </Text>
           )}
-          {available.map(item => (
-            <AvailableRow
-              key={item.id}
-              item={item}
-              label={labelOf(item)}
-              canAdd={canAdd}
-              onAdd={() => show(item.id)}
-            />
-          ))}
+          {availableNav.map(renderAvailable)}
+          {availableSettings.length > 0 && (
+            <>
+              <SectionHeader>
+                <Trans>Settings</Trans>
+              </SectionHeader>
+              {availableSettings.map(renderAvailable)}
+            </>
+          )}
         </>
       )}
 
@@ -276,6 +287,8 @@ function AvailableRow({
         a.align_center,
         a.gap_sm,
         a.px_lg,
+        // Settings sub-pages sit indented under their page, as in Settings
+        item.settingsParent && a.pl_3xl,
         t.atoms.bg,
         {height: ITEM_HEIGHT},
       ]}>
