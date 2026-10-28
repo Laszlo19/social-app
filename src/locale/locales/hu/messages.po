@@ -1399,6 +1399,7 @@ msgstr "Az egyik címzettet nem követi a feladó."
 msgid "A small kawaii scene with no ratio on record"
 msgstr "Képarány nélküli cukimuki jelenet"
 
+#: src/features/customNav/settingsCatalog.tsx:302
 #: src/Navigation.tsx:558
 #: src/screens/Settings/AboutSettings.tsx:88
 #: src/screens/Settings/Settings.tsx:302
@@ -1446,6 +1447,7 @@ msgstr "Javasolt nyelv elfogadása"
 msgid "Access requested! The group owner will review your request."
 msgstr "Kérelem elküldve. Az elfogadást csoport tulajdonosa fogja bírálni."
 
+#: src/features/customNav/settingsCatalog.tsx:281
 #: src/screens/Settings/AccessibilitySettings.tsx:45
 #: src/screens/Settings/Settings.tsx:272
 #: src/screens/Settings/Settings.tsx:275
@@ -1456,6 +1458,7 @@ msgstr "Akadálymentesítés"
 msgid "Accessibility Settings"
 msgstr "Akadálymentesítés"
 
+#: src/features/customNav/settingsCatalog.tsx:80
 #: src/Navigation.tsx:481
 #: src/screens/ModerationInbox/components/hooks/useSubjectPreviewProfile.ts:22
 #: src/screens/ModerationInbox/components/hooks/useSubjectPreviewProfile.ts:23
@@ -1596,9 +1599,14 @@ msgstr "Tevékenység"
 msgid "Activity from others"
 msgstr "Mások tevékenységei"
 
+#: src/features/customNav/settingsCatalog.tsx:188
 #: src/Navigation.tsx:534
 msgid "Activity notifications"
 msgstr "Tevékenységértesítések"
+
+#: src/features/customNav/settingsCatalog.tsx:110
+msgid "Activity privacy"
+msgstr ""
 
 #: src/components/dialogs/lists/ListAddRemoveUsersDialog.tsx:192
 #: src/components/dialogs/lists/UserAddRemoveListsDialog.tsx:319
@@ -1620,7 +1628,7 @@ msgstr "A folytatáshoz még {0} fiókot kell felvenned"
 msgid "Add {displayName} to Starter Pack"
 msgstr "{displayName} felvétele egy kezdőcsomagba"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:289
+#: src/screens/Settings/NavigationBarSettings.tsx:302
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -2282,6 +2290,7 @@ msgstr "Bármelyik követőtől"
 msgid "Anyone who has it will no longer be able to join or request to join. You can always create a new one."
 msgstr "A jelenlegi meghívó érvényét veszti és a jövőben már nem használhatják a csatlakozáshoz. Új meghívót bármikor létrehozhatsz."
 
+#: src/features/customNav/settingsCatalog.tsx:265
 #: src/Navigation.tsx:566
 #: src/screens/Settings/AppIconSettings/index.tsx:65
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:19
@@ -2315,6 +2324,7 @@ msgstr "Egy alkalmazásjelszó csak az angol ábécé betűit, számokat, szók�
 msgid "App password names must be at least 4 characters long"
 msgstr "Egy alkalmazásjelszónak legalább 4 karakter hosszúnak kell lennie"
 
+#: src/features/customNav/settingsCatalog.tsx:102
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:74
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:77
 msgid "App passwords"
@@ -2397,6 +2407,7 @@ msgstr "Feljegyzés fellebbezése"
 msgid "Appeal under review"
 msgstr "Átvizsgálás alatt"
 
+#: src/features/customNav/settingsCatalog.tsx:258
 #: src/Navigation.tsx:457
 #: src/screens/Settings/AppearanceSettings.tsx:91
 #: src/screens/Settings/Settings.tsx:264
@@ -2549,7 +2560,7 @@ msgstr "AT protokoll GYIK"
 msgid "At-risk banner"
 msgstr ""
 
-#: src/features/customNav/catalog.tsx:220
+#: src/features/customNav/catalog.tsx:230
 #: src/Navigation.tsx:203
 #: src/screens/Atmosphere.tsx:31
 #: src/view/shell/Drawer.tsx:558
@@ -2580,6 +2591,7 @@ msgstr "Automatikus fiók"
 msgid "Automatic"
 msgstr "Automatikus"
 
+#: src/features/customNav/settingsCatalog.tsx:87
 #: src/screens/Settings/AccountSettings.tsx:155
 #: src/screens/Settings/AccountSettings.tsx:158
 msgid "Automation label"
@@ -2597,7 +2609,7 @@ msgstr "Videók és GIF-ek automatikus lejátszása"
 
 #. Shown next to an available username suggestion in the account creation flow
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:149
+#: src/screens/Settings/NavigationBarSettings.tsx:160
 #: src/screens/Signup/StepHandle/HandleSuggestions/index.native.tsx:69
 #: src/screens/Signup/StepHandle/HandleSuggestions/index.tsx:88
 msgid "Available"
@@ -2727,6 +2739,7 @@ msgstr "Kísérleti"
 msgid "Beta Feature"
 msgstr "Kísérleti funkció"
 
+#: src/features/customNav/settingsCatalog.tsx:295
 #: src/Navigation.tsx:489
 #: src/screens/Notifications/index.tsx:621
 #: src/screens/Settings/BetaFeaturesSettings.tsx:263
@@ -2839,6 +2852,7 @@ msgstr "A másik fél letiltása és/vagy a beszélgetés elhagyása"
 msgid "Blocked"
 msgstr "Letiltva"
 
+#: src/features/customNav/settingsCatalog.tsx:165
 #: src/screens/Moderation/index.tsx:392
 msgid "Blocked accounts"
 msgstr "Letiltott fiókok"
@@ -3370,7 +3384,7 @@ msgstr "Változó tartalom"
 msgid "Channel"
 msgstr "Csatorna"
 
-#: src/features/customNav/catalog.tsx:145
+#: src/features/customNav/catalog.tsx:155
 #: src/lib/hooks/useNotificationHandler.ts:134
 #: src/Navigation.tsx:584
 #: src/view/shell/Drawer.tsx:610
@@ -3987,6 +4001,7 @@ msgstr "Egyéb tartalom"
 msgid "Content & Media"
 msgstr "Tartalom és mellékletek"
 
+#: src/features/customNav/settingsCatalog.tsx:196
 #: src/screens/Settings/Settings.tsx:234
 #: src/screens/Settings/Settings.tsx:237
 msgid "Content and media"
@@ -4393,6 +4408,7 @@ msgstr "Számláló"
 msgid "Country code"
 msgstr "Országhívószám"
 
+#: src/features/customNav/settingsCatalog.tsx:227
 #: src/Navigation.tsx:473
 #: src/screens/Settings/ContentAndMediaSettings.tsx:87
 #: src/screens/Settings/ContentAndMediaSettings.tsx:90
@@ -4623,6 +4639,7 @@ msgstr "Dél"
 msgid "Deactivate account"
 msgstr "Fiók deaktiválása"
 
+#: src/features/customNav/settingsCatalog.tsx:324
 #: src/screens/Settings/Settings.tsx:523
 msgid "Debug Moderation"
 msgstr "Moderálási hibakeresés"
@@ -5727,7 +5744,7 @@ msgstr "A nyugalom megzavarására alkalmas képek és videók."
 msgid "Explicit sexual images."
 msgstr "Szexuális tartalmakat ábrázoló képek."
 
-#: src/features/customNav/catalog.tsx:135
+#: src/features/customNav/catalog.tsx:145
 #: src/Navigation.tsx:968
 #: src/screens/Atmosphere.tsx:43
 #: src/screens/Search/Shell.tsx:561
@@ -5755,6 +5772,7 @@ msgstr "Adatok exportálása"
 msgid "Export my profile data"
 msgstr "Profiladatok exportálása"
 
+#: src/features/customNav/settingsCatalog.tsx:235
 #: src/screens/Settings/ContentAndMediaSettings.tsx:95
 #: src/screens/Settings/ContentAndMediaSettings.tsx:98
 msgid "External media"
@@ -6158,7 +6176,7 @@ msgstr "Választási dezinformáció"
 msgid "Features Bluesky is still building. They may be unfinished or change between updates."
 msgstr ""
 
-#: src/features/customNav/catalog.tsx:231
+#: src/features/customNav/catalog.tsx:241
 #: src/Navigation.tsx:625
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
@@ -6229,7 +6247,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "Visszajelzés elküldve az üzemeltetőnek"
 
-#: src/features/customNav/catalog.tsx:178
+#: src/features/customNav/catalog.tsx:188
 #: src/Navigation.tsx:620
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
@@ -6356,6 +6374,7 @@ msgstr "Ismerősök felkutatása"
 msgid "Find friends experience"
 msgstr ""
 
+#: src/features/customNav/settingsCatalog.tsx:251
 #: src/screens/Settings/Settings.tsx:246
 #: src/screens/Settings/Settings.tsx:249
 msgid "Find friends from contacts"
@@ -6613,6 +6632,7 @@ msgstr "Mostantól követed: {handle}"
 msgid "Following {name}"
 msgstr "Mostantól követed: {name}"
 
+#: src/features/customNav/settingsCatalog.tsx:219
 #: src/screens/Settings/ContentAndMediaSettings.tsx:79
 #: src/screens/Settings/ContentAndMediaSettings.tsx:82
 msgid "Following feed preferences"
@@ -7454,7 +7474,7 @@ msgstr "Hmmmm… Ez a moderálási szolgáltatás nem található."
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Egy pillanat! A videófeltöltés lehetősége még nem mindenki számára elérhető. Próbáld újra később."
 
-#: src/features/customNav/catalog.tsx:124
+#: src/features/customNav/catalog.tsx:134
 #: src/Navigation.tsx:963
 #: src/Navigation.tsx:984
 #: src/view/shell/Drawer.tsx:584
@@ -7794,6 +7814,7 @@ msgstr "E-mailben kapott kód megadása"
 msgid "Interaction limited"
 msgstr "A kapcsolatbalépés korlátozott"
 
+#: src/features/customNav/settingsCatalog.tsx:141
 #: src/screens/Moderation/index.tsx:332
 msgid "Interaction settings"
 msgstr "Kapcsolatbalépési beállítások"
@@ -8121,6 +8142,7 @@ msgstr "Nyelv"
 msgid "Language Settings"
 msgstr "Nyelvi beállítások"
 
+#: src/features/customNav/settingsCatalog.tsx:288
 #: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:278
 #: src/screens/Settings/Settings.tsx:281
@@ -8578,7 +8600,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "A listán szereplő személyek némítása feloldva"
 
-#: src/features/customNav/catalog.tsx:187
+#: src/features/customNav/catalog.tsx:197
 #: src/lib/hooks/useUpdateWidgets.ts:77
 #: src/Navigation.tsx:208
 #: src/view/screens/Lists.tsx:60
@@ -8717,7 +8739,7 @@ msgstr "További személyek betöltése"
 msgid "Loads the posts missing between here and the posts below"
 msgstr "A válaszlánc két vége közötti bejegyzések megjelenítése"
 
-#: src/features/customNav/catalog.tsx:238
+#: src/features/customNav/catalog.tsx:248
 #: src/Navigation.tsx:630
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
@@ -8818,6 +8840,7 @@ msgstr "A panel szélesítése"
 msgid "Make wide"
 msgstr "Szélesítés"
 
+#: src/features/customNav/settingsCatalog.tsx:203
 #: src/screens/Settings/ContentAndMediaSettings.tsx:63
 #: src/screens/Settings/ContentAndMediaSettings.tsx:66
 msgid "Manage saved feeds"
@@ -9061,6 +9084,7 @@ msgstr "Moderálási részletek"
 
 #. Name for a feature flag
 #: src/analytics/features/index.ts:149
+#: src/features/customNav/settingsCatalog.tsx:125
 #: src/Navigation.tsx:218
 #: src/screens/Moderation/index.tsx:299
 #: src/screens/ModerationInbox/index.tsx:98
@@ -9068,6 +9092,7 @@ msgstr "Moderálási részletek"
 msgid "Moderation inbox"
 msgstr "Moderátori üzenetek"
 
+#: src/features/customNav/settingsCatalog.tsx:133
 #: src/screens/ModerationInbox/index.tsx:105
 #: src/screens/ModerationInbox/Settings.tsx:53
 msgid "Moderation inbox settings"
@@ -9099,6 +9124,7 @@ msgctxt "toast"
 msgid "Moderation list updated"
 msgstr "Moderálólista frissítve"
 
+#: src/features/customNav/settingsCatalog.tsx:149
 #: src/screens/Moderation/index.tsx:362
 msgid "Moderation lists"
 msgstr "Moderálólisták"
@@ -9120,6 +9146,7 @@ msgstr "moderálási beállítások"
 msgid "Moderation states"
 msgstr "Moderálási állapotok"
 
+#: src/features/customNav/settingsCatalog.tsx:118
 #: src/screens/Moderation/index.tsx:317
 #: src/screens/Settings/Settings.tsx:209
 #: src/screens/Settings/Settings.tsx:220
@@ -9268,6 +9295,7 @@ msgstr "Egy csoportot bármikor elnémíthatsz vagy elhagyhatsz."
 msgid "Muted"
 msgstr "Elnémítva"
 
+#: src/features/customNav/settingsCatalog.tsx:157
 #: src/screens/Moderation/index.tsx:377
 msgid "Muted accounts"
 msgstr "Elnémított fiókok"
@@ -9353,6 +9381,7 @@ msgstr "Ugrás a profilodra"
 msgid "Navigation"
 msgstr ""
 
+#: src/features/customNav/settingsCatalog.tsx:273
 #: src/Navigation.tsx:465
 #: src/screens/Settings/AppearanceSettings.tsx:249
 #: src/screens/Settings/AppearanceSettings.tsx:252
@@ -9497,7 +9526,7 @@ msgstr ""
 msgid "New password"
 msgstr "Új jelszó"
 
-#: src/features/customNav/catalog.tsx:212
+#: src/features/customNav/catalog.tsx:222
 #: src/lib/hooks/useUpdateWidgets.ts:52
 #: src/screens/CustomFeed/index.tsx:218
 #: src/screens/ProfileList/index.tsx:234
@@ -9993,7 +10022,8 @@ msgstr "Értesítési beállítások"
 msgid "Notification sounds"
 msgstr "Értesítési hangok"
 
-#: src/features/customNav/catalog.tsx:156
+#: src/features/customNav/catalog.tsx:166
+#: src/features/customNav/settingsCatalog.tsx:181
 #: src/Navigation.tsx:610
 #: src/Navigation.tsx:973
 #: src/screens/Messages/Settings.tsx:255
@@ -11342,6 +11372,7 @@ msgstr "Elsődleges nyelv"
 msgid "Privacy"
 msgstr "Adatvédelem"
 
+#: src/features/customNav/settingsCatalog.tsx:95
 #: src/screens/Settings/Settings.tsx:201
 #: src/screens/Settings/Settings.tsx:204
 msgid "Privacy and security"
@@ -11394,7 +11425,7 @@ msgstr "Éles képadapter"
 msgid "profile"
 msgstr "profil"
 
-#: src/features/customNav/catalog.tsx:167
+#: src/features/customNav/catalog.tsx:177
 #: src/view/shell/Drawer.tsx:107
 #: src/view/shell/Drawer.tsx:738
 msgid "Profile"
@@ -11746,7 +11777,7 @@ msgstr "{displayName} eltávolítása a csoportbeszélgetésből"
 msgid "Remove {displayName}?"
 msgstr "Biztosan el akarod távolítani {displayName} felhasználót?"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:243
+#: src/screens/Settings/NavigationBarSettings.tsx:254
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -12429,8 +12460,8 @@ msgstr "Jelszó helyreállítása"
 msgid "Reset sample data"
 msgstr ""
 
-#: src/screens/Settings/NavigationBarSettings.tsx:172
-#: src/screens/Settings/NavigationBarSettings.tsx:176
+#: src/screens/Settings/NavigationBarSettings.tsx:183
+#: src/screens/Settings/NavigationBarSettings.tsx:187
 msgid "Reset to default"
 msgstr ""
 
@@ -12648,7 +12679,7 @@ msgstr "Mentés a hírfolyamgyűjteménybe"
 msgid "Save your position in the Following feed between sessions. New posts wait above you until you’re ready to view them."
 msgstr "A Követett hírfolyam megnyitása a legutóbb megtekintett bejegyzésnél. Az újabb bejegyzések megtekintéséhez feljebb kell görgetni."
 
-#: src/features/customNav/catalog.tsx:195
+#: src/features/customNav/catalog.tsx:205
 #: src/view/shell/Drawer.tsx:713
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -12723,7 +12754,7 @@ msgstr "Vissza a tetejére"
 #: src/components/dialogs/SearchablePeopleList.tsx:663
 #: src/components/forms/SearchInput.tsx:57
 #: src/components/forms/SearchInput.tsx:59
-#: src/features/customNav/catalog.tsx:134
+#: src/features/customNav/catalog.tsx:144
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:218
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:224
 #: src/screens/Search/Shell.tsx:561
@@ -13202,8 +13233,9 @@ msgstr "Tárhelyszolgáltató kézi beállítása"
 msgid "Sets email for password reset"
 msgstr "E-mail cím beállítása jelszóvisszaállításhoz"
 
-#: src/features/customNav/catalog.tsx:204
+#: src/features/customNav/catalog.tsx:214
 #: src/Navigation.tsx:269
+#: src/screens/Settings/NavigationBarSettings.tsx:173
 #: src/screens/Settings/Settings.tsx:118
 #: src/view/shell/Drawer.tsx:751
 msgid "Settings"
@@ -13579,7 +13611,7 @@ msgstr "Figyelmeztetés és kiszűrés a hírfolyamokból"
 msgid "Show when you’re live"
 msgstr "Saját élő állapot megjelenítése"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:124
+#: src/screens/Settings/NavigationBarSettings.tsx:135
 msgid "Shown"
 msgstr ""
 
@@ -14063,6 +14095,7 @@ msgstr "Adatok törölve. Indítsd újra az alkalmazást."
 msgid "Stored as part of a secure code for matching with others"
 msgstr "Ezeket az adatokat egy titkosított kód részeként tároljuk ismerősfelkutatás céljából"
 
+#: src/features/customNav/settingsCatalog.tsx:317
 #: src/Navigation.tsx:362
 #: src/screens/Settings/Settings.tsx:516
 msgid "Storybook"
@@ -14274,6 +14307,7 @@ msgstr "Váltás rá: {0}"
 msgid "System"
 msgstr "Rendszer"
 
+#: src/features/customNav/settingsCatalog.tsx:309
 #: src/screens/Log.tsx:49
 #: src/screens/Settings/AboutSettings.tsx:128
 #: src/screens/Settings/AboutSettings.tsx:131
@@ -15287,6 +15321,7 @@ msgstr "Ezzel el fogod távolítani a bejegyzést az idézésből mindenki szám
 msgid "Thread options"
 msgstr "Válaszlánc-beállítások"
 
+#: src/features/customNav/settingsCatalog.tsx:211
 #: src/screens/Settings/ContentAndMediaSettings.tsx:71
 #: src/screens/Settings/ContentAndMediaSettings.tsx:74
 msgid "Thread preferences"
@@ -16153,6 +16188,7 @@ msgstr "Érték:"
 msgid "Verification failed, please try again."
 msgstr "A hitelesítés meghiúsult. Próbáld újra."
 
+#: src/features/customNav/settingsCatalog.tsx:173
 #: src/screens/Moderation/index.tsx:407
 msgid "Verification settings"
 msgstr "Hitelesítési beállítások"
@@ -17256,7 +17292,7 @@ msgstr "Továbbra is képes leszel az üzenetek elolvasására, de újakat nem t
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Egy bejegyzéshez {MAX_GALLERY_IMAGES, plural, other {# kép}} csatolható."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:153
+#: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 
@@ -17839,6 +17875,7 @@ msgstr "A kiválasztott videófájl meghaladja a tárhelyszolgáltatót korlátj
 msgid "Your hosting provider is detected automatically from the username you enter."
 msgstr "A tárhelyszolgáltató a felhasználónév alapján történik megállapításra."
 
+#: src/features/customNav/settingsCatalog.tsx:243
 #: src/Navigation.tsx:550
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:62
 #: src/screens/Settings/ContentAndMediaSettings.tsx:103

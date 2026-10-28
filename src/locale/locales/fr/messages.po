@@ -1399,6 +1399,7 @@ msgstr "Un des comptes destinataires ne fait pas partie des abonnements du compt
 msgid "A small kawaii scene with no ratio on record"
 msgstr "Une petite scène kawaii sans ratio enregistré"
 
+#: src/features/customNav/settingsCatalog.tsx:302
 #: src/Navigation.tsx:558
 #: src/screens/Settings/AboutSettings.tsx:88
 #: src/screens/Settings/Settings.tsx:302
@@ -1446,6 +1447,7 @@ msgstr "Accepter cette suggestion de langue"
 msgid "Access requested! The group owner will review your request."
 msgstr "Accès demandé ! Le compte propriétaire du groupe examinera votre demande."
 
+#: src/features/customNav/settingsCatalog.tsx:281
 #: src/screens/Settings/AccessibilitySettings.tsx:45
 #: src/screens/Settings/Settings.tsx:272
 #: src/screens/Settings/Settings.tsx:275
@@ -1456,6 +1458,7 @@ msgstr "Accessibilité"
 msgid "Accessibility Settings"
 msgstr "Paramètres d’accessibilité"
 
+#: src/features/customNav/settingsCatalog.tsx:80
 #: src/Navigation.tsx:481
 #: src/screens/ModerationInbox/components/hooks/useSubjectPreviewProfile.ts:22
 #: src/screens/ModerationInbox/components/hooks/useSubjectPreviewProfile.ts:23
@@ -1596,9 +1599,14 @@ msgstr "Activité"
 msgid "Activity from others"
 msgstr "Activité des autres"
 
+#: src/features/customNav/settingsCatalog.tsx:188
 #: src/Navigation.tsx:534
 msgid "Activity notifications"
 msgstr "Notifications d’activité"
+
+#: src/features/customNav/settingsCatalog.tsx:110
+msgid "Activity privacy"
+msgstr ""
 
 #: src/components/dialogs/lists/ListAddRemoveUsersDialog.tsx:192
 #: src/components/dialogs/lists/UserAddRemoveListsDialog.tsx:319
@@ -1620,7 +1628,7 @@ msgstr "Ajouter {0} autres pour continuer"
 msgid "Add {displayName} to Starter Pack"
 msgstr "Ajouter {displayName} au kit de démarrage"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:289
+#: src/screens/Settings/NavigationBarSettings.tsx:302
 msgid "Add {label} to the bar"
 msgstr ""
 
@@ -2282,6 +2290,7 @@ msgstr "Quiconque me suit"
 msgid "Anyone who has it will no longer be able to join or request to join. You can always create a new one."
 msgstr "Quiconque l’avait ne pourra plus rejoindre la discussion ou demander à la rejoindre. Vous pourrez toujours en créer un nouveau."
 
+#: src/features/customNav/settingsCatalog.tsx:265
 #: src/Navigation.tsx:566
 #: src/screens/Settings/AppIconSettings/index.tsx:65
 #: src/screens/Settings/AppIconSettings/SettingsListItem.tsx:19
@@ -2315,6 +2324,7 @@ msgstr "Les noms de mots de passe d’application peuvent seulement contenir des
 msgid "App password names must be at least 4 characters long"
 msgstr "Les noms de mots de passe d’application doivent comporter au moins 4 caractères."
 
+#: src/features/customNav/settingsCatalog.tsx:102
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:74
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:77
 msgid "App passwords"
@@ -2397,6 +2407,7 @@ msgstr "Faire appel de cette étiquette"
 msgid "Appeal under review"
 msgstr "Appel en cours d’examen"
 
+#: src/features/customNav/settingsCatalog.tsx:258
 #: src/Navigation.tsx:457
 #: src/screens/Settings/AppearanceSettings.tsx:91
 #: src/screens/Settings/Settings.tsx:264
@@ -2549,7 +2560,7 @@ msgstr "FÀQ sur l’AT Protocol (en anglais)"
 msgid "At-risk banner"
 msgstr ""
 
-#: src/features/customNav/catalog.tsx:220
+#: src/features/customNav/catalog.tsx:230
 #: src/Navigation.tsx:203
 #: src/screens/Atmosphere.tsx:31
 #: src/view/shell/Drawer.tsx:558
@@ -2580,6 +2591,7 @@ msgstr "Compte automatisé"
 msgid "Automatic"
 msgstr "Automatique"
 
+#: src/features/customNav/settingsCatalog.tsx:87
 #: src/screens/Settings/AccountSettings.tsx:155
 #: src/screens/Settings/AccountSettings.tsx:158
 msgid "Automation label"
@@ -2597,7 +2609,7 @@ msgstr "Lire automatiquement les vidéos et les GIFs"
 
 #. Shown next to an available username suggestion in the account creation flow
 #. Shown next to an available username suggestion in the account creation flow
-#: src/screens/Settings/NavigationBarSettings.tsx:149
+#: src/screens/Settings/NavigationBarSettings.tsx:160
 #: src/screens/Signup/StepHandle/HandleSuggestions/index.native.tsx:69
 #: src/screens/Signup/StepHandle/HandleSuggestions/index.tsx:88
 msgid "Available"
@@ -2727,6 +2739,7 @@ msgstr "Bêta"
 msgid "Beta Feature"
 msgstr "Fonction en bêta"
 
+#: src/features/customNav/settingsCatalog.tsx:295
 #: src/Navigation.tsx:489
 #: src/screens/Notifications/index.tsx:621
 #: src/screens/Settings/BetaFeaturesSettings.tsx:263
@@ -2839,6 +2852,7 @@ msgstr "Bloquer ce compte ou partir de cette conversation"
 msgid "Blocked"
 msgstr "Bloqué"
 
+#: src/features/customNav/settingsCatalog.tsx:165
 #: src/screens/Moderation/index.tsx:392
 msgid "Blocked accounts"
 msgstr "Comptes bloqués"
@@ -3370,7 +3384,7 @@ msgstr "Modification du contenu"
 msgid "Channel"
 msgstr "Canal"
 
-#: src/features/customNav/catalog.tsx:145
+#: src/features/customNav/catalog.tsx:155
 #: src/lib/hooks/useNotificationHandler.ts:134
 #: src/Navigation.tsx:584
 #: src/view/shell/Drawer.tsx:610
@@ -3987,6 +4001,7 @@ msgstr "Contenu"
 msgid "Content & Media"
 msgstr "Contenu et médias"
 
+#: src/features/customNav/settingsCatalog.tsx:196
 #: src/screens/Settings/Settings.tsx:234
 #: src/screens/Settings/Settings.tsx:237
 msgid "Content and media"
@@ -4393,6 +4408,7 @@ msgstr "Compteur"
 msgid "Country code"
 msgstr "Code du pays"
 
+#: src/features/customNav/settingsCatalog.tsx:227
 #: src/Navigation.tsx:473
 #: src/screens/Settings/ContentAndMediaSettings.tsx:87
 #: src/screens/Settings/ContentAndMediaSettings.tsx:90
@@ -4623,6 +4639,7 @@ msgstr "Jour"
 msgid "Deactivate account"
 msgstr "Désactiver le compte"
 
+#: src/features/customNav/settingsCatalog.tsx:324
 #: src/screens/Settings/Settings.tsx:523
 msgid "Debug Moderation"
 msgstr "Déboguer la modération"
@@ -5727,7 +5744,7 @@ msgstr "Médias explicites ou potentiellement dérangeants."
 msgid "Explicit sexual images."
 msgstr "Images sexuelles explicites."
 
-#: src/features/customNav/catalog.tsx:135
+#: src/features/customNav/catalog.tsx:145
 #: src/Navigation.tsx:968
 #: src/screens/Atmosphere.tsx:43
 #: src/screens/Search/Shell.tsx:561
@@ -5755,6 +5772,7 @@ msgstr "Exporter mes données"
 msgid "Export my profile data"
 msgstr "Exporter mes données de profil"
 
+#: src/features/customNav/settingsCatalog.tsx:235
 #: src/screens/Settings/ContentAndMediaSettings.tsx:95
 #: src/screens/Settings/ContentAndMediaSettings.tsx:98
 msgid "External media"
@@ -6158,7 +6176,7 @@ msgstr "Fausses infos concernant des élections"
 msgid "Features Bluesky is still building. They may be unfinished or change between updates."
 msgstr ""
 
-#: src/features/customNav/catalog.tsx:231
+#: src/features/customNav/catalog.tsx:241
 #: src/Navigation.tsx:625
 #: src/screens/PlaceholderTimelines.tsx:61
 msgid "Federated"
@@ -6229,7 +6247,7 @@ msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr "Commentaires envoyés au fournisseur du fil d’actu"
 
-#: src/features/customNav/catalog.tsx:178
+#: src/features/customNav/catalog.tsx:188
 #: src/Navigation.tsx:620
 #: src/screens/SavedFeeds.tsx:112
 #: src/screens/SavedFeeds.tsx:303
@@ -6356,6 +6374,7 @@ msgstr "Retrouver des amis"
 msgid "Find friends experience"
 msgstr ""
 
+#: src/features/customNav/settingsCatalog.tsx:251
 #: src/screens/Settings/Settings.tsx:246
 #: src/screens/Settings/Settings.tsx:249
 msgid "Find friends from contacts"
@@ -6613,6 +6632,7 @@ msgstr "Abonné·e à {handle}"
 msgid "Following {name}"
 msgstr "Abonné·e désormais à {name}"
 
+#: src/features/customNav/settingsCatalog.tsx:219
 #: src/screens/Settings/ContentAndMediaSettings.tsx:79
 #: src/screens/Settings/ContentAndMediaSettings.tsx:82
 msgid "Following feed preferences"
@@ -7454,7 +7474,7 @@ msgstr "Hmm, nous n’avons pas pu charger ce service de modération."
 msgid "Hold up! We’re gradually giving access to video, and you’re still waiting in line. Check back soon!"
 msgstr "Attendez ! Nous donnons progressivement accès à la vidéo et vous faites toujours la queue. Revenez bientôt !"
 
-#: src/features/customNav/catalog.tsx:124
+#: src/features/customNav/catalog.tsx:134
 #: src/Navigation.tsx:963
 #: src/Navigation.tsx:984
 #: src/view/shell/Drawer.tsx:584
@@ -7794,6 +7814,7 @@ msgstr "Entrez le code qui vous a été envoyé par e-mail"
 msgid "Interaction limited"
 msgstr "Interaction limitée"
 
+#: src/features/customNav/settingsCatalog.tsx:141
 #: src/screens/Moderation/index.tsx:332
 msgid "Interaction settings"
 msgstr "Paramètres d’interaction"
@@ -8121,6 +8142,7 @@ msgstr "Langue"
 msgid "Language Settings"
 msgstr "Paramètres linguistiques"
 
+#: src/features/customNav/settingsCatalog.tsx:288
 #: src/screens/Settings/LanguageSettings.tsx:101
 #: src/screens/Settings/Settings.tsx:278
 #: src/screens/Settings/Settings.tsx:281
@@ -8578,7 +8600,7 @@ msgctxt "toast"
 msgid "List unmuted"
 msgstr "Liste réaffichée"
 
-#: src/features/customNav/catalog.tsx:187
+#: src/features/customNav/catalog.tsx:197
 #: src/lib/hooks/useUpdateWidgets.ts:77
 #: src/Navigation.tsx:208
 #: src/view/screens/Lists.tsx:60
@@ -8717,7 +8739,7 @@ msgstr "Charge plus de personnes dans cette liste"
 msgid "Loads the posts missing between here and the posts below"
 msgstr "Charge les posts manquants entre ici et les posts ci-dessous"
 
-#: src/features/customNav/catalog.tsx:238
+#: src/features/customNav/catalog.tsx:248
 #: src/Navigation.tsx:630
 #: src/screens/PlaceholderTimelines.tsx:66
 msgid "Local"
@@ -8818,6 +8840,7 @@ msgstr "Élargir le panneau"
 msgid "Make wide"
 msgstr "Élargir"
 
+#: src/features/customNav/settingsCatalog.tsx:203
 #: src/screens/Settings/ContentAndMediaSettings.tsx:63
 #: src/screens/Settings/ContentAndMediaSettings.tsx:66
 msgid "Manage saved feeds"
@@ -9061,6 +9084,7 @@ msgstr "Détails de la modération"
 
 #. Name for a feature flag
 #: src/analytics/features/index.ts:149
+#: src/features/customNav/settingsCatalog.tsx:125
 #: src/Navigation.tsx:218
 #: src/screens/Moderation/index.tsx:299
 #: src/screens/ModerationInbox/index.tsx:98
@@ -9068,6 +9092,7 @@ msgstr "Détails de la modération"
 msgid "Moderation inbox"
 msgstr "Boîte de réception de modération"
 
+#: src/features/customNav/settingsCatalog.tsx:133
 #: src/screens/ModerationInbox/index.tsx:105
 #: src/screens/ModerationInbox/Settings.tsx:53
 msgid "Moderation inbox settings"
@@ -9099,6 +9124,7 @@ msgctxt "toast"
 msgid "Moderation list updated"
 msgstr "Liste de modération mise à jour"
 
+#: src/features/customNav/settingsCatalog.tsx:149
 #: src/screens/Moderation/index.tsx:362
 msgid "Moderation lists"
 msgstr "Listes de modération"
@@ -9120,6 +9146,7 @@ msgstr "paramètres de modération"
 msgid "Moderation states"
 msgstr "États de modération"
 
+#: src/features/customNav/settingsCatalog.tsx:118
 #: src/screens/Moderation/index.tsx:317
 #: src/screens/Settings/Settings.tsx:209
 #: src/screens/Settings/Settings.tsx:220
@@ -9268,6 +9295,7 @@ msgstr "Mettez en sourdine, partez ou retirez des personnes à tout moment. C’
 msgid "Muted"
 msgstr "En sourdine"
 
+#: src/features/customNav/settingsCatalog.tsx:157
 #: src/screens/Moderation/index.tsx:377
 msgid "Muted accounts"
 msgstr "Comptes masqués"
@@ -9353,6 +9381,7 @@ msgstr "Navigue vers votre profil"
 msgid "Navigation"
 msgstr ""
 
+#: src/features/customNav/settingsCatalog.tsx:273
 #: src/Navigation.tsx:465
 #: src/screens/Settings/AppearanceSettings.tsx:249
 #: src/screens/Settings/AppearanceSettings.tsx:252
@@ -9497,7 +9526,7 @@ msgstr ""
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: src/features/customNav/catalog.tsx:212
+#: src/features/customNav/catalog.tsx:222
 #: src/lib/hooks/useUpdateWidgets.ts:52
 #: src/screens/CustomFeed/index.tsx:218
 #: src/screens/ProfileList/index.tsx:234
@@ -9993,7 +10022,8 @@ msgstr "Paramètres de notification"
 msgid "Notification sounds"
 msgstr "Sons de notification"
 
-#: src/features/customNav/catalog.tsx:156
+#: src/features/customNav/catalog.tsx:166
+#: src/features/customNav/settingsCatalog.tsx:181
 #: src/Navigation.tsx:610
 #: src/Navigation.tsx:973
 #: src/screens/Messages/Settings.tsx:255
@@ -11342,6 +11372,7 @@ msgstr "Langue principale"
 msgid "Privacy"
 msgstr "Vie privée"
 
+#: src/features/customNav/settingsCatalog.tsx:95
 #: src/screens/Settings/Settings.tsx:201
 #: src/screens/Settings/Settings.tsx:204
 msgid "Privacy and security"
@@ -11394,7 +11425,7 @@ msgstr "Adaptateur d'image de production"
 msgid "profile"
 msgstr "profil"
 
-#: src/features/customNav/catalog.tsx:167
+#: src/features/customNav/catalog.tsx:177
 #: src/view/shell/Drawer.tsx:107
 #: src/view/shell/Drawer.tsx:738
 msgid "Profile"
@@ -11746,7 +11777,7 @@ msgstr "Supprimer {displayName} de cette discussion de groupe"
 msgid "Remove {displayName}?"
 msgstr "Retirer {displayName} ?"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:243
+#: src/screens/Settings/NavigationBarSettings.tsx:254
 msgid "Remove {label} from the bar"
 msgstr ""
 
@@ -12429,8 +12460,8 @@ msgstr "Réinitialiser mot de passe"
 msgid "Reset sample data"
 msgstr ""
 
-#: src/screens/Settings/NavigationBarSettings.tsx:172
-#: src/screens/Settings/NavigationBarSettings.tsx:176
+#: src/screens/Settings/NavigationBarSettings.tsx:183
+#: src/screens/Settings/NavigationBarSettings.tsx:187
 msgid "Reset to default"
 msgstr ""
 
@@ -12648,7 +12679,7 @@ msgstr "Enregistrer dans mes fils d’actu"
 msgid "Save your position in the Following feed between sessions. New posts wait above you until you’re ready to view them."
 msgstr "Enregistre votre position dans le fil d’actu Abonnements entre les sessions. Les nouveaux posts vous attendront au-dessus jusqu’à ce que vous soyez prêt·e à les voir."
 
-#: src/features/customNav/catalog.tsx:195
+#: src/features/customNav/catalog.tsx:205
 #: src/view/shell/Drawer.tsx:713
 msgctxt "link to bookmarks screen"
 msgid "Saved"
@@ -12723,7 +12754,7 @@ msgstr "Remonter en haut"
 #: src/components/dialogs/SearchablePeopleList.tsx:663
 #: src/components/forms/SearchInput.tsx:57
 #: src/components/forms/SearchInput.tsx:59
-#: src/features/customNav/catalog.tsx:134
+#: src/features/customNav/catalog.tsx:144
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:218
 #: src/screens/Search/components/AdvancedSearchDialog/index.tsx:224
 #: src/screens/Search/Shell.tsx:561
@@ -13202,8 +13233,9 @@ msgstr "Sélectionner votre hébergeur manuellement"
 msgid "Sets email for password reset"
 msgstr "Définit l’e-mail pour la réinitialisation du mot de passe"
 
-#: src/features/customNav/catalog.tsx:204
+#: src/features/customNav/catalog.tsx:214
 #: src/Navigation.tsx:269
+#: src/screens/Settings/NavigationBarSettings.tsx:173
 #: src/screens/Settings/Settings.tsx:118
 #: src/view/shell/Drawer.tsx:751
 msgid "Settings"
@@ -13579,7 +13611,7 @@ msgstr "Afficher l’avertissement et filtrer des fils d’actu"
 msgid "Show when you’re live"
 msgstr "Rendez visibles vos streams"
 
-#: src/screens/Settings/NavigationBarSettings.tsx:124
+#: src/screens/Settings/NavigationBarSettings.tsx:135
 msgid "Shown"
 msgstr ""
 
@@ -14063,6 +14095,7 @@ msgstr "Stockage effacé, vous devez redémarrer l’application maintenant."
 msgid "Stored as part of a secure code for matching with others"
 msgstr "Stocké sous forme de code sécurisé (hashé) pour retrouver d’autres comptes"
 
+#: src/features/customNav/settingsCatalog.tsx:317
 #: src/Navigation.tsx:362
 #: src/screens/Settings/Settings.tsx:516
 msgid "Storybook"
@@ -14274,6 +14307,7 @@ msgstr "Basculer vers {0}"
 msgid "System"
 msgstr "Système"
 
+#: src/features/customNav/settingsCatalog.tsx:309
 #: src/screens/Log.tsx:49
 #: src/screens/Settings/AboutSettings.tsx:128
 #: src/screens/Settings/AboutSettings.tsx:131
@@ -15285,6 +15319,7 @@ msgstr "Cela retirera votre post de cette citation pour tout le monde, et le rem
 msgid "Thread options"
 msgstr "Options de fil de discussion"
 
+#: src/features/customNav/settingsCatalog.tsx:211
 #: src/screens/Settings/ContentAndMediaSettings.tsx:71
 #: src/screens/Settings/ContentAndMediaSettings.tsx:74
 msgid "Thread preferences"
@@ -16151,6 +16186,7 @@ msgstr "Valeur :"
 msgid "Verification failed, please try again."
 msgstr "La vérification a échoué, veuillez réessayer."
 
+#: src/features/customNav/settingsCatalog.tsx:173
 #: src/screens/Moderation/index.tsx:407
 msgid "Verification settings"
 msgstr "Paramètres de vérification"
@@ -17254,7 +17290,7 @@ msgstr "Vous pouvez lire l’historique de la discussion mais pas envoyer de nou
 msgid "You can select up to {MAX_GALLERY_IMAGES, plural, other {# images}} in total."
 msgstr "Vous pouvez sélectionner jusqu'à {MAX_GALLERY_IMAGES, plural, other {# images}} au total."
 
-#: src/screens/Settings/NavigationBarSettings.tsx:153
+#: src/screens/Settings/NavigationBarSettings.tsx:164
 msgid "You can show up to {max} items. Remove one to add another."
 msgstr ""
 
@@ -17837,6 +17873,7 @@ msgstr "Votre hébergeur ne prend pas en charge des vidéos aussi lourdes. Veuil
 msgid "Your hosting provider is detected automatically from the username you enter."
 msgstr "Votre hébergeur est détecté automatiquement à partir du pseudo que vous saisissez."
 
+#: src/features/customNav/settingsCatalog.tsx:243
 #: src/Navigation.tsx:550
 #: src/screens/Search/modules/ExploreInterestsCard.tsx:62
 #: src/screens/Settings/ContentAndMediaSettings.tsx:103
