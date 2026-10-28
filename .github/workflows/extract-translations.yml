@@ -11,6 +11,8 @@ on:
 jobs:
   extract:
     runs-on: ubuntu-latest
+    # A normal run takes ~2 minutes; fail fast instead of hanging for hours
+    timeout-minutes: 15
     permissions:
       contents: write
 
@@ -29,7 +31,10 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        # Extraction only parses src/, so skip install scripts (lexicon codegen,
+        # native/binary downloads such as the Sentry CLI). They can stall the
+        # install for a long time and aren't needed here.
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Extract message catalogs
         run: pnpm intl:extract:all
