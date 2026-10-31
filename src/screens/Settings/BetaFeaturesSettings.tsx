@@ -239,15 +239,10 @@ export function BetaFeaturesSettingsScreen({}: Props) {
           label: l`New Notifications screen`,
           description: l`Bluesky’s redesigned Notifications screen, with tabs and grouped notifications.`,
         }
-      case Features.AtmosphereExploreEnable:
+      case Features.AtmosphereScreenEnable:
         return {
           label: l`Atmosphere tab`,
           description: l`Adds Atmosphere to the side menu, and lets you add it to your bottom bar and sidebar in Settings → Appearance → Navigation.`,
-        }
-      case Features.ProfileLinksEnable:
-        return {
-          label: l`Profile links`,
-          description: l`Add links under your bio, and see other people’s. Links to support sites like Ko-fi or Patreon show as a Support button.`,
         }
       default:
         return {label: feature, description: ''}
@@ -299,12 +294,12 @@ export function BetaFeaturesSettingsScreen({}: Props) {
               {IS_WEB
                 ? l({
                     message:
-                      'Beta features may be unstable. Some changes may require reloading the app.',
+                      'Beta features may be unstable. Some changes may require reloading the app. Some beta features may not work properly with ad blockers or VPNs enabled.',
                     context: 'web',
                   })
                 : l({
                     message:
-                      'Beta features may be unstable. Some changes may require restarting the app.',
+                      'Beta features may be unstable. Some changes may require restarting the app. Some beta features may not work properly with ad blockers or VPNs enabled.',
                     context: 'native',
                   })}
             </Admonition>
@@ -677,7 +672,7 @@ export function BetaFeaturesSettingsScreen({}: Props) {
 
       <BetaFeaturesFeedbackDialog
         control={feedbackControl}
-        betaFeatureKeys={feedbackFeatureKeys}
+        betaFeatures={listedFeatures}
       />
     </Layout.Screen>
   )

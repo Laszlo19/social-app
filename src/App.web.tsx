@@ -164,7 +164,6 @@ function InnerApp() {
                                                                 <HotkeysProvider>
                                                                   <WhatsNewProvider>
                                                                     <Shell />
-                                                                    <ToastOutlet />
                                                                   </WhatsNewProvider>
                                                                 </HotkeysProvider>
                                                               </TranslateOnDeviceProvider>
@@ -191,6 +190,7 @@ function InnerApp() {
                     </QueryProvider>
                   </AnalyticsFeaturesContext>
                 </Fragment>
+                <ToastOutlet />
               </ActiveVideoProvider>
             </VideoVolumeProvider>
           </Splash>

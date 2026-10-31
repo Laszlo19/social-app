@@ -96,8 +96,6 @@ module.exports = function (_config) {
           NSUserActivityTypes: ['INSendMessageIntent'],
           NSCameraUsageDescription:
             'Used for profile pictures, posts, and other kinds of content.',
-          NSMicrophoneUsageDescription:
-            'Used for posts and other kinds of content.',
           NSPhotoLibraryAddUsageDescription:
             'Used to save images to your library.',
           NSPhotoLibraryUsageDescription:
@@ -151,7 +149,7 @@ module.exports = function (_config) {
         entitlements: {
           'com.apple.developer.kernel.increased-memory-limit': true,
           'com.apple.developer.kernel.extended-virtual-addressing': true,
-          'com.apple.security.application-groups': 'group.app.bsky',
+          'com.apple.security.application-groups': ['group.app.bsky'],
           'com.apple.developer.usernotifications.communication': true,
           // 'com.apple.developer.device-information.user-assigned-device-name': true,
           'com.apple.developer.declared-age-range': true,
@@ -218,6 +216,7 @@ module.exports = function (_config) {
         },
         googleServicesFile: './google-services.json',
         package: ANDROID_PACKAGE,
+        blockedPermissions: ['android.permission.ACCESS_FINE_LOCATION'],
         intentFilters: [
           {
             action: 'VIEW',
@@ -282,8 +281,70 @@ module.exports = function (_config) {
         'expo-asset',
         'expo-sharing',
         'expo-video',
-        'expo-localization',
+        [
+          'expo-camera',
+          {
+            microphonePermission: false,
+            recordAudioAndroid: false,
+          },
+        ],
+        [
+          'expo-image-picker',
+          {
+            microphonePermission: false,
+          },
+        ],
+        [
+          'expo-localization',
+          {
+            /*
+             * React Native 0.88 fixed Android RTL detection, which until then
+             * always reported LTR. Opt out so Android keeps rendering LTR like
+             * iOS, until RTL layouts get a proper QA pass.
+             */
+            supportsRTL: false,
+          },
+        ],
         'expo-web-browser',
+        'expo-background-task',
+        // edits expo-widgets' output, and mods run in reverse order
+        './plugins/withTrendingWidget.js',
+        [
+          'expo-widgets',
+          {
+            bundleIdentifier: 'xyz.blueskyweb.app.BlueskyWidgets',
+            groupIdentifier: 'group.app.bsky',
+            enableAndroid: true,
+            widgets: [
+              {
+                name: 'TrendingTopicsWidget',
+                displayName: 'Trending Topics',
+                description: 'See what people are talking about on Bluesky.',
+                ios: {
+                  contentMarginsDisabled: true,
+                  supportedFamilies: [
+                    'systemSmall',
+                    'systemMedium',
+                    'systemLarge',
+                  ],
+                  // lets the widget render before the app is first opened
+                  initialLayout:
+                    'src/features/trendingWidget/TrendingTopicsWidget.ios.tsx',
+                },
+                android: {
+                  // 4x3 cells, or 250x180dp on Android 11 and lower
+                  minWidth: 250,
+                  minHeight: 180,
+                  targetCellWidth: 4,
+                  targetCellHeight: 3,
+                  // lets the widget render before the app is first opened
+                  initialLayout:
+                    'src/features/trendingWidget/TrendingTopicsWidget.android.tsx',
+                },
+              },
+            ],
+          },
+        ],
         [
           'react-native-nano-icons',
           {
@@ -343,12 +404,11 @@ module.exports = function (_config) {
                   branch: 'main',
                 },
               ],
-              enableSceneSupport: true,
             },
             android: {
-              compileSdkVersion: 36,
+              compileSdkVersion: 37,
               targetSdkVersion: 36,
-              buildToolsVersion: '36.0.0',
+              buildToolsVersion: '37.0.0',
               buildReactNativeFromSource: true,
               enableMinifyInReleaseBuilds: true,
             },
@@ -374,6 +434,7 @@ module.exports = function (_config) {
         './plugins/withAndroidShortcutIcons.js',
         './plugins/withAndroidPreparedTextLayoutPlugin.js',
         './plugins/withAndroidComposeVersion.js',
+        './plugins/withIOSWindowingControlStyle.js',
         './plugins/shareExtension/withShareExtensions.js',
         './plugins/notificationsExtension/withNotificationsExtension.js',
         [
@@ -521,8 +582,19 @@ module.exports = function (_config) {
             ],
           },
         ],
-                ['expo-screen-orientation'],
-        ['expo-location'],
+        ['expo-screen-orientation'],
+        [
+          'expo-location',
+          {
+            locationWhenInUsePermission:
+              'Bluesky uses your approximate location via GPS to determine the content and features available in your region.',
+            locationAlwaysAndWhenInUsePermission: false,
+            locationAlwaysPermission: false,
+            motionUsagePermission: false,
+            locationFullAccuracyPermission: false,
+            isIosReducedAccuracyByDefault: true,
+          },
+        ],
         [
           'expo-contacts',
           {
