@@ -5,7 +5,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest is moving to Ubuntu 26, and the Hermes source build
+    # (React Native is built from source since 1.136) last succeeded on 24.04.
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
 
