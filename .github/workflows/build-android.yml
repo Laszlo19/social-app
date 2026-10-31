@@ -8,6 +8,9 @@ jobs:
     # Pinned: ubuntu-latest is moving to Ubuntu 26, and the Hermes source build
     # (React Native is built from source since 1.136) last succeeded on 24.04.
     runs-on: ubuntu-24.04
+    # A from-source build takes ~2 hours uncached; stop a stuck one well
+    # before GitHub's 6-hour default
+    timeout-minutes: 240
     permissions:
       contents: write
 
@@ -36,6 +39,10 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+
+      - name: Set up Gradle
+        # Caches Gradle's dependencies and build cache between runs
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -135,14 +142,45 @@ jobs:
           echo "Hermes $version unpacked to $dest"
           echo "REACT_NATIVE_OVERRIDE_HERMES_DIR=$dest" >> "$GITHUB_ENV"
 
+      - name: Set up ccache
+        # React Native and Hermes are compiled from source, which is most of the
+        # build time. ccache keeps compiled C++ between runs; the key changes
+        # when dependencies or patches do, falling back to the newest cache.
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: android-${{ hashFiles('pnpm-lock.yaml', 'patches/**') }}
+          max-size: 5G
+
+      - name: Route C/C++ compiles through ccache
+        # CMake reads these at configure time, so every native build (Hermes
+        # host compiler and NDK libraries) uses ccache without patching React
+        # Native. Paths are made relative so cache hits survive new checkouts.
+        run: |
+          {
+            echo "CMAKE_C_COMPILER_LAUNCHER=ccache"
+            echo "CMAKE_CXX_COMPILER_LAUNCHER=ccache"
+            echo "CCACHE_BASEDIR=/home/runner/work"
+            echo "CCACHE_NOHASHDIR=true"
+            echo "CCACHE_COMPILERCHECK=content"
+            echo "CCACHE_SLOPPINESS=pch_defines,time_macros,include_file_mtime,include_file_ctime"
+          } >> "$GITHUB_ENV"
+          ccache --zero-stats
+
       - name: Build release APK
         run: |
           set -o pipefail
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon 2>&1 | tee "$RUNNER_TEMP/gradle.log"
+          ./gradlew assembleRelease --no-daemon --build-cache 2>&1 | tee "$RUNNER_TEMP/gradle.log"
         env:
           JAVA_HOME: ${{ env.JAVA_HOME }}
+
+      - name: Report cache use
+        if: always()
+        # Posted as a notice so hit rates can be checked without the full log
+        run: |
+          stats=$(ccache --show-stats 2>&1 | sed -e 's/%/%25/g' | sed ':a;N;$!ba;s/\n/%0A/g')
+          echo "::notice title=ccache::$stats"
 
       # On failure, surface the actual errors as annotations. Native tools
       # (CMake for Hermes, the NDK) write their details to separate log files
