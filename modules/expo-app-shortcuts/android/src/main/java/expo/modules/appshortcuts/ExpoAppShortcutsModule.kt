@@ -48,9 +48,8 @@ class ExpoAppShortcutsModule : Module() {
     // Keep in sync with the providers declared in plugins/withAndroidWidgets.js.
     // Collection widgets (Pinned Feeds, Lists) reload their data in onUpdate via
     // notifyAppWidgetViewDataChanged, so an ACTION_APPWIDGET_UPDATE is enough.
+    // Widgets on expo-widgets (New post, Stats) update through updateSnapshot.
     val providers = listOf(
-      "NewPostWidgetProvider",
-      "StatsWidgetProvider",
       "StatsCardWidgetProvider",
       "ComposerWidgetProvider",
       "InteractionsWidgetProvider",
