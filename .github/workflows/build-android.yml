@@ -118,6 +118,23 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install --no-install-recommends -y libicu-dev ninja-build python3
 
+      - name: Download Hermes source
+        # React Native 0.88 downloads Hermes from github.com/facebook/hermes and
+        # strips a "facebook-hermes-*" top folder from the tarball. GitHub now
+        # serves it from meta/hermes with a "meta-hermes-*" folder, so the
+        # source lands one level too deep and CMake can't find CMakeLists.txt.
+        # Unpack it ourselves and point React Native at it; with
+        # REACT_NATIVE_OVERRIDE_HERMES_DIR set it skips its own download.
+        run: |
+          version=$(tr -d '[:space:]' < node_modules/react-native/sdks/.hermesv1version)
+          dest="$RUNNER_TEMP/hermes"
+          mkdir -p "$dest"
+          curl -fsSL --retry 5 "https://github.com/facebook/hermes/tarball/$version" \
+            | tar -xz -C "$dest" --strip-components=1
+          test -f "$dest/CMakeLists.txt"
+          echo "Hermes $version unpacked to $dest"
+          echo "REACT_NATIVE_OVERRIDE_HERMES_DIR=$dest" >> "$GITHUB_ENV"
+
       - name: Build release APK
         run: |
           set -o pipefail
