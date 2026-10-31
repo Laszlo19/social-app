@@ -344,6 +344,39 @@ module.exports = function (_config) {
                     'src/features/trendingWidget/TrendingTopicsWidget.android.tsx',
                 },
               },
+              /*
+               * Fork: home screen widgets migrated from
+               * plugins/withAndroidWidgets.js. Android-only; the app sends
+               * their data from src/lib/hooks/useUpdateWidgets.ts.
+               */
+              {
+                name: 'NewPostWidget',
+                displayName: 'New post',
+                description: 'Quickly start a new post',
+                android: {
+                  minWidth: 110,
+                  minHeight: 40,
+                  targetCellWidth: 2,
+                  targetCellHeight: 1,
+                  resizeMode: 'horizontal',
+                  initialLayout:
+                    'src/features/homeWidgets/NewPostWidget.android.tsx',
+                },
+              },
+              {
+                name: 'StatsWidget',
+                displayName: 'Account stats',
+                description: 'Your follower and following counts',
+                android: {
+                  minWidth: 250,
+                  minHeight: 40,
+                  targetCellWidth: 4,
+                  targetCellHeight: 1,
+                  resizeMode: 'horizontal',
+                  initialLayout:
+                    'src/features/homeWidgets/StatsWidget.android.tsx',
+                },
+              },
             ],
           },
         ],

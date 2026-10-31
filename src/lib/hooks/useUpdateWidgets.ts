@@ -13,6 +13,8 @@ import {useMyListsQuery} from '#/state/queries/my-lists'
 import {useProfileQuery} from '#/state/queries/profile'
 import {useAppviewClient, useSession} from '#/state/session'
 import {IS_ANDROID} from '#/env'
+import NewPostWidget from '#/features/homeWidgets/NewPostWidget'
+import StatsWidget from '#/features/homeWidgets/StatsWidget'
 import * as AppShortcuts from '../../../modules/expo-app-shortcuts'
 
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000
@@ -23,9 +25,12 @@ const INTERACTIONS_THROTTLE_MS = 30 * 60 * 1000
  * Writes data + localized labels for Android home-screen widgets to filesDir,
  * then broadcasts a refresh to all widget providers. No-op off Android.
  *
+ * The New post and Stats widgets run on expo-widgets and get their data through
+ * `updateSnapshot` instead (src/features/homeWidgets).
+ *
  * Files written:
- *   widget_data.json         – profile stats (existing New Post + Stats widgets)
- *   widget_avatar.png        – avatar bitmap (existing Stats widget)
+ *   widget_data.json         – profile stats (Stats card widget)
+ *   widget_avatar.png        – avatar bitmap (Stats widget, via its snapshot)
  *   widget_interactions.json – recent reply/repost counts (Interactions widget)
  *   widget_pinned_feeds.json – pinned feed names + AT URIs (Pinned Feeds widget)
  *   widget_lists.json        – list names + AT URIs (Lists widget)
@@ -86,6 +91,7 @@ export function useUpdateWidgets() {
     newPostLabel,
     followersLabel,
     followingLabel,
+    statsEmptyLabel: l`Open the app to load stats`,
     followers: profile?.followersCount ?? 0,
     following: profile?.followsCount ?? 0,
     handle: profile?.handle ?? '',
@@ -110,13 +116,24 @@ export function useUpdateWidgets() {
             displayName: data.displayName,
           }),
         )
+        const avatarUri = documentDirectory + 'widget_avatar.png'
         if (data.avatar) {
-          await downloadAsync(
-            data.avatar,
-            documentDirectory + 'widget_avatar.png',
-          )
+          await downloadAsync(data.avatar, avatarUri)
         }
         AppShortcuts.refreshWidgets()
+
+        // Widgets on expo-widgets get their data directly
+        NewPostWidget.updateSnapshot({label: data.newPostLabel})
+        StatsWidget.updateSnapshot({
+          avatarUri: data.avatar ? avatarUri : undefined,
+          displayName: data.displayName,
+          emptyMessage: data.statsEmptyLabel,
+          followers: data.followers,
+          followersLabel: data.followersLabel,
+          following: data.following,
+          followingLabel: data.followingLabel,
+          handle: data.handle,
+        })
       } catch {
         // best-effort; widget data is non-critical
       }

@@ -12,6 +12,8 @@ const SOURCE_DIRECTORY = 'modules/fork-widgets/android/res'
  */
 const PREVIEW_IMAGES = {
   trending_topics_widget_info: '@drawable/trending_topics_widget_preview_image',
+  new_post_widget_info: '@drawable/new_post_widget_preview_image',
+  stats_widget_info: '@drawable/stats_widget_preview_image',
 }
 
 /**
