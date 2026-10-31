@@ -111,6 +111,13 @@ jobs:
           echo "--- alias icon refs after rewrite ---"
           grep -nE 'android:icon="@mipmap/(default|core)|ic_adaptive' "$MANIFEST" | head -40
 
+      - name: Install host build dependencies
+        # React Native is built from source (since 1.136), and its Hermes host
+        # compiler (hermesc) needs ICU and Python on the build machine
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install --no-install-recommends -y libicu-dev ninja-build python3
+
       - name: Build release APK
         run: |
           set -o pipefail
