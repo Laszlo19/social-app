@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Fork: widget picker preview for the Trending Topics widget on Android 11 and
+  lower, which ignore upstream's android:previewLayout and show the app icon
+  instead. A static picture of the same card, butterfly and placeholder rows as
+  modules/TrendingTopicsWidget/android/res/layout/trending_topics_widget_preview.xml
+  (drawables can't hold text, so the title is a bar too).
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="rectangle">
+      <size
+        android:width="250dp"
+        android:height="180dp" />
+      <corners android:radius="20dp" />
+      <solid android:color="@color/fork_widget_background" />
+    </shape>
+  </item>
+
+  <!-- Header: butterfly and title -->
+  <item
+    android:width="16dp"
+    android:height="16dp"
+    android:gravity="top|start"
+    android:left="16dp"
+    android:top="16dp">
+    <bitmap
+      android:src="@drawable/notification_icon"
+      android:tint="@color/fork_widget_accent" />
+  </item>
+  <item
+    android:width="120dp"
+    android:height="11dp"
+    android:gravity="top|start"
+    android:left="40dp"
+    android:top="18dp">
+    <shape android:shape="rectangle">
+      <corners android:radius="6dp" />
+      <solid android:color="@color/fork_widget_text" />
+    </shape>
+  </item>
+
+  <!-- Rows: rank dot, topic bar, description bar -->
+  <item android:gravity="top|start" android:left="16dp" android:top="48dp" android:width="10dp" android:height="10dp">
+    <shape android:shape="oval"><solid android:color="@color/fork_widget_secondary_text" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="46dp" android:width="130dp" android:height="9dp">
+    <shape android:shape="rectangle"><corners android:radius="5dp" /><solid android:color="@color/fork_widget_bar" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="60dp" android:width="180dp" android:height="7dp">
+    <shape android:shape="rectangle"><corners android:radius="4dp" /><solid android:color="@color/fork_widget_bar_light" /></shape>
+  </item>
+
+  <item android:gravity="top|start" android:left="16dp" android:top="80dp" android:width="10dp" android:height="10dp">
+    <shape android:shape="oval"><solid android:color="@color/fork_widget_secondary_text" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="78dp" android:width="160dp" android:height="9dp">
+    <shape android:shape="rectangle"><corners android:radius="5dp" /><solid android:color="@color/fork_widget_bar" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="92dp" android:width="150dp" android:height="7dp">
+    <shape android:shape="rectangle"><corners android:radius="4dp" /><solid android:color="@color/fork_widget_bar_light" /></shape>
+  </item>
+
+  <item android:gravity="top|start" android:left="16dp" android:top="112dp" android:width="10dp" android:height="10dp">
+    <shape android:shape="oval"><solid android:color="@color/fork_widget_secondary_text" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="110dp" android:width="110dp" android:height="9dp">
+    <shape android:shape="rectangle"><corners android:radius="5dp" /><solid android:color="@color/fork_widget_bar" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="124dp" android:width="190dp" android:height="7dp">
+    <shape android:shape="rectangle"><corners android:radius="4dp" /><solid android:color="@color/fork_widget_bar_light" /></shape>
+  </item>
+
+  <item android:gravity="top|start" android:left="16dp" android:top="144dp" android:width="10dp" android:height="10dp">
+    <shape android:shape="oval"><solid android:color="@color/fork_widget_secondary_text" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="142dp" android:width="145dp" android:height="9dp">
+    <shape android:shape="rectangle"><corners android:radius="5dp" /><solid android:color="@color/fork_widget_bar" /></shape>
+  </item>
+  <item android:gravity="top|start" android:left="40dp" android:top="156dp" android:width="135dp" android:height="7dp">
+    <shape android:shape="rectangle"><corners android:radius="4dp" /><solid android:color="@color/fork_widget_bar_light" /></shape>
+  </item>
+</layer-list>

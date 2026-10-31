@@ -307,6 +307,8 @@ module.exports = function (_config) {
         ],
         'expo-web-browser',
         'expo-background-task',
+        // Fork: edits the output of both plugins below, so it's listed first
+        './plugins/withForkWidgets.js',
         // edits expo-widgets' output, and mods run in reverse order
         './plugins/withTrendingWidget.js',
         [
