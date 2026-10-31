@@ -10,4 +10,11 @@
   <color name="fork_widget_bar">#D4DBE3</color>
   <color name="fork_widget_bar_light">#EBEEF2</color>
   <color name="fork_widget_accent">#0085FF</color>
+
+  <!--
+    Same text as expo-widgets' own default. Declared again in the app so the
+    values-ro translation has a default here; release lint rejects a
+    translation whose default only exists in a library (ExtraTranslation).
+  -->
+  <string name="expo_widgets_initial_layout">Loading widget</string>
 </resources>
