@@ -111,13 +111,44 @@ jobs:
           echo "--- alias icon refs after rewrite ---"
           grep -nE 'android:icon="@mipmap/(default|core)|ic_adaptive' "$MANIFEST" | head -40
 
+      - name: Install host build dependencies
+        # React Native is built from source (since 1.136), and its Hermes host
+        # compiler (hermesc) needs ICU and Python on the build machine
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install --no-install-recommends -y libicu-dev ninja-build python3
+
       - name: Build release APK
         run: |
+          set -o pipefail
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon
+          ./gradlew assembleRelease --no-daemon 2>&1 | tee "$RUNNER_TEMP/gradle.log"
         env:
           JAVA_HOME: ${{ env.JAVA_HOME }}
+
+      # On failure, surface the actual errors as annotations. Native tools
+      # (CMake for Hermes, the NDK) write their details to separate log files
+      # that Gradle's summary doesn't show, and annotations can be read from
+      # the run page and the public API without opening the full log.
+      - name: Report build errors
+        if: failure()
+        run: |
+          annotate() {
+            # $1 = title, stdin = text; GitHub caps each annotation, so keep it short
+            local text
+            text=$(tail -c 3500 | sed -e 's/%/%25/g' -e 's/\r/%0D/g' | sed ':a;N;$!ba;s/\n/%0A/g')
+            if [ -n "$text" ]; then echo "::error title=$1::$text"; fi
+          }
+          if [ -f "$RUNNER_TEMP/gradle.log" ]; then
+            grep -n -i -A25 'What went wrong' "$RUNNER_TEMP/gradle.log" | annotate 'Gradle: what went wrong'
+            grep -n -i -B2 -A15 'CMake Error\|error:\|FAILED' "$RUNNER_TEMP/gradle.log" | head -c 20000 | annotate 'Gradle: errors'
+          fi
+          find android node_modules/react-native -type f \( \
+            -name 'configure-hermesc*.log' -o -name 'CMakeError.log' -o -name 'CMakeConfigureLog.yaml' \
+          \) 2>/dev/null | head -5 | while read -r f; do
+            annotate "$f" < "$f"
+          done
 
       - name: Rename APK for release
         run: |
