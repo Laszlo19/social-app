@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Fork: replaces expo-widgets' own initial layout (a bare, transparent
+  "Loading widget" text) with a themed card. Launchers show it from the moment
+  a widget is placed until the widget's first render. App resources take
+  precedence over the library's, so this one wins. Only views RemoteViews
+  supports (FrameLayout, LinearLayout, TextView, ImageView) work here.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/fork_widget_background"
+  android:gravity="center"
+  android:orientation="vertical"
+  android:padding="16dp">
+
+  <ImageView
+    android:layout_width="28dp"
+    android:layout_height="28dp"
+    android:importantForAccessibility="no"
+    android:src="@drawable/notification_icon"
+    android:tint="@color/fork_widget_accent" />
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:text="@string/expo_widgets_initial_layout"
+    android:textColor="@color/fork_widget_secondary_text"
+    android:textSize="14sp" />
+</LinearLayout>
