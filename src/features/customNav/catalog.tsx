@@ -109,7 +109,7 @@ export type NavCatalogItem = {
    * Feature gate the destination needs. While it's off the item isn't offered
    * anywhere, and is skipped where it was already placed.
    */
-  requiresFeature?: 'AtmosphereExploreEnable'
+  requiresFeature?: 'AtmosphereScreenEnable'
   /** Shows a "Beta" tag next to the label in the desktop sidebar. */
   beta?: boolean
   /**
@@ -233,7 +233,7 @@ export const NAV_ITEM_CATALOG: NavCatalogItem[] = [
     href: '/atmosphere',
     navMetric: 'atmosphere',
     tabStateKey: 'isAtAtmosphere',
-    requiresFeature: 'AtmosphereExploreEnable',
+    requiresFeature: 'AtmosphereScreenEnable',
     beta: true,
   },
   {

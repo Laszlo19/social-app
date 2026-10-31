@@ -367,8 +367,7 @@ export function AnalyticsFeaturesContext({
 export const UPSTREAM_PREVIEW_FEATURES: readonly Features[] = [
   Features.FollowingV2Enable,
   Features.NotificationsV2Enable,
-  Features.AtmosphereExploreEnable,
-  Features.ProfileLinksEnable,
+  Features.AtmosphereScreenEnable,
 ]
 
 /**
