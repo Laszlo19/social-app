@@ -34,6 +34,7 @@ Commit hashes are on this fork's `main` unless noted.
 | `ADITIONAL/` (reference copies of other forks) is git-ignored | Fork | `9c783b84a` |
 | Android build for React Native 0.88 (built from source): pinned to Ubuntu 24.04, installs ICU/Python/Ninja for the Hermes host compiler, and unpacks the Hermes source itself (GitHub moved `facebook/hermes` to `meta/hermes`, which breaks React Native's own unpack step) | Fork | `19cb96037` `3dea13b55` `7c072011e` |
 | On a failed Android build, the real Gradle/CMake errors are posted as annotations (readable without opening the full log) | Fork | `1497e7138` |
+| Android build caching: Gradle cache plus ccache for the React Native/Hermes C++ compile, 4-hour timeout | Fork | `230b11498` |
 
 ## Internal and testing access
 
