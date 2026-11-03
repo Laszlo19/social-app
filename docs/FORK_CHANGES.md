@@ -135,6 +135,7 @@ toggle gates all fork sections, with the Witchsky master nested inside.
 | **Pseudolocales** (LTR and RTL) for testing layouts (`src/locale/pseudo.ts`) | Fork | `7b61d6a28` |
 | **What's New** changelog flyout: Settings entry and `/whats-new` link, Markdown changelog with Romanian translation (`src/features/whatsNew`) | Fork | `02ba8da24` `157e54226` `e66e8e66a` `3a8cfcae4` |
 | **Localization help** feed banner and Crowdin/Discord invite dialog | Fork | `ed69ee350` |
+| **109 app languages**: every language Mastodon translates on Crowdin, plus the repo's existing catalogs that weren't offered (Canadian English/French, Arabic, Azerbaijani, Bangla, Breton, Hawaiian, Kabyle, Cornish, Lithuanian, Latvian). New catalogs start empty and fall back to English | Fork (language set from Mastodon) | branch `feat/more-app-languages` |
 
 ## Removed
 
