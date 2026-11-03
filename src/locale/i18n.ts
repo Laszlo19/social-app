@@ -124,6 +124,8 @@ import {messages as messagesUg} from '#/locale/locales/ug/messages'
 import {messages as messagesUr} from '#/locale/locales/ur/messages'
 import {messages as messagesUz} from '#/locale/locales/uz/messages'
 import {messages as messagesZgh} from '#/locale/locales/zgh/messages'
+import {messages as messagesAm} from '#/locale/locales/am/messages'
+import {messages as messagesJv} from '#/locale/locales/jv/messages'
 import {useLanguagePrefs} from '#/state/preferences'
 
 /**
@@ -1240,6 +1242,27 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('@formatjs/intl-displaynames/locale-data/zgh.js'),
       ])
       return defaultLocale
+    }
+    case AppLanguage.am: {
+      i18n.loadAndActivate({locale, messages: messagesAm})
+      // no date-fns locale; dates use English formats
+      await Promise.all([
+        import('@formatjs/intl-pluralrules/locale-data/am.js'),
+        import('@formatjs/intl-numberformat/locale-data/am.js'),
+        import('@formatjs/intl-displaynames/locale-data/am.js'),
+      ])
+      return defaultLocale
+    }
+    case AppLanguage.jv: {
+      i18n.loadAndActivate({locale, messages: messagesJv})
+      // no Javanese date-fns locale; Indonesian shares its month names
+      const [dateLocale] = await Promise.all([
+        import('date-fns/locale/id').then(m => m.id),
+        import('@formatjs/intl-pluralrules/locale-data/jv.js'),
+        import('@formatjs/intl-numberformat/locale-data/jv.js'),
+        import('@formatjs/intl-displaynames/locale-data/jv.js'),
+      ])
+      return dateLocale
     }
     case AppLanguage.pseudo: {
       // Activate under 'en' so plural rules and date formatting still work,

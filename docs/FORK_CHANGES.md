@@ -136,6 +136,7 @@ toggle gates all fork sections, with the Witchsky master nested inside.
 | **What's New** changelog flyout: Settings entry and `/whats-new` link, Markdown changelog with Romanian translation (`src/features/whatsNew`) | Fork | `02ba8da24` `157e54226` `e66e8e66a` `3a8cfcae4` |
 | **Localization help** feed banner and Crowdin/Discord invite dialog | Fork | `ed69ee350` |
 | **109 app languages**: every language Mastodon translates on Crowdin, plus the repo's existing catalogs that weren't offered (Canadian English/French, Arabic, Azerbaijani, Bangla, Breton, Hawaiian, Kabyle, Cornish, Lithuanian, Latvian). New catalogs start empty and fall back to English | Fork (language set from Mastodon) | branch `feat/more-app-languages` |
+| **Amharic and Javanese** app languages, plus Norwegian Bokmål devices (`nb`) matched to our Norwegian (`no`). Amharic and Norwegian start with the translations from upstream's unmerged PRs (399 and 459 strings that still match) | Upstream #6618 (Amharic), #2969 (Norwegian), issue #4433 (Javanese) | branch `feat/more-app-languages` |
 
 ## Removed
 

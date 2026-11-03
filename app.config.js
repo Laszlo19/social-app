@@ -208,6 +208,8 @@ module.exports = function (_config) {
             'vi',
             'yue',
             'zgh',
+            'am',
+            'jv',
             'zh-Hans',
             'zh-Hant',
           ],

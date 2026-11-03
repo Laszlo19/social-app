@@ -332,6 +332,7 @@ export function sanitizeAppLanguageSetting(appLanguage: string): AppLanguage {
         return AppLanguage.nan_TW
       case 'nn':
         return AppLanguage.nn
+      case 'nb':
       case 'no':
         return AppLanguage.no
       case 'oc':
@@ -380,6 +381,10 @@ export function sanitizeAppLanguageSetting(appLanguage: string): AppLanguage {
         return AppLanguage.uz
       case 'zgh':
         return AppLanguage.zgh
+      case 'am':
+        return AppLanguage.am
+      case 'jv':
+        return AppLanguage.jv
       case 'pseudo':
         return AppLanguage.pseudo
       default:
@@ -423,6 +428,10 @@ export function findSupportedAppLanguage(languageTags: (string | undefined)[]) {
     if (!tag) continue
     if (supported.has(tag as AppLanguage)) {
       return tag
+    }
+    // Devices report Norwegian Bokmal as nb, which our catalog calls no
+    if (tag === 'nb' || tag.startsWith('nb-')) {
+      return AppLanguage.no
     }
   }
   return AppLanguage.en

@@ -114,6 +114,8 @@ export enum AppLanguage {
   ur = 'ur',
   uz = 'uz',
   zgh = 'zgh',
+  am = 'am',
+  jv = 'jv',
   // Development-only pseudolocale for testing string externalization.
   pseudo = 'pseudo',
 }
@@ -181,6 +183,7 @@ export const APP_LANGUAGES: AppLanguageConfig[] = [
   {code2: AppLanguage.lt, name: 'lietuvių – Lithuanian'},
   {code2: AppLanguage.lv, name: 'latviešu – Latvian'},
   {code2: AppLanguage.af, name: 'Afrikaans'},
+  {code2: AppLanguage.am, name: 'አማርኛ – Amharic'},
   {code2: AppLanguage.be, name: 'беларуская – Belarusian'},
   {code2: AppLanguage.bg, name: 'български – Bulgarian'},
   {code2: AppLanguage.bs, name: 'bosanski – Bosnian'},
@@ -202,6 +205,7 @@ export const APP_LANGUAGES: AppLanguageConfig[] = [
   {code2: AppLanguage.ig, name: 'Igbo'},
   {code2: AppLanguage.io, name: 'Ido'},
   {code2: AppLanguage.is, name: 'íslenska – Icelandic'},
+  {code2: AppLanguage.jv, name: 'basa Jawa – Javanese'},
   {code2: AppLanguage.ka, name: 'ქართული – Georgian'},
   {code2: AppLanguage.kk, name: 'қазақ тілі – Kazakh'},
   {code2: AppLanguage.kn, name: 'ಕನ್ನಡ – Kannada'},

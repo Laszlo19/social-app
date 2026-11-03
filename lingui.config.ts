@@ -112,6 +112,8 @@ export default defineConfig({
     'ur',
     'uz',
     'zgh',
+    'am',
+    'jv',
   ],
   catalogs: [
     {

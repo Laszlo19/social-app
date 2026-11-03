@@ -762,6 +762,19 @@ export async function dynamicActivate(locale: AppLanguage) {
       )
       break
     }
+    case AppLanguage.am: {
+      // no date-fns locale; dates use English formats
+      messages = await import(`./locales/am/messages`).then(m => m.messages)
+      break
+    }
+    case AppLanguage.jv: {
+      // no Javanese date-fns locale; Indonesian shares its month names
+      ;[messages, dateLocale] = await Promise.all([
+        import(`./locales/jv/messages`).then(m => m.messages),
+        import('date-fns/locale/id').then(m => m.id),
+      ])
+      break
+    }
     default: {
       messages = await import(`./locales/en/messages`).then(m => m.messages)
       break
