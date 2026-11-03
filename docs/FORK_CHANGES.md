@@ -137,6 +137,7 @@ toggle gates all fork sections, with the Witchsky master nested inside.
 | **Localization help** feed banner and Crowdin/Discord invite dialog | Fork | `ed69ee350` |
 | **109 app languages**: every language Mastodon translates on Crowdin, plus the repo's existing catalogs that weren't offered (Canadian English/French, Arabic, Azerbaijani, Bangla, Breton, Hawaiian, Kabyle, Cornish, Lithuanian, Latvian). New catalogs start empty and fall back to English | Fork (language set from Mastodon) | branch `feat/more-app-languages` |
 | **Amharic and Javanese** app languages, plus Norwegian Bokmål devices (`nb`) matched to our Norwegian (`no`). Amharic and Norwegian start with the translations from upstream's unmerged PRs (399 and 459 strings that still match) | Upstream #6618 (Amharic), #2969 (Norwegian), issue #4433 (Javanese) | branch `feat/more-app-languages` |
+| **Starter translations** for the new languages: close relatives copied in full (es-AR/es-MX/lad from es, fr-CA from fr, en-CA from en-GB, nan-TW from zh-TW, ry from uk, co/sc from it, oc from ca, szl from pl, nn from no), and the ~140 most visible UI strings machine-translated into 55 more. Unreviewed, for personal use; Tai and Scots stay English | Fork | branch `feat/more-app-languages` |
 
 ## Removed
 
