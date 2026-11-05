@@ -608,7 +608,7 @@ export async function dynamicActivate(locale: AppLanguage) {
       await Promise.all([
         import('@formatjs/intl-pluralrules/locale-data/haw.js'),
         import('@formatjs/intl-numberformat/locale-data/haw.js'),
-        import('@formatjs/intl-displaynames/locale-data/haw.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return defaultLocale
     }
@@ -618,7 +618,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/fr').then(m => m.fr),
         import('@formatjs/intl-pluralrules/locale-data/kab.js'),
         import('@formatjs/intl-numberformat/locale-data/kab.js'),
-        import('@formatjs/intl-displaynames/locale-data/kab.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -628,7 +628,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/en-GB').then(m => m.enGB),
         import('@formatjs/intl-pluralrules/locale-data/kw.js'),
         import('@formatjs/intl-numberformat/locale-data/kw.js'),
-        import('@formatjs/intl-displaynames/locale-data/kw.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -698,7 +698,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/ckb').then(m => m.ckb),
         import('@formatjs/intl-pluralrules/locale-data/ckb.js'),
         import('@formatjs/intl-numberformat/locale-data/ckb.js'),
-        import('@formatjs/intl-displaynames/locale-data/ckb.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -708,7 +708,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/fr').then(m => m.fr),
         import('@formatjs/intl-pluralrules/locale-data/fr.js'),
         import('@formatjs/intl-numberformat/locale-data/co.js'),
-        import('@formatjs/intl-displaynames/locale-data/co.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -828,7 +828,7 @@ export async function dynamicActivate(locale: AppLanguage) {
       await Promise.all([
         import('@formatjs/intl-pluralrules/locale-data/io.js'),
         import('@formatjs/intl-numberformat/locale-data/io.js'),
-        import('@formatjs/intl-displaynames/locale-data/io.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return defaultLocale
     }
@@ -893,7 +893,7 @@ export async function dynamicActivate(locale: AppLanguage) {
       await Promise.all([
         // no intl-pluralrules data for this locale; English is used
         import('@formatjs/intl-numberformat/locale-data/la.js'),
-        import('@formatjs/intl-displaynames/locale-data/la.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return defaultLocale
     }
@@ -998,7 +998,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/oc').then(m => m.oc),
         // no intl-pluralrules data for this locale; English is used
         import('@formatjs/intl-numberformat/locale-data/oc.js'),
-        import('@formatjs/intl-displaynames/locale-data/oc.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -1123,7 +1123,7 @@ export async function dynamicActivate(locale: AppLanguage) {
         import('date-fns/locale/pl').then(m => m.pl),
         import('@formatjs/intl-pluralrules/locale-data/pl.js'),
         import('@formatjs/intl-numberformat/locale-data/szl.js'),
-        import('@formatjs/intl-displaynames/locale-data/szl.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return dateLocale
     }
@@ -1239,7 +1239,7 @@ export async function dynamicActivate(locale: AppLanguage) {
       await Promise.all([
         // no intl-pluralrules data for this locale; English is used
         import('@formatjs/intl-numberformat/locale-data/zgh.js'),
-        import('@formatjs/intl-displaynames/locale-data/zgh.js'),
+        // intl-displaynames data for this locale is empty; English is used
       ])
       return defaultLocale
     }
