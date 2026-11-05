@@ -38,11 +38,20 @@ const displayNamesCache = new Map<string, Intl.DisplayNames>()
 function getDisplayNames(appLang: string): Intl.DisplayNames {
   let cached = displayNamesCache.get(appLang)
   if (!cached) {
-    cached = new Intl.DisplayNames([appLang], {
+    const options = {
       type: 'language',
       fallback: 'none',
       languageDisplay: 'standard',
-    })
+    } as const
+    try {
+      cached = new Intl.DisplayNames([appLang], options)
+    } catch {
+      /*
+       * The polyfill throws a plain Error (not a RangeError) when a locale is
+       * registered but its data is empty, e.g. haw. Use English names then.
+       */
+      cached = new Intl.DisplayNames(['en'], options)
+    }
     displayNamesCache.set(appLang, cached)
   }
   return cached
