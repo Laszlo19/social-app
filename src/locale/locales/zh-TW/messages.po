@@ -1541,7 +1541,7 @@ msgstr ""
 msgid "Account standing banner"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:63
+#: src/lib/hooks/useUpdateWidgets.ts:68
 msgid "Account statistics"
 msgstr ""
 
@@ -3173,7 +3173,7 @@ msgstr "建立帳號即表示您同意<0>服務條款</0>。"
 msgid "By you"
 msgstr "由您建立"
 
-#: src/lib/hooks/useUpdateWidgets.ts:66
+#: src/lib/hooks/useUpdateWidgets.ts:71
 #: src/view/com/composer/photos/OpenCameraBtn.tsx:72
 msgid "Camera"
 msgstr "相機"
@@ -3523,7 +3523,7 @@ msgctxt "toast"
 msgid "Chat unmuted"
 msgstr "成功取消靜音對話"
 
-#: src/lib/hooks/useUpdateWidgets.ts:79
+#: src/lib/hooks/useUpdateWidgets.ts:84
 #: src/screens/Messages/ChatList.tsx:91
 #: src/screens/Messages/ChatList.tsx:555
 #: src/screens/Messages/ChatList.tsx:595
@@ -6637,7 +6637,7 @@ msgctxt "Notifications section header"
 msgid "Followed you"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:53
+#: src/lib/hooks/useUpdateWidgets.ts:58
 msgid "Followers"
 msgstr ""
 
@@ -6661,7 +6661,7 @@ msgstr "您也認識的跟隨者"
 #: src/components/ProfileCard.tsx:542
 #: src/components/ProfileHoverCard/index.web.tsx:502
 #: src/components/ProfileHoverCard/index.web.tsx:513
-#: src/lib/hooks/useUpdateWidgets.ts:54
+#: src/lib/hooks/useUpdateWidgets.ts:59
 #: src/screens/Notifications/components/NotificationItem/Item/profile.tsx:223
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
 #: src/screens/Profile/Header/ProfileHeaderStandard.tsx:448
@@ -6975,7 +6975,7 @@ msgstr "開始吧"
 
 #: src/components/MediaPreview.tsx:188
 #: src/components/Post/Embed/VideoEmbed/GifPresentationControls.tsx:93
-#: src/lib/hooks/useUpdateWidgets.ts:68
+#: src/lib/hooks/useUpdateWidgets.ts:73
 msgid "GIF"
 msgstr "GIF"
 
@@ -7898,7 +7898,7 @@ msgstr "已限制互動"
 msgid "Interaction settings"
 msgstr "互動設定"
 
-#: src/lib/hooks/useUpdateWidgets.ts:70
+#: src/lib/hooks/useUpdateWidgets.ts:75
 msgid "Interactions"
 msgstr ""
 
@@ -8232,11 +8232,11 @@ msgstr "語言"
 msgid "Larger"
 msgstr "更大"
 
-#: src/lib/hooks/useUpdateWidgets.ts:64
+#: src/lib/hooks/useUpdateWidgets.ts:69
 msgid "Last 30 days"
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:73
+#: src/lib/hooks/useUpdateWidgets.ts:78
 msgid "Last 7 days"
 msgstr ""
 
@@ -8680,7 +8680,7 @@ msgid "List unmuted"
 msgstr "成功取消靜音列表"
 
 #: src/features/customNav/catalog.tsx:197
-#: src/lib/hooks/useUpdateWidgets.ts:77
+#: src/lib/hooks/useUpdateWidgets.ts:82
 #: src/Navigation.tsx:206
 #: src/view/screens/Lists.tsx:60
 #: src/view/screens/Profile.tsx:270
@@ -9519,7 +9519,7 @@ msgstr "來自 {firstAuthorName} 的新{postsCount, plural, other {貼文}}"
 
 #: src/components/dms/dialogs/NewChatDialog.tsx:162
 #: src/components/dms/dialogs/NewChatDialog.tsx:177
-#: src/lib/hooks/useUpdateWidgets.ts:81
+#: src/lib/hooks/useUpdateWidgets.ts:86
 #: src/screens/Messages/ChatList.tsx:231
 #: src/screens/Messages/ChatList.tsx:232
 #: src/screens/Messages/ChatList.tsx:455
@@ -9614,7 +9614,7 @@ msgid "New password"
 msgstr "新密碼"
 
 #: src/features/customNav/catalog.tsx:222
-#: src/lib/hooks/useUpdateWidgets.ts:52
+#: src/lib/hooks/useUpdateWidgets.ts:57
 #: src/screens/CustomFeed/index.tsx:218
 #: src/screens/ProfileList/index.tsx:234
 #: src/screens/ProfileList/index.tsx:277
@@ -9822,7 +9822,7 @@ msgstr "目前還沒有喜歡"
 msgid "No lists"
 msgstr "沒有列表"
 
-#: src/lib/hooks/useUpdateWidgets.ts:78
+#: src/lib/hooks/useUpdateWidgets.ts:83
 msgid "No lists found"
 msgstr ""
 
@@ -9898,7 +9898,7 @@ msgstr "僅限發布者可以引用這則貼文。"
 msgid "No one can send messages"
 msgstr "沒有人可以傳送訊息"
 
-#: src/lib/hooks/useUpdateWidgets.ts:76
+#: src/lib/hooks/useUpdateWidgets.ts:81
 msgid "No pinned feeds yet"
 msgstr ""
 
@@ -10543,8 +10543,12 @@ msgstr "開啟故事書頁面"
 msgid "Open system log"
 msgstr "開啟系統記錄"
 
-#: src/lib/hooks/useUpdateWidgets.ts:74
+#: src/lib/hooks/useUpdateWidgets.ts:79
 msgid "Open the app to load interactions"
+msgstr ""
+
+#: src/lib/hooks/useUpdateWidgets.ts:94
+msgid "Open the app to load stats"
 msgstr ""
 
 #: src/components/intents/GroupChatJoinDialog.tsx:448
@@ -10987,7 +10991,7 @@ msgstr "電話號碼"
 msgid "Phone number verified"
 msgstr "已驗證電話號碼"
 
-#: src/lib/hooks/useUpdateWidgets.ts:67
+#: src/lib/hooks/useUpdateWidgets.ts:72
 msgid "Photo"
 msgstr ""
 
@@ -11034,7 +11038,7 @@ msgstr "已釘選"
 msgid "Pinned {0} to Home"
 msgstr "成功釘選 {0} 到首頁"
 
-#: src/lib/hooks/useUpdateWidgets.ts:75
+#: src/lib/hooks/useUpdateWidgets.ts:80
 msgid "Pinned feeds"
 msgstr ""
 
@@ -11272,7 +11276,7 @@ msgstr ""
 msgid "Portrait, square, and landscape frames as plain children. The frames, not the gallery, decide the sizes."
 msgstr ""
 
-#: src/lib/hooks/useUpdateWidgets.ts:69
+#: src/lib/hooks/useUpdateWidgets.ts:74
 #: src/screens/ModerationInbox/components/util/reportSubjectLabel.ts:36
 #: src/screens/Settings/AppearanceSettings.tsx:316
 msgid "Post"
@@ -12190,7 +12194,7 @@ msgstr "回覆的訊息，點選以捲動至該訊息"
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:271
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:283
 #: src/lib/hooks/useNotificationHandler.ts:178
-#: src/lib/hooks/useUpdateWidgets.ts:71
+#: src/lib/hooks/useUpdateWidgets.ts:76
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:218
 #: src/screens/Settings/NotificationSettings/index.tsx:184
 #: src/screens/Settings/NotificationSettings/index.tsx:333
@@ -12446,7 +12450,7 @@ msgid "Reposted by you"
 msgstr "由您轉發"
 
 #: src/lib/hooks/useNotificationHandler.ts:171
-#: src/lib/hooks/useUpdateWidgets.ts:72
+#: src/lib/hooks/useUpdateWidgets.ts:77
 #: src/screens/Settings/NotificationSettings/index.tsx:217
 #: src/screens/Settings/NotificationSettings/index.tsx:358
 msgid "Reposts"
@@ -12838,7 +12842,7 @@ msgstr "成功儲存到您的動態源"
 msgid "Say hello!"
 msgstr "說句「你好！👋」"
 
-#: src/lib/hooks/useUpdateWidgets.ts:80
+#: src/lib/hooks/useUpdateWidgets.ts:85
 #: src/screens/Messages/ChatList.tsx:222
 #: src/screens/Messages/ChatList.tsx:446
 msgid "Say hi to someone"
@@ -17111,7 +17115,7 @@ msgstr ""
 msgid "what’s up"
 msgstr "有什麼新鮮事"
 
-#: src/lib/hooks/useUpdateWidgets.ts:65
+#: src/lib/hooks/useUpdateWidgets.ts:70
 #: src/view/com/auth/SplashScreen.web.tsx:98
 #: src/view/com/composer/Composer.tsx:1625
 #: src/view/com/feeds/ComposerPrompt.tsx:206
