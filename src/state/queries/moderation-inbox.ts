@@ -93,11 +93,9 @@ export function useModerationInboxReportsQuery(filter: ReportsFilter) {
 export function useModerationInboxReportQuery({
   moderationService,
   id,
-  enabled = true,
 }: {
   moderationService?: DidString
   id?: number
-  enabled?: boolean
 }) {
   const client = useAppviewClient()
   const {currentAccount, hasSession} = useSession()
@@ -124,8 +122,7 @@ export function useModerationInboxReportQuery({
       )
     },
     staleTime: STALE.MINUTES.ONE,
-    enabled:
-      enabled && hasSession && !!did && !!moderationService && id !== undefined,
+    enabled: hasSession && !!did && !!moderationService && id !== undefined,
   })
 }
 
@@ -188,11 +185,9 @@ export function useModerationInboxAccountStatusQuery() {
 export function useModerationInboxSubjectQuery({
   moderationService,
   subject,
-  enabled = true,
 }: {
   moderationService?: DidString
   subject?: tools.ozone.inbox.getActionedSubject.$Params['subject']
-  enabled?: boolean
 }) {
   const client = useAppviewClient()
   const {currentAccount, hasSession} = useSession()
@@ -221,7 +216,7 @@ export function useModerationInboxSubjectQuery({
     initialPageParam: undefined as string | undefined,
     getNextPageParam: page => page.cursor,
     staleTime: STALE.MINUTES.ONE,
-    enabled: enabled && hasSession && !!did && !!moderationService && !!subject,
+    enabled: hasSession && !!did && !!moderationService && !!subject,
   })
 }
 
@@ -280,9 +275,9 @@ export function useModerationInboxCacheMutation() {
           subject,
         })
         await queryClient.cancelQueries({queryKey: subjectQueryKey})
-        queryClient.setQueryData<
+        queryClient.setQueriesData<
           InfiniteData<tools.ozone.inbox.getActionedSubject.$OutputBody>
-        >(subjectQueryKey, data =>
+        >({queryKey: subjectQueryKey}, data =>
           data
             ? {
                 ...data,
@@ -303,7 +298,7 @@ export function useModerationInboxCacheMutation() {
   }
 }
 
-export function useModerationInboxUnreadCountQuery(isEnabled = true) {
+export function useModerationInboxUnreadCountQuery() {
   const client = useAppviewClient()
   const {currentAccount, hasSession} = useSession()
   const did = currentAccount?.did
@@ -325,13 +320,11 @@ export function useModerationInboxUnreadCountQuery(isEnabled = true) {
             {service: MOD_PROXY_SERVICE},
           ),
     staleTime: STALE.SECONDS.THIRTY,
-    enabled: isEnabled && hasSession && !!did,
+    enabled: hasSession && !!did,
   })
 }
 
-export function useModerationInboxNotificationPreferencesQuery(
-  isEnabled = true,
-) {
+export function useModerationInboxNotificationPreferencesQuery() {
   const client = useAppviewClient()
   const {currentAccount, hasSession} = useSession()
   const did = currentAccount?.did
@@ -348,7 +341,7 @@ export function useModerationInboxNotificationPreferencesQuery(
         {service: MOD_PROXY_SERVICE},
       ),
     staleTime: STALE.MINUTES.ONE,
-    enabled: isEnabled && hasSession && !!did,
+    enabled: hasSession && !!did,
   })
 }
 

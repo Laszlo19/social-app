@@ -234,15 +234,15 @@ export function BetaFeaturesSettingsScreen({}: Props) {
           label: l`Keep your place in Following`,
           description: l`Replaces Home with Bluesky’s in-development version. Your place in the Following feed is saved between sessions, and new posts wait above you until you’re ready. Android and iOS only.`,
         }
-      case Features.NotificationsV2Enable:
-        return {
-          label: l`New Notifications screen`,
-          description: l`Bluesky’s redesigned Notifications screen, with tabs and grouped notifications.`,
-        }
       case Features.AtmosphereScreenEnable:
         return {
           label: l`Atmosphere tab`,
           description: l`Adds Atmosphere to the side menu, and lets you add it to your bottom bar and sidebar in Settings → Appearance → Navigation.`,
+        }
+      case Features.ShareDestinationsEnable:
+        return {
+          label: l`New share sheet`,
+          description: l`Bluesky’s in-development share menu for posts, with recent chats and buttons for other apps installed on your device.`,
         }
       default:
         return {label: feature, description: ''}
