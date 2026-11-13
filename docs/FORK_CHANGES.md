@@ -6,7 +6,7 @@ where each one came from. For ideas that aren't built yet, see
 [fork-features.md](./fork-features.md).
 
 **Fork:** [Laszlo19/social-app](https://github.com/Laszlo19/social-app) ·
-**Current upstream base:** 1.137.0
+**Current upstream base:** 1.137.0 + upstream `main` to `059460af0` (2026-11-13, pre-1.138)
 
 ## Sources
 
@@ -149,6 +149,7 @@ toggle gates all fork sections, with the Witchsky master nested inside.
 | **Experimental features screen** | Replaced by Beta features | `234d6f8c7` |
 | **"Better defaults"** (alt text required, autoplay off) | Reverted to upstream defaults | `b393ca5b0` |
 | **Profile links preview toggle** | Shipped upstream in 1.137 | `c68517420` |
+| **New Notifications screen preview toggle**, and the fork fix that made it ignore `IS_INTERNAL` | Upstream removed the old screen and the flag | `70dd75468` |
 
 ## Upstream upgrades
 
@@ -169,6 +170,7 @@ have a plan in `docs/upgrade-<version>-plan.md`.
 | 1.134.0 + 1.135.0 | Icon system rewrite; Japan logo kept as a fork asset; Upstream previews |
 | 1.136.0 | Tablet support; real moderation inbox; OpenRouter removed |
 | 1.137.0 | React Native 0.88 / Expo 58; Trending Topics widget; flag renames |
+| `main` @ `059460af0` (pre-1.138) | Untagged merge, branch `chore/upgrade-upstream-2026-11-13`. Notifications v2 is the only Notifications screen (its preview toggle is gone); moderation inbox flag retired; new share sheet behind an Upstream preview toggle; pronouns, Atmosphere Apps/activity tabs, RN 0.88.1 / Expo 58.0.23 |
 
 ---
 
