@@ -45,6 +45,7 @@ import {UserAvatar} from '#/view/com/util/UserAvatar'
 import {NavSignupCard} from '#/view/shell/NavSignupCard'
 import {
   atoms as a,
+  native,
   tokens,
   useBreakpoints,
   useLayoutBreakpoints,
@@ -389,6 +390,7 @@ function SwitchMenuItemAvatar({
 interface NavItemProps {
   beta?: boolean
   count?: string
+  exactMatch?: boolean
   hasNew?: boolean
   href: string
   icons: {
@@ -403,6 +405,7 @@ interface NavItemProps {
 function NavItem({
   beta,
   count,
+  exactMatch = false,
   hasNew,
   href,
   icons,
@@ -437,7 +440,9 @@ function NavItem({
     IS_NATIVE && tab
       ? getTabState(navigationState, tab) !== TabState.Outside
       : isCurrent
-  const isRelated = currentRouteInfo.name.startsWith(pathName)
+  const isRelated = exactMatch
+    ? false
+    : currentRouteInfo.name.startsWith(pathName)
   const navigation = useNavigation<NavigationProp>()
   const onPressWrapped = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -652,15 +657,9 @@ export function DesktopLeftNav({
     useLayoutBreakpoints()
   const numUnreadNotifications = useUnreadNotifications()
   const numUnreadMessages = useUnreadMessageCount()
-  const isModerationInboxEnabled = ax.features.enabled(
-    ax.features.ModerationInboxEnable,
-  )
-  const moderationInboxUnreadCountQuery = useModerationInboxUnreadCountQuery(
-    isModerationInboxEnabled,
-  )
-  const moderationInboxUnreadCount = isModerationInboxEnabled
-    ? (moderationInboxUnreadCountQuery.data?.unreadCounts.total ?? 0)
-    : 0
+  const moderationInboxUnreadCountQuery = useModerationInboxUnreadCountQuery()
+  const moderationInboxUnreadCount =
+    moderationInboxUnreadCountQuery.data?.unreadCounts.total ?? 0
   const numUnreadModerationInbox =
     moderationInboxUnreadCount > 0
       ? moderationInboxUnreadCount >= UNREAD_NOTIFICATION_CAP
@@ -691,6 +690,8 @@ export function DesktopLeftNav({
     }
     if (item.id === 'home') {
       hasNew = hasHomeBadge && isFollowingV2HomeDotEnabled(ax)
+    } else if (item.id === 'settings') {
+      count = numUnreadModerationInbox
     }
     return (
       <NavItem
@@ -699,6 +700,8 @@ export function DesktopLeftNav({
         href={href}
         navItem={item.navMetric}
         onNavigateTab={onNavigateTab}
+        // matches upstream: only highlight Atmosphere on its own route
+        exactMatch={item.id === 'atmosphere'}
         beta={item.beta}
         minimal={leftNavMinimal}
         count={count}
@@ -737,9 +740,9 @@ export function DesktopLeftNav({
       style={[
         a.fixed,
         a.top_0,
-        a.p_lg,
+        web(a.p_lg),
         styles.leftNav,
-        IS_NATIVE && {top: insets.top, bottom: insets.bottom},
+        native(a.bottom_0),
         !hasSession && !leftNavMinimal && {width: LEFT_NAV_PWI_WIDTH},
         leftNavMinimal && [
           {width: LEFT_NAV_MINIMAL_WIDTH},
@@ -766,7 +769,18 @@ export function DesktopLeftNav({
         },
       ]}>
       {IS_NATIVE ? (
-        <ScrollView style={[a.flex_1, a.w_full]}>{content}</ScrollView>
+        <ScrollView
+          style={[a.flex_1, a.w_full]}
+          contentContainerStyle={[
+            a.p_lg,
+            {
+              paddingTop: insets.top + tokens.space.lg,
+              paddingBottom: insets.bottom + tokens.space.lg,
+            },
+          ]}
+          showsVerticalScrollIndicator={false}>
+          {content}
+        </ScrollView>
       ) : (
         content
       )}
