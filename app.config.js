@@ -376,6 +376,12 @@ module.exports = function (_config) {
           },
         ],
         [
+          'expo-media-library',
+          {
+            preventAutomaticLimitedAccessAlert: true,
+          },
+        ],
+        [
           'expo-localization',
           {
             /*
