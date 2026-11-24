@@ -16,6 +16,7 @@ import {GalleryFallbackEmbed} from '#/components/Post/Embed/GalleryFallbackEmbed
 import {ImageContextMenu} from '#/components/Post/Embed/ImageContextMenu'
 import {PostEmbedViewContext} from '#/components/Post/Embed/types'
 import {useAnalytics} from '#/analytics'
+import {IS_ANDROID} from '#/env'
 import {app} from '#/lexicons'
 import {device, useStorage} from '#/storage'
 import * as bsky from '#/types/bsky'
@@ -121,6 +122,8 @@ export function ImageEmbed({
       })
     }
     const onPressIn = (_: number) => {
+      // Glide can't reuse the prefetch for the lightbox, so it'd just download twice
+      if (IS_ANDROID) return
       setImmediate(() => {
         void Image.prefetch(
           items.map(i => i.uri),

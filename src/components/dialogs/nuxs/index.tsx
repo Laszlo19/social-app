@@ -38,10 +38,6 @@ import {
   enabled as isIosVersionSunsetAnnouncementEnabled,
   IosVersionSunsetAnnouncement,
 } from '#/components/dialogs/nuxs/IosVersionSunsetAnnouncement'
-import {
-  enabled as isIPadBetaAnnouncementEnabled,
-  IPadBetaAnnouncement,
-} from '#/components/dialogs/nuxs/IPadBetaAnnouncement'
 import {LiveNowBetaDialog} from '#/components/dialogs/nuxs/LiveNowBetaDialog'
 import {isSnoozed, snooze, unsnooze} from '#/components/dialogs/nuxs/snoozing'
 import {type EnabledCheckProps} from '#/components/dialogs/nuxs/utils'
@@ -69,10 +65,6 @@ const queuedNuxs: {
   {
     id: Nux.IosVersionSunset164,
     enabled: isIosVersionSunsetAnnouncementEnabled,
-  },
-  {
-    id: Nux.IPadBetaAnnouncement,
-    enabled: isIPadBetaAnnouncementEnabled,
   },
   {
     id: Nux.GroupChatsAnnouncement,
@@ -256,7 +248,6 @@ function Inner({
   return (
     <Context.Provider value={ctx}>
       {/*For example, activeNux === Nux.NeueTypography && <NeueTypography />*/}
-      {activeNux === Nux.IPadBetaAnnouncement && <IPadBetaAnnouncement />}
       {activeNux === Nux.IosVersionSunset164 && <IosVersionSunsetAnnouncement />}
       {activeNux === Nux.DraftsAnnouncement && <DraftsAnnouncement />}
       {activeNux === Nux.BookmarksAnnouncement && <BookmarksAnnouncement />}

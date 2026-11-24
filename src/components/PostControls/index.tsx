@@ -8,7 +8,6 @@ import {CountWheel} from '#/lib/custom-animations/CountWheel'
 import {AnimatedLikeIcon} from '#/lib/custom-animations/LikeIcon'
 import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {type Shadow} from '#/state/cache/types'
-import {useFeedFeedbackContext} from '#/state/feed-feedback'
 import {useDisplayPrefs} from '#/state/preferences'
 import {
   usePostLikeMutationQueue,
@@ -25,6 +24,7 @@ import {useFormatPostStatCount} from '#/components/PostControls/util'
 import * as Skele from '#/components/Skeleton'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
+import {useFeedItemFeedback} from '#/features/feedFeedback'
 import {type app} from '#/lexicons'
 import {BookmarkButton} from './BookmarkButton'
 import {
@@ -41,15 +41,12 @@ let PostControls = ({
   post,
   record,
   richText,
-  feedContext,
-  reqId,
   style,
   onPressReply,
   onPostReply,
   logContext,
   threadgateRecord,
   onShowLess,
-  viaRepost,
   variant,
   forceGoogleTranslate = false,
 }: {
@@ -57,15 +54,12 @@ let PostControls = ({
   post: Shadow<app.bsky.feed.defs.PostView>
   record: app.bsky.feed.post.Main
   richText: RichTextAPI
-  feedContext?: string | undefined
-  reqId?: string | undefined
   style?: StyleProp<ViewStyle>
   onPressReply: () => void
   onPostReply?: (postUri: string | undefined) => void
   logContext: 'FeedItem' | 'PostThreadItem' | 'Post' | 'ImmersiveVideo'
   threadgateRecord?: app.bsky.feed.threadgate.Main
   onShowLess?: (interaction: app.bsky.feed.defs.Interaction) => void
-  viaRepost?: {uri: string; cid: string}
   variant?: 'compact' | 'normal' | 'large'
   forceGoogleTranslate?: boolean
 }): React.ReactNode => {
@@ -74,21 +68,21 @@ let PostControls = ({
   const {t: l} = useLingui()
   const {hidePostCounts} = useDisplayPrefs()
   const {openComposer} = useOpenComposer()
-  const {feedDescriptor} = useFeedFeedbackContext()
+  const feedItem = useFeedItemFeedback()
+  const {feedDescriptor} = feedItem
   const [queueLike, queueUnlike] = usePostLikeMutationQueue(
     post,
-    viaRepost,
+    feedItem.item?.via,
     feedDescriptor,
     logContext,
   )
   const [queueRepost, queueUnrepost] = usePostRepostMutationQueue(
     post,
-    viaRepost,
+    feedItem.item?.via,
     feedDescriptor,
     logContext,
   )
   const requireAuth = useRequireAuth()
-  const {sendInteraction} = useFeedFeedbackContext()
   const {captureAction} = useProgressGuideControls()
   const isBlocked = Boolean(
     post.author.viewer?.blocking ||
@@ -113,12 +107,7 @@ let PostControls = ({
     try {
       setHasLikeIconBeenToggled(true)
       if (!existingLike) {
-        sendInteraction({
-          item: post.uri,
-          event: 'app.bsky.feed.defs#interactionLike',
-          feedContext,
-          reqId,
-        })
+        feedItem.send('app.bsky.feed.defs#interactionLike')
         captureAction(ProgressGuideAction.Like)
         await queueLike()
       } else {
@@ -143,12 +132,7 @@ let PostControls = ({
     const existingRepost = post.viewer?.repost
     try {
       if (!existingRepost) {
-        sendInteraction({
-          item: post.uri,
-          event: 'app.bsky.feed.defs#interactionRepost',
-          feedContext,
-          reqId,
-        })
+        feedItem.send('app.bsky.feed.defs#interactionRepost')
         await queueRepost()
       } else {
         await queueUnrepost()
@@ -169,12 +153,7 @@ let PostControls = ({
       return
     }
 
-    sendInteraction({
-      item: post.uri,
-      event: 'app.bsky.feed.defs#interactionQuote',
-      feedContext,
-      reqId,
-    })
+    feedItem.send('app.bsky.feed.defs#interactionQuote')
     ax.metric('post:clickQuotePost', {
       uri: post.uri,
       authorDid: post.author.did,
@@ -189,12 +168,7 @@ let PostControls = ({
   }
 
   const onShare = () => {
-    sendInteraction({
-      item: post.uri,
-      event: 'app.bsky.feed.defs#interactionShare',
-      feedContext,
-      reqId,
-    })
+    feedItem.send('app.bsky.feed.defs#interactionShare')
   }
 
   const secondaryControlSpacingStyles = useSecondaryControlSpacingStyles({
@@ -345,8 +319,6 @@ let PostControls = ({
         <PostMenuButton
           testID="postDropdownBtn"
           post={post}
-          postFeedContext={feedContext}
-          postReqId={reqId}
           big={big}
           record={record}
           richText={richText}

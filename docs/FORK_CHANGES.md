@@ -6,7 +6,7 @@ where each one came from. For ideas that aren't built yet, see
 [fork-features.md](./fork-features.md).
 
 **Fork:** [Laszlo19/social-app](https://github.com/Laszlo19/social-app) ·
-**Current upstream base:** 1.137.0 + upstream `main` to `059460af0` (2026-11-13, pre-1.138)
+**Current upstream base:** upstream `main` to `06f10a6b0` (2026-11-24, includes everything in 1.138.0's main line)
 
 ## Sources
 
@@ -171,6 +171,7 @@ have a plan in `docs/upgrade-<version>-plan.md`.
 | 1.136.0 | Tablet support; real moderation inbox; OpenRouter removed |
 | 1.137.0 | React Native 0.88 / Expo 58; Trending Topics widget; flag renames |
 | `main` @ `059460af0` (pre-1.138) | Untagged merge, branch `chore/upgrade-upstream-2026-11-13`. Notifications v2 is the only Notifications screen (its preview toggle is gone); moderation inbox flag retired; new share sheet behind an Upstream preview toggle; pronouns, Atmosphere Apps/activity tabs, RN 0.88.1 / Expo 58.0.23 |
+| `main` @ `06f10a6b0` (post-1.138) | Branch `chore/upgrade-upstream-2026-11-24`. Feed feedback moved to `#/features/feedFeedback`; iPad beta announcement removed (also dropped from the fork's NUX list and Beta features page); new upstream beta features: post view counts, web list virtualization; more Atmosphere work (Apps, Discover feedback, metrics) |
 
 ---
 

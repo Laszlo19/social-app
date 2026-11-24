@@ -29,7 +29,6 @@ import {getPostLanguageTags} from '#/locale/helpers'
 import {logger} from '#/logger'
 import {type Shadow} from '#/state/cache/post-shadow'
 import {useProfileShadow} from '#/state/cache/profile-shadow'
-import {useFeedFeedbackContext} from '#/state/feed-feedback'
 import {
   useHiddenPosts,
   useHiddenPostsApi,
@@ -99,6 +98,10 @@ import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {useAnalytics} from '#/analytics'
 import {IS_INTERNAL, IS_NATIVE} from '#/env'
+import {
+  useFeedFeedbackContext,
+  useFeedItemFeedback,
+} from '#/features/feedFeedback'
 import {app, com} from '#/lexicons'
 import {device, useStorage} from '#/storage'
 import * as bsky from '#/types/bsky'
@@ -106,8 +109,6 @@ import {PostMenuControlItems} from './PostMenuControlItems'
 
 let PostMenuItems = ({
   post,
-  postFeedContext,
-  postReqId,
   record,
   richText,
   threadgateRecord,
@@ -118,8 +119,6 @@ let PostMenuItems = ({
 }: {
   testID: string
   post: Shadow<app.bsky.feed.defs.PostView>
-  postFeedContext: string | undefined
-  postReqId: string | undefined
   record: app.bsky.feed.post.Main
   richText: RichTextAPI
   style?: StyleProp<ViewStyle>
@@ -149,6 +148,7 @@ let PostMenuItems = ({
   const hiddenPosts = useHiddenPosts()
   const {hidePost} = useHiddenPostsApi()
   const feedFeedback = useFeedFeedbackContext()
+  const feedItem = useFeedItemFeedback()
   const openLink = useOpenLink()
   const {clearTranslation, translate, translationState} = useTranslate({
     key: post.uri,
@@ -300,6 +300,7 @@ let PostMenuItems = ({
 
   const onHidePost = () => {
     hidePost({uri: postUri})
+    feedItem.sendUnspecced({type: 'hide'})
     ax.metric('thread:click:hideReplyForMe', {})
   }
 
@@ -308,12 +309,7 @@ let PostMenuItems = ({
   )
 
   const onPressShowMore = () => {
-    feedFeedback.sendInteraction({
-      event: 'app.bsky.feed.defs#requestMore',
-      item: postUri,
-      feedContext: postFeedContext,
-      reqId: postReqId,
-    })
+    feedItem.send('app.bsky.feed.defs#requestMore')
     ax.metric('post:showMore', {
       uri: postUri,
       authorDid: postAuthor.did,
@@ -324,12 +320,7 @@ let PostMenuItems = ({
   }
 
   const onPressShowLess = () => {
-    feedFeedback.sendInteraction({
-      event: 'app.bsky.feed.defs#requestLess',
-      item: postUri,
-      feedContext: postFeedContext,
-      reqId: postReqId,
-    })
+    feedItem.send('app.bsky.feed.defs#requestLess')
     ax.metric('post:showLess', {
       uri: postUri,
       authorDid: postAuthor.did,
@@ -339,7 +330,7 @@ let PostMenuItems = ({
     if (onShowLess) {
       onShowLess({
         item: postUri,
-        feedContext: postFeedContext,
+        feedContext: feedItem.item?.feedContext,
       })
     } else {
       Toast.show(
@@ -439,6 +430,7 @@ let PostMenuItems = ({
   const onBlockAuthor = async () => {
     try {
       await queueBlock()
+      feedItem.sendUnspecced({type: 'blockAuthor'})
       Toast.show(l({message: 'Account blocked', context: 'toast'}))
     } catch (err) {
       const e = err as Error
@@ -461,6 +453,7 @@ let PostMenuItems = ({
     if (postAuthor.viewer?.muted) {
       try {
         await queueUnmute()
+        feedItem.sendUnspecced({type: 'unmuteAuthor'})
         Toast.show(l({message: 'Account unmuted', context: 'toast'}))
       } catch (err) {
         const e = err as Error
@@ -480,6 +473,7 @@ let PostMenuItems = ({
     } else {
       try {
         await queueMute()
+        feedItem.sendUnspecced({type: 'muteAuthor'})
         Toast.show(l({message: 'Account muted', context: 'toast'}))
       } catch (err) {
         const e = err as Error
@@ -623,12 +617,7 @@ let PostMenuItems = ({
     <>
       <Menu.Outer>
         {includeControls && (
-          <PostMenuControlItems
-            post={post}
-            postFeedContext={postFeedContext}
-            postReqId={postReqId}
-            logContext={logContext}
-          />
+          <PostMenuControlItems post={post} logContext={logContext} />
         )}
 
         {isAuthor && (
@@ -776,7 +765,7 @@ let PostMenuItems = ({
           </>
         )}
 
-        {hasSession && feedFeedback.enabled && (
+        {hasSession && feedFeedback.enabled && feedItem.item && (
           <>
             <Menu.Divider />
             <Menu.Group>
@@ -1040,7 +1029,8 @@ let PostMenuItems = ({
           ...post,
           $type: 'app.bsky.feed.defs#postView',
         }}
-        onAfterSubmit={() => {
+        onAfterSubmit={({reason}) => {
+          feedItem.sendUnspecced({type: 'report', reason})
           ax.metric('postMenu:reportPost', {
             uri: postUri,
             authorDid: postAuthor.did,
