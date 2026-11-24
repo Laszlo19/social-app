@@ -121,7 +121,7 @@ msgid "{0, plural, one {# day} other {# days}}"
 msgstr ""
 
 #. placeholder {0}: knownFollowers.count
-#: src/screens/Atmosphere/components/AppKnownFollowers.tsx:48
+#: src/screens/Atmosphere/components/AppKnownFollowers.tsx:61
 msgid "{0, plural, one {# follower you know} other {# followers you know}}"
 msgstr "{0, plural, one {# follower you know} other {# followers you know}}"
 
@@ -446,8 +446,8 @@ msgstr ""
 
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || sanitizeHandle(profile.handle), )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || sanitizeHandle(profile.handle), )
-#: src/view/com/util/UserAvatar.tsx:608
-#: src/view/com/util/UserAvatar.tsx:628
+#: src/view/com/util/UserAvatar.tsx:601
+#: src/view/com/util/UserAvatar.tsx:621
 msgid "{0}'s avatar"
 msgstr ""
 
@@ -770,7 +770,7 @@ msgid "{length} out of {MAX_PRONOUNS} characters"
 msgstr "{length} out of {MAX_PRONOUNS} characters"
 
 #. Number of likes on a photo gallery. {likes} is already abbreviated and formatted, e.g. "1.2K".
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:165
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:153
 msgid "{likeCount, plural, one {{likes} like} other {{likes} likes}}"
 msgstr "{likeCount, plural, one {{likes} like} other {{likes} likes}}"
 
@@ -935,7 +935,7 @@ msgid "{numMatches, plural, one {# contact found} other {# contacts found}}"
 msgstr ""
 
 #. Number of photos in a gallery. {photos} is already formatted.
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:178
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:166
 msgid "{photoCount, plural, one {{photos} photo} other {{photos} photos}}"
 msgstr "{photoCount, plural, one {{photos} photo} other {{photos} photos}}"
 
@@ -1015,7 +1015,7 @@ msgid "{timeElapsed} on <0>{appName}</0>"
 msgstr "{timeElapsed} on <0>{appName}</0>"
 
 #. Accessibility label for a scrollable row of photos. The number is how many photos are in it.
-#: src/screens/Atmosphere/components/PhotoDialog/PhotoDialogGallery.tsx:93
+#: src/screens/Atmosphere/components/PhotoDialog/PhotoDialogGallery.tsx:89
 msgid "{total, plural, one {# photo} other {# photos}}"
 msgstr "{total, plural, one {# photo} other {# photos}}"
 
@@ -1483,14 +1483,6 @@ msgctxt "toast"
 msgid "Account blocked"
 msgstr ""
 
-#: src/screens/ModerationInbox/components/util/reportedSubjectStatus.ts:23
-msgid "Account deactivated"
-msgstr "Account deactivated"
-
-#: src/screens/ModerationInbox/components/util/reportedSubjectStatus.ts:21
-msgid "Account deleted"
-msgstr "Account deleted"
-
 #: src/view/com/profile/ProfileMenu.tsx:239
 msgctxt "toast"
 msgid "Account followed"
@@ -1536,8 +1528,7 @@ msgstr ""
 msgid "Account restored"
 msgstr "Account restored"
 
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/StatusSubjectPreview.tsx:56
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/StatusSubjectPreview.tsx:81
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/StatusSubjectPreview.tsx:51
 #: src/screens/ModerationInbox/components/util/reportSubjectLabel.ts:40
 msgid "Account status"
 msgstr "Account status"
@@ -1604,7 +1595,7 @@ msgid "Active index {0} (from {1}), {2} user navigation events"
 msgstr "Active index {0} (from {1}), {2} user navigation events"
 
 #: src/Navigation.tsx:200
-#: src/screens/Atmosphere/ActivityList/index.tsx:55
+#: src/screens/Atmosphere/ActivityList/index.tsx:54
 msgid "Activity"
 msgstr "Activity"
 
@@ -2560,7 +2551,7 @@ msgstr "Article"
 msgid "Article by {authorName}"
 msgstr "Article by {authorName}"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:142
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:136
 msgid "Article options"
 msgstr "Article options"
 
@@ -3277,7 +3268,7 @@ msgstr "Cancels signing in so you can check your username"
 #: src/components/PostControls/index.tsx:124
 #: src/components/PostControls/index.tsx:148
 #: src/components/PostControls/PostMenu/PostMenuControlItems.tsx:69
-#: src/state/shell/composer/index.tsx:128
+#: src/state/shell/composer/index.tsx:96
 msgid "Cannot interact with a blocked user"
 msgstr ""
 
@@ -3801,8 +3792,8 @@ msgstr ""
 #: src/features/gifPicker/components/GifPickerErrorBoundary.tsx:45
 #: src/features/liveNow/components/EditLiveDialog.tsx:212
 #: src/features/liveNow/components/EditLiveDialog.tsx:218
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:232
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:238
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:219
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:225
 #: src/screens/Messages/components/InviteLinkDialog.tsx:522
 #: src/screens/Messages/components/InviteLinkDialog.tsx:527
 #: src/screens/Profile/Header/PronounsDialog.tsx:104
@@ -4090,12 +4081,8 @@ msgstr "Content removed"
 msgid "Content restored"
 msgstr "Content restored"
 
-#: src/screens/ModerationInbox/components/util/reportedSubjectStatus.ts:26
-msgid "Content taken down by moderation"
-msgstr "Content taken down by moderation"
-
 #: src/screens/ModerationInbox/components/ReportSubjectPreview/AtmosphereSubjectPreview.tsx:74
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:140
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:113
 msgid "Content unavailable"
 msgstr "Content unavailable"
 
@@ -4207,7 +4194,7 @@ msgstr "Copied link to clipboard"
 #: src/components/ShareDialog/ShareSheet.tsx:127
 #: src/lib/sharing.ts:42
 #: src/lib/sharing.ts:74
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:410
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:346
 msgid "Copied to clipboard"
 msgstr ""
 
@@ -4234,7 +4221,7 @@ msgstr ""
 msgid "Copy App Password"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:173
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:167
 msgid "Copy article AT URI"
 msgstr "Copy article AT URI"
 
@@ -4263,7 +4250,7 @@ msgstr "Copy details"
 msgid "Copy DID"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:177
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:171
 msgid "Copy gallery AT URI"
 msgstr "Copy gallery AT URI"
 
@@ -4280,7 +4267,7 @@ msgstr "Copy invite link"
 #: src/components/StarterPack/ShareDialog.tsx:116
 #: src/features/profileLinks/components/LinkPreviewSheet.tsx:96
 #: src/features/profileLinks/components/LinkPreviewSheet.tsx:102
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:184
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:178
 #: src/screens/StarterPack/StarterPackScreen.tsx:659
 msgid "Copy link"
 msgstr ""
@@ -4311,7 +4298,7 @@ msgstr ""
 msgid "Copy link to Starter Pack"
 msgstr "Copy link to Starter Pack"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:179
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:173
 msgid "Copy livestream AT URI"
 msgstr "Copy livestream AT URI"
 
@@ -4330,7 +4317,7 @@ msgstr ""
 msgid "Copy post text"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:175
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:169
 msgid "Copy publication AT URI"
 msgstr "Copy publication AT URI"
 
@@ -4398,13 +4385,13 @@ msgstr ""
 msgid "Could not leave chat."
 msgstr "Could not leave chat."
 
-#: src/screens/Atmosphere/ActivityList/index.tsx:118
-#: src/screens/Atmosphere/ActivityTab/index.tsx:63
+#: src/screens/Atmosphere/ActivityList/index.tsx:119
+#: src/screens/Atmosphere/ActivityTab/index.tsx:64
 msgid "Could not load activity. Please try again."
 msgstr "Could not load activity. Please try again."
 
 #: src/screens/Atmosphere/AppsTab.tsx:81
-#: src/screens/Atmosphere/ExploreTab.tsx:107
+#: src/screens/Atmosphere/ExploreTab.tsx:94
 msgid "Could not load Atmosphere content. Please try again."
 msgstr "Could not load Atmosphere content. Please try again."
 
@@ -4427,7 +4414,7 @@ msgstr ""
 msgid "Could not load profile"
 msgstr "Could not load profile"
 
-#: src/screens/Atmosphere/DiscoverTab/index.tsx:74
+#: src/screens/Atmosphere/DiscoverTab/index.tsx:60
 msgid "Could not load recommendations. Please try again."
 msgstr "Could not load recommendations. Please try again."
 
@@ -4610,7 +4597,7 @@ msgstr ""
 msgid "Create or modify an invite link for this group chat"
 msgstr "Create or modify an invite link for this group chat"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:251
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:244
 msgid "Create post"
 msgstr "Create post"
 
@@ -4895,7 +4882,7 @@ msgstr "Description (1000 characters max)"
 
 #. placeholder {0}: record.description
 #: src/screens/ModerationInbox/components/ReportSubjectPreview/AtmosphereSubjectPreview.tsx:68
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/StarterPackSubjectPreview.tsx:107
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/StarterPackSubjectPreview.tsx:103
 msgid "Description: “{0}”"
 msgstr "Description: “{0}”"
 
@@ -5072,7 +5059,7 @@ msgstr ""
 msgid "Discover the Atmosphere"
 msgstr "Discover the Atmosphere"
 
-#: src/components/Dialog/index.tsx:606
+#: src/components/Dialog/index.tsx:619
 #: src/features/inviteFriends/components/FollowersPromoBanner.tsx:86
 msgid "Dismiss"
 msgstr ""
@@ -5201,7 +5188,7 @@ msgstr ""
 msgid "Double tap or long press the message to add a reaction"
 msgstr ""
 
-#: src/components/Dialog/index.tsx:607
+#: src/components/Dialog/index.tsx:620
 msgid "Double tap to close the dialog"
 msgstr ""
 
@@ -5346,7 +5333,7 @@ msgstr ""
 msgid "Edit {0}"
 msgstr "Edit {0}"
 
-#: src/view/com/util/UserAvatar.tsx:472
+#: src/view/com/util/UserAvatar.tsx:465
 #: src/view/com/util/UserBanner.tsx:132
 msgid "Edit avatar"
 msgstr ""
@@ -5630,7 +5617,7 @@ msgid "End of feed"
 msgstr ""
 
 #. Badge on a livestream thumbnail after the stream has ended. Keep it very short.
-#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:168
+#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:163
 msgid "ENDED"
 msgstr "ENDED"
 
@@ -5999,8 +5986,7 @@ msgstr ""
 msgid "Failed to delete message"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:235
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:531
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:223
 msgid "Failed to delete post, please try again"
 msgstr ""
 
@@ -6241,7 +6227,7 @@ msgstr ""
 msgid "Failed to submit appeal. Please try again."
 msgstr "Failed to submit appeal. Please try again."
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:267
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:255
 msgid "Failed to toggle thread mute, please try again"
 msgstr ""
 
@@ -6309,27 +6295,26 @@ msgstr ""
 msgid "Featured apps"
 msgstr "Featured apps"
 
-#: src/screens/Atmosphere/components/FeaturedArticles.tsx:36
+#: src/screens/Atmosphere/components/FeaturedArticles.tsx:28
 msgid "Featured articles"
 msgstr "Featured articles"
 
-#: src/screens/Atmosphere/components/FeaturedLivestreams.tsx:26
-#: src/screens/Atmosphere/components/FeaturedLivestreams.tsx:29
+#: src/screens/Atmosphere/components/FeaturedLivestreams.tsx:25
+#: src/screens/Atmosphere/components/FeaturedLivestreams.tsx:28
 msgid "Featured livestreams"
 msgstr "Featured livestreams"
 
-#: src/screens/Atmosphere/components/FeaturedPhotos.tsx:33
-#: src/screens/Atmosphere/components/FeaturedPhotos.tsx:36
+#: src/screens/Atmosphere/components/FeaturedPhotos.tsx:26
+#: src/screens/Atmosphere/components/FeaturedPhotos.tsx:29
 msgid "Featured photos"
 msgstr "Featured photos"
 
-#: src/screens/Atmosphere/components/FeaturedPublications.tsx:26
+#: src/screens/Atmosphere/components/FeaturedPublications.tsx:25
 msgid "Featured publications"
 msgstr "Featured publications"
 
 #: src/Navigation.tsx:344
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/FeedSubjectPreview.tsx:51
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/FeedSubjectPreview.tsx:86
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/FeedSubjectPreview.tsx:45
 #: src/screens/ModerationInbox/components/util/reportSubjectLabel.ts:52
 msgid "Feed"
 msgstr ""
@@ -6396,8 +6381,6 @@ msgstr ""
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:307
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:325
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:284
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:299
 msgctxt "toast"
 msgid "Feedback sent to feed operator"
 msgstr ""
@@ -8632,8 +8615,7 @@ msgid "Links to these sites show as a green support button."
 msgstr "Links to these sites show as a green support button."
 
 #: src/Navigation.tsx:304
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/ListSubjectPreview.tsx:50
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/ListSubjectPreview.tsx:91
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/ListSubjectPreview.tsx:44
 #: src/screens/ModerationInbox/components/util/reportSubjectLabel.ts:50
 msgid "List"
 msgstr ""
@@ -8759,7 +8741,7 @@ msgstr "Live"
 #. Badge on a livestream thumbnail while it is streaming. Keep it very short.
 #. Live status indicator on avatar. Should be extremely short, not much space for more than 4 characters
 #: src/features/liveNow/components/LiveIndicator.tsx:46
-#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:164
+#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:159
 msgid "LIVE"
 msgstr ""
 
@@ -8808,7 +8790,7 @@ msgstr "Livestream"
 msgid "Livestream by {authorName}"
 msgstr "Livestream by {authorName}"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:163
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:157
 msgid "Livestream options"
 msgstr "Livestream options"
 
@@ -8845,8 +8827,8 @@ msgstr "Load new posts from the people you follow"
 msgid "Load older actions"
 msgstr "Load older actions"
 
-#: src/screens/Atmosphere/AppsTab.tsx:100
-#: src/screens/Atmosphere/ExploreTab.tsx:126
+#: src/screens/Atmosphere/AppsTab.tsx:101
+#: src/screens/Atmosphere/ExploreTab.tsx:114
 msgid "Loading Atmosphere content"
 msgstr "Loading Atmosphere content"
 
@@ -8871,7 +8853,7 @@ msgstr "Loading notification settings"
 msgid "Loading post interaction settings..."
 msgstr ""
 
-#: src/screens/Atmosphere/DiscoverTab/index.tsx:113
+#: src/screens/Atmosphere/DiscoverTab/index.tsx:94
 msgid "Loading recommendations"
 msgstr "Loading recommendations"
 
@@ -9789,7 +9771,7 @@ msgstr "No actions against you"
 msgid "No actions match this filter"
 msgstr "No actions match this filter"
 
-#: src/screens/Atmosphere/ActivityTab/index.tsx:110
+#: src/screens/Atmosphere/ActivityTab/index.tsx:115
 msgid "No activity yet."
 msgstr "No activity yet."
 
@@ -9801,7 +9783,7 @@ msgstr ""
 msgid "No app passwords yet"
 msgstr ""
 
-#: src/screens/Atmosphere/AppsTab.tsx:168
+#: src/screens/Atmosphere/AppsTab.tsx:169
 msgid "No apps in this category yet."
 msgstr "No apps in this category yet."
 
@@ -10000,7 +9982,7 @@ msgstr ""
 msgid "No recent GIFs yet. Pick one to see it here."
 msgstr "No recent GIFs yet. Pick one to see it here."
 
-#: src/screens/Atmosphere/DiscoverTab/index.tsx:189
+#: src/screens/Atmosphere/DiscoverTab/index.tsx:166
 msgid "No recommendations right now. Check back soon."
 msgstr "No recommendations right now. Check back soon."
 
@@ -10429,7 +10411,7 @@ msgstr ""
 #: src/components/dms/ChatInvite/Root.tsx:105
 #: src/components/intents/GroupChatJoinDialog.tsx:454
 #: src/screens/ModerationInbox/components/ReportSubjectPreview/ChatSubjectPreview.tsx:32
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:49
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:47
 msgid "Open chat"
 msgstr "Open chat"
 
@@ -10437,7 +10419,7 @@ msgstr "Open chat"
 msgid "Open chat member options for {displayName}"
 msgstr "Open chat member options for {displayName}"
 
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:49
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/index.tsx:47
 msgid "Open content"
 msgstr "Open content"
 
@@ -10521,7 +10503,7 @@ msgid "Open list"
 msgstr "Open list"
 
 #. placeholder {0}: view.title
-#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:39
+#: src/screens/Atmosphere/ActivityTab/components/LivestreamCard.tsx:37
 msgid "Open livestream: {0}"
 msgstr "Open livestream: {0}"
 
@@ -10716,7 +10698,7 @@ msgstr ""
 msgid "Opens link {0}"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:612
+#: src/view/com/util/UserAvatar.tsx:605
 msgid "Opens live status dialog"
 msgstr ""
 
@@ -10742,8 +10724,8 @@ msgid "Opens the invite friends sheet to share your profile"
 msgstr "Opens the invite friends sheet to share your profile"
 
 #. Accessibility hint for a card that opens a photo gallery in a dialog (a popup window) rather than navigating away.
-#: src/screens/Atmosphere/ActivityTab/components/GalleryCard.tsx:63
-#: src/screens/Atmosphere/components/PhotoCard.tsx:82
+#: src/screens/Atmosphere/ActivityTab/components/GalleryCard.tsx:61
+#: src/screens/Atmosphere/components/PhotoCard.tsx:80
 msgid "Opens the photos in a dialog"
 msgstr "Opens the photos in a dialog"
 
@@ -10755,7 +10737,7 @@ msgstr ""
 msgid "Opens this draft in the composer"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:632
+#: src/view/com/util/UserAvatar.tsx:625
 msgid "Opens this profile"
 msgstr ""
 
@@ -11064,11 +11046,11 @@ msgid "Photo"
 msgstr "Photo"
 
 #. Accessibility label for a photo that has no description. {position} is its 1-based number in the gallery and {total} is how many photos the gallery has.
-#: src/screens/Atmosphere/components/PhotoDialog/PhotoDialogGallery.tsx:57
+#: src/screens/Atmosphere/components/PhotoDialog/PhotoDialogGallery.tsx:54
 msgid "Photo {position} of {total}"
 msgstr "Photo {position} of {total}"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:149
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:143
 msgid "Photo options"
 msgstr "Photo options"
 
@@ -11077,7 +11059,7 @@ msgid "Photography"
 msgstr ""
 
 #. Accessibility label for a dialog (a popup window) showing a photo gallery. {title} is the gallery title, written by its author.
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:57
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:52
 msgid "Photos: {title}"
 msgstr "Photos: {title}"
 
@@ -11493,7 +11475,7 @@ msgctxt "toast"
 msgid "Post pinned"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:258
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:251
 msgid "Post to Bluesky"
 msgstr "Post to Bluesky"
 
@@ -11563,7 +11545,7 @@ msgid "Potentially misleading link warning"
 msgstr ""
 
 #. Shown right before the Grain logo, as in "Powered by Grain". Grain is a photo-sharing app built on the AT Protocol.
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:113
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:101
 msgid "Powered by"
 msgstr "Powered by"
 
@@ -11739,7 +11721,7 @@ msgstr "Publication"
 msgid "Publication by {authorName}"
 msgstr "Publication by {authorName}"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:156
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:150
 msgid "Publication options"
 msgstr "Publication options"
 
@@ -12071,8 +12053,8 @@ msgstr ""
 msgid "Remove attachment"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:531
-#: src/view/com/util/UserAvatar.tsx:534
+#: src/view/com/util/UserAvatar.tsx:524
+#: src/view/com/util/UserAvatar.tsx:527
 msgid "Remove Avatar"
 msgstr ""
 
@@ -12443,7 +12425,7 @@ msgstr "Report a link"
 msgid "Report account"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:144
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:138
 msgid "Report article"
 msgstr "Report article"
 
@@ -12474,7 +12456,7 @@ msgstr "Report link"
 msgid "Report list"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:165
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:159
 msgid "Report livestream"
 msgstr "Report livestream"
 
@@ -12482,7 +12464,7 @@ msgstr "Report livestream"
 msgid "Report message"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:151
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:145
 msgid "Report photo"
 msgstr "Report photo"
 
@@ -12491,7 +12473,7 @@ msgstr "Report photo"
 msgid "Report post"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:158
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:152
 msgid "Report publication"
 msgstr "Report publication"
 
@@ -12924,7 +12906,7 @@ msgstr "Sad GIFs"
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:670
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:675
 #: src/components/PostControls/ShareMenu/ShareSheetItems.tsx:83
-#: src/components/StarterPack/QrCodeDialog.tsx:204
+#: src/components/StarterPack/QrCodeDialog.tsx:208
 #: src/features/liveNow/components/EditLiveDialog.tsx:199
 #: src/features/liveNow/components/EditLiveDialog.tsx:206
 #: src/screens/Messages/ConversationSettings/prompts.tsx:74
@@ -13540,8 +13522,8 @@ msgstr ""
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:168
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:151
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:160
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:264
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:269
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:257
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:262
 msgid "Send via chat"
 msgstr "Send via chat"
 
@@ -13682,8 +13664,8 @@ msgstr ""
 #: src/components/MediaPreview.tsx:243
 #: src/components/Post/Embed/ImageContextMenu.tsx:74
 #: src/components/PostControls/PostMenu/PostMenuControlItems.tsx:159
-#: src/components/StarterPack/QrCodeDialog.tsx:192
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:184
+#: src/components/StarterPack/QrCodeDialog.tsx:196
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:178
 #: src/screens/Hashtag.tsx:132
 #: src/screens/Messages/components/InviteLinkDialog.tsx:413
 #: src/screens/Messages/components/InviteLinkDialog.tsx:424
@@ -13903,8 +13885,6 @@ msgstr "Show group chat updates"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:607
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:609
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:295
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:305
 msgid "Show less like this"
 msgstr ""
 
@@ -13928,8 +13908,6 @@ msgstr "Show more"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:599
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:601
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:280
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:290
 msgid "Show more like this"
 msgstr ""
 
@@ -14010,7 +13988,7 @@ msgid "Shown"
 msgstr "Shown"
 
 #. placeholder {0}: tab.label
-#: src/screens/Atmosphere/AppsTab.tsx:145
+#: src/screens/Atmosphere/AppsTab.tsx:146
 msgid "Shows {0} apps"
 msgstr "Shows {0} apps"
 
@@ -14426,8 +14404,7 @@ msgstr ""
 
 #: src/Navigation.tsx:601
 #: src/Navigation.tsx:606
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/StarterPackSubjectPreview.tsx:64
-#: src/screens/ModerationInbox/components/ReportSubjectPreview/StarterPackSubjectPreview.tsx:122
+#: src/screens/ModerationInbox/components/ReportSubjectPreview/StarterPackSubjectPreview.tsx:60
 #: src/screens/ModerationInbox/components/util/reportSubjectLabel.ts:56
 #: src/screens/StarterPack/Wizard/index.tsx:196
 msgid "Starter Pack"
@@ -15378,7 +15355,7 @@ msgstr ""
 msgid "This action can be undone at any time."
 msgstr ""
 
-#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:88
+#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:82
 msgid "This activity can’t be shown right now."
 msgstr "This activity can’t be shown right now."
 
@@ -16473,20 +16450,20 @@ msgstr ""
 msgid "Upload a text file to:"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:502
-#: src/view/com/util/UserAvatar.tsx:505
+#: src/view/com/util/UserAvatar.tsx:495
+#: src/view/com/util/UserAvatar.tsx:498
 #: src/view/com/util/UserBanner.tsx:171
 #: src/view/com/util/UserBanner.tsx:174
 msgid "Upload from Camera"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:519
+#: src/view/com/util/UserAvatar.tsx:512
 #: src/view/com/util/UserBanner.tsx:188
 msgid "Upload from Files"
 msgstr ""
 
-#: src/view/com/util/UserAvatar.tsx:513
-#: src/view/com/util/UserAvatar.tsx:517
+#: src/view/com/util/UserAvatar.tsx:506
+#: src/view/com/util/UserAvatar.tsx:510
 #: src/view/com/util/UserBanner.tsx:182
 #: src/view/com/util/UserBanner.tsx:186
 msgid "Upload from Library"
@@ -16902,16 +16879,16 @@ msgstr "View {displayName}’s profile"
 msgid "View {publicationTitle}"
 msgstr "View {publicationTitle}"
 
-#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:165
+#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:177
 msgid "View {title} profile"
 msgstr "View {title} profile"
 
-#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:148
+#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:134
 #: src/screens/Notifications/components/NotificationItem/Item/aggregate.tsx:127
 msgid "View all"
 msgstr "View all"
 
-#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:137
+#: src/screens/Atmosphere/ActivityTab/components/ActivityRow.tsx:123
 msgid "View all activity"
 msgstr "View all activity"
 
@@ -16947,12 +16924,12 @@ msgstr "View all reposts {name} reposted"
 msgid "View all support sites"
 msgstr "View all support sites"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:143
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:137
 msgid "View article"
 msgstr "View article"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:325
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:338
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:280
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:292
 msgid "View author profile"
 msgstr "View author profile"
 
@@ -16977,6 +16954,10 @@ msgstr ""
 #: src/screens/Atmosphere/components/AppCard.tsx:42
 msgid "View details for {0}"
 msgstr "View details for {0}"
+
+#: src/screens/Atmosphere/components/AppKnownFollowers.tsx:74
+msgid "View followers of this account that you also follow"
+msgstr "View followers of this account that you also follow"
 
 #: src/view/com/posts/ViewFullThread.tsx:31
 #: src/view/com/posts/ViewFullThread.tsx:65
@@ -17003,7 +16984,7 @@ msgstr "View incoming requests to join this group chat"
 msgid "View information about these labels"
 msgstr ""
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:164
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:158
 msgid "View livestream"
 msgstr "View livestream"
 
@@ -17020,23 +17001,23 @@ msgstr ""
 
 #. Accessibility label for a button that opens a photo gallery on Grain, a photo-sharing app. "Grain" is a brand name.
 #. Button that opens a photo gallery on Grain, a photo-sharing app. "Grain" is a brand name.
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:202
-#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:223
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:190
+#: src/screens/Atmosphere/components/PhotoDialog/index.tsx:210
 msgid "View on Grain"
 msgstr "View on Grain"
 
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:150
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:144
 msgid "View photo"
 msgstr "View photo"
 
 #. Accessibility label for a card that opens a photo gallery. {view.title} is the gallery title, written by its author.
 #. placeholder {0}: view.title
-#: src/screens/Atmosphere/ActivityTab/components/GalleryCard.tsx:58
+#: src/screens/Atmosphere/ActivityTab/components/GalleryCard.tsx:56
 msgid "View photos in {0}"
 msgstr "View photos in {0}"
 
 #. Accessibility label for a card that opens a photo gallery. {title} is the gallery title, written by its author.
-#: src/screens/Atmosphere/components/PhotoCard.tsx:77
+#: src/screens/Atmosphere/components/PhotoCard.tsx:75
 msgid "View photos in {title}"
 msgstr "View photos in {title}"
 
@@ -17049,7 +17030,7 @@ msgstr ""
 #: src/components/ProfileHoverCard/index.web.tsx:546
 #: src/screens/Atmosphere/components/AppDialog.tsx:173
 #: src/screens/Atmosphere/components/AppDialog.tsx:183
-#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:173
+#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:185
 #: src/view/com/posts/PostFeedErrorMessage.tsx:181
 #: src/view/com/util/PostMeta.tsx:93
 #: src/view/com/util/PostMeta.tsx:121
@@ -17065,7 +17046,7 @@ msgstr "View profile banner"
 #: src/components/Post/Embed/StandardSiteEmbed/index.tsx:470
 #: src/components/Post/Embed/StandardSiteEmbed/index.tsx:501
 #: src/components/Post/Embed/StandardSiteEmbed/index.tsx:694
-#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:157
+#: src/screens/Atmosphere/components/AtmosphereCardMenu.tsx:151
 msgid "View publication"
 msgstr "View publication"
 
@@ -17170,7 +17151,7 @@ msgstr "Visit site on {0}"
 msgid "Visit the {0} website"
 msgstr "Visit the {0} website"
 
-#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:149
+#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:161
 msgid "Visit the {title} website"
 msgstr "Visit the {title} website"
 
@@ -17464,7 +17445,7 @@ msgid "We’ve taken action on your account. See your notices for details."
 msgstr "We’ve taken action on your account. See your notices for details."
 
 #: src/screens/Atmosphere/components/AppDialog.tsx:165
-#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:157
+#: src/screens/Atmosphere/components/FeaturedAppCard.tsx:169
 msgid "Website"
 msgstr "Website"
 
@@ -18164,11 +18145,11 @@ msgstr "You will no longer appear in this Starter Pack. The creator will be able
 msgid "You will no longer receive notifications for {0}"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:261
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:249
 msgid "You will no longer receive notifications for this thread"
 msgstr ""
 
-#: src/components/PostControls/PostMenu/PostMenuItems.tsx:252
+#: src/components/PostControls/PostMenu/PostMenuItems.tsx:240
 msgid "You will now receive notifications for this thread"
 msgstr ""
 
